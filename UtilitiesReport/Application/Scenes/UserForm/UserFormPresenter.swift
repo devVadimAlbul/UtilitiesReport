@@ -15,6 +15,7 @@ protocol UserFormPresenter: PresenterProtocol {
 class UserFormPresenterImpl: UserFormPresenter {
     fileprivate var userProfile: UserProfile!
     fileprivate weak var viewForm: UserFormView?
+    fileprivate var isUserCreated: Bool = false
     var router: UserFormViewRouter
     
     init(view: UserFormView,
@@ -25,14 +26,15 @@ class UserFormPresenterImpl: UserFormPresenter {
         
         if let profile = userProfile {
             self.userProfile = profile
+            isUserCreated = true
         } else {
             userProfile = UserProfile()
+            isUserCreated = false
         }
     }
 
     func viewDidLoad() {
-      
+        let title = isUserCreated ? "Edit User" : "Create New User"
+        viewForm?.displayPageTitle(title)
     }
-    
-    
 }

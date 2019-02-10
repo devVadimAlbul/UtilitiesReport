@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit.UINavigationController
 
 protocol MainViewRouter {
     func presentUserForm()
@@ -23,7 +24,6 @@ class MainViewRouterImpl: MainViewRouter {
     func presentUserForm() {
         let vc = UserFormViewController()
         vc.configurator = UserFormConfiguratorImpl(userProfile: nil)
-        self.viewController?.present(vc, animated: true, completion: nil)
-//    self.viewController?.navigationController?.showDetailViewController(vc, sender: nil)
+        self.viewController?.navigationPresent(vc, animated: true, isNeedClose: false)
     }
 }

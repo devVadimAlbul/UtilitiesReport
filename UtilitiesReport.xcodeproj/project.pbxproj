@@ -29,6 +29,9 @@
 		148727CF2210479400C59344 /* UserFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148727CE2210479400C59344 /* UserFormPresenter.swift */; };
 		148727D222104A7700C59344 /* UserFormConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148727D122104A7700C59344 /* UserFormConfigurator.swift */; };
 		148727D422104A8800C59344 /* UserFormViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148727D322104A8800C59344 /* UserFormViewRouter.swift */; };
+		148727D72210D25D00C59344 /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148727D62210D25D00C59344 /* Navigation.storyboard */; };
+		148727D92210D2A700C59344 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148727D82210D2A700C59344 /* UIViewController+Extension.swift */; };
+		148727DC2210D31B00C59344 /* VCLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148727DB2210D31B00C59344 /* VCLoader.swift */; };
 		F050662A90973A51BB6D818E /* Pods_UtilitiesReport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B686A475B168EF1A6A5D4035 /* Pods_UtilitiesReport.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +72,9 @@
 		148727CE2210479400C59344 /* UserFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormPresenter.swift; sourceTree = "<group>"; };
 		148727D122104A7700C59344 /* UserFormConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormConfigurator.swift; sourceTree = "<group>"; };
 		148727D322104A8800C59344 /* UserFormViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormViewRouter.swift; sourceTree = "<group>"; };
+		148727D62210D25D00C59344 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
+		148727D82210D2A700C59344 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		148727DB2210D31B00C59344 /* VCLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLoader.swift; sourceTree = "<group>"; };
 		14BF8EE061A7CEA857E5954A /* Pods-UtilitiesReport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtilitiesReport.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport.debug.xcconfig"; sourceTree = "<group>"; };
 		91F8685E9A0C0FBB69CA7BC2 /* Pods-UtilitiesReport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtilitiesReport.release.xcconfig"; path = "Pods/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport.release.xcconfig"; sourceTree = "<group>"; };
 		B686A475B168EF1A6A5D4035 /* Pods_UtilitiesReport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtilitiesReport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +170,7 @@
 		1487278E220F1B6E00C59344 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				148727D52210D22B00C59344 /* Navigation */,
 				148727C922103EB400C59344 /* UserForm */,
 				148727A6220F2B8800C59344 /* Basic */,
 				1487278F220F1E3A00C59344 /* Main */,
@@ -213,6 +220,7 @@
 		148727A3220F2AA700C59344 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				148727DA2210D30800C59344 /* Loader */,
 				148727A4220F2ABC00C59344 /* Standart */,
 			);
 			path = Library;
@@ -230,6 +238,7 @@
 		148727A5220F2AC000C59344 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				148727D82210D2A700C59344 /* UIViewController+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -277,6 +286,22 @@
 				148727D322104A8800C59344 /* UserFormViewRouter.swift */,
 			);
 			path = UserForm;
+			sourceTree = "<group>";
+		};
+		148727D52210D22B00C59344 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				148727D62210D25D00C59344 /* Navigation.storyboard */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		148727DA2210D30800C59344 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				148727DB2210D31B00C59344 /* VCLoader.swift */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 		5AAAD89BAAEC3691BAFFCCCD /* Pods */ = {
@@ -381,6 +406,7 @@
 			files = (
 				14264CA32208C6E800655EEA /* LaunchScreen.storyboard in Resources */,
 				148727CD2210413400C59344 /* UserFormViewController.xib in Resources */,
+				148727D72210D25D00C59344 /* Navigation.storyboard in Resources */,
 				14264CA02208C6E800655EEA /* Assets.xcassets in Resources */,
 				14872791220F1EF200C59344 /* Main.storyboard in Resources */,
 			);
@@ -449,6 +475,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148727D92210D2A700C59344 /* UIViewController+Extension.swift in Sources */,
 				14872793220F232B00C59344 /* MainViewController.swift in Sources */,
 				148727AE220F2EA700C59344 /* BasicViewController.swift in Sources */,
 				148727CF2210479400C59344 /* UserFormPresenter.swift in Sources */,
@@ -458,6 +485,7 @@
 				148727BE22101E2900C59344 /* UserDefaultsDescribing.swift in Sources */,
 				148727B7220F39B000C59344 /* UserProfile.swift in Sources */,
 				148727BA22101BA300C59344 /* AccountManager.swift in Sources */,
+				148727DC2210D31B00C59344 /* VCLoader.swift in Sources */,
 				1487279F220F28F400C59344 /* MainViewRouter.swift in Sources */,
 				148727C32210268F00C59344 /* StorageProtocols.swift in Sources */,
 				148727C82210283100C59344 /* UserDefaults+Extension.swift in Sources */,

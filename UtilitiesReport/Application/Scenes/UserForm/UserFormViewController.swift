@@ -25,6 +25,6 @@ class UserFormViewController: BasicViewController, UserFormView {
     }
     
     func displayPageTitle(_ title: String) {
-        
+        self.title = title
     }
 }
