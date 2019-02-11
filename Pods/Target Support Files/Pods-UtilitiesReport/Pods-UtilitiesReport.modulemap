@@ -1,6 +1,0 @@
-framework module Pods_UtilitiesReport {
-  umbrella header "Pods-UtilitiesReport-umbrella.h"
-
-  export *
-  module * { export * }
-}
