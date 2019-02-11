@@ -1,22 +1,30 @@
 PODS:
+  - IQKeyboardManagerSwift (6.2.0)
   - Realm (3.13.1):
     - Realm/Headers (= 3.13.1)
   - Realm/Headers (3.13.1)
   - RealmSwift (3.13.1):
     - Realm (= 3.13.1)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift
   - RealmSwift
+  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - IQKeyboardManagerSwift
     - Realm
     - RealmSwift
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: ea2060cfbb70d3c8bed7dc293e6eca28a9dd5017
+PODFILE CHECKSUM: fa7958701359dada2fda5cc2027636b810bcb8c8
 
 COCOAPODS: 1.5.3

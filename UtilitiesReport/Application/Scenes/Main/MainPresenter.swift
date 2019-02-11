@@ -16,14 +16,14 @@ protocol MainPresenter: PresenterProtocol {
 class MainPresenterImpl: MainPresenter {
     fileprivate weak var view: MainView?
     var router: MainViewRouter
-    fileprivate var accountManager: AccountManager
+    fileprivate var loadUserProfile: LoadUserProfileUseCase
     
     init(view: MainView,
          router: MainViewRouter,
-         accountManager: AccountManager) {
+         loadUserProfile: LoadUserProfileUseCase) {
         self.view = view
         self.router = router
-        self.accountManager = accountManager
+        self.loadUserProfile = loadUserProfile
     }
     
     func viewDidLoad() {
@@ -31,8 +31,18 @@ class MainPresenterImpl: MainPresenter {
     }
     
     func checkUserCreated() {
-        if !accountManager.isUserCreated {
-            router.presentUserForm()
+        loadUserProfile.load { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let user):
+                if user == nil {
+                    self.router.presentUserForm()
+                }
+            case .failure(let error):
+                print("[MainPresenter] load user profile error: ", error)
+            }
         }
     }
+    
+  
 }
