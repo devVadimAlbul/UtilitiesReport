@@ -74,6 +74,11 @@ class FormTextItemView: ViewFromXib {
         get { return tfItem.keyboardType }
         set { tfItem.keyboardType = newValue }
     }
+    
+    // MARK: IBAction
+    @IBAction func changedTfItem(_ sender: UITextField) {
+        delegate?.didChangeFormText(view: self, at: sender.text)
+    }
 }
 
 extension FormTextItemView: UITextFieldDelegate {

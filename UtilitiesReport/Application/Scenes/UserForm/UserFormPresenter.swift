@@ -31,7 +31,7 @@ class UserFormPresenterImpl: UserFormPresenter {
         self.viewForm = view
         self.saveUserProfile = saveUserProfile
         
-        if let profile = userProfile {
+        if let profile = profile {
             self.userProfile = profile
             isUserCreated = true
         } else {

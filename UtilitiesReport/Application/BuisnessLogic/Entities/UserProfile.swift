@@ -16,11 +16,19 @@ class UserProfile: Codable {
     var city: String = ""
     var street: String = ""
     var house: String = ""
-    var flat: String?
+    var apartment: String?
     var phoneNumber: String = ""
     
     var name: String {
         return "\(firstName) \(lastName)"
+    }
+    
+    var address: String {
+        var addr = "\(city.capitalized), \(street.capitalized) str. \(house)"
+        if let apartment = self.apartment {
+            addr += ", apt: \(apartment)"
+        }
+        return addr
     }
 
     init() {
@@ -33,7 +41,7 @@ class UserProfile: Codable {
         case city = "city"
         case street = "street"
         case house = "house"
-        case flat = "flat"
+        case apartment = "apartment"
         case phoneNumber = "phone_number"
         
         var title: String {
@@ -43,7 +51,7 @@ class UserProfile: Codable {
             case .city: return "City"
             case .street: return "Street"
             case .house: return "House"
-            case .flat: return "Flat"
+            case .apartment: return "Apartment"
             case .phoneNumber: return "Phone Number"
             }
         }
@@ -55,14 +63,14 @@ class UserProfile: Codable {
             case .city: return "Enter city"
             case .street: return "Enter street"
             case .house: return "Enter house"
-            case .flat: return "Enter flat"
+            case .apartment: return "Enter apartment"
             case .phoneNumber: return "Enter phone number"
             }
         }
         
         var isOptional: Bool {
             switch self {
-            case .flat: return true
+            case .apartment: return true
             default: return false
             }
         }
@@ -74,7 +82,7 @@ class UserProfile: Codable {
             case .city: return "Incorrect city"
             case .street: return "Incorrect street"
             case .house: return "Incorrect house"
-            case .flat: return nil
+            case .apartment: return nil
             case .phoneNumber: return "Incorrect phone number"
             }
         }
@@ -94,7 +102,7 @@ class UserProfile: Codable {
         city = try values.decode(String.self, forKey: .city)
         street = try values.decode(String.self, forKey: .street)
         house = try values.decode(String.self, forKey: .house)
-        flat = try values.decodeIfPresent(String.self, forKey: .flat)
+        apartment = try values.decodeIfPresent(String.self, forKey: .apartment)
         phoneNumber = try values.decode(String.self, forKey: .phoneNumber)
     }
     
@@ -105,7 +113,7 @@ class UserProfile: Codable {
         try container.encode(city, forKey: .city)
         try container.encode(street, forKey: .street)
         try container.encode(house, forKey: .house)
-        try container.encodeIfPresent(flat, forKey: .flat)
+        try container.encodeIfPresent(apartment, forKey: .apartment)
         try container.encode(phoneNumber, forKey: .phoneNumber)
     }
     
@@ -117,7 +125,7 @@ class UserProfile: Codable {
         case .city: self.city = value ?? ""
         case .street: self.street = value ?? ""
         case .house: self.house = value ?? ""
-        case .flat: self.flat = value
+        case .apartment: self.apartment = value
         case .phoneNumber: self.phoneNumber = value ?? ""
         }
     }
@@ -157,7 +165,7 @@ extension UserProfile {
             getFormItemModel(type: .city, value: self.city),
             getFormItemModel(type: .street, value: self.street),
             getFormItemModel(type: .house, value: self.house),
-            getFormItemModel(type: .flat, value: self.flat),
+            getFormItemModel(type: .apartment, value: self.apartment),
             getFormItemModel(type: .phoneNumber, value: self.phoneNumber),
         ]
         return UserProfileFormModalView(items: models)

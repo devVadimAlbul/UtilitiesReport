@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit.UITableView
 
 protocol MainConfigurator {
-   func configure(viewController: MainViewController)
+    func configure(viewController: MainViewController)
 }
 
 class MainConfiguratorImpl: MainConfigurator {

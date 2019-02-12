@@ -67,7 +67,12 @@ class UserFormViewController: BasicViewController, UserFormView {
     func displaySuccessSave() {
         ProgressHUD.success("Save success!", withDelay: 0.5)
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-            self.dismiss(animated: true, completion: nil)
+            if let count = self.navigationController?.viewControllers.count, count > 1 {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+          
         }
     }
     

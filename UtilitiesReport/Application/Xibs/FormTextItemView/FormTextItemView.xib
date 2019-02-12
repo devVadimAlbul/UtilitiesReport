@@ -40,6 +40,9 @@
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            <connections>
+                                <action selector="changedTfItem:" destination="-1" eventType="editingChanged" id="yxc-VM-Rkw"/>
+                            </connections>
                         </textField>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZWu-rF-W22">
                             <rect key="frame" x="0.0" y="84.5" width="343" height="0.0"/>

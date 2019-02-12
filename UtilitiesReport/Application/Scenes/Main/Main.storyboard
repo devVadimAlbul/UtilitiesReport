@@ -18,9 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WSq-T5-hqz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WSq-T5-hqz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="Jr9-zw-YLP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="VL0-9k-FRD" id="hgp-Xy-vaU"/>
+                                    <outlet property="delegate" destination="VL0-9k-FRD" id="frV-gb-MD0"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,6 +42,9 @@
                         <viewLayoutGuide key="safeArea" id="LyX-VV-Nfg"/>
                     </view>
                     <navigationItem key="navigationItem" id="zDE-L3-fiW"/>
+                    <connections>
+                        <outlet property="tableView" destination="WSq-T5-hqz" id="cim-Kb-SQS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xj-kW-QUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,7 +53,6 @@
         <!--Navigation Controller-->
         <scene sceneID="ys0-dl-t9u">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="riV-aW-NCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e2Z-EM-xls" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="ekd-Lq-9xM">
@@ -61,6 +72,7 @@
                         <segue destination="VL0-9k-FRD" kind="relationship" relationship="rootViewController" id="woC-uZ-ewc"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="riV-aW-NCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="157.59999999999999" y="79.610194902548727"/>
         </scene>

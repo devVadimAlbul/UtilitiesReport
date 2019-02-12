@@ -17,6 +17,11 @@ class BasicViewController: UIViewController {
         presneter?.viewDidLoad()
     }
     
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
     public func navigationPresent(_ viewController: UIViewController, animated: Bool = true, isNeedClose: Bool = true) {
         let navigation = VCLoader<UINavigationController>.loadInitial(storyboardId: .navigation)
         navigation.viewControllers = [viewController]

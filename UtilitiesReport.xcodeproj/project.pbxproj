@@ -49,6 +49,11 @@
 		14A54D502211BB420038A8F2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D4F2211BB420038A8F2 /* String+Extension.swift */; };
 		14A54D522211C6770038A8F2 /* AlertModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D512211C6770038A8F2 /* AlertModelView.swift */; };
 		14A54D562211C8DB0038A8F2 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D552211C8DB0038A8F2 /* ProgressHUD.swift */; };
+		14C083AD2212D7EA001A5610 /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083AB2212D7EA001A5610 /* UserProfileTableViewCell.swift */; };
+		14C083AE2212D7EA001A5610 /* UserProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C083AC2212D7EA001A5610 /* UserProfileTableViewCell.xib */; };
+		14C083B02212D83D001A5610 /* ViewRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083AF2212D83D001A5610 /* ViewRound.swift */; };
+		14C083B22212D928001A5610 /* ViewShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083B12212D928001A5610 /* ViewShadow.swift */; };
+		14C083B72212F25D001A5610 /* BasicVeiwCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */; };
 		F050662A90973A51BB6D818E /* Pods_UtilitiesReport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B686A475B168EF1A6A5D4035 /* Pods_UtilitiesReport.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +127,11 @@
 		14A54D512211C6770038A8F2 /* AlertModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModelView.swift; sourceTree = "<group>"; };
 		14A54D552211C8DB0038A8F2 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		14BF8EE061A7CEA857E5954A /* Pods-UtilitiesReport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtilitiesReport.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport.debug.xcconfig"; sourceTree = "<group>"; };
+		14C083AB2212D7EA001A5610 /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
+		14C083AC2212D7EA001A5610 /* UserProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileTableViewCell.xib; sourceTree = "<group>"; };
+		14C083AF2212D83D001A5610 /* ViewRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRound.swift; sourceTree = "<group>"; };
+		14C083B12212D928001A5610 /* ViewShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewShadow.swift; sourceTree = "<group>"; };
+		14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicVeiwCellProtocol.swift; sourceTree = "<group>"; };
 		91F8685E9A0C0FBB69CA7BC2 /* Pods-UtilitiesReport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtilitiesReport.release.xcconfig"; path = "Pods/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport.release.xcconfig"; sourceTree = "<group>"; };
 		B686A475B168EF1A6A5D4035 /* Pods_UtilitiesReport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtilitiesReport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -168,7 +178,7 @@
 		14264C972208C6E700655EEA /* UtilitiesReport */ = {
 			isa = PBXGroup;
 			children = (
-				14C083A32212C36A001A5610 /* Sourcery */,
+				14C083A72212D37D001A5610 /* Sourcery */,
 				1487278B220F184400C59344 /* Application */,
 				148727A3220F2AA700C59344 /* Library */,
 				148727A2220F299000C59344 /* Resources */,
@@ -219,9 +229,9 @@
 			isa = PBXGroup;
 			children = (
 				148727D52210D22B00C59344 /* Navigation */,
+				1487278F220F1E3A00C59344 /* Main */,
 				148727C922103EB400C59344 /* UserForm */,
 				148727A6220F2B8800C59344 /* Basic */,
-				1487278F220F1E3A00C59344 /* Main */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -229,11 +239,12 @@
 		1487278F220F1E3A00C59344 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				14C083A92212D7A9001A5610 /* Cells */,
 				14872790220F1EF200C59344 /* Main.storyboard */,
 				14872792220F232B00C59344 /* MainViewController.swift */,
 				14872796220F236A00C59344 /* MainPresenter.swift */,
-				1487279B220F283B00C59344 /* MainConfigurator.swift */,
 				1487279E220F28F400C59344 /* MainViewRouter.swift */,
+				1487279B220F283B00C59344 /* MainConfigurator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -252,6 +263,7 @@
 			children = (
 				148727B0220F2F3B00C59344 /* PresenterProtocol.swift */,
 				148727BD22101E2900C59344 /* UserDefaultsDescribing.swift */,
+				14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -300,6 +312,7 @@
 		148727A6220F2B8800C59344 /* Basic */ = {
 			isa = PBXGroup;
 			children = (
+				14C083B52212F225001A5610 /* Cells */,
 				14A54D532211C68F0038A8F2 /* Models */,
 				148727AD220F2EA700C59344 /* BasicViewController.swift */,
 			);
@@ -395,6 +408,8 @@
 			children = (
 				14A54D3D221174260038A8F2 /* ButtonRound.swift */,
 				14A54D3F221174560038A8F2 /* ButtonCircle.swift */,
+				14C083AF2212D83D001A5610 /* ViewRound.swift */,
+				14C083B12212D928001A5610 /* ViewShadow.swift */,
 			);
 			path = "UI-Objects";
 			sourceTree = "<group>";
@@ -432,19 +447,43 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		14C083A32212C36A001A5610 /* Sourcery */ = {
+		14C083A72212D37D001A5610 /* Sourcery */ = {
 			isa = PBXGroup;
 			children = (
-				14C083A42212C377001A5610 /* Templates */,
+				14C083A82212D37D001A5610 /* Templates */,
 			);
 			path = Sourcery;
 			sourceTree = "<group>";
 		};
-		14C083A42212C377001A5610 /* Templates */ = {
+		14C083A82212D37D001A5610 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Templates;
+			sourceTree = "<group>";
+		};
+		14C083A92212D7A9001A5610 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				14C083AA2212D7B9001A5610 /* UserProfileTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		14C083AA2212D7B9001A5610 /* UserProfileTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				14C083AB2212D7EA001A5610 /* UserProfileTableViewCell.swift */,
+				14C083AC2212D7EA001A5610 /* UserProfileTableViewCell.xib */,
+			);
+			path = UserProfileTableViewCell;
+			sourceTree = "<group>";
+		};
+		14C083B52212F225001A5610 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		5AAAD89BAAEC3691BAFFCCCD /* Pods */ = {
@@ -553,6 +592,7 @@
 				148727CD2210413400C59344 /* UserFormViewController.xib in Resources */,
 				14A54D3022115D720038A8F2 /* FormTextItemView.xib in Resources */,
 				148727D72210D25D00C59344 /* Navigation.storyboard in Resources */,
+				14C083AE2212D7EA001A5610 /* UserProfileTableViewCell.xib in Resources */,
 				14264CA02208C6E800655EEA /* Assets.xcassets in Resources */,
 				14872791220F1EF200C59344 /* Main.storyboard in Resources */,
 			);
@@ -606,7 +646,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Sourcery/bin/sourcery\" --config \"$SRCROOT/UtilitiesReport/.sourcery.yml\"\n";
+			shellScript = "# \"${PODS_ROOT}/Sourcery/bin/sourcery\" --config \"$SRCROOT/UtilitiesReport/.sourcery.yml\"\n";
 		};
 		92B4420C0E14A4C77800931B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -650,6 +690,7 @@
 				14872793220F232B00C59344 /* MainViewController.swift in Sources */,
 				14A54D4E2211AFD60038A8F2 /* LoadtUserProfile.swift in Sources */,
 				148727AE220F2EA700C59344 /* BasicViewController.swift in Sources */,
+				14C083B02212D83D001A5610 /* ViewRound.swift in Sources */,
 				14A54D3E221174260038A8F2 /* ButtonRound.swift in Sources */,
 				148727CF2210479400C59344 /* UserFormPresenter.swift in Sources */,
 				148727D422104A8800C59344 /* UserFormViewRouter.swift in Sources */,
@@ -664,13 +705,16 @@
 				14A54D2D22115B510038A8F2 /* FormTextItemView.swift in Sources */,
 				148727B7220F39B000C59344 /* UserProfile.swift in Sources */,
 				148727DC2210D31B00C59344 /* VCLoader.swift in Sources */,
+				14C083B22212D928001A5610 /* ViewShadow.swift in Sources */,
 				1487279F220F28F400C59344 /* MainViewRouter.swift in Sources */,
 				148727C32210268F00C59344 /* StorageProtocols.swift in Sources */,
 				14A54D562211C8DB0038A8F2 /* ProgressHUD.swift in Sources */,
+				14C083B72212F25D001A5610 /* BasicVeiwCellProtocol.swift in Sources */,
 				148727C82210283100C59344 /* UserDefaults+Extension.swift in Sources */,
 				148727D222104A7700C59344 /* UserFormConfigurator.swift in Sources */,
 				14A54D3922115DD30038A8F2 /* UIView+Extension.swift in Sources */,
 				14A54D4A2211AEA10038A8F2 /* Result.swift in Sources */,
+				14C083AD2212D7EA001A5610 /* UserProfileTableViewCell.swift in Sources */,
 				14872797220F236A00C59344 /* MainPresenter.swift in Sources */,
 				14A54D3722115D9B0038A8F2 /* ViewFromXib.swift in Sources */,
 				148727CC2210413400C59344 /* UserFormViewController.swift in Sources */,
