@@ -6,4 +6,5 @@ target 'UtilitiesReport' do
     pod 'RealmSwift'
     pod 'IQKeyboardManagerSwift'
     pod 'SVProgressHUD'
+    pod 'Sourcery'
 end

@@ -1,0 +1,6 @@
+sources:
+  - UtilitiesReport
+templates:
+  - UtilitiesReport/Sourcery/Templates
+output:
+  UtilitiesReport/Sourcery/Sourcery.generated.swift

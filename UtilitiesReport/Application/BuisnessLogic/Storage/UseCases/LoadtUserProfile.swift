@@ -17,7 +17,7 @@ protocol LoadUserProfileUseCase {
 class LoadUserProfileUseCaseImpl: LoadUserProfileUseCase {
     
     fileprivate let storage: DefaultsStorage
-    fileprivate let storageKey: String = Constants.StoregeKeys.userProfile.rawValue
+    fileprivate let storageKey = Constants.StoregeKeys.userProfile 
     
     init(storage: DefaultsStorage) {
         self.storage = storage

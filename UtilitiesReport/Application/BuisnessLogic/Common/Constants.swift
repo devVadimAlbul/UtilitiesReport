@@ -11,7 +11,8 @@ import Foundation
 
 enum Constants {
     
-    enum StoregeKeys: String {
-        case userProfile = "UR_User_Profile"
+    enum StoregeKeys {
+        static let userProfile = "UR_User_Profile"
     }
 }
+

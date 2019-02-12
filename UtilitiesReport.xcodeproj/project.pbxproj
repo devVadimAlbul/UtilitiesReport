@@ -62,6 +62,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		14C083A52212C577001A5610 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		14264C952208C6E700655EEA /* UtilitiesReport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UtilitiesReport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14264C982208C6E700655EEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +168,7 @@
 		14264C972208C6E700655EEA /* UtilitiesReport */ = {
 			isa = PBXGroup;
 			children = (
+				14C083A32212C36A001A5610 /* Sourcery */,
 				1487278B220F184400C59344 /* Application */,
 				148727A3220F2AA700C59344 /* Library */,
 				148727A2220F299000C59344 /* Resources */,
@@ -419,6 +432,21 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		14C083A32212C36A001A5610 /* Sourcery */ = {
+			isa = PBXGroup;
+			children = (
+				14C083A42212C377001A5610 /* Templates */,
+			);
+			path = Sourcery;
+			sourceTree = "<group>";
+		};
+		14C083A42212C377001A5610 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
 		5AAAD89BAAEC3691BAFFCCCD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +476,8 @@
 				14264C922208C6E700655EEA /* Frameworks */,
 				14264C932208C6E700655EEA /* Resources */,
 				92B4420C0E14A4C77800931B /* [CP] Embed Pods Frameworks */,
+				14C083A52212C577001A5610 /* CopyFiles */,
+				14C083A62212C57F001A5610 /* Generate code with Sourcery */,
 			);
 			buildRules = (
 			);
@@ -559,6 +589,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		14C083A62212C57F001A5610 /* Generate code with Sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate code with Sourcery";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Sourcery/bin/sourcery\" --config \"$SRCROOT/UtilitiesReport/.sourcery.yml\"\n";
 		};
 		92B4420C0E14A4C77800931B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -784,6 +832,7 @@
 			baseConfigurationReference = 14BF8EE061A7CEA857E5954A /* Pods-UtilitiesReport.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V69HALAU3Z;
 				INFOPLIST_FILE = "$(SRCROOT)/UtilitiesReport/Resources/Info.plist";
@@ -793,6 +842,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dev.UtilitiesReport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -803,6 +853,7 @@
 			baseConfigurationReference = 91F8685E9A0C0FBB69CA7BC2 /* Pods-UtilitiesReport.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V69HALAU3Z;
 				INFOPLIST_FILE = "$(SRCROOT)/UtilitiesReport/Resources/Info.plist";
@@ -812,6 +863,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dev.UtilitiesReport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
