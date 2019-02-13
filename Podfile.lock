@@ -7,12 +7,14 @@ PODS:
     - Realm (= 3.13.1)
   - Sourcery (0.15.0)
   - SVProgressHUD (2.2.5)
+  - SwiftLint (0.30.1)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift
   - RealmSwift
   - Sourcery
   - SVProgressHUD
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -21,6 +23,7 @@ SPEC REPOS:
     - RealmSwift
     - Sourcery
     - SVProgressHUD
+    - SwiftLint
 
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
@@ -28,7 +31,8 @@ SPEC CHECKSUMS:
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   Sourcery: 5895672cae353cdbfa95f3f4aaeb75a664d76f6a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: 2fe3c913540ea3d0e9bb109ded702fe4960ee0c8
+PODFILE CHECKSUM: 62d1e313342a1cf3654088343a4724cb2ed0e77b
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0

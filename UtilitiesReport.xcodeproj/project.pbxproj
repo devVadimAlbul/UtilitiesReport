@@ -11,7 +11,14 @@
 		14264CA02208C6E800655EEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14264C9F2208C6E800655EEA /* Assets.xcassets */; };
 		14264CA32208C6E800655EEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14264CA12208C6E800655EEA /* LaunchScreen.storyboard */; };
 		14264CAE2208C6E800655EEA /* UtilitiesReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14264CAD2208C6E800655EEA /* UtilitiesReportTests.swift */; };
-		14872791220F1EF200C59344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14872790220F1EF200C59344 /* Main.storyboard */; };
+		14290B232213410500620AE1 /* Sourcery.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14290B222213410500620AE1 /* Sourcery.generated.swift */; };
+		1441A2CB2214162600BF974A /* GetSavedUserProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441A2CA2214162600BF974A /* GetSavedUserProfileUseCase.swift */; };
+		1441A2CD2214179400BF974A /* AppDelegatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441A2CC2214179400BF974A /* AppDelegatePresenter.swift */; };
+		1441A2CF221418B600BF974A /* AppDelegateConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441A2CE221418B600BF974A /* AppDelegateConfigurator.swift */; };
+		1441A2D1221419D500BF974A /* AppDelegateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441A2D0221419D500BF974A /* AppDelegateRouter.swift */; };
+		1441A2D422141D1400BF974A /* URError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441A2D322141D1400BF974A /* URError.swift */; };
+		144CA78622135AD9003BBF26 /* AutoEquatable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 144CA78122135AD9003BBF26 /* AutoEquatable.stencil */; };
+		144CA78822135AD9003BBF26 /* AutoHashable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 144CA78322135AD9003BBF26 /* AutoHashable.stencil */; };
 		14872793220F232B00C59344 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14872792220F232B00C59344 /* MainViewController.swift */; };
 		14872797220F236A00C59344 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14872796220F236A00C59344 /* MainPresenter.swift */; };
 		1487279C220F283B00C59344 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487279B220F283B00C59344 /* MainConfigurator.swift */; };
@@ -54,6 +61,9 @@
 		14C083B02212D83D001A5610 /* ViewRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083AF2212D83D001A5610 /* ViewRound.swift */; };
 		14C083B22212D928001A5610 /* ViewShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083B12212D928001A5610 /* ViewShadow.swift */; };
 		14C083B72212F25D001A5610 /* BasicVeiwCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */; };
+		14D3515622141F3F00A77783 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D3515522141F3F00A77783 /* MainViewController.xib */; };
+		14D3515A221425CC00A77783 /* SaveUserProfileUseCaseSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D35159221425CC00A77783 /* SaveUserProfileUseCaseSpy.swift */; };
+		14D3515E22142ACA00A77783 /* AutoMockable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 14D3515D22142ACA00A77783 /* AutoMockable.stencil */; };
 		F050662A90973A51BB6D818E /* Pods_UtilitiesReport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B686A475B168EF1A6A5D4035 /* Pods_UtilitiesReport.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,7 +98,14 @@
 		14264CA92208C6E800655EEA /* UtilitiesReportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilitiesReportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14264CAD2208C6E800655EEA /* UtilitiesReportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesReportTests.swift; sourceTree = "<group>"; };
 		14264CAF2208C6E800655EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14872790220F1EF200C59344 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		14290B222213410500620AE1 /* Sourcery.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourcery.generated.swift; sourceTree = "<group>"; };
+		1441A2CA2214162600BF974A /* GetSavedUserProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSavedUserProfileUseCase.swift; sourceTree = "<group>"; };
+		1441A2CC2214179400BF974A /* AppDelegatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegatePresenter.swift; sourceTree = "<group>"; };
+		1441A2CE221418B600BF974A /* AppDelegateConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateConfigurator.swift; sourceTree = "<group>"; };
+		1441A2D0221419D500BF974A /* AppDelegateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateRouter.swift; sourceTree = "<group>"; };
+		1441A2D322141D1400BF974A /* URError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URError.swift; sourceTree = "<group>"; };
+		144CA78122135AD9003BBF26 /* AutoEquatable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoEquatable.stencil; sourceTree = "<group>"; };
+		144CA78322135AD9003BBF26 /* AutoHashable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoHashable.stencil; sourceTree = "<group>"; };
 		14872792220F232B00C59344 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		14872796220F236A00C59344 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		1487279B220F283B00C59344 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
@@ -132,6 +149,9 @@
 		14C083AF2212D83D001A5610 /* ViewRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRound.swift; sourceTree = "<group>"; };
 		14C083B12212D928001A5610 /* ViewShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewShadow.swift; sourceTree = "<group>"; };
 		14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicVeiwCellProtocol.swift; sourceTree = "<group>"; };
+		14D3515522141F3F00A77783 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		14D35159221425CC00A77783 /* SaveUserProfileUseCaseSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveUserProfileUseCaseSpy.swift; sourceTree = "<group>"; };
+		14D3515D22142ACA00A77783 /* AutoMockable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoMockable.stencil; sourceTree = "<group>"; };
 		91F8685E9A0C0FBB69CA7BC2 /* Pods-UtilitiesReport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtilitiesReport.release.xcconfig"; path = "Pods/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport.release.xcconfig"; sourceTree = "<group>"; };
 		B686A475B168EF1A6A5D4035 /* Pods_UtilitiesReport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtilitiesReport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -189,6 +209,7 @@
 		14264CAC2208C6E800655EEA /* UtilitiesReportTests */ = {
 			isa = PBXGroup;
 			children = (
+				14D351572214253900A77783 /* Helpers */,
 				14264CAD2208C6E800655EEA /* UtilitiesReportTests.swift */,
 				14264CAF2208C6E800655EEA /* Info.plist */,
 			);
@@ -210,6 +231,9 @@
 			isa = PBXGroup;
 			children = (
 				14264C982208C6E700655EEA /* AppDelegate.swift */,
+				1441A2CC2214179400BF974A /* AppDelegatePresenter.swift */,
+				1441A2CE221418B600BF974A /* AppDelegateConfigurator.swift */,
+				1441A2D0221419D500BF974A /* AppDelegateRouter.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -240,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				14C083A92212D7A9001A5610 /* Cells */,
-				14872790220F1EF200C59344 /* Main.storyboard */,
+				14D3515522141F3F00A77783 /* MainViewController.xib */,
 				14872792220F232B00C59344 /* MainViewController.swift */,
 				14872796220F236A00C59344 /* MainPresenter.swift */,
 				1487279E220F28F400C59344 /* MainViewRouter.swift */,
@@ -254,6 +278,7 @@
 			children = (
 				14A54D492211AEA10038A8F2 /* Result.swift */,
 				14A54D4B2211AF830038A8F2 /* Constants.swift */,
+				1441A2D322141D1400BF974A /* URError.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -312,7 +337,6 @@
 		148727A6220F2B8800C59344 /* Basic */ = {
 			isa = PBXGroup;
 			children = (
-				14C083B52212F225001A5610 /* Cells */,
 				14A54D532211C68F0038A8F2 /* Models */,
 				148727AD220F2EA700C59344 /* BasicViewController.swift */,
 			);
@@ -427,6 +451,7 @@
 			children = (
 				14A54D472211ADBC0038A8F2 /* SaveUserProfile.swift */,
 				14A54D4D2211AFD60038A8F2 /* LoadtUserProfile.swift */,
+				1441A2CA2214162600BF974A /* GetSavedUserProfileUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -450,6 +475,7 @@
 		14C083A72212D37D001A5610 /* Sourcery */ = {
 			isa = PBXGroup;
 			children = (
+				14290B222213410500620AE1 /* Sourcery.generated.swift */,
 				14C083A82212D37D001A5610 /* Templates */,
 			);
 			path = Sourcery;
@@ -458,6 +484,9 @@
 		14C083A82212D37D001A5610 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				14D3515D22142ACA00A77783 /* AutoMockable.stencil */,
+				144CA78122135AD9003BBF26 /* AutoEquatable.stencil */,
+				144CA78322135AD9003BBF26 /* AutoHashable.stencil */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -479,11 +508,20 @@
 			path = UserProfileTableViewCell;
 			sourceTree = "<group>";
 		};
-		14C083B52212F225001A5610 /* Cells */ = {
+		14D351572214253900A77783 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				14D351582214255700A77783 /* UseCases */,
 			);
-			path = Cells;
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		14D351582214255700A77783 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				14D35159221425CC00A77783 /* SaveUserProfileUseCaseSpy.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 		5AAAD89BAAEC3691BAFFCCCD /* Pods */ = {
@@ -511,12 +549,13 @@
 			buildConfigurationList = 14264CB22208C6E800655EEA /* Build configuration list for PBXNativeTarget "UtilitiesReport" */;
 			buildPhases = (
 				14B5B255387B8EC0132ADDBC /* [CP] Check Pods Manifest.lock */,
+				14C083A62212C57F001A5610 /* Generate code with Sourcery */,
+				14D3515F22142B7000A77783 /* SwiftLint */,
 				14264C912208C6E700655EEA /* Sources */,
 				14264C922208C6E700655EEA /* Frameworks */,
 				14264C932208C6E700655EEA /* Resources */,
 				92B4420C0E14A4C77800931B /* [CP] Embed Pods Frameworks */,
 				14C083A52212C577001A5610 /* CopyFiles */,
-				14C083A62212C57F001A5610 /* Generate code with Sourcery */,
 			);
 			buildRules = (
 			);
@@ -589,12 +628,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				14264CA32208C6E800655EEA /* LaunchScreen.storyboard in Resources */,
+				14D3515E22142ACA00A77783 /* AutoMockable.stencil in Resources */,
+				144CA78822135AD9003BBF26 /* AutoHashable.stencil in Resources */,
 				148727CD2210413400C59344 /* UserFormViewController.xib in Resources */,
+				144CA78622135AD9003BBF26 /* AutoEquatable.stencil in Resources */,
+				14D3515622141F3F00A77783 /* MainViewController.xib in Resources */,
 				14A54D3022115D720038A8F2 /* FormTextItemView.xib in Resources */,
 				148727D72210D25D00C59344 /* Navigation.storyboard in Resources */,
 				14C083AE2212D7EA001A5610 /* UserProfileTableViewCell.xib in Resources */,
 				14264CA02208C6E800655EEA /* Assets.xcassets in Resources */,
-				14872791220F1EF200C59344 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,7 +688,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# \"${PODS_ROOT}/Sourcery/bin/sourcery\" --config \"$SRCROOT/UtilitiesReport/.sourcery.yml\"\n";
+			shellScript = "\"${PODS_ROOT}/Sourcery/bin/sourcery\" --config \"$SRCROOT/.sourcery.yml\"\n";
+		};
+		14D3515F22142B7000A77783 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" --config \"$SRCROOT/.swiftlint.yml\"\n";
 		};
 		92B4420C0E14A4C77800931B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -656,7 +716,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -673,7 +733,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -687,6 +747,7 @@
 				14A54D522211C6770038A8F2 /* AlertModelView.swift in Sources */,
 				14A54D502211BB420038A8F2 /* String+Extension.swift in Sources */,
 				148727D92210D2A700C59344 /* UIViewController+Extension.swift in Sources */,
+				1441A2D422141D1400BF974A /* URError.swift in Sources */,
 				14872793220F232B00C59344 /* MainViewController.swift in Sources */,
 				14A54D4E2211AFD60038A8F2 /* LoadtUserProfile.swift in Sources */,
 				148727AE220F2EA700C59344 /* BasicViewController.swift in Sources */,
@@ -711,17 +772,22 @@
 				14A54D562211C8DB0038A8F2 /* ProgressHUD.swift in Sources */,
 				14C083B72212F25D001A5610 /* BasicVeiwCellProtocol.swift in Sources */,
 				148727C82210283100C59344 /* UserDefaults+Extension.swift in Sources */,
+				1441A2CF221418B600BF974A /* AppDelegateConfigurator.swift in Sources */,
+				14290B232213410500620AE1 /* Sourcery.generated.swift in Sources */,
 				148727D222104A7700C59344 /* UserFormConfigurator.swift in Sources */,
 				14A54D3922115DD30038A8F2 /* UIView+Extension.swift in Sources */,
 				14A54D4A2211AEA10038A8F2 /* Result.swift in Sources */,
 				14C083AD2212D7EA001A5610 /* UserProfileTableViewCell.swift in Sources */,
+				1441A2CD2214179400BF974A /* AppDelegatePresenter.swift in Sources */,
 				14872797220F236A00C59344 /* MainPresenter.swift in Sources */,
+				1441A2CB2214162600BF974A /* GetSavedUserProfileUseCase.swift in Sources */,
 				14A54D3722115D9B0038A8F2 /* ViewFromXib.swift in Sources */,
 				148727CC2210413400C59344 /* UserFormViewController.swift in Sources */,
 				148727B1220F2F3B00C59344 /* PresenterProtocol.swift in Sources */,
 				14A54D482211ADBC0038A8F2 /* SaveUserProfile.swift in Sources */,
 				148727C12210253900C59344 /* DefaultsStorage.swift in Sources */,
 				14A54D40221174560038A8F2 /* ButtonCircle.swift in Sources */,
+				1441A2D1221419D500BF974A /* AppDelegateRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +795,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14D3515A221425CC00A77783 /* SaveUserProfileUseCaseSpy.swift in Sources */,
 				14264CAE2208C6E800655EEA /* UtilitiesReportTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
