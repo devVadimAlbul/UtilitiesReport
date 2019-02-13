@@ -13,3 +13,7 @@ protocol UserDefaultsDescribing: class {
     func value(forKey key: String) -> Any?
     func synchronize() -> Bool
 }
+
+//// sourcery:begin: AutoMockable
+//extension UserDefaultsDescribing {}
+//// sourcery:end

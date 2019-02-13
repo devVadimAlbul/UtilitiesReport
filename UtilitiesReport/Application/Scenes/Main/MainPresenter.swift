@@ -56,8 +56,6 @@ class MainPresenterImpl: MainPresenter {
                 if let user = user {
                     self.userProfile = user
                     self.mainView?.updateUIContent()
-                } else {
-                    self.router.presentNewUserForm()
                 }
             case .failure(let error):
                 self.mainView?.displayError(message: error.localizedDescription)

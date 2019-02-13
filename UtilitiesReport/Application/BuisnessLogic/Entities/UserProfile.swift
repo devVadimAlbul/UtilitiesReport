@@ -166,7 +166,7 @@ extension UserProfile {
             getFormItemModel(type: .street, value: self.street),
             getFormItemModel(type: .house, value: self.house),
             getFormItemModel(type: .apartment, value: self.apartment),
-            getFormItemModel(type: .phoneNumber, value: self.phoneNumber),
+            getFormItemModel(type: .phoneNumber, value: self.phoneNumber)
         ]
         return UserProfileFormModalView(items: models)
     }

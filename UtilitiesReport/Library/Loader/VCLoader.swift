@@ -10,10 +10,10 @@ import Foundation
 import UIKit.UIViewController
 import UIKit.UIStoryboard
 
+// swiftlint:disable force_cast
 class VCLoader<VC: UIViewController> {
     
     enum Storyboards: String {
-        case main = "Main"
         case navigation = "Navigation"
     }
     

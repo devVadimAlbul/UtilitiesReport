@@ -50,19 +50,21 @@ class UserFormPresenterImpl: UserFormPresenter {
         userProfile.setValue(value, forKey: identifier)
     }
     
-    func saveFormContent()  {
+    func saveFormContent() {
         let invalidItems = userProfile.checkValidContent()
         if invalidItems.isEmpty {
             saveUserProfile.save(user: userProfile) { [weak self] (result) in
                 guard let `self` = self else { return }
                 switch result {
-                case .success(_): self.viewForm?.displaySuccessSave()
-                case .failure(let error): self.viewForm?.displayError(message: error.localizedDescription)
+                case .success:
+                    self.viewForm?.displaySuccessSave()
+                case .failure(let error):
+                    self.viewForm?.displayError(message: error.localizedDescription)
                 }
             }
         } else {
             invalidItems.forEach {
-                self.viewForm?.updateFormItem(id: $0, isValid: false)
+                self.viewForm?.updateFormItem(identifier: $0, isValid: false)
             }
         }
     }

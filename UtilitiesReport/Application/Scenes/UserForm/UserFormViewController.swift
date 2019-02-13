@@ -12,14 +12,14 @@ protocol UserFormView: AnyObject {
     var configurator: UserFormConfigurator! { get }
     func displayPageTitle(_ title: String)
     func displayForm(_ model: UserProfileFormModalView)
-    func updateFormItem(id: String, isValid: Bool)
+    func updateFormItem(identifier: String, isValid: Bool)
     func displayError(message: String)
     func displaySuccessSave()
 }
 
 class UserFormViewController: BasicViewController, UserFormView {
     
-    // MARK:
+    // MARK: IBOutlet
     @IBOutlet var formItems: [FormTextItemView]!
     @IBOutlet weak var btnSave: ButtonRound!
     
@@ -58,9 +58,9 @@ class UserFormViewController: BasicViewController, UserFormView {
         formItems.last?.returnKeyType = .done
     }
     
-    func updateFormItem(id: String, isValid: Bool) {
+    func updateFormItem(identifier: String, isValid: Bool) {
         ProgressHUD.dismiss()
-        guard let item = formItems.first(where: {$0.identifier == id}) else { return }
+        guard let item = formItems.first(where: {$0.identifier == identifier}) else { return }
         item.isValid = isValid
     }
     
@@ -70,9 +70,8 @@ class UserFormViewController: BasicViewController, UserFormView {
             if let count = self.navigationController?.viewControllers.count, count > 1 {
                 self.navigationController?.popViewController(animated: true)
             } else {
-                self.dismiss(animated: true, completion: nil)
+                AppDelegate.shared.presenter.router.goToMainViewController()
             }
-          
         }
     }
     

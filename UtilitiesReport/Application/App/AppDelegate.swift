@@ -7,19 +7,28 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
+
+
+protocol AppDelegateProtocol: AnyObject {
+}
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, AppDelegateProtocol {
+    
+    static var shared: AppDelegate!
+    
     var window: UIWindow?
+    var configurator: AppDelegateConfigurator = AppDelegateConfiguratorImpl()
+    var presenter: AppDelegatePresenter!
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let screenBounds = UIScreen.main.bounds
+        window = UIWindow(frame: screenBounds)
+        AppDelegate.shared = self
         
-        ProgressHUD.configure()
-        IQKeyboardManager.shared.enable = true
-        
+        configurator.configure(delegate: self)
+        presenter.didFinishLaunching()
         return true
     }
 
@@ -44,7 +53,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-

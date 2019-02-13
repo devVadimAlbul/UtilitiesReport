@@ -13,6 +13,7 @@ class BasicViewController: UIViewController {
     var presneter: PresenterProtocol!
 
     override func viewDidLoad() {
+        loadViewIfNeeded()
         super.viewDidLoad()
         presneter?.viewDidLoad()
     }

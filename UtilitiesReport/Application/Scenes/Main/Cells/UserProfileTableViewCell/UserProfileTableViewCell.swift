@@ -14,6 +14,10 @@ protocol UserProfileViewCell: BasicVeiwCellProtocol {
     func display(address: String)
 }
 
+// sourcery:begin: AutoMockable
+//extension UserProfileViewCell {}
+// sourcery:end
+
 class UserProfileTableViewCell: UITableViewCell, UserProfileViewCell {
     
     // MARK: IBOutlet

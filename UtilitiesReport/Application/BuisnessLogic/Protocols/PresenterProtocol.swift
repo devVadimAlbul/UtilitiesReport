@@ -11,3 +11,7 @@ import Foundation
 protocol PresenterProtocol {
     func viewDidLoad()
 }
+
+// sourcery:begin: AutoMockable
+extension PresenterProtocol {}
+// sourcery:end

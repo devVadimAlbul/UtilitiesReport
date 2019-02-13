@@ -27,7 +27,6 @@ class MainViewController: BasicViewController, MainView {
 
     // MARK: life-cycle
     override func viewDidLoad() {
-        configurator = MainConfiguratorImpl()
         configurator.configure(viewController: self)
         super.viewDidLoad()
         setupTableViewParams()
