@@ -10,7 +10,6 @@ import Foundation
 import UIKit.UINavigationController
 
 protocol MainViewRouter {
-    func presentNewUserForm()
     func pushToEditUserProfile(_ user: UserProfile)
 }
 
@@ -22,15 +21,9 @@ class MainViewRouterImpl: MainViewRouter {
         self.viewController = viewController
     }
     
-    func presentNewUserForm() {
-        let vc = UserFormViewController()
-        vc.configurator = UserFormConfiguratorImpl(userProfile: nil)
-        self.viewController?.navigationPresent(vc, animated: true, isNeedClose: false)
-    }
-    
     func pushToEditUserProfile(_ user: UserProfile) {
-        let vc = UserFormViewController()
-        vc.configurator = UserFormConfiguratorImpl(userProfile: user)
-        self.viewController?.navigationController?.pushViewController(vc, animated: true)
+        let viewController = UserFormViewController()
+        viewController.configurator = UserFormConfiguratorImpl(userProfile: user)
+        self.viewController?.navigationController?.pushViewController(viewController, animated: true)
     }
 }
