@@ -17,7 +17,7 @@ class MainConfiguratorImpl: MainConfigurator {
     
     func configure(viewController: MainViewController) {
         let router = MainViewRouterImpl(viewController: viewController)
-        let loadUseCase = LoadUserProfileUseCaseImpl(storage: DefaultsStorageImpl())
+        let loadUseCase = LoadUserProfileUseCaseImpl(storage: UserProfileLocalStorageGatewayImpl())
         let presenter = MainPresenterImpl(view: viewController, router: router, loadUserProfile: loadUseCase)
         viewController.presneter = presenter
     }

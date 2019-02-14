@@ -10,31 +10,39 @@ import Foundation
 
 protocol DefaultsStorage: AnyObject, StoringProvidable {}
 
+// sourcery:begin: AutoMockable
+extension DefaultsStorage {}
+// sourcery:end
+
 class DefaultsStorageImpl: DefaultsStorage {
     
-    private let storage: UserDefaultsDescribing
+    private let describing: UserDefaultsDescribing
     
-    init(storage: UserDefaultsDescribing = UserDefaults.standard) {
-        self.storage = storage
+    init(describing: UserDefaultsDescribing = UserDefaults.standard) {
+        self.describing = describing
     }
     
     func saveValue(_ value: String?, forKey key: String) throws {
-        storage.set(value, forKey: key)
-        _ = storage.synchronize()
+        describing.set(value, forKey: key)
+        _ = describing.synchronize()
     }
     
     func saveData(_ data: Data?, forKey key: String) throws {
-        storage.set(data, forKey: key)
-        _ = storage.synchronize()
+        describing.set(data, forKey: key)
+        _ = describing.synchronize()
     }
     
     func getValue(forKey key: String) throws -> String? {
-        return storage.value(forKey: key) as? String
+        return describing.value(forKey: key) as? String
     }
     
     func getData(forKey key: String) throws -> Data? {
-        return storage.value(forKey: key) as? Data
+        return describing.value(forKey: key) as? Data
     }
     
+    func removeObject(forKey key: String) {
+        describing.removeObject(forKey: key)
+        _ = describing.synchronize()
+    }
     
 }

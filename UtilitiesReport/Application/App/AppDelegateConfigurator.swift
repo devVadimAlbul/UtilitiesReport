@@ -16,7 +16,8 @@ protocol AppDelegateConfigurator: class {
 class AppDelegateConfiguratorImpl: AppDelegateConfigurator {
     
     func configure(delegate: AppDelegate) {
-        let userUseCase = GetSavedUserProfileUseCaseImpl(storage: DefaultsStorageImpl())
+        let localStorage = UserProfileLocalStorageGatewayImpl()
+        let userUseCase = GetSavedUserProfileUseCaseImpl(storage: localStorage)
         let router = AppDelegateRouterImpl(delegate: delegate)
         let presenter = AppDelegatePresenterImpl(appDelegate: delegate, router: router,
                                                  userUseCase: userUseCase)

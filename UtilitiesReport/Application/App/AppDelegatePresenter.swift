@@ -36,7 +36,8 @@ class AppDelegatePresenterImpl: AppDelegatePresenter {
     }
     
     fileprivate func checkSavedUserProfile() {
-        if let user = try? userUseCase.getUserProfile(),
+        let identifier = Constants.StoregeKeys.userProfile
+        if let user = try? userUseCase.getUserProfile(identifier: identifier),
             user.firstName != "", user.lastName != "" {
             router.goToMainViewController()
         } else {

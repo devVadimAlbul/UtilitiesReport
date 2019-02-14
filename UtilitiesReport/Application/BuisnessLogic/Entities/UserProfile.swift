@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class UserProfile: Codable {
+class UserProfile: Codable, Equatable {
     
     var firstName: String = ""
     var lastName: String = ""
@@ -29,6 +29,17 @@ class UserProfile: Codable {
             addr += ", apt: \(apartment)"
         }
         return addr
+    }
+    
+    required init(firstName: String, lastName: String, city: String, street: String,
+                  house: String, apartment: String?, phoneNumber: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.city = city
+        self.street = street
+        self.house = house
+        self.apartment = apartment
+        self.phoneNumber = phoneNumber
     }
 
     init() {
@@ -151,6 +162,16 @@ class UserProfile: Codable {
             invalidItems.append(CodingKeys.phoneNumber.rawValue)
         }
         return invalidItems
+    }
+    
+    static func == (lhs: UserProfile, rhs: UserProfile) -> Bool {
+        return (lhs.firstName == rhs.firstName) &&
+        (lhs.lastName == rhs.lastName) &&
+        (lhs.city == rhs.city) &&
+        (lhs.house == rhs.house) &&
+        (lhs.street == rhs.street) &&
+        (lhs.phoneNumber == rhs.phoneNumber) &&
+        (lhs.apartment == rhs.apartment)
     }
 }
 

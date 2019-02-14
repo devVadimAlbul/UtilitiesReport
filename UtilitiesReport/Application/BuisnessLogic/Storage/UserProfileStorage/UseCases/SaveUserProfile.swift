@@ -16,21 +16,18 @@ protocol SaveUserProfileUseCase {
 
 class SaveUserProfileUseCaseImpl: SaveUserProfileUseCase {
     
-    fileprivate let storage: DefaultsStorage
-    fileprivate let storageKey = Constants.StoregeKeys.userProfile
+    fileprivate let storage: UserProfileLocalStorageGateway
     
-    init(storage: DefaultsStorage) {
+    init(storage: UserProfileLocalStorageGateway) {
         self.storage = storage
     }
     
     func save(user: UserProfile, completionHandler: @escaping SaveUserProfileUseCaseCompletionHandler) {
-        do {
-            let jsonEncoder = JSONEncoder()
-            let jsonData = try jsonEncoder.encode(user)
-            try storage.saveData(jsonData, forKey: storageKey)
-            completionHandler(.success(()))
-        } catch {
-            completionHandler(.failure(error))
+        storage.add(parameters: user) { (result) in
+            switch result {
+            case .success: completionHandler(.success(()))
+            case .failure(let error): completionHandler(.failure(error))
+            }
         }
     }
 }

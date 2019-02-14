@@ -16,24 +16,18 @@ protocol LoadUserProfileUseCase {
 
 class LoadUserProfileUseCaseImpl: LoadUserProfileUseCase {
     
-    fileprivate let storage: DefaultsStorage
-    fileprivate let storageKey = Constants.StoregeKeys.userProfile 
+    fileprivate let storage: UserProfileLocalStorageGateway
     
-    init(storage: DefaultsStorage) {
+    init(storage: UserProfileLocalStorageGateway) {
         self.storage = storage
     }
     
     func load(completionHandler: @escaping LoadUserProfileUseCaseCompletionHandler) {
-        do {
-            guard let data = try storage.getData(forKey: storageKey) else {
-                completionHandler(.success(nil))
-                return
+        storage.fetchBooks { result in
+            switch result {
+            case .success(let users): completionHandler(.success(users.first))
+            case .failure(let error): completionHandler(.failure(error))
             }
-            let jsonDecoder = JSONDecoder()
-            let user = try jsonDecoder.decode(UserProfile.self, from: data)
-            completionHandler(.success(user))
-        } catch {
-            completionHandler(.failure(error))
         }
     }
 }

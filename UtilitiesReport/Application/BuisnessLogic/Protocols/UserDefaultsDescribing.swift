@@ -12,8 +12,9 @@ protocol UserDefaultsDescribing: class {
     func set(_ value: Any?, forKey defaultName: String)
     func value(forKey key: String) -> Any?
     func synchronize() -> Bool
+    func removeObject(forKey defaultName: String)
 }
 
-//// sourcery:begin: AutoMockable
-//extension UserDefaultsDescribing {}
-//// sourcery:end
+// sourcery:begin: AutoMockable
+extension UserDefaultsDescribing {}
+// sourcery:end

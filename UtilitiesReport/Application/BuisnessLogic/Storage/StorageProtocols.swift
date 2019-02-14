@@ -13,4 +13,5 @@ protocol StoringProvidable {
     func saveData(_ data: Data?, forKey key: String) throws
     func getValue(forKey key: String) throws -> String?
     func getData(forKey key: String) throws -> Data?
+    func removeObject(forKey key: String)
 }

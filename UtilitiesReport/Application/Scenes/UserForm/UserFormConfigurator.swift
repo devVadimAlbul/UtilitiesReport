@@ -21,7 +21,7 @@ class UserFormConfiguratorImpl: UserFormConfigurator {
     
     func configure(view: UserFormViewController) {
         let router = UserFormViewRouterImpl(viewController: view)
-        let saveUseCase = SaveUserProfileUseCaseImpl(storage: DefaultsStorageImpl())
+        let saveUseCase = SaveUserProfileUseCaseImpl(storage: UserProfileLocalStorageGatewayImpl())
         let presenter = UserFormPresenterImpl(view: view,
                                               router: router,
                                               profile: userProfile,
