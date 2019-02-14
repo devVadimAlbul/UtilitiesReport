@@ -9,7 +9,6 @@ public extension ViewFromXibProtocol where Self: UIView {
     
     public func xibSetup() {
         guard let view = loadViewFromNib() else { return }
-        view.clipsToBounds = false
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)

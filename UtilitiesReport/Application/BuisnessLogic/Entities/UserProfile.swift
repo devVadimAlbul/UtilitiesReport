@@ -13,11 +13,13 @@ class UserProfile: Codable, Equatable {
     
     var firstName: String = ""
     var lastName: String = ""
+    var phoneNumber: String = ""
+    var email: String = ""
     var city: String = ""
     var street: String = ""
     var house: String = ""
     var apartment: String?
-    var phoneNumber: String = ""
+
     
     var name: String {
         return "\(firstName) \(lastName)"
@@ -31,15 +33,18 @@ class UserProfile: Codable, Equatable {
         return addr
     }
     
-    required init(firstName: String, lastName: String, city: String, street: String,
-                  house: String, apartment: String?, phoneNumber: String) {
+    required init(firstName: String, lastName: String,
+                  email: String, phoneNumber: String,
+                  city: String, street: String,
+                  house: String, apartment: String?)   {
         self.firstName = firstName
         self.lastName = lastName
+        self.phoneNumber = phoneNumber
+        self.email = email
         self.city = city
         self.street = street
         self.house = house
         self.apartment = apartment
-        self.phoneNumber = phoneNumber
     }
 
     init() {
@@ -49,21 +54,23 @@ class UserProfile: Codable, Equatable {
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
         case lastName = "last_name"
+        case phoneNumber = "phone_number"
+        case email = "email"
         case city = "city"
         case street = "street"
         case house = "house"
         case apartment = "apartment"
-        case phoneNumber = "phone_number"
         
         var title: String {
             switch self {
             case .firstName: return "First Name"
             case .lastName: return "Last Name"
+            case .email: return "Email"
+            case .phoneNumber: return "Phone Number"
             case .city: return "City"
             case .street: return "Street"
             case .house: return "House"
             case .apartment: return "Apartment"
-            case .phoneNumber: return "Phone Number"
             }
         }
         
@@ -71,11 +78,12 @@ class UserProfile: Codable, Equatable {
             switch self {
             case .firstName: return "Enter first name"
             case .lastName: return "Enter last name"
+            case .email: return "Enter Email"
+            case .phoneNumber: return "Enter phone number"
             case .city: return "Enter city"
             case .street: return "Enter street"
             case .house: return "Enter house"
             case .apartment: return "Enter apartment"
-            case .phoneNumber: return "Enter phone number"
             }
         }
         
@@ -90,17 +98,19 @@ class UserProfile: Codable, Equatable {
             switch self {
             case .firstName: return "Incorrect first name"
             case .lastName: return "Incorrect last name"
+            case .email: return "Incorrect email"
+            case .phoneNumber: return "Incorrect phone number"
             case .city: return "Incorrect city"
             case .street: return "Incorrect street"
             case .house: return "Incorrect house"
             case .apartment: return nil
-            case .phoneNumber: return "Incorrect phone number"
             }
         }
         
         var keybardType: UIKeyboardType {
             switch self {
             case .phoneNumber: return .phonePad
+            case .email: return .emailAddress
             default: return .default
             }
         }
@@ -110,22 +120,24 @@ class UserProfile: Codable, Equatable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         firstName = try values.decode(String.self, forKey: .firstName)
         lastName = try values.decode(String.self, forKey: .lastName)
+        phoneNumber = try values.decode(String.self, forKey: .phoneNumber)
+        email = try values.decode(String.self, forKey: .email)
         city = try values.decode(String.self, forKey: .city)
         street = try values.decode(String.self, forKey: .street)
         house = try values.decode(String.self, forKey: .house)
         apartment = try values.decodeIfPresent(String.self, forKey: .apartment)
-        phoneNumber = try values.decode(String.self, forKey: .phoneNumber)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(firstName, forKey: .firstName)
         try container.encode(lastName, forKey: .lastName)
+        try container.encode(email, forKey: .email)
+        try container.encode(phoneNumber, forKey: .phoneNumber)
         try container.encode(city, forKey: .city)
         try container.encode(street, forKey: .street)
         try container.encode(house, forKey: .house)
         try container.encodeIfPresent(apartment, forKey: .apartment)
-        try container.encode(phoneNumber, forKey: .phoneNumber)
     }
     
     func setValue(_ value: String?, forKey key: String) {
@@ -133,11 +145,12 @@ class UserProfile: Codable, Equatable {
         switch key {
         case .firstName: self.firstName = value ?? ""
         case .lastName: self.lastName = value ?? ""
+        case .email: self.email = value ?? ""
+        case .phoneNumber: self.phoneNumber = value ?? ""
         case .city: self.city = value ?? ""
         case .street: self.street = value ?? ""
         case .house: self.house = value ?? ""
         case .apartment: self.apartment = value
-        case .phoneNumber: self.phoneNumber = value ?? ""
         }
     }
     
@@ -148,6 +161,9 @@ class UserProfile: Codable, Equatable {
         }
         if lastName.removeWhiteSpace().isEmpty {
             invalidItems.append(CodingKeys.lastName.rawValue)
+        }
+        if email.removeWhiteSpace().isEmpty {
+            invalidItems.append(CodingKeys.email.rawValue)
         }
         if city.removeWhiteSpace().isEmpty {
             invalidItems.append(CodingKeys.city.rawValue)
@@ -171,6 +187,7 @@ class UserProfile: Codable, Equatable {
         (lhs.house == rhs.house) &&
         (lhs.street == rhs.street) &&
         (lhs.phoneNumber == rhs.phoneNumber) &&
+        (lhs.email == rhs.email) &&
         (lhs.apartment == rhs.apartment)
     }
 }
@@ -183,11 +200,12 @@ extension UserProfile {
         let models: [FormItemModelView] = [
             getFormItemModel(type: .firstName, value: self.firstName),
             getFormItemModel(type: .lastName, value: self.lastName),
+            getFormItemModel(type: .email, value: self.email),
+            getFormItemModel(type: .phoneNumber, value: self.phoneNumber),
             getFormItemModel(type: .city, value: self.city),
             getFormItemModel(type: .street, value: self.street),
             getFormItemModel(type: .house, value: self.house),
-            getFormItemModel(type: .apartment, value: self.apartment),
-            getFormItemModel(type: .phoneNumber, value: self.phoneNumber)
+            getFormItemModel(type: .apartment, value: self.apartment)
         ]
         return UserProfileFormModalView(items: models)
     }
