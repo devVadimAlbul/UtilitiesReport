@@ -10,6 +10,7 @@ import Foundation
 
 enum URError: Error {
     case userNotCreated
+    case textNotRecognized
 }
 
 extension URError: LocalizedError {
@@ -17,6 +18,7 @@ extension URError: LocalizedError {
     var localizedDescription: String {
         switch self {
         case .userNotCreated: return "User not ctrated!"
+        case .textNotRecognized: return "Text not recognized on this image!"
         }
     }
 }

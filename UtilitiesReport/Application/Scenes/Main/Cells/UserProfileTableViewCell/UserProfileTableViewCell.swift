@@ -12,6 +12,7 @@ protocol UserProfileViewCell: BasicVeiwCellProtocol {
     func display(name: String)
     func display(phoneNumber: String)
     func display(address: String)
+    func display(email: String)
 }
 
 class UserProfileTableViewCell: UITableViewCell, UserProfileViewCell {
@@ -22,6 +23,8 @@ class UserProfileTableViewCell: UITableViewCell, UserProfileViewCell {
     @IBOutlet weak var lblPhoneValue: UILabel!
     @IBOutlet weak var lblAddressTitle: UILabel!
     @IBOutlet weak var lblAddressValue: UILabel!
+    @IBOutlet weak var lblEmailTitle: UILabel!
+    @IBOutlet weak var lblEmailValue: UILabel!
     
     // MARK: life-cycle
     override func awakeFromNib() {
@@ -43,6 +46,10 @@ class UserProfileTableViewCell: UITableViewCell, UserProfileViewCell {
     
     func display(phoneNumber: String) {
         self.lblPhoneValue.text = phoneNumber
+    }
+    
+    func display(email: String) {
+        self.lblEmailValue.text = email
     }
     
 }

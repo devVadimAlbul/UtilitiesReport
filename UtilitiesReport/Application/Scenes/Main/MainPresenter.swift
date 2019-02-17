@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 enum TypeCellForMainView: Int {
     case userProfileCell = 0
@@ -29,19 +30,24 @@ class MainPresenterImpl: MainPresenter {
     var router: MainViewRouter
     fileprivate var loadUserProfile: LoadUserProfileUseCase
     fileprivate var userProfile: UserProfile?
+    fileprivate var textDetector: TextDetector
     
     // MARK: init
     init(view: MainView,
          router: MainViewRouter,
-         loadUserProfile: LoadUserProfileUseCase) {
+         loadUserProfile: LoadUserProfileUseCase,
+         textDetector: TextDetector) {
         self.mainView = view
         self.router = router
         self.loadUserProfile = loadUserProfile
+        self.textDetector = textDetector
     }
     
     // MARK: MainPresenter Methods
     func viewDidLoad() {
         mainView?.displayPageTitle("Utilities Report")
+        recorgnizeText(name: "Test1", in: #imageLiteral(resourceName: "test3"))
+        recorgnizeText(name: "Test2", in: #imageLiteral(resourceName: "test1"))
     }
     
     func loadContent() {
@@ -59,6 +65,16 @@ class MainPresenterImpl: MainPresenter {
                 }
             case .failure(let error):
                 self.mainView?.displayError(message: error.localizedDescription)
+            }
+        }
+    }
+    
+    func recorgnizeText(name: String, in image: UIImage) {
+        textDetector.recognize(image) { (result) in
+            switch result {
+            case .success(let text): print("[MainPresenter] recorgnizeText[\(name)] text: \(text)")
+            case .failure(let error): print("[MainPresenter] recorgnizeText[\(name)] error: ",
+                error.localizedDescription)
             }
         }
     }
@@ -91,6 +107,7 @@ class MainPresenterImpl: MainPresenter {
         cell.display(name: user.name)
         cell.display(phoneNumber: user.phoneNumber)
         cell.display(address: user.address)
+        cell.display(email: user.email)
     }
     
     func didSelectCell(at indexPath: IndexPath) {

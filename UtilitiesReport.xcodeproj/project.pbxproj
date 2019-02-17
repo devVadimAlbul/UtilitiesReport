@@ -18,6 +18,7 @@
 		1441A2D422141D1400BF974A /* URError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441A2D322141D1400BF974A /* URError.swift */; };
 		144CA78622135AD9003BBF26 /* AutoEquatable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 144CA78122135AD9003BBF26 /* AutoEquatable.stencil */; };
 		144CA78822135AD9003BBF26 /* AutoHashable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 144CA78322135AD9003BBF26 /* AutoHashable.stencil */; };
+		145406C52219688D008C94F4 /* TextDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145406C42219688D008C94F4 /* TextDetector.swift */; };
 		14872793220F232B00C59344 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14872792220F232B00C59344 /* MainViewController.swift */; };
 		14872797220F236A00C59344 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14872796220F236A00C59344 /* MainPresenter.swift */; };
 		1487279C220F283B00C59344 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487279B220F283B00C59344 /* MainConfigurator.swift */; };
@@ -107,6 +108,7 @@
 		1441A2D322141D1400BF974A /* URError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URError.swift; sourceTree = "<group>"; };
 		144CA78122135AD9003BBF26 /* AutoEquatable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoEquatable.stencil; sourceTree = "<group>"; };
 		144CA78322135AD9003BBF26 /* AutoHashable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoHashable.stencil; sourceTree = "<group>"; };
+		145406C42219688D008C94F4 /* TextDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetector.swift; sourceTree = "<group>"; };
 		14872792220F232B00C59344 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		14872796220F236A00C59344 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		1487279B220F283B00C59344 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		1487278D220F188A00C59344 /* BuisnessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				14A54D462211AD7F0038A8F2 /* UseCases */,
 				148727B5220F395F00C59344 /* Entities */,
 				148727BF2210251400C59344 /* Storage */,
 				14872799220F23B600C59344 /* Protocols */,
@@ -280,6 +283,7 @@
 		14872798220F239B00C59344 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				145406C42219688D008C94F4 /* TextDetector.swift */,
 				14A54D492211AEA10038A8F2 /* Result.swift */,
 				14A54D4B2211AF830038A8F2 /* Constants.swift */,
 				1441A2D322141D1400BF974A /* URError.swift */,
@@ -516,7 +520,6 @@
 		14D351682214619200A77783 /* UserProfileStorage */ = {
 			isa = PBXGroup;
 			children = (
-				14A54D462211AD7F0038A8F2 /* UseCases */,
 				14D351662214531B00A77783 /* UserProfileLocalStorageGateway.swift */,
 			);
 			path = UserProfileStorage;
@@ -715,19 +718,23 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftOCR/SwiftOCR.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftOCR.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -769,6 +776,7 @@
 				1487279F220F28F400C59344 /* MainViewRouter.swift in Sources */,
 				148727C32210268F00C59344 /* StorageProtocols.swift in Sources */,
 				14A54D562211C8DB0038A8F2 /* ProgressHUD.swift in Sources */,
+				145406C52219688D008C94F4 /* TextDetector.swift in Sources */,
 				14C083B72212F25D001A5610 /* BasicVeiwCellProtocol.swift in Sources */,
 				148727C82210283100C59344 /* UserDefaults+Extension.swift in Sources */,
 				1441A2CF221418B600BF974A /* AppDelegateConfigurator.swift in Sources */,
@@ -857,6 +865,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -918,6 +927,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -946,6 +956,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V69HALAU3Z;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/UtilitiesReport/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -967,6 +978,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V69HALAU3Z;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/UtilitiesReport/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -987,6 +999,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V69HALAU3Z;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = UtilitiesReportTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1008,6 +1021,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V69HALAU3Z;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = UtilitiesReportTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

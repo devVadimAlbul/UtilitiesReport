@@ -1,4 +1,5 @@
 PODS:
+  - GPUImage (0.1.7)
   - IQKeyboardManagerSwift (6.2.0)
   - Realm (3.13.1):
     - Realm/Headers (= 3.13.1)
@@ -8,16 +9,21 @@ PODS:
   - Sourcery (0.15.0)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.30.1)
+  - SwiftOCR (1.1):
+    - GPUImage
 
 DEPENDENCIES:
+  - GPUImage
   - IQKeyboardManagerSwift (~> 6.2)
   - RealmSwift (~> 3.13)
   - Sourcery (~> 0.15)
   - SVProgressHUD (~> 2.2)
   - SwiftLint (~> 0.30)
+  - SwiftOCR (from `https://github.com/devVadimAlbul/SwiftOCR.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - GPUImage
     - IQKeyboardManagerSwift
     - Realm
     - RealmSwift
@@ -25,14 +31,25 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftLint
 
+EXTERNAL SOURCES:
+  SwiftOCR:
+    :git: https://github.com/devVadimAlbul/SwiftOCR.git
+
+CHECKOUT OPTIONS:
+  SwiftOCR:
+    :commit: 723f62d018acdf26e928e52153f85c63ebfdecc2
+    :git: https://github.com/devVadimAlbul/SwiftOCR.git
+
 SPEC CHECKSUMS:
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   Sourcery: 5895672cae353cdbfa95f3f4aaeb75a664d76f6a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
+  SwiftOCR: 99f0b08c90b39e8e58761fa3a92eb521efcfe5aa
 
-PODFILE CHECKSUM: bb2cd4c7d91491351fb122524ab0d0075b9016b6
+PODFILE CHECKSUM: 0a723a2adc0286b0d98841ef1c3989dc1cef5421
 
 COCOAPODS: 1.6.0

@@ -36,7 +36,7 @@ class UserProfile: Codable, Equatable {
     required init(firstName: String, lastName: String,
                   email: String, phoneNumber: String,
                   city: String, street: String,
-                  house: String, apartment: String?)   {
+                  house: String, apartment: String?) {
         self.firstName = firstName
         self.lastName = lastName
         self.phoneNumber = phoneNumber
@@ -162,7 +162,7 @@ class UserProfile: Codable, Equatable {
         if lastName.removeWhiteSpace().isEmpty {
             invalidItems.append(CodingKeys.lastName.rawValue)
         }
-        if email.removeWhiteSpace().isEmpty {
+        if email.removeWhiteSpace().isEmpty && !email.isEmailValid {
             invalidItems.append(CodingKeys.email.rawValue)
         }
         if city.removeWhiteSpace().isEmpty {
