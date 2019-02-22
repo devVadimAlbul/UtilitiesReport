@@ -1,6 +1,6 @@
 # **[(ЖКХ) Utilities Report](https://github.com/devVadimAlbul/UtilitiesReport)**
 
- ![Xcode 10.x](https://img.shields.io/badge/XCode-10.x-yellowgreen.svg) ![Swift 4.2.x](https://img.shields.io/badge/swift-4.2.x-green.svg?colorB=green&style=for-the-badge) ![platforms](https://img.shields.io/badge/platforms-iOS-lightgrey.svg?colorB=green&style=for-the-badge)
+ ![Xcode 10.x](https://img.shields.io/badge/xcode-10.x-yellowgreen.svg?style=for-the-badge&logo=xcode) ![Swift 4.2.x](https://img.shields.io/badge/swift-4.2.x-green.svg?colorB=green&style=for-the-badge) ![platforms](https://img.shields.io/badge/platforms-iOS-lightgrey.svg?colorB=green&style=for-the-badge)
 
 ## About
  **(ЖКХ) Utilities Report** - is application for the registry and save of indicators of utility counters with the ability to send them to the corresponding API service utilities.
