@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias LoadUserProfileUseCaseCompletionHandler = (_ books: Result<UserProfile?>) -> Void
+typealias LoadUserProfileUseCaseCompletionHandler = (_ books: Result<UserProfile>) -> Void
 
 protocol LoadUserProfileUseCase {
     func load(completionHandler: @escaping LoadUserProfileUseCaseCompletionHandler)
@@ -25,7 +25,12 @@ class LoadUserProfileUseCaseImpl: LoadUserProfileUseCase {
     func load(completionHandler: @escaping LoadUserProfileUseCaseCompletionHandler) {
         storage.fetchBooks { result in
             switch result {
-            case .success(let users): completionHandler(.success(users.first))
+            case .success(let users):
+                if let user = users.first {
+                    completionHandler(.success(user))
+                } else {
+                    completionHandler(.failure(URError.userNotCreated))
+                }
             case .failure(let error): completionHandler(.failure(error))
             }
         }

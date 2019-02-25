@@ -11,6 +11,7 @@ import Foundation
 enum URError: Error {
     case userNotCreated
     case textNotRecognized
+    case incorrectProfileForm
 }
 
 extension URError: LocalizedError {
@@ -19,6 +20,7 @@ extension URError: LocalizedError {
         switch self {
         case .userNotCreated: return "User not ctrated!"
         case .textNotRecognized: return "Text not recognized on this image!"
+        case .incorrectProfileForm: return "User Profile data incorrect in form.\n Please check is it and try again."
         }
     }
 }

@@ -18,7 +18,7 @@ class MainConfiguratorImpl: MainConfigurator {
     func configure(viewController: MainViewController) {
         let router = MainViewRouterImpl(viewController: viewController)
         let loadUseCase = LoadUserProfileUseCaseImpl(storage: UserProfileLocalStorageGatewayImpl())
-        let detector = TextDetectorOCRImpl()
+        let detector = TextDetectorFirebaseImpl()
         let presenter = MainPresenterImpl(view: viewController, router: router,
                                           loadUserProfile: loadUseCase, textDetector: detector)
         viewController.presneter = presenter

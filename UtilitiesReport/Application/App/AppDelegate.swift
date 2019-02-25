@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 
 protocol AppDelegateProtocol: AnyObject {
 }
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppDelegateProtocol {
         let screenBounds = UIScreen.main.bounds
         window = UIWindow(frame: screenBounds)
         AppDelegate.shared = self
-        
+        FirebaseApp.configure() 
         configurator.configure(delegate: self)
         presenter.didFinishLaunching()
         return true

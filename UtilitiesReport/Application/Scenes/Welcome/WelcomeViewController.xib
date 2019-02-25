@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="UtilitiesReport" customModuleProvider="target">
+            <connections>
+                <outlet property="btnStart" destination="q5c-ew-ENP" id="oq9-NO-YIG"/>
+                <outlet property="lblDescription" destination="Nau-GA-bEg" id="W6W-e1-ikX"/>
+                <outlet property="lblTitle" destination="xi5-yY-nyH" id="djr-PA-R2A"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-welcome" translatesAutoresizingMaskIntoConstraints="NO" id="gLY-5c-X9m">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" red="0.49718188574204136" green="0.71144927103902389" blue="0.066444246023759895" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_icon" translatesAutoresizingMaskIntoConstraints="NO" id="6hA-bA-Ldd">
+                    <rect key="frame" x="60" y="42" width="200" height="200"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHw-Ct-Sox">
+                    <rect key="frame" x="20" y="279" width="280" height="169.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Utilities Report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xi5-yY-nyH">
+                            <rect key="frame" x="0.0" y="27" width="280" height="48"/>
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqy-gM-Hmz">
+                            <rect key="frame" x="91" y="85" width="98" height="1"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="EGV-CU-0wF"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Utilities Report is application for the registry  and save of indicators of utility counters." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nau-GA-bEg">
+                            <rect key="frame" x="0.0" y="96" width="280" height="48"/>
+                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="xi5-yY-nyH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lHw-Ct-Sox" secondAttribute="leading" id="3tJ-ld-Tld"/>
+                        <constraint firstItem="Nau-GA-bEg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mqy-gM-Hmz" secondAttribute="bottom" constant="10" id="44x-r9-5Jw"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Nau-GA-bEg" secondAttribute="bottom" id="7PW-ZG-KHa"/>
+                        <constraint firstItem="xi5-yY-nyH" firstAttribute="centerX" secondItem="lHw-Ct-Sox" secondAttribute="centerX" id="8yc-Tx-xCM"/>
+                        <constraint firstAttribute="trailing" secondItem="Nau-GA-bEg" secondAttribute="trailing" id="EHx-lK-6cL"/>
+                        <constraint firstItem="xi5-yY-nyH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lHw-Ct-Sox" secondAttribute="top" constant="20" symbolic="YES" id="Gkx-xc-4OT"/>
+                        <constraint firstItem="mqy-gM-Hmz" firstAttribute="centerX" secondItem="lHw-Ct-Sox" secondAttribute="centerX" id="HYd-qf-WLY"/>
+                        <constraint firstItem="Nau-GA-bEg" firstAttribute="centerY" secondItem="lHw-Ct-Sox" secondAttribute="centerY" multiplier="1.4" priority="700" id="Vas-YJ-gTC"/>
+                        <constraint firstItem="mqy-gM-Hmz" firstAttribute="centerY" secondItem="lHw-Ct-Sox" secondAttribute="centerY" priority="650" id="YYr-xq-QCL"/>
+                        <constraint firstItem="Nau-GA-bEg" firstAttribute="leading" secondItem="lHw-Ct-Sox" secondAttribute="leading" id="ZU1-p4-Ov2"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xi5-yY-nyH" secondAttribute="trailing" id="sOu-L6-1LO"/>
+                        <constraint firstItem="mqy-gM-Hmz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xi5-yY-nyH" secondAttribute="bottom" constant="10" id="tCp-uD-skz"/>
+                        <constraint firstItem="mqy-gM-Hmz" firstAttribute="width" secondItem="lHw-Ct-Sox" secondAttribute="width" multiplier="0.35" id="w2N-83-qFu"/>
+                        <constraint firstItem="xi5-yY-nyH" firstAttribute="centerY" secondItem="lHw-Ct-Sox" secondAttribute="centerY" multiplier="0.6" priority="750" id="yPi-xu-uox"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5c-ew-ENP" customClass="ButtonRound" customModule="UtilitiesReport" customModuleProvider="target">
+                    <rect key="frame" x="36" y="468.5" width="248" height="57"/>
+                    <color key="backgroundColor" red="0.41802153781231771" green="0.71144927103902389" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                    <state key="normal" title="Get Started">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSize" value="NO"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="roundRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="clickedStart:" destination="-1" eventType="touchUpInside" id="Z4p-Lw-aXS"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="q5c-ew-ENP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.75" id="8Qz-rl-UAD"/>
+                <constraint firstItem="lHw-Ct-Sox" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="B5l-Ni-BRI"/>
+                <constraint firstItem="6hA-bA-Ldd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.5" id="LjW-os-ZTj"/>
+                <constraint firstItem="lHw-Ct-Sox" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-5" id="S06-mX-fgr"/>
+                <constraint firstItem="gLY-5c-X9m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TBm-A9-w65"/>
+                <constraint firstItem="q5c-ew-ENP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TdG-MY-CJE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="q5c-ew-ENP" secondAttribute="trailing" constant="36" id="XUo-IX-Rww"/>
+                <constraint firstItem="gLY-5c-X9m" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YDe-H8-5DW"/>
+                <constraint firstItem="q5c-ew-ENP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="36" id="b8b-Dt-k2G"/>
+                <constraint firstItem="6hA-bA-Ldd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fTU-Kh-1tf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lHw-Ct-Sox" secondAttribute="trailing" constant="20" id="hwM-s0-Ihq"/>
+                <constraint firstItem="q5c-ew-ENP" firstAttribute="top" secondItem="lHw-Ct-Sox" secondAttribute="bottom" constant="20" id="kNW-Qv-qiG"/>
+                <constraint firstAttribute="bottom" secondItem="gLY-5c-X9m" secondAttribute="bottom" id="lES-sQ-LqZ"/>
+                <constraint firstAttribute="trailing" secondItem="gLY-5c-X9m" secondAttribute="trailing" id="pV8-HC-nbh"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="55.200000000000003" y="48.125937031484263"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background-welcome" width="414" height="896"/>
+        <image name="main_icon" width="200" height="200"/>
+    </resources>
+</document>

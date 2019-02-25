@@ -25,7 +25,7 @@ class UserFormConfiguratorImpl: UserFormConfigurator {
         let presenter = UserFormPresenterImpl(view: view,
                                               router: router,
                                               profile: userProfile,
-                                              saveUserProfile: saveUseCase)
+                                              saveUserProfileUseCase: saveUseCase)
         
         view.presneter = presenter
     }

@@ -9,7 +9,12 @@ target 'UtilitiesReport' do
     pod 'SVProgressHUD', '~> 2.2'
     pod 'Sourcery', '~> 0.15'
     pod 'SwiftLint', '~> 0.30'
-    pod 'SwiftOCR', :git => 'https://github.com/devVadimAlbul/SwiftOCR.git', :inhibit_warnings => true
-    pod 'GPUImage', :inhibit_warnings => true
+#    pod 'SwiftOCR', :git => 'https://github.com/devVadimAlbul/SwiftOCR.git', :inhibit_warnings => true
+#    pod 'GPUImage', :inhibit_warnings => true
 #    pod 'TesseractOCRiOS', '4.0.0'
+
+    pod 'Firebase/Core'
+    pod 'Firebase/MLVision'
+    pod 'Firebase/MLVisionTextModel'
+    
 end

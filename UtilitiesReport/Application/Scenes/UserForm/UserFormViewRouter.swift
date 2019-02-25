@@ -9,7 +9,7 @@
 import Foundation
 
 protocol UserFormViewRouter {
-    
+    func goToMainPage()
 }
 
 class UserFormViewRouterImpl: UserFormViewRouter {
@@ -17,5 +17,16 @@ class UserFormViewRouterImpl: UserFormViewRouter {
     
     init(viewController: UserFormViewController) {
         self.viewController = viewController
+    }
+    
+    func goToMainPage() {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            if let navigation = self.viewController?.navigationController,
+                let main = navigation.getViewControllerInStack(MainViewController.self) {
+                navigation.popToViewController(main, animated: true)
+            } else {
+                AppDelegate.shared.presenter.router.goToMainViewController()
+            }
+        }
     }
 }

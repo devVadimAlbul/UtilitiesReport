@@ -18,7 +18,6 @@ class FormTextItemView: ViewFromXib {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tfItem: UITextField!
     @IBOutlet weak var lblWarning: UILabel!
-    @IBOutlet weak var borderView: UIView!
     
     @IBOutlet var nextFormItem: FormTextItemView? {
         didSet {
@@ -35,36 +34,24 @@ class FormTextItemView: ViewFromXib {
     // MARK: property
     var identifier: String = ""
     weak var delegate: FormTextItemViewDelegate?
-    var isOptional: Bool = false
     var isValid: Bool = true {
-        didSet { lblWarning.isHidden = isOptional ? true : isValid }
+        didSet { lblWarning.isHidden = isValid }
     }
     var title: String? {
-        didSet { lblTitle.text = title }
+        get { return lblTitle.text }
+        set { lblTitle.text = newValue }
     }
     var value: String? {
         get { return tfItem.text }
         set { tfItem.text = newValue }
     }
     var placeholder: String? {
-        didSet { tfItem.placeholder = placeholder }
+        get { return tfItem.placeholder }
+        set { tfItem.placeholder = newValue }
     }
     var warningMessage: String? {
-        didSet { lblWarning.text = warningMessage }
-    }
-    
-    // MARK: options
-    @IBInspectable var titleColor: UIColor = .black {
-        didSet { lblTitle.textColor = titleColor }
-    }
-    @IBInspectable var textColor: UIColor = .black {
-        didSet { tfItem.textColor = textColor }
-    }
-    @IBInspectable var warningColor: UIColor = .red {
-        didSet { lblWarning.textColor = warningColor }
-    }
-    @IBInspectable var borderColor: UIColor = .gray {
-        didSet { borderView.backgroundColor = borderColor }
+        get { return lblWarning.text }
+        set { lblWarning.text = newValue }
     }
     var returnKeyType: UIReturnKeyType {
         get { return tfItem.returnKeyType }
@@ -73,6 +60,19 @@ class FormTextItemView: ViewFromXib {
     var keyboardType: UIKeyboardType {
         get { return tfItem.keyboardType }
         set { tfItem.keyboardType = newValue }
+    }
+    
+    // MARK: options
+    @IBInspectable var titleColor: UIColor = .black {
+        didSet { lblTitle.textColor = titleColor }
+    }
+    
+    @IBInspectable var textColor: UIColor = .black {
+        didSet { tfItem.textColor = textColor }
+    }
+    
+    @IBInspectable var warningColor: UIColor = .red {
+        didSet { lblWarning.textColor = warningColor }
     }
     
     // MARK: IBAction

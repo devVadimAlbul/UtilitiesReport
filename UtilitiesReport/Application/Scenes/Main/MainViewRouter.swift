@@ -11,6 +11,7 @@ import UIKit.UINavigationController
 
 protocol MainViewRouter {
     func pushToEditUserProfile(_ user: UserProfile)
+    func pushToTextRecognizer(with image: UIImage)
 }
 
 class MainViewRouterImpl: MainViewRouter {
@@ -25,5 +26,11 @@ class MainViewRouterImpl: MainViewRouter {
         let viewController = UserFormViewController()
         viewController.configurator = UserFormConfiguratorImpl(userProfile: user)
         self.viewController?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func pushToTextRecognizer(with image: UIImage) {
+        let viewController = TextRecognizerImageViewController()
+        viewController.configurator = TextRecognizerImageConfiguratorImpl(image: image)
+        self.viewController?.navigationController?.pushViewController(viewController, animated: false)
     }
 }

@@ -46,8 +46,6 @@ class MainPresenterImpl: MainPresenter {
     // MARK: MainPresenter Methods
     func viewDidLoad() {
         mainView?.displayPageTitle("Utilities Report")
-        recorgnizeText(name: "Test1", in: #imageLiteral(resourceName: "test3"))
-        recorgnizeText(name: "Test2", in: #imageLiteral(resourceName: "test1"))
     }
     
     func loadContent() {
@@ -59,22 +57,10 @@ class MainPresenterImpl: MainPresenter {
             guard let `self` = self else { return }
             switch result {
             case .success(let user):
-                if let user = user {
-                    self.userProfile = user
-                    self.mainView?.updateUIContent()
-                }
+                self.userProfile = user
+                self.mainView?.updateUIContent()
             case .failure(let error):
                 self.mainView?.displayError(message: error.localizedDescription)
-            }
-        }
-    }
-    
-    func recorgnizeText(name: String, in image: UIImage) {
-        textDetector.recognize(image) { (result) in
-            switch result {
-            case .success(let text): print("[MainPresenter] recorgnizeText[\(name)] text: \(text)")
-            case .failure(let error): print("[MainPresenter] recorgnizeText[\(name)] error: ",
-                error.localizedDescription)
             }
         }
     }

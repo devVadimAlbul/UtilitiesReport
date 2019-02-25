@@ -9,6 +9,8 @@
 import Foundation
 import UIKit.UIView
 
+private var kAssociationKeyViewIdentifier = "kAssociationKeyViewIdentifier"
+
 extension UIView {
     
     class func nib() -> UINib? {
@@ -17,5 +19,14 @@ extension UIView {
     
     class var identifier: String {
         return  "\(self.self)"
+    }
+    
+    var viewIdentifier: String? {
+        get {
+            return objc_getAssociatedObject(self, &kAssociationKeyViewIdentifier) as? String
+        }
+        set(newField) {
+            objc_setAssociatedObject(self, &kAssociationKeyViewIdentifier, newField, .OBJC_ASSOCIATION_RETAIN)
+        }
     }
 }

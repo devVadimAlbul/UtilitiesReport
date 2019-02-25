@@ -30,6 +30,7 @@ class MainViewController: BasicViewController, MainView {
         configurator.configure(viewController: self)
         super.viewDidLoad()
         setupTableViewParams()
+        setupNavigationItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,11 +38,19 @@ class MainViewController: BasicViewController, MainView {
         mainPresenter?.loadContent()
     }
     
+    // MARK: setup func
+    func setupNavigationItems() {
+        let addNavItem = UIBarButtonItem(barButtonSystemItem: .add, target: self,
+                                         action: #selector(actionAddBarItem))
+        navigationItem.setRightBarButton(addNavItem, animated: false)
+    }
+    
     func setupTableViewParams() {
         tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 16, right: 0)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
-        tableView.register(UserProfileTableViewCell.nib(), forCellReuseIdentifier: UserProfileTableViewCell.identifier)
+        tableView.register(UserProfileTableViewCell.nib(),
+                           forCellReuseIdentifier: UserProfileTableViewCell.identifier)
     }
     
     // MARK: dispaly methods
@@ -61,10 +70,31 @@ class MainViewController: BasicViewController, MainView {
     fileprivate func getTableViewCell(type: TypeCellForMainView, at indexPath: IndexPath) -> UITableViewCell {
         switch type {
         case .userProfileCell:
-            return tableView.dequeueReusableCell(withIdentifier: UserProfileTableViewCell.identifier, for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: UserProfileTableViewCell.identifier,
+                                                 for: indexPath)
         }
     }
     
+    // MARK: Action
+    @objc func actionAddBarItem(_ sender: UIBarButtonItem) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+}
+
+// MARK: - extension: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension MainViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            mainPresenter?.router.pushToTextRecognizer(with: image)
+        }
+        picker.dismiss(animated: false, completion: nil)
+    }
 }
 
 // MARK: - extension: UITableViewDelegate, UITableViewDataSource

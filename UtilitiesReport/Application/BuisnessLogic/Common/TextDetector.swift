@@ -8,20 +8,25 @@
 
 import Foundation
 import UIKit.UIImage
-import SwiftOCR
-//import TesseractOCR
+import Firebase
 
 protocol TextDetector: class {
-    func recognize(_ image: UIImage, completion: @escaping (Result<String>) -> Void)
+    func recognize(_ image: UIImage, completion: @escaping (Result<VisionText>) -> Void)
 }
 
-class TextDetectorOCRImpl: TextDetector {
+class TextDetectorFirebaseImpl: TextDetector {
     
-    let instance = SwiftOCR()
-
-    func recognize(_ image: UIImage, completion: @escaping (Result<String>) -> Void) {
-        instance.recognize(image) { (resultText) in
-            completion(.success(resultText))
+    let vision = Vision.vision()
+    
+    func recognize(_ image: UIImage, completion: @escaping (Result<VisionText>) -> Void) {
+        let textRecognizer = vision.onDeviceTextRecognizer()
+        let visionImage = VisionImage(image: image)
+        textRecognizer.process(visionImage) { result, error in
+            guard error == nil, let result = result else {
+                completion(.failure(error ?? URError.textNotRecognized))
+                return
+            }
+            completion(.success(result))
         }
     }
 }

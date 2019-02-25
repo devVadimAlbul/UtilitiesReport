@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextRecognizerImageViewController" customModule="UtilitiesReport" customModuleProvider="target">
+            <connections>
+                <outlet property="cropView" destination="RBx-gL-tgE" id="qfe-7M-P4m"/>
+                <outlet property="imageView" destination="d0L-88-cbT" id="LOa-DQ-Odj"/>
+                <outlet property="scrollView" destination="Z6E-Mn-ZWd" id="6he-RZ-Yl5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="kh9-gA-0Ml"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6E-Mn-ZWd">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test1" translatesAutoresizingMaskIntoConstraints="NO" id="d0L-88-cbT">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="d0L-88-cbT" firstAttribute="top" secondItem="Z6E-Mn-ZWd" secondAttribute="top" id="5uv-BR-75c"/>
+                        <constraint firstAttribute="bottom" secondItem="d0L-88-cbT" secondAttribute="bottom" id="Fcc-1H-D7O"/>
+                        <constraint firstItem="d0L-88-cbT" firstAttribute="height" secondItem="Z6E-Mn-ZWd" secondAttribute="height" id="IIG-Tx-Kz5"/>
+                        <constraint firstAttribute="trailing" secondItem="d0L-88-cbT" secondAttribute="trailing" id="JKg-dZ-iJI"/>
+                        <constraint firstItem="d0L-88-cbT" firstAttribute="leading" secondItem="Z6E-Mn-ZWd" secondAttribute="leading" id="nF7-yg-CHX"/>
+                        <constraint firstItem="d0L-88-cbT" firstAttribute="width" secondItem="Z6E-Mn-ZWd" secondAttribute="width" id="vDG-uo-LSh"/>
+                    </constraints>
+                </scrollView>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RBx-gL-tgE" customClass="CropView" customModule="UtilitiesReport" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="areaRatio">
+                            <real key="value" value="0.18571428571000001"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="areaRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="areaColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="areaPadding">
+                            <real key="value" value="36"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="RBx-gL-tgE" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3nN-Wf-8Dx"/>
+                <constraint firstItem="Z6E-Mn-ZWd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="KlR-nO-0LH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Z6E-Mn-ZWd" secondAttribute="trailing" id="Ksz-Fh-adt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Z6E-Mn-ZWd" secondAttribute="bottom" id="QGT-N3-TmO"/>
+                <constraint firstItem="Z6E-Mn-ZWd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="a7I-d5-V3t"/>
+                <constraint firstItem="RBx-gL-tgE" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="gin-AW-cIA"/>
+                <constraint firstItem="RBx-gL-tgE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="v0q-AB-BOO"/>
+                <constraint firstItem="RBx-gL-tgE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="v2V-Iz-5Fg"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="test1" width="3120" height="4160"/>
+    </resources>
+</document>

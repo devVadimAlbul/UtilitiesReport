@@ -25,20 +25,20 @@ class AppDelegateRouterImpl: AppDelegateRouter {
     func goToMainViewController() {
         let mainVC = MainViewController()
         mainVC.configurator = MainConfiguratorImpl()
-        goToViewController(mainVC)
+        let navigation = VCLoader<UINavigationController>.loadInitial(storyboardId: .navigation)
+        navigation.viewControllers = [mainVC]
+        goToViewController(navigation)
     }
     
     func goToCreatedUserProfile() {
-        let userFormVC = UserFormViewController()
-        userFormVC.configurator = UserFormConfiguratorImpl(userProfile: nil)
-        goToViewController(userFormVC)
+        let welcomeVC = WelcomeViewController()
+        welcomeVC.configurator = WelcomeConfiguratorImpl()
+        goToViewController(welcomeVC)
     }
     
     fileprivate func goToViewController(_ viewController: UIViewController) {
         let window = appDelegate?.window
-        let navigation = VCLoader<UINavigationController>.loadInitial(storyboardId: .navigation)
-        navigation.viewControllers = [viewController]
-        window?.rootViewController = navigation
+        window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }
 }
