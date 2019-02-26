@@ -11,7 +11,7 @@ import UIKit.UINavigationController
 
 protocol MainViewRouter {
     func pushToEditUserProfile(_ user: UserProfile)
-    func pushToTextRecognizer(with image: UIImage)
+    func pushToTextRecognizer(with image: UIImage, delegate: TextRecognizerImageDelegate)
 }
 
 class MainViewRouterImpl: MainViewRouter {
@@ -28,8 +28,9 @@ class MainViewRouterImpl: MainViewRouter {
         self.viewController?.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func pushToTextRecognizer(with image: UIImage) {
+    func pushToTextRecognizer(with image: UIImage, delegate: TextRecognizerImageDelegate) {
         let viewController = TextRecognizerImageViewController()
+        viewController.delegate = delegate
         viewController.configurator = TextRecognizerImageConfiguratorImpl(image: image)
         self.viewController?.navigationController?.pushViewController(viewController, animated: false)
     }

@@ -37,18 +37,8 @@ class TextRecognizerImagePresenterImpl: TextRecognizerImagePresenter {
             guard let `self` = self else { return }
             switch result {
             case .success(let content):
-                print(content)
-//                for (indexBlock, block) in content.blocks.enumerated() {
-//                    self.viewTextRecognizer?.addRectangleView("item_\(indexBlock)", in: block.frame, color: .purple)
-//                    for (lineIndex, line) in block.lines.enumerated() {
-//                        self.viewTextRecognizer?.addRectangleView("item_\(indexBlock)_\(lineIndex)",
-//                            in: line.frame, color: .orange)
-//                        for (elementIndex, element) in line.elements.enumerated() {
-//                            self.viewTextRecognizer?.addRectangleView("item_\(indexBlock)_\(lineIndex)_\(elementIndex)",
-//                                in: element.frame, color: .green)
-//                        }
-//                    }
-//                }
+                self.viewTextRecognizer?.displaySuccess(content.text)
+                self.router.backToMainPage()
             case .failure(let error):
                 self.viewTextRecognizer?.displayError(message: error.localizedDescription)
             }

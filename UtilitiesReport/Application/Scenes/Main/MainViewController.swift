@@ -91,7 +91,7 @@ extension MainViewController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[.originalImage] as? UIImage {
-            mainPresenter?.router.pushToTextRecognizer(with: image)
+            mainPresenter?.router.pushToTextRecognizer(with: image, delegate: self)
         }
         picker.dismiss(animated: false, completion: nil)
     }
@@ -122,5 +122,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         mainPresenter?.didSelectCell(at: indexPath)
+    }
+}
+
+extension MainViewController: TextRecognizerImageDelegate {
+    
+    func textRecognizerImage(_ viewRecognizer: TextRecognizerImageViewController, didRecognizedText text: String) {
+        ProgressHUD.success(text, withDelay: 0.5)
+        print(text)
     }
 }

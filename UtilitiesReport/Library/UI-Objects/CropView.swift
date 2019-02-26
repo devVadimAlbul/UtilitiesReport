@@ -26,12 +26,7 @@ class CropView: UIView {
     private func drawCropArea() {
         let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.bounds.size.width,
                                                     height: self.bounds.size.height), cornerRadius: 0)
-        let width = self.bounds.size.width - (areaPadding * 2)
-        let areaSize = CGSize(width: width, height: width * areaRatio)
-        areaCropFrame = CGRect(x: self.bounds.midX - (areaSize.width/2),
-                               y: self.bounds.midY - (areaSize.height/2),
-                               width: areaSize.width,
-                               height: areaSize.height)
+        areaCropFrame = calculateCropFrame()
         let cropPath = UIBezierPath(roundedRect: areaCropFrame, cornerRadius: areaRadius)
         path.append(cropPath)
         
@@ -42,6 +37,15 @@ class CropView: UIView {
         fillLayer.opacity = 0.5
         
         layer.addSublayer(fillLayer)
+    }
+    
+    func calculateCropFrame() -> CGRect {
+        let width = self.bounds.size.width - (areaPadding * 2)
+        let areaSize = CGSize(width: width, height: width * areaRatio)
+        return CGRect(x: self.bounds.midX - (areaSize.width/2),
+                               y: self.bounds.midY - (areaSize.height/2),
+                               width: areaSize.width,
+                               height: areaSize.height)
     }
     
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {

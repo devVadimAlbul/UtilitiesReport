@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TextRecognizerImageRouter {
-    
+    func backToMainPage()
 }
 
 class TextRecognizerImageRouterImpl: TextRecognizerImageRouter {
@@ -20,5 +20,8 @@ class TextRecognizerImageRouterImpl: TextRecognizerImageRouter {
         self.viewController = viewController
     }
     
+    func backToMainPage() {
+        viewController?.navigationController?.popViewController(animated: true)
+    }
  
 }

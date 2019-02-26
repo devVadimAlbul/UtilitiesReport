@@ -11,7 +11,12 @@ import UIKit
 protocol TextRecognizerImageView: AnyObject {
     func displayPageTitle(_ title: String)
     func displayError(message: String)
-    func addRectangleView(_ identifier: String, in frame: CGRect, color: UIColor)
+    func displaySuccess(_ text: String)
+}
+
+protocol TextRecognizerImageDelegate: AnyObject {
+    func textRecognizerImage(_ viewRecognizer: TextRecognizerImageViewController,
+                             didRecognizedText text: String)
 }
 
 class TextRecognizerImageViewController: BasicViewController, TextRecognizerImageView {
@@ -22,6 +27,7 @@ class TextRecognizerImageViewController: BasicViewController, TextRecognizerImag
     @IBOutlet weak var imageView: UIImageView!
     
     // MARK: property
+    weak var delegate: TextRecognizerImageDelegate?
     var configurator: TextRecognizerImageConfigurator!
     var textRecPresenter: TextRecognizerImagePresenter? {
         return presneter as? TextRecognizerImagePresenter
@@ -42,8 +48,8 @@ class TextRecognizerImageViewController: BasicViewController, TextRecognizerImag
         let imageFrame = imageView.imageFrame()
         let xPos = (scrollView.contentOffset.x + cropFrame.origin.x - imageFrame.origin.x) * scale * factor
         let yPos = (scrollView.contentOffset.y + cropFrame.origin.y - imageFrame.origin.y) * scale * factor
-        let width = cropView.frame.size.width * scale * factor
-        let height = cropView.frame.size.height * scale * factor
+        let width = cropFrame.width * scale * factor
+        let height = cropFrame.height * scale * factor
         return CGRect(x: xPos, y: yPos, width: width, height: height)
     }
     
@@ -69,6 +75,12 @@ class TextRecognizerImageViewController: BasicViewController, TextRecognizerImag
     fileprivate func setupContentUI() {
         scrollView.delegate = self
         scrollView.maximumZoomScale = 10.0
+        let cropFrame = cropView.calculateCropFrame()
+        let imageFrame = imageView.imageFrame()
+        scrollView.contentInset = UIEdgeInsets(top: cropFrame.origin.y - imageFrame.origin.y,
+                                               left: cropFrame.minX,
+                                               bottom: imageFrame.maxY - cropFrame.maxY,
+                                               right: imageFrame.maxX - cropFrame.maxX)
         updateMinZoomScaleForSize(contentImage.size)
     }
     
@@ -93,47 +105,19 @@ class TextRecognizerImageViewController: BasicViewController, TextRecognizerImag
     }
     
     func displayError(message: String) {
+        ProgressHUD.dismiss()
         showErrorAlert(message: message)
     }
     
-    func addRectangleView(_ identifier: String, in frame: CGRect, color: UIColor) {
-        //        let transformedRect = frame.applying(transformMatrix)
-        //        let rect = imageView.convert(imageView.frame, to: view)
-        //        print("addRectangleView[\(identifier)], rect: ", frame, transformedRect, rect)
-        //        let rectangleView = UIView(frame: transformedRect)
-        //        rectangleView.viewIdentifier = identifier
-        //        rectangleView.layer.cornerRadius = configurator.rectangleViewCornerRadius
-        //        rectangleView.alpha = configurator.rectangleViewAlpha
-        //        rectangleView.backgroundColor = color
-        //        imageView.addSubview(rectangleView)
+    func displaySuccess(_ text: String) {
+        ProgressHUD.success("Success Recognized!", withDelay: 0.3)
+        delegate?.textRecognizerImage(self, didRecognizedText: text)
     }
-    
-    //    private func calculateTransformMatrix() -> CGAffineTransform {
-    //        guard let image = imageView.image else { return CGAffineTransform() }
-    //        let imageViewWidth = imageView.frame.size.width
-    //        let imageViewHeight = imageView.frame.size.height
-    //        let imageWidth = image.size.width
-    //        let imageHeight = image.size.height
-    //
-    //        let imageViewAspectRatio = imageViewWidth / imageViewHeight
-    //        let imageAspectRatio = imageWidth / imageHeight
-    //        let scale = (imageViewAspectRatio > imageAspectRatio) ?
-    //            imageViewHeight / imageHeight :
-    //            imageViewWidth / imageWidth
-    //
-    //        let scaledImageWidth = imageWidth * scale
-    //        let scaledImageHeight = imageHeight * scale
-    //        let xValue = (imageViewWidth - scaledImageWidth) / CGFloat(2.0)
-    //        let yValue = (imageViewHeight - scaledImageHeight) / CGFloat(2.0)
-    //
-    //        var transform = CGAffineTransform.identity.translatedBy(x: xValue, y: yValue)
-    //        transform = transform.scaledBy(x: scale, y: scale)
-    //        return transform
-    //    }
     
     // MARK: Action
     @objc func actionRecognize(_ sender: UIBarButtonItem) {
         guard let cropImage = imageView.image?.cropped(boundingBox: cropArea) else { return }
+        ProgressHUD.show(mesage: "Recognizing...")
         textRecPresenter?.textRecognize(image: cropImage)
     }
 }
