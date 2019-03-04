@@ -17,6 +17,7 @@ class CropView: UIView {
     @IBInspectable var areaRatio: CGFloat = 130/700
     @IBInspectable var areaRadius: CGFloat = 5
     @IBInspectable var areaColor: UIColor = .white
+    @IBInspectable var opacity: Float = 0.5
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -33,8 +34,8 @@ class CropView: UIView {
         fillLayer.removeFromSuperlayer()
         fillLayer.path = path.cgPath
         fillLayer.fillRule = .evenOdd
-        fillLayer.fillColor = UIColor.white.cgColor
-        fillLayer.opacity = 0.5
+        fillLayer.fillColor = areaColor.cgColor
+        fillLayer.opacity = opacity
         
         layer.addSublayer(fillLayer)
     }

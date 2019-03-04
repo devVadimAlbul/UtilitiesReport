@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppDelegateProtocol {
         let screenBounds = UIScreen.main.bounds
         window = UIWindow(frame: screenBounds)
         AppDelegate.shared = self
-        FirebaseApp.configure() 
+        FirebaseApp.configure()
+        RealmManager.setConfiguration()
         configurator.configure(delegate: self)
         presenter.didFinishLaunching()
         return true

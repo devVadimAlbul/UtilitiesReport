@@ -32,14 +32,17 @@ class TextRecognizerImageViewController: BasicViewController, TextRecognizerImag
     var textRecPresenter: TextRecognizerImagePresenter? {
         return presneter as? TextRecognizerImagePresenter
     }
-    var contentImage: UIImage! {
-        didSet {
-            imageView.image = contentImage
-            scrollView.contentSize = contentImage.size
+    var contentImage: UIImage? {
+        get {
+            return imageView.image
+        }
+        set {
+            imageView.image = newValue
+            scrollView.contentSize = newValue?.size ?? .zero
         }
     }
     var cropArea: CGRect {
-        guard let size = imageView.image?.size else {
+        guard let size = contentImage?.size else {
             return imageView.bounds
         }
         let factor = size.width/view.frame.width
@@ -81,7 +84,7 @@ class TextRecognizerImageViewController: BasicViewController, TextRecognizerImag
                                                left: cropFrame.minX,
                                                bottom: imageFrame.maxY - cropFrame.maxY,
                                                right: imageFrame.maxX - cropFrame.maxX)
-        updateMinZoomScaleForSize(contentImage.size)
+        updateMinZoomScaleForSize(contentImage?.size ?? .zero)
     }
     
     fileprivate func setupToolBar() {

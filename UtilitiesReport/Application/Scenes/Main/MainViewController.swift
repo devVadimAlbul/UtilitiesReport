@@ -45,12 +45,18 @@ class MainViewController: BasicViewController, MainView {
         navigationItem.setRightBarButton(addNavItem, animated: false)
     }
     
-    func setupTableViewParams() {
+    private func setupTableViewParams() {
         tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 16, right: 0)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
+        registerCells()
+    }
+    
+    private func registerCells() {
         tableView.register(UserProfileTableViewCell.nib(),
                            forCellReuseIdentifier: UserProfileTableViewCell.identifier)
+        tableView.register(EmptyListUserCompaniesTableViewCell.nib(),
+                           forCellReuseIdentifier: EmptyListUserCompaniesTableViewCell.identifier)
     }
     
     // MARK: dispaly methods
@@ -72,6 +78,12 @@ class MainViewController: BasicViewController, MainView {
         case .userProfileCell:
             return tableView.dequeueReusableCell(withIdentifier: UserProfileTableViewCell.identifier,
                                                  for: indexPath)
+        case .listUserCompaniesCell:
+            return UITableViewCell()
+        case .emptyListUserCompaniesCell:
+            return tableView.dequeueReusableCell(
+                withIdentifier: EmptyListUserCompaniesTableViewCell.identifier,
+                for: indexPath)
         }
     }
     

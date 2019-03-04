@@ -23,7 +23,7 @@ class LoadUserProfileUseCaseImpl: LoadUserProfileUseCase {
     }
     
     func load(completionHandler: @escaping LoadUserProfileUseCaseCompletionHandler) {
-        storage.fetchBooks { result in
+        storage.fetch { result in
             switch result {
             case .success(let users):
                 if let user = users.first {

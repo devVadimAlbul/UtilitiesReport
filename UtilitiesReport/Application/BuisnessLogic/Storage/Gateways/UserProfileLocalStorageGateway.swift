@@ -8,15 +8,7 @@
 
 import Foundation
 
-protocol UserProfileLocalStorageGateway {
-    typealias FetchEntitiesCompletionHandler = (_ books: Result<[UserProfile]>) -> Void
-    typealias AddEntityCompletionHandler = (_ books: Result<UserProfile>) -> Void
-    typealias DeleteEntityCompletionHandler = (_ books: Result<Void>) -> Void
-    
-    func getEntity(by identifier: String) -> Result<UserProfile?>
-    func fetchBooks(completionHandler: @escaping FetchEntitiesCompletionHandler)
-    func add(parameters: UserProfile, completionHandler: @escaping AddEntityCompletionHandler)
-    func delete(entity: UserProfile, completionHandler: @escaping DeleteEntityCompletionHandler)
+protocol UserProfileLocalStorageGateway: UserProfileGateway {
 }
 
 // sourcery:begin: AutoMockable
@@ -47,7 +39,7 @@ class UserProfileLocalStorageGatewayImpl: UserProfileLocalStorageGateway {
         }
     }
     
-    func fetchBooks(completionHandler: @escaping (Result<[UserProfile]>) -> Void) {
+    func fetch(completionHandler: @escaping (Result<[UserProfile]>) -> Void) {
         do {
             guard let data = try storage.getData(forKey: storageKey) else {
                 completionHandler(.success([]))

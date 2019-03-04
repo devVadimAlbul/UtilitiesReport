@@ -14,4 +14,8 @@ enum Constants {
     enum StoregeKeys {
         static let userProfile = "UR_User_Profile"
     }
+    
+    enum Api {
+        static let apiURLString = "http://localhost:3000/"
+    }
 }

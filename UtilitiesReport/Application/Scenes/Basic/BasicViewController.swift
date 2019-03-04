@@ -10,8 +10,10 @@ import UIKit
 
 class BasicViewController: UIViewController {
     
+    // MARK: property
     var presneter: PresenterProtocol!
 
+    // MARK: life-cycle
     override func viewDidLoad() {
         loadViewIfNeeded()
         super.viewDidLoad()
@@ -23,6 +25,26 @@ class BasicViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
+    // MARK: updagte UI
+    func updateConstraints(animated: Bool, with duration: TimeInterval = 0.25) {
+        func actionComplite() {
+            self.view.invalidateIntrinsicContentSize()
+            self.view.layoutIfNeeded()
+        }
+        
+        if animated {
+            UIView.animate(withDuration: duration, animations: actionComplite)
+        } else {
+            actionComplite()
+        }
+    }
+    
+    // MARK: action
+    @objc open func closeViewController() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: present methods
     public func navigationPresent(_ viewController: UIViewController, animated: Bool = true, isNeedClose: Bool = true) {
         let navigation = VCLoader<UINavigationController>.loadInitial(storyboardId: .navigation)
         navigation.viewControllers = [viewController]
@@ -34,10 +56,7 @@ class BasicViewController: UIViewController {
         })
     }
     
-    @objc open func closeViewController() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+    // MARK: present alert view
     func showErrorAlert(title: String = "Error!", message: String, buttonText: String = "Cancel") {
         let model = AlertModelView(title: title, message: message, actions: [
                 AlertActionModelView(title: buttonText, actionHandler: nil)

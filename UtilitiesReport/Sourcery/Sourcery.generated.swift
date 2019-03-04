@@ -214,19 +214,19 @@ class UserProfileLocalStorageGatewayMock: UserProfileLocalStorageGateway {
         return getEntityByClosure.map({ $0(identifier) }) ?? getEntityByReturnValue
     }
 
-    //MARK: - fetchBooks
+    //MARK: - fetch
 
-    var fetchBooksCompletionHandlerCallsCount = 0
-    var fetchBooksCompletionHandlerCalled: Bool {
-        return fetchBooksCompletionHandlerCallsCount > 0
+    var fetchCompletionHandlerCallsCount = 0
+    var fetchCompletionHandlerCalled: Bool {
+        return fetchCompletionHandlerCallsCount > 0
     }
-    var fetchBooksCompletionHandlerReceivedCompletionHandler: (FetchEntitiesCompletionHandler)?
-    var fetchBooksCompletionHandlerClosure: ((@escaping FetchEntitiesCompletionHandler) -> Void)?
+    var fetchCompletionHandlerReceivedCompletionHandler: (FetchUsersProfileCompletionHandler)?
+    var fetchCompletionHandlerClosure: ((@escaping FetchUsersProfileCompletionHandler) -> Void)?
 
-    func fetchBooks(completionHandler: @escaping FetchEntitiesCompletionHandler) {
-        fetchBooksCompletionHandlerCallsCount += 1
-        fetchBooksCompletionHandlerReceivedCompletionHandler = completionHandler
-        fetchBooksCompletionHandlerClosure?(completionHandler)
+    func fetch(completionHandler: @escaping FetchUsersProfileCompletionHandler) {
+        fetchCompletionHandlerCallsCount += 1
+        fetchCompletionHandlerReceivedCompletionHandler = completionHandler
+        fetchCompletionHandlerClosure?(completionHandler)
     }
 
     //MARK: - add
@@ -235,10 +235,10 @@ class UserProfileLocalStorageGatewayMock: UserProfileLocalStorageGateway {
     var addParametersCompletionHandlerCalled: Bool {
         return addParametersCompletionHandlerCallsCount > 0
     }
-    var addParametersCompletionHandlerReceivedArguments: (parameters: UserProfile, completionHandler: AddEntityCompletionHandler)?
-    var addParametersCompletionHandlerClosure: ((UserProfile, @escaping AddEntityCompletionHandler) -> Void)?
+    var addParametersCompletionHandlerReceivedArguments: (parameters: UserProfile, completionHandler: AddUserProfileCompletionHandler)?
+    var addParametersCompletionHandlerClosure: ((UserProfile, @escaping AddUserProfileCompletionHandler) -> Void)?
 
-    func add(parameters: UserProfile, completionHandler: @escaping AddEntityCompletionHandler) {
+    func add(parameters: UserProfile, completionHandler: @escaping AddUserProfileCompletionHandler) {
         addParametersCompletionHandlerCallsCount += 1
         addParametersCompletionHandlerReceivedArguments = (parameters: parameters, completionHandler: completionHandler)
         addParametersCompletionHandlerClosure?(parameters, completionHandler)
@@ -250,10 +250,10 @@ class UserProfileLocalStorageGatewayMock: UserProfileLocalStorageGateway {
     var deleteEntityCompletionHandlerCalled: Bool {
         return deleteEntityCompletionHandlerCallsCount > 0
     }
-    var deleteEntityCompletionHandlerReceivedArguments: (entity: UserProfile, completionHandler: DeleteEntityCompletionHandler)?
-    var deleteEntityCompletionHandlerClosure: ((UserProfile, @escaping DeleteEntityCompletionHandler) -> Void)?
+    var deleteEntityCompletionHandlerReceivedArguments: (entity: UserProfile, completionHandler: DeleteUserProfileCompletionHandler)?
+    var deleteEntityCompletionHandlerClosure: ((UserProfile, @escaping DeleteUserProfileCompletionHandler) -> Void)?
 
-    func delete(entity: UserProfile, completionHandler: @escaping DeleteEntityCompletionHandler) {
+    func delete(entity: UserProfile, completionHandler: @escaping DeleteUserProfileCompletionHandler) {
         deleteEntityCompletionHandlerCallsCount += 1
         deleteEntityCompletionHandlerReceivedArguments = (entity: entity, completionHandler: completionHandler)
         deleteEntityCompletionHandlerClosure?(entity, completionHandler)

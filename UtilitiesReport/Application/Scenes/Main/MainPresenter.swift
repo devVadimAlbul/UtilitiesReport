@@ -9,8 +9,10 @@
 import Foundation
 import UIKit.UIImage
 
-enum TypeCellForMainView: Int {
-    case userProfileCell = 0
+enum TypeCellForMainView {
+    case userProfileCell
+    case listUserCompaniesCell
+    case emptyListUserCompaniesCell
 }
 
 protocol MainPresenter: PresenterProtocol {
@@ -29,17 +31,22 @@ class MainPresenterImpl: MainPresenter {
     fileprivate weak var mainView: MainView?
     var router: MainViewRouter
     fileprivate var loadUserProfile: LoadUserProfileUseCase
-    fileprivate var userProfile: UserProfile?
+    fileprivate var loadUserCompanies: LoadUserComapaniesUseCase
     fileprivate var textDetector: TextDetector
+    
+    fileprivate var userProfile: UserProfile?
+    fileprivate var companies: [UserUtilitiesCompany] = []
     
     // MARK: init
     init(view: MainView,
          router: MainViewRouter,
          loadUserProfile: LoadUserProfileUseCase,
+         loadUserCompanies: LoadUserComapaniesUseCase,
          textDetector: TextDetector) {
         self.mainView = view
         self.router = router
         self.loadUserProfile = loadUserProfile
+        self.loadUserCompanies = loadUserCompanies
         self.textDetector = textDetector
     }
     
@@ -65,26 +72,52 @@ class MainPresenterImpl: MainPresenter {
         }
     }
     
+    fileprivate func loadListUserCompanies() {
+        loadUserCompanies.loadList { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let companies):
+                self.companies = companies
+                self.mainView?.updateUIContent()
+            case .failure(let error):
+                self.mainView?.displayError(message: error.localizedDescription)
+            }
+        }
+    }
+    
     // MARK: configurate tableview
     var numberOfSections: Int {
-        return 1
+        return 2
     }
     
     func numberOfRows(in section: Int) -> Int {
         switch section {
         case 0: return userProfile == nil ? 0 : 1
+        case 1: return companies.isEmpty ? 1 : companies.count
         default: return 0
         }
     }
     
     func cellType(at indexPath: IndexPath) -> TypeCellForMainView? {
-        let type = TypeCellForMainView(rawValue: indexPath.section)
-        return type
+        switch indexPath.section {
+        case 0:
+            return .userProfileCell
+        case 1:
+            return companies.isEmpty ? .emptyListUserCompaniesCell : .listUserCompaniesCell
+        default:
+            return nil
+        }
     }
     
     func configure(cellView: BasicVeiwCellProtocol, for indexPath: IndexPath) {
-        if let cell = cellView as? UserProfileViewCell {
+        switch cellView {
+        case let cell as UserProfileViewCell:
             configureUserProfile(cell: cell)
+        case var cell as EmptyListUserCompaniesCell:
+            cell.delegate = mainView as? AddUserCompanyDelegate
+            cell.displayMessage("List utilities company for user is empty.")
+            cell.displayNameAddButton("Add new company")
+        default: break
         }
     }
     
@@ -97,12 +130,17 @@ class MainPresenterImpl: MainPresenter {
     }
     
     func didSelectCell(at indexPath: IndexPath) {
-        guard let type = TypeCellForMainView(rawValue: indexPath.section) else { return }
-        switch type {
-        case .userProfileCell:
+        switch indexPath.section {
+        case 0:
             if let user = userProfile {
                 router.pushToEditUserProfile(user)
             }
+        case 1:
+            if companies.count > indexPath.row {
+                
+            }
+        default:
+            break
         }
     }
   
