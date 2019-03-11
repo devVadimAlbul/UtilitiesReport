@@ -16,6 +16,18 @@
 		141A738B2229633A000E2247 /* RealmUserUtilitiesCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A738A2229633A000E2247 /* RealmUserUtilitiesCompany.swift */; };
 		141A738D22296365000E2247 /* RealmIndicatorsCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A738C22296365000E2247 /* RealmIndicatorsCounter.swift */; };
 		141A738F222964C9000E2247 /* RealmCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A738E222964C9000E2247 /* RealmCounter.swift */; };
+		141AEE5D2233F0B900B9A354 /* SectionViewHeaderAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141AEE5C2233F0B900B9A354 /* SectionViewHeaderAdd.swift */; };
+		141AEE5F2233F19200B9A354 /* SectionViewHeaderAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141AEE5E2233F19200B9A354 /* SectionViewHeaderAdd.xib */; };
+		141AEE612233FA5D00B9A354 /* BasicSectionHeaderVeiwProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141AEE602233FA5D00B9A354 /* BasicSectionHeaderVeiwProtocol.swift */; };
+		141AEE65223518D000B9A354 /* AlertFormFieldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141AEE63223518D000B9A354 /* AlertFormFieldsViewController.swift */; };
+		141AEE66223518D000B9A354 /* AlertFormFieldsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141AEE64223518D000B9A354 /* AlertFormFieldsViewController.xib */; };
+		141AEE68223519FE00B9A354 /* AlertFormFieldsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141AEE67223519FE00B9A354 /* AlertFormFieldsPresenter.swift */; };
+		141AEE6A22351D0F00B9A354 /* AlertFormFieldsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141AEE6922351D0F00B9A354 /* AlertFormFieldsConfigurator.swift */; };
+		141AEE6C22351EF200B9A354 /* AlertFormFieldsProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141AEE6B22351EF200B9A354 /* AlertFormFieldsProps.swift */; };
+		141AEE6F2235317300B9A354 /* AlertFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141AEE6E2235317300B9A354 /* AlertFormModel.swift */; };
+		141AEE7322354AAA00B9A354 /* ModalScaleTransiton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141AEE7222354AAA00B9A354 /* ModalScaleTransiton.swift */; };
+		141AEE772235719100B9A354 /* InfoFromItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141AEE752235719100B9A354 /* InfoFromItemTableViewCell.swift */; };
+		141AEE782235719100B9A354 /* InfoFromItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141AEE762235719100B9A354 /* InfoFromItemTableViewCell.xib */; };
 		14215E1B2226FFF100662150 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14215E1A2226FFF100662150 /* ApiClient.swift */; };
 		14215E222227022F00662150 /* ApiCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14215E212227022F00662150 /* ApiCompany.swift */; };
 		14215E252227041800662150 /* CompanyApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14215E242227041800662150 /* CompanyApiRequest.swift */; };
@@ -39,6 +51,8 @@
 		145406C52219688D008C94F4 /* TextDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145406C42219688D008C94F4 /* TextDetector.swift */; };
 		145EA06A2227CA1700AB633E /* RealmCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145EA0692227CA1700AB633E /* RealmCompany.swift */; };
 		145EA06E2228121500AB633E /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145EA06D2228121500AB633E /* ApiResponse.swift */; };
+		147196762232BFE0006A070C /* InputFormItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147196742232BFE0006A070C /* InputFormItemTableViewCell.swift */; };
+		147196772232BFE0006A070C /* InputFormItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147196752232BFE0006A070C /* InputFormItemTableViewCell.xib */; };
 		14724295221EC46600E8FA56 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14724294221EC46600E8FA56 /* UINavigationController+Extension.swift */; };
 		14724298221EDDB600E8FA56 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14724296221EDDB600E8FA56 /* WelcomeViewController.swift */; };
 		14724299221EDDB600E8FA56 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14724297221EDDB600E8FA56 /* WelcomeViewController.xib */; };
@@ -100,6 +114,8 @@
 		14C083B72212F25D001A5610 /* BasicVeiwCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */; };
 		14CBA619221D40BC0024D06F /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBA618221D40BC0024D06F /* Command.swift */; };
 		14CBA61C221D530F0024D06F /* UserFormProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBA61B221D530F0024D06F /* UserFormProps.swift */; };
+		14CEC86922303CB700AC23E5 /* SelectorFormItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CEC86722303CB700AC23E5 /* SelectorFormItemTableViewCell.swift */; };
+		14CEC86A22303CB700AC23E5 /* SelectorFormItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14CEC86822303CB700AC23E5 /* SelectorFormItemTableViewCell.xib */; };
 		14D3515622141F3F00A77783 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D3515522141F3F00A77783 /* MainViewController.xib */; };
 		14D351612214308300A77783 /* AutoMockable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 14D351602214308300A77783 /* AutoMockable.stencil */; };
 		14D351632214498F00A77783 /* DefaultStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D351622214498F00A77783 /* DefaultStorageTest.swift */; };
@@ -150,6 +166,18 @@
 		141A738A2229633A000E2247 /* RealmUserUtilitiesCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUserUtilitiesCompany.swift; sourceTree = "<group>"; };
 		141A738C22296365000E2247 /* RealmIndicatorsCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmIndicatorsCounter.swift; sourceTree = "<group>"; };
 		141A738E222964C9000E2247 /* RealmCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCounter.swift; sourceTree = "<group>"; };
+		141AEE5C2233F0B900B9A354 /* SectionViewHeaderAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewHeaderAdd.swift; sourceTree = "<group>"; };
+		141AEE5E2233F19200B9A354 /* SectionViewHeaderAdd.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionViewHeaderAdd.xib; sourceTree = "<group>"; };
+		141AEE602233FA5D00B9A354 /* BasicSectionHeaderVeiwProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSectionHeaderVeiwProtocol.swift; sourceTree = "<group>"; };
+		141AEE63223518D000B9A354 /* AlertFormFieldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFormFieldsViewController.swift; sourceTree = "<group>"; };
+		141AEE64223518D000B9A354 /* AlertFormFieldsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertFormFieldsViewController.xib; sourceTree = "<group>"; };
+		141AEE67223519FE00B9A354 /* AlertFormFieldsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFormFieldsPresenter.swift; sourceTree = "<group>"; };
+		141AEE6922351D0F00B9A354 /* AlertFormFieldsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFormFieldsConfigurator.swift; sourceTree = "<group>"; };
+		141AEE6B22351EF200B9A354 /* AlertFormFieldsProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFormFieldsProps.swift; sourceTree = "<group>"; };
+		141AEE6E2235317300B9A354 /* AlertFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFormModel.swift; sourceTree = "<group>"; };
+		141AEE7222354AAA00B9A354 /* ModalScaleTransiton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalScaleTransiton.swift; sourceTree = "<group>"; };
+		141AEE752235719100B9A354 /* InfoFromItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFromItemTableViewCell.swift; sourceTree = "<group>"; };
+		141AEE762235719100B9A354 /* InfoFromItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoFromItemTableViewCell.xib; sourceTree = "<group>"; };
 		14215E1A2226FFF100662150 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		14215E212227022F00662150 /* ApiCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCompany.swift; sourceTree = "<group>"; };
 		14215E242227041800662150 /* CompanyApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyApiRequest.swift; sourceTree = "<group>"; };
@@ -177,6 +205,8 @@
 		145406C42219688D008C94F4 /* TextDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetector.swift; sourceTree = "<group>"; };
 		145EA0692227CA1700AB633E /* RealmCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCompany.swift; sourceTree = "<group>"; };
 		145EA06D2228121500AB633E /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		147196742232BFE0006A070C /* InputFormItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputFormItemTableViewCell.swift; sourceTree = "<group>"; };
+		147196752232BFE0006A070C /* InputFormItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputFormItemTableViewCell.xib; sourceTree = "<group>"; };
 		14724294221EC46600E8FA56 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		14724296221EDDB600E8FA56 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		14724297221EDDB600E8FA56 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
@@ -239,6 +269,8 @@
 		14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicVeiwCellProtocol.swift; sourceTree = "<group>"; };
 		14CBA618221D40BC0024D06F /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		14CBA61B221D530F0024D06F /* UserFormProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormProps.swift; sourceTree = "<group>"; };
+		14CEC86722303CB700AC23E5 /* SelectorFormItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorFormItemTableViewCell.swift; sourceTree = "<group>"; };
+		14CEC86822303CB700AC23E5 /* SelectorFormItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectorFormItemTableViewCell.xib; sourceTree = "<group>"; };
 		14D3515522141F3F00A77783 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		14D351602214308300A77783 /* AutoMockable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoMockable.stencil; sourceTree = "<group>"; };
 		14D351622214498F00A77783 /* DefaultStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStorageTest.swift; sourceTree = "<group>"; };
@@ -280,6 +312,10 @@
 		141850B5222C3E1000B0C2FB /* AddUserUtiliteCompany */ = {
 			isa = PBXGroup;
 			children = (
+				141AEE742235714800B9A354 /* InfoFromItemTableViewCell */,
+				141AEE5B2233EF5200B9A354 /* SectionViewHeaderAdd */,
+				147196732232BFE0006A070C /* InputFormItemTableViewCell */,
+				14CEC86222303BB400AC23E5 /* SelectorFormItemTableViewCell */,
 				141850B6222C3EB500B0C2FB /* FormUserUtilitesCompanyViewController.swift */,
 				141850B7222C3EB500B0C2FB /* FormUserUtilitesCompanyViewController.xib */,
 				141850BA222C3EF500B0C2FB /* FormUserUtilitesCompanyPresenter.swift */,
@@ -287,6 +323,53 @@
 				141850BE222C3F1C00B0C2FB /* FormUserUtilitesCompanyRouter.swift */,
 			);
 			path = AddUserUtiliteCompany;
+			sourceTree = "<group>";
+		};
+		141AEE5B2233EF5200B9A354 /* SectionViewHeaderAdd */ = {
+			isa = PBXGroup;
+			children = (
+				141AEE5C2233F0B900B9A354 /* SectionViewHeaderAdd.swift */,
+				141AEE5E2233F19200B9A354 /* SectionViewHeaderAdd.xib */,
+			);
+			path = SectionViewHeaderAdd;
+			sourceTree = "<group>";
+		};
+		141AEE622235186500B9A354 /* AlertFormFields */ = {
+			isa = PBXGroup;
+			children = (
+				141AEE6D2235315100B9A354 /* Models */,
+				141AEE63223518D000B9A354 /* AlertFormFieldsViewController.swift */,
+				141AEE64223518D000B9A354 /* AlertFormFieldsViewController.xib */,
+				141AEE67223519FE00B9A354 /* AlertFormFieldsPresenter.swift */,
+				141AEE6922351D0F00B9A354 /* AlertFormFieldsConfigurator.swift */,
+				141AEE6B22351EF200B9A354 /* AlertFormFieldsProps.swift */,
+			);
+			path = AlertFormFields;
+			sourceTree = "<group>";
+		};
+		141AEE6D2235315100B9A354 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				141AEE6E2235317300B9A354 /* AlertFormModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		141AEE7122354A7200B9A354 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				141AEE7222354AAA00B9A354 /* ModalScaleTransiton.swift */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		141AEE742235714800B9A354 /* InfoFromItemTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				141AEE752235719100B9A354 /* InfoFromItemTableViewCell.swift */,
+				141AEE762235719100B9A354 /* InfoFromItemTableViewCell.xib */,
+			);
+			path = InfoFromItemTableViewCell;
 			sourceTree = "<group>";
 		};
 		14215E192226FFDD00662150 /* API */ = {
@@ -404,6 +487,15 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		147196732232BFE0006A070C /* InputFormItemTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				147196742232BFE0006A070C /* InputFormItemTableViewCell.swift */,
+				147196752232BFE0006A070C /* InputFormItemTableViewCell.xib */,
+			);
+			path = InputFormItemTableViewCell;
+			sourceTree = "<group>";
+		};
 		1481C2C8222ACDF600C07080 /* EmptyListUserCompanies */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +563,7 @@
 		1487278E220F1B6E00C59344 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				141AEE622235186500B9A354 /* AlertFormFields */,
 				141850B5222C3E1000B0C2FB /* AddUserUtiliteCompany */,
 				14F3074D2225577C00021C95 /* CameraRecognizer */,
 				14B7E83C2221D3E900293DB1 /* TextRecognizerImage */,
@@ -499,6 +592,7 @@
 		14872798220F239B00C59344 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				141AEE7122354A7200B9A354 /* Transition */,
 				145406C42219688D008C94F4 /* TextDetector.swift */,
 				14A54D492211AEA10038A8F2 /* Result.swift */,
 				1441A2D322141D1400BF974A /* URError.swift */,
@@ -513,6 +607,7 @@
 				148727B0220F2F3B00C59344 /* PresenterProtocol.swift */,
 				148727BD22101E2900C59344 /* UserDefaultsDescribing.swift */,
 				14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */,
+				141AEE602233FA5D00B9A354 /* BasicSectionHeaderVeiwProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -759,6 +854,15 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
+		14CEC86222303BB400AC23E5 /* SelectorFormItemTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				14CEC86722303CB700AC23E5 /* SelectorFormItemTableViewCell.swift */,
+				14CEC86822303CB700AC23E5 /* SelectorFormItemTableViewCell.xib */,
+			);
+			path = SelectorFormItemTableViewCell;
+			sourceTree = "<group>";
+		};
 		14D351682214619200A77783 /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
@@ -885,15 +989,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141AEE66223518D000B9A354 /* AlertFormFieldsViewController.xib in Resources */,
 				14264CA32208C6E800655EEA /* LaunchScreen.storyboard in Resources */,
+				147196772232BFE0006A070C /* InputFormItemTableViewCell.xib in Resources */,
 				14D351612214308300A77783 /* AutoMockable.stencil in Resources */,
 				144CA78822135AD9003BBF26 /* AutoHashable.stencil in Resources */,
 				148727CD2210413400C59344 /* UserFormViewController.xib in Resources */,
 				144CA78622135AD9003BBF26 /* AutoEquatable.stencil in Resources */,
+				14CEC86A22303CB700AC23E5 /* SelectorFormItemTableViewCell.xib in Resources */,
+				141AEE782235719100B9A354 /* InfoFromItemTableViewCell.xib in Resources */,
 				14724299221EDDB600E8FA56 /* WelcomeViewController.xib in Resources */,
 				14D3515622141F3F00A77783 /* MainViewController.xib in Resources */,
 				14F30751222557DF00021C95 /* CameraRecognizerViewController.xib in Resources */,
 				14A54D3022115D720038A8F2 /* FormTextItemView.xib in Resources */,
+				141AEE5F2233F19200B9A354 /* SectionViewHeaderAdd.xib in Resources */,
 				1481C2CC222ACF2900C07080 /* EmptyListUserCompaniesTableViewCell.xib in Resources */,
 				141850B9222C3EB500B0C2FB /* FormUserUtilitesCompanyViewController.xib in Resources */,
 				148727D72210D25D00C59344 /* Navigation.storyboard in Resources */,
@@ -1041,6 +1150,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141AEE6C22351EF200B9A354 /* AlertFormFieldsProps.swift in Sources */,
+				14CEC86922303CB700AC23E5 /* SelectorFormItemTableViewCell.swift in Sources */,
 				14A54D3622115D9B0038A8F2 /* ViewFromXibProtocol.swift in Sources */,
 				14F3075722255B6200021C95 /* CameraRecognizerRouter.swift in Sources */,
 				141850BB222C3EF500B0C2FB /* FormUserUtilitesCompanyPresenter.swift in Sources */,
@@ -1076,6 +1187,7 @@
 				148727BE22101E2900C59344 /* UserDefaultsDescribing.swift in Sources */,
 				14F30750222557DF00021C95 /* CameraRecognizerViewController.swift in Sources */,
 				14A54D45221194120038A8F2 /* UITextField+Extension.swift in Sources */,
+				141AEE6A22351D0F00B9A354 /* AlertFormFieldsConfigurator.swift in Sources */,
 				14CBA619221D40BC0024D06F /* Command.swift in Sources */,
 				14A54D3522115D9B0038A8F2 /* ControlFromXib.swift in Sources */,
 				14F307592225C51700021C95 /* Company.swift in Sources */,
@@ -1083,6 +1195,7 @@
 				14A54D3B22115E8B0038A8F2 /* NSObject+Extension.swift in Sources */,
 				14A54D2D22115B510038A8F2 /* FormTextItemView.swift in Sources */,
 				1472B66F2223EAD700D879D4 /* UIImage+Extension.swift in Sources */,
+				141AEE6F2235317300B9A354 /* AlertFormModel.swift in Sources */,
 				148727B7220F39B000C59344 /* UserProfile.swift in Sources */,
 				14D351672214531B00A77783 /* UserProfileLocalStorageGateway.swift in Sources */,
 				141850BF222C3F1C00B0C2FB /* FormUserUtilitesCompanyRouter.swift in Sources */,
@@ -1090,7 +1203,9 @@
 				148727DC2210D31B00C59344 /* VCLoader.swift in Sources */,
 				14B7E8462221D5D400293DB1 /* TextRecognizerImageRouter.swift in Sources */,
 				1481C2D0222AE7B000C07080 /* LoadUserComapaniesUseCase.swift in Sources */,
+				147196762232BFE0006A070C /* InputFormItemTableViewCell.swift in Sources */,
 				14C083B22212D928001A5610 /* ViewShadow.swift in Sources */,
+				141AEE68223519FE00B9A354 /* AlertFormFieldsPresenter.swift in Sources */,
 				1487279F220F28F400C59344 /* MainViewRouter.swift in Sources */,
 				14215E3422271DE200662150 /* Realm+CascadeDeleting.swift in Sources */,
 				148727C32210268F00C59344 /* StorageProtocols.swift in Sources */,
@@ -1108,6 +1223,7 @@
 				1472429D221EDE1000E8FA56 /* WelcomePresenter.swift in Sources */,
 				14A54D3922115DD30038A8F2 /* UIView+Extension.swift in Sources */,
 				14D6D9462229A031003A67E3 /* UserUtilitesCompanyLocalStorageGateway.swift in Sources */,
+				141AEE772235719100B9A354 /* InfoFromItemTableViewCell.swift in Sources */,
 				14215E222227022F00662150 /* ApiCompany.swift in Sources */,
 				141A738B2229633A000E2247 /* RealmUserUtilitiesCompany.swift in Sources */,
 				14A54D4A2211AEA10038A8F2 /* Result.swift in Sources */,
@@ -1120,13 +1236,17 @@
 				1441A2CB2214162600BF974A /* GetSavedUserProfileUseCase.swift in Sources */,
 				14A54D3722115D9B0038A8F2 /* ViewFromXib.swift in Sources */,
 				148727CC2210413400C59344 /* UserFormViewController.swift in Sources */,
+				141AEE65223518D000B9A354 /* AlertFormFieldsViewController.swift in Sources */,
 				14215E3122271AF300662150 /* RealmManager.swift in Sources */,
 				1481C2CB222ACF2900C07080 /* EmptyListUserCompaniesTableViewCell.swift in Sources */,
 				14CBA61C221D530F0024D06F /* UserFormProps.swift in Sources */,
 				14215E2722270E2900662150 /* UserProfileGateway.swift in Sources */,
+				141AEE7322354AAA00B9A354 /* ModalScaleTransiton.swift in Sources */,
 				148727B1220F2F3B00C59344 /* PresenterProtocol.swift in Sources */,
+				141AEE612233FA5D00B9A354 /* BasicSectionHeaderVeiwProtocol.swift in Sources */,
 				14D6D94422299F8B003A67E3 /* UserUtilitesCompanyGateway.swift in Sources */,
 				141850BD222C3F0700B0C2FB /* AddUserUtilitesCompanyConfigurator.swift in Sources */,
+				141AEE5D2233F0B900B9A354 /* SectionViewHeaderAdd.swift in Sources */,
 				14A54D482211ADBC0038A8F2 /* SaveUserProfile.swift in Sources */,
 				148727C12210253900C59344 /* DefaultsStorage.swift in Sources */,
 				14A54D40221174560038A8F2 /* ButtonCircle.swift in Sources */,
@@ -1217,7 +1337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1273,7 +1393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

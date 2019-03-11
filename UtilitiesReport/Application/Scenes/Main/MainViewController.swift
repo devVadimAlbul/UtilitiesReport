@@ -30,7 +30,6 @@ class MainViewController: BasicViewController, MainView {
         configurator.configure(viewController: self)
         super.viewDidLoad()
         setupTableViewParams()
-        setupNavigationItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,12 +38,6 @@ class MainViewController: BasicViewController, MainView {
     }
     
     // MARK: setup func
-    func setupNavigationItems() {
-        let addNavItem = UIBarButtonItem(barButtonSystemItem: .add, target: self,
-                                         action: #selector(actionAddBarItem))
-        navigationItem.setRightBarButton(addNavItem, animated: false)
-    }
-    
     private func setupTableViewParams() {
         tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 16, right: 0)
         tableView.rowHeight = UITableView.automaticDimension
@@ -72,6 +65,7 @@ class MainViewController: BasicViewController, MainView {
         tableView.reloadData()
     }
     
+    // swiftlint:disable force_cast
     // MARK: config tableview cells
     fileprivate func getTableViewCell(type: TypeCellForMainView, at indexPath: IndexPath) -> UITableViewCell {
         switch type {
@@ -81,32 +75,14 @@ class MainViewController: BasicViewController, MainView {
         case .listUserCompaniesCell:
             return UITableViewCell()
         case .emptyListUserCompaniesCell:
-            return tableView.dequeueReusableCell(
+            let cell =  tableView.dequeueReusableCell(
                 withIdentifier: EmptyListUserCompaniesTableViewCell.identifier,
-                for: indexPath)
+                for: indexPath) as! EmptyListUserCompaniesTableViewCell
+            cell.delegate = self
+            return cell
         }
     }
     
-    // MARK: Action
-    @objc func actionAddBarItem(_ sender: UIBarButtonItem) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-}
-
-// MARK: - extension: UIImagePickerControllerDelegate, UINavigationControllerDelegate
-extension MainViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let image = info[.originalImage] as? UIImage {
-            mainPresenter?.router.pushToTextRecognizer(with: image, delegate: self)
-        }
-        picker.dismiss(animated: false, completion: nil)
-    }
 }
 
 // MARK: - extension: UITableViewDelegate, UITableViewDataSource
@@ -137,10 +113,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MainViewController: TextRecognizerImageDelegate {
+// MARK: - extension: AddUserCompanyDelegate
+extension MainViewController: AddUserCompanyDelegate {
     
-    func textRecognizerImage(_ viewRecognizer: TextRecognizerImageViewController, didRecognizedText text: String) {
-        ProgressHUD.success(text, withDelay: 0.5)
-        print(text)
+    func actionAddUserCompany() {
+        mainPresenter?.router.pushToAddUserCompany()
     }
 }

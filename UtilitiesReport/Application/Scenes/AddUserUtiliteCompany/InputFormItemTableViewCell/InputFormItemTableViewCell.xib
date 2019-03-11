@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InputFormItemTableViewCell" rowHeight="100" id="KGk-i7-Jjw" customClass="InputFormItemTableViewCell" customModule="UtilitiesReport" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dkn-ck-pnD">
+                        <rect key="frame" x="16" y="8" width="288" height="63"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XKO-2l-unt">
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qMd-B6-ru4">
+                                <rect key="frame" x="0.0" y="23" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="40" id="jRE-BO-ifP"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Zox-zh-krn">
+                        <rect key="frame" x="16" y="84.5" width="288" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="ock-sl-0zL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                        <color key="textColor" red="0.86666666670000003" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dkn-ck-pnD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="PO7-ES-PeN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="dkn-ck-pnD" secondAttribute="trailing" id="VO9-QY-rSm"/>
+                    <constraint firstItem="Zox-zh-krn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="bFk-Ff-l0f"/>
+                    <constraint firstItem="dkn-ck-pnD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="bLr-gH-WhJ"/>
+                    <constraint firstItem="Zox-zh-krn" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ejQ-Ch-Uoo"/>
+                    <constraint firstAttribute="bottom" secondItem="Zox-zh-krn" secondAttribute="bottom" id="or0-h7-2hN"/>
+                    <constraint firstItem="Zox-zh-krn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dkn-ck-pnD" secondAttribute="bottom" id="p89-vi-t7d"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblTitle" destination="XKO-2l-unt" id="Hpa-CI-hk5"/>
+                <outlet property="lblWarning" destination="Zox-zh-krn" id="3RQ-DR-yxe"/>
+                <outlet property="tfContent" destination="qMd-B6-ru4" id="Mcq-w9-0fs"/>
+            </connections>
+            <point key="canvasLocation" x="137.59999999999999" y="193.4032983508246"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit.UITableViewCell
 
-protocol BasicVeiwCellProtocol {}
+protocol BasicVeiwCellProtocol: AnyObject {}
 
 extension UITableViewCell: BasicVeiwCellProtocol {
     

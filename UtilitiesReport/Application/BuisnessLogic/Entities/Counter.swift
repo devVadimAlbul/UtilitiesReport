@@ -13,4 +13,9 @@ struct Counter {
     var identifier: String
     var placeInstallation: String
     
+    
+    enum CodingKeys: String, CodingKey {
+        case identifier = "id"
+        case placeInstallation = "place_installation"
+    }
 }

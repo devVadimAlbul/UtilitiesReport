@@ -113,7 +113,7 @@ class MainPresenterImpl: MainPresenter {
         switch cellView {
         case let cell as UserProfileViewCell:
             configureUserProfile(cell: cell)
-        case var cell as EmptyListUserCompaniesCell:
+        case let cell as EmptyListUserCompaniesCell:
             cell.delegate = mainView as? AddUserCompanyDelegate
             cell.displayMessage("List utilities company for user is empty.")
             cell.displayNameAddButton("Add new company")
@@ -136,7 +136,9 @@ class MainPresenterImpl: MainPresenter {
                 router.pushToEditUserProfile(user)
             }
         case 1:
-            if companies.count > indexPath.row {
+            if !companies.isEmpty {
+               router.pushToAddUserCompany()
+            } else if companies.count > indexPath.row {
                 
             }
         default:

@@ -9,7 +9,8 @@
 import Foundation
 
 protocol FormUserUtilitesCompanyRouter {
-    
+    func pressentAlertForm(by model: AlertFormModel,
+                           saveComletionHandler: @escaping (AlertFormModel) -> Void)
 }
 
 class FormUserUtilitesCompanyRouterImpl: FormUserUtilitesCompanyRouter {
@@ -18,5 +19,12 @@ class FormUserUtilitesCompanyRouterImpl: FormUserUtilitesCompanyRouter {
     
     init(viewController: FormUserUtilitesCompanyViewController) {
         self.viewController = viewController
+    }
+    
+    func pressentAlertForm(by model: AlertFormModel,
+                           saveComletionHandler: @escaping (AlertFormModel) -> Void) {
+        AlertFormFieldsViewController.pressentAlertForm(by: model,
+                                                        on: viewController,
+                                                        saveHandler: saveComletionHandler)
     }
 }

@@ -108,9 +108,9 @@ class UserFormViewController: BasicViewController, UserFormView {
             textView.warningMessage = message
             textView.isValid = false
         }
-        updateTextIfNeeded(in: textView, with: item, using: \.value)
+        updateTextIfNeaded(in: textView, with: item, using: \.value)
     }
-    private func updateTextIfNeeded<T>(in textView: FormTextItemView,
+    private func updateTextIfNeaded<T>(in textView: FormTextItemView,
                                        with source: T,
                                        using keyPath: KeyPath<T, String?>) {
         guard !textView.tfItem.isFirstResponder else { return }

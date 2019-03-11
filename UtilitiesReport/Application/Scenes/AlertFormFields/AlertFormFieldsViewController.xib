@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertFormFieldsViewController" customModule="UtilitiesReport" customModuleProvider="target">
+            <connections>
+                <outlet property="btnSave" destination="7Zx-vb-oN7" id="yC6-tt-vGX"/>
+                <outlet property="contentStatckView" destination="a00-gy-mTt" id="Vj6-5n-v4z"/>
+                <outlet property="lblTitle" destination="Med-iP-mG6" id="JR9-Tr-mMs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLa-bH-RX9" customClass="UIControl">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <viewLayoutGuide key="safeArea" id="w1e-QL-pMd"/>
+                    <connections>
+                        <action selector="clickedControlView:" destination="-1" eventType="touchUpInside" id="ao1-My-aM4"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEC-h0-fpd" customClass="ViewShadow" customModule="UtilitiesReport" customModuleProvider="target">
+                    <rect key="frame" x="28" y="229" width="319" height="209"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Med-iP-mG6">
+                            <rect key="frame" x="30" y="30" width="259" height="24"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="a00-gy-mTt">
+                            <rect key="frame" x="30" y="74" width="259" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="250" constant="40" id="G8K-Uh-lS7"/>
+                            </constraints>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zx-vb-oN7" customClass="ButtonRound" customModule="UtilitiesReport" customModuleProvider="target">
+                            <rect key="frame" x="81" y="134" width="157.5" height="45"/>
+                            <color key="backgroundColor" red="0.49718188569999999" green="0.71144927099999999" blue="0.06644424602" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="7Zx-vb-oN7" secondAttribute="height" multiplier="140:40" priority="750" id="3Hm-N2-w6U"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="contentEdgeInsets" minX="30" minY="12" maxX="30" maxY="12"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSize" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="roundRadius">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="clickedSaveButton:" destination="-1" eventType="touchUpInside" id="bmD-3G-CaQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="a00-gy-mTt" firstAttribute="leading" secondItem="zEC-h0-fpd" secondAttribute="leading" constant="30" id="056-FH-c8v"/>
+                        <constraint firstItem="Med-iP-mG6" firstAttribute="leading" secondItem="zEC-h0-fpd" secondAttribute="leading" constant="30" id="46t-um-6YS"/>
+                        <constraint firstAttribute="trailing" secondItem="Med-iP-mG6" secondAttribute="trailing" constant="30" id="73I-Iu-L6M"/>
+                        <constraint firstItem="a00-gy-mTt" firstAttribute="top" secondItem="Med-iP-mG6" secondAttribute="bottom" constant="20" id="Tlx-G7-zHX"/>
+                        <constraint firstItem="Med-iP-mG6" firstAttribute="top" secondItem="zEC-h0-fpd" secondAttribute="top" constant="30" id="Za6-t1-g3S"/>
+                        <constraint firstItem="7Zx-vb-oN7" firstAttribute="top" secondItem="a00-gy-mTt" secondAttribute="bottom" constant="20" id="gro-yi-gXL"/>
+                        <constraint firstAttribute="trailing" secondItem="a00-gy-mTt" secondAttribute="trailing" constant="30" id="owf-0K-rbX"/>
+                        <constraint firstItem="7Zx-vb-oN7" firstAttribute="centerX" secondItem="zEC-h0-fpd" secondAttribute="centerX" id="u7F-HL-e6q"/>
+                        <constraint firstAttribute="bottom" secondItem="7Zx-vb-oN7" secondAttribute="bottom" constant="30" id="zkj-U8-AlL"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="5" height="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="roundRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="0.69602772887323938" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="aLa-bH-RX9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="45X-EA-KVI"/>
+                <constraint firstItem="zEC-h0-fpd" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.85" id="CFN-jx-hpa"/>
+                <constraint firstItem="aLa-bH-RX9" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="O4Q-Bj-XoX"/>
+                <constraint firstItem="aLa-bH-RX9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="SE0-TC-S5b"/>
+                <constraint firstItem="aLa-bH-RX9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sao-Vc-gq3"/>
+                <constraint firstItem="zEC-h0-fpd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="y7I-fC-5ub"/>
+                <constraint firstItem="zEC-h0-fpd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ycU-1t-EF9"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138.40000000000001" y="138.98050974512745"/>
+        </view>
+    </objects>
+</document>

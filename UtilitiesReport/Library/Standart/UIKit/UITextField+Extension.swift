@@ -20,4 +20,39 @@ extension UITextField {
             objc_setAssociatedObject(self, &kAssociationKeyNextField, newField, .OBJC_ASSOCIATION_RETAIN)
         }
     }
+    
+    enum Direction {
+        case left
+        case right
+    }
+    
+    func addImage(in direction: Direction, with image: UIImage,
+                  to rect: CGRect, backgroundColor: UIColor, tintColor: UIColor) {
+        let view = UIView(frame: rect)
+        view.backgroundColor = backgroundColor
+        view.isUserInteractionEnabled = false
+        
+        let imageView = UIImageView(frame: rect)
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = image.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = tintColor
+        
+        view.addSubview(imageView)
+        
+        switch direction {
+        case .left:
+            self.leftViewMode = .always
+            self.leftView = view
+        case .right:
+            self.rightViewMode = .always
+            self.rightView = view
+        }
+    }
+    
+    func placeholderColor(_ color: UIColor) {
+        if let placeholderText = self.placeholder {
+            self.attributedPlaceholder = NSAttributedString(string: placeholderText,
+                                                            attributes: [.foregroundColor: color])
+        }
+    }
 }
