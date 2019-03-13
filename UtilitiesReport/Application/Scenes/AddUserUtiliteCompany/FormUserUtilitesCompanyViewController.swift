@@ -11,10 +11,13 @@ import UIKit
 protocol FormUserUtilitesCompanyView: AnyObject {
     func displayPageTitle(_ title: String)
     func displayError(_ message: String)
+    func displayAlert(with model: AlertModelView)
+    func displaySuccessSave()
     func reloadSection(_ index: Int)
     func insertSection(_ index: Int)
     func removeSection(_ index: Int)
     func insertCell(by indexPath: IndexPath)
+    func removeCell(by indexPath: IndexPath)
     func reloadAllData()
 }
 
@@ -76,9 +79,16 @@ class FormUserUtilitesCompanyViewController: BasicViewController, FormUserUtilit
     }
     
     func displayError(_ message: String) {
+        ProgressHUD.dismiss()
         showErrorAlert(message: message)
     }
     
+    func displaySuccessSave() {
+        ProgressHUD.success()
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: table view action
     func reloadSection(_ index: Int) {
         if tableView.numberOfSections > index {
             let indexSet = IndexSet(arrayLiteral: index)
@@ -96,15 +106,8 @@ class FormUserUtilitesCompanyViewController: BasicViewController, FormUserUtilit
         tableView.insertSections(indexSet, with: .none)
         tableView.endUpdates()
         tableView.reloadSections(indexSet, with: .none)
-//        tableView.reloadData()
     }
-    
-    func insertCell(by indexPath: IndexPath) {
-        if tableView.numberOfSections > indexPath.section {
-            tableView.insertRows(at: [indexPath], with: .bottom)
-        }
-    }
-    
+
     func removeSection(_ index: Int) {
         if tableView.numberOfSections > index {
             let countRows = tableView.numberOfRows(inSection: index)
@@ -113,6 +116,22 @@ class FormUserUtilitesCompanyViewController: BasicViewController, FormUserUtilit
             let indexPathes = (0..<countRows).map({IndexPath(row: $0, section: index)})
             tableView.deleteRows(at: indexPathes, with: .fade)
             tableView.deleteSections(indexSet, with: .fade)
+            tableView.endUpdates()
+        }
+    }
+    
+    func insertCell(by indexPath: IndexPath) {
+        if tableView.numberOfSections > indexPath.section {
+            tableView.insertRows(at: [indexPath], with: .bottom)
+        }
+    }
+    
+    func removeCell(by indexPath: IndexPath) {
+        if tableView.numberOfSections > indexPath.section &&
+            tableView.numberOfRows(inSection: indexPath.section) > indexPath.row {
+            
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
     }
@@ -136,6 +155,7 @@ class FormUserUtilitesCompanyViewController: BasicViewController, FormUserUtilit
     
     // MARK: IBAction
     @IBAction func clickedBtnSave(_ sender: UIButton) {
+        ProgressHUD.show()
         formPresenter?.saveUserComapany()
     }
     
@@ -153,6 +173,11 @@ class FormUserUtilitesCompanyViewController: BasicViewController, FormUserUtilit
             return tableView.dequeueReusableCell(withIdentifier: InfoFromItemTableViewCell.identifier,
                                                  for: indexPath)
         }
+    }
+    
+    func displayAlert(with model: AlertModelView) {
+        ProgressHUD.dismiss()
+        self.presentAlert(by: model)
     }
 }
 
@@ -193,6 +218,29 @@ extension FormUserUtilitesCompanyViewController: UITableViewDelegate, UITableVie
         switch type {
         case .addViewCounter: return 60
         }
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return formPresenter?.isEditingCell(with: indexPath) ?? false
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (_, index) in
+            self.formPresenter?.actionDeleteItem(by: index)
+        }
+        
+        let edit = UITableViewRowAction(style: .default, title: "Edit") { (_, index) in
+            self.formPresenter?.actionEditItem(by: index)
+        }
+        edit.backgroundColor = UIColor.blue
+        
+        let isEditing = formPresenter?.isEditingCell(with: indexPath) ?? false
+        return isEditing ? [delete, edit] : nil
     }
 }
 

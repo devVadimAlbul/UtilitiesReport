@@ -9,12 +9,15 @@
 import Foundation
 import RealmSwift
 
+
+
 class RealmCompany: Object {
     @objc dynamic var identifier = UUID().uuidString
     @objc dynamic var name = ""
     @objc dynamic var isNeedCounter: Bool = false
     @objc dynamic var siteURLString: String?
     @objc dynamic var city: String = ""
+    @objc dynamic var typeValue: String = ""
     
     override static func primaryKey() -> String? {
         return "identifier"
@@ -25,7 +28,8 @@ class RealmCompany: Object {
             "identifier": company.identifier,
             "name": company.name,
             "isNeedCounter": company.isNeedCounter,
-            "city": company.city
+            "city": company.city,
+            "typeValue": company.type.rawValue
         ])
         self.siteURLString = company.siteURLString
     }
@@ -36,7 +40,8 @@ class RealmCompany: Object {
             name: name,
             isNeedCounter: isNeedCounter,
             siteURLString: siteURLString,
-            city: city
+            city: city,
+            type: CompanyType(rawValue: typeValue) ?? .default
         )
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DefaultsStorage: AnyObject, StoringProvidable {}
+protocol DefaultsStorage: AnyObject, StorageProvidable {}
 
 // sourcery:begin: AutoMockable
 extension DefaultsStorage {}

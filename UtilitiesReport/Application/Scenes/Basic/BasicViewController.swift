@@ -59,7 +59,7 @@ class BasicViewController: UIViewController {
     // MARK: present alert view
     func showErrorAlert(title: String = "Error!", message: String, buttonText: String = "Cancel") {
         let model = AlertModelView(title: title, message: message, actions: [
-                AlertActionModelView(title: buttonText, actionHandler: nil)
+                AlertActionModelView(title: buttonText, action: nil)
             ])
         presentAlert(by: model)
     }
@@ -68,7 +68,7 @@ class BasicViewController: UIViewController {
         let alert = UIAlertController(title: model.title, message: model.message, preferredStyle: .alert)
         
         model.actions.forEach {
-            let action = UIAlertAction(title: $0.title, style: .default, handler: $0.actionHandler)
+            let action = UIAlertAction(title: $0.title, style: .default, handler: $0.action?.perform)
             alert.addAction(action)
         }
         present(alert, animated: true, completion: nil)

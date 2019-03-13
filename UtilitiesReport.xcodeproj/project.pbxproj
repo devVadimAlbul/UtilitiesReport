@@ -63,8 +63,8 @@
 		1472B66F2223EAD700D879D4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472B66E2223EAD700D879D4 /* UIImage+Extension.swift */; };
 		1472B6712223F1C200D879D4 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472B6702223F1C200D879D4 /* UIImageView+Extension.swift */; };
 		1481A9AD221ADC090035E466 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1481A9AC221ADC090035E466 /* GoogleService-Info.plist */; };
-		1481C2CB222ACF2900C07080 /* EmptyListUserCompaniesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481C2C9222ACF2900C07080 /* EmptyListUserCompaniesTableViewCell.swift */; };
-		1481C2CC222ACF2900C07080 /* EmptyListUserCompaniesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1481C2CA222ACF2900C07080 /* EmptyListUserCompaniesTableViewCell.xib */; };
+		1481C2CB222ACF2900C07080 /* EmptyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481C2C9222ACF2900C07080 /* EmptyListTableViewCell.swift */; };
+		1481C2CC222ACF2900C07080 /* EmptyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1481C2CA222ACF2900C07080 /* EmptyListTableViewCell.xib */; };
 		1481C2D0222AE7B000C07080 /* LoadUserComapaniesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481C2CF222AE7B000C07080 /* LoadUserComapaniesUseCase.swift */; };
 		14872793220F232B00C59344 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14872792220F232B00C59344 /* MainViewController.swift */; };
 		14872797220F236A00C59344 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14872796220F236A00C59344 /* MainPresenter.swift */; };
@@ -114,6 +114,11 @@
 		14C083B72212F25D001A5610 /* BasicVeiwCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */; };
 		14CBA619221D40BC0024D06F /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBA618221D40BC0024D06F /* Command.swift */; };
 		14CBA61C221D530F0024D06F /* UserFormProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBA61B221D530F0024D06F /* UserFormProps.swift */; };
+		14CDF94822383F3D0040160E /* UserCompanyItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CDF94622383F3D0040160E /* UserCompanyItemTableViewCell.swift */; };
+		14CDF94922383F3D0040160E /* UserCompanyItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14CDF94722383F3D0040160E /* UserCompanyItemTableViewCell.xib */; };
+		14CDF96F2239784B0040160E /* LastIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CDF96E2239784B0040160E /* LastIndicatorView.swift */; };
+		14CDF971223978550040160E /* LastIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14CDF970223978550040160E /* LastIndicatorView.xib */; };
+		14CDF973223982B30040160E /* LastInticatorModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CDF972223982B30040160E /* LastInticatorModelView.swift */; };
 		14CEC86922303CB700AC23E5 /* SelectorFormItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CEC86722303CB700AC23E5 /* SelectorFormItemTableViewCell.swift */; };
 		14CEC86A22303CB700AC23E5 /* SelectorFormItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14CEC86822303CB700AC23E5 /* SelectorFormItemTableViewCell.xib */; };
 		14D3515622141F3F00A77783 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D3515522141F3F00A77783 /* MainViewController.xib */; };
@@ -217,8 +222,8 @@
 		1472B66E2223EAD700D879D4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		1472B6702223F1C200D879D4 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		1481A9AC221ADC090035E466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		1481C2C9222ACF2900C07080 /* EmptyListUserCompaniesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListUserCompaniesTableViewCell.swift; sourceTree = "<group>"; };
-		1481C2CA222ACF2900C07080 /* EmptyListUserCompaniesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyListUserCompaniesTableViewCell.xib; sourceTree = "<group>"; };
+		1481C2C9222ACF2900C07080 /* EmptyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListTableViewCell.swift; sourceTree = "<group>"; };
+		1481C2CA222ACF2900C07080 /* EmptyListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyListTableViewCell.xib; sourceTree = "<group>"; };
 		1481C2CF222AE7B000C07080 /* LoadUserComapaniesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUserComapaniesUseCase.swift; sourceTree = "<group>"; };
 		14872792220F232B00C59344 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		14872796220F236A00C59344 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
@@ -269,6 +274,11 @@
 		14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicVeiwCellProtocol.swift; sourceTree = "<group>"; };
 		14CBA618221D40BC0024D06F /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		14CBA61B221D530F0024D06F /* UserFormProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormProps.swift; sourceTree = "<group>"; };
+		14CDF94622383F3D0040160E /* UserCompanyItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCompanyItemTableViewCell.swift; sourceTree = "<group>"; };
+		14CDF94722383F3D0040160E /* UserCompanyItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCompanyItemTableViewCell.xib; sourceTree = "<group>"; };
+		14CDF96E2239784B0040160E /* LastIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastIndicatorView.swift; sourceTree = "<group>"; };
+		14CDF970223978550040160E /* LastIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastIndicatorView.xib; sourceTree = "<group>"; };
+		14CDF972223982B30040160E /* LastInticatorModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastInticatorModelView.swift; sourceTree = "<group>"; };
 		14CEC86722303CB700AC23E5 /* SelectorFormItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorFormItemTableViewCell.swift; sourceTree = "<group>"; };
 		14CEC86822303CB700AC23E5 /* SelectorFormItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectorFormItemTableViewCell.xib; sourceTree = "<group>"; };
 		14D3515522141F3F00A77783 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
@@ -496,13 +506,13 @@
 			path = InputFormItemTableViewCell;
 			sourceTree = "<group>";
 		};
-		1481C2C8222ACDF600C07080 /* EmptyListUserCompanies */ = {
+		1481C2C8222ACDF600C07080 /* EmptyListViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				1481C2C9222ACF2900C07080 /* EmptyListUserCompaniesTableViewCell.swift */,
-				1481C2CA222ACF2900C07080 /* EmptyListUserCompaniesTableViewCell.xib */,
+				1481C2C9222ACF2900C07080 /* EmptyListTableViewCell.swift */,
+				1481C2CA222ACF2900C07080 /* EmptyListTableViewCell.xib */,
 			);
-			path = EmptyListUserCompanies;
+			path = EmptyListViewCell;
 			sourceTree = "<group>";
 		};
 		1481C2CD222AE74C00C07080 /* UserProfile */ = {
@@ -549,6 +559,7 @@
 		1487278D220F188A00C59344 /* BuisnessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				14A54D532211C68F0038A8F2 /* Models */,
 				14215E2822270E3200662150 /* Gateways */,
 				14215E192226FFDD00662150 /* API */,
 				148727B5220F395F00C59344 /* Entities */,
@@ -661,7 +672,6 @@
 		148727A6220F2B8800C59344 /* Basic */ = {
 			isa = PBXGroup;
 			children = (
-				14A54D532211C68F0038A8F2 /* Models */,
 				148727AD220F2EA700C59344 /* BasicViewController.swift */,
 			);
 			path = Basic;
@@ -731,6 +741,7 @@
 		14A54D2B22115AD00038A8F2 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				14CDF96C223976EE0040160E /* LastIndicatorView */,
 				14A54D2E22115B5A0038A8F2 /* FormTextItemView */,
 			);
 			path = Xibs;
@@ -780,6 +791,7 @@
 			isa = PBXGroup;
 			children = (
 				14A54D512211C6770038A8F2 /* AlertModelView.swift */,
+				14CDF972223982B30040160E /* LastInticatorModelView.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -826,7 +838,8 @@
 		14C083A92212D7A9001A5610 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				1481C2C8222ACDF600C07080 /* EmptyListUserCompanies */,
+				14CDF94522383E690040160E /* UserCompanyItemViewCell */,
+				1481C2C8222ACDF600C07080 /* EmptyListViewCell */,
 				14C083AA2212D7B9001A5610 /* UserProfileTableViewCell */,
 			);
 			path = Cells;
@@ -852,6 +865,24 @@
 				1472429E221EDE2700E8FA56 /* WelcomeViewRouler.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		14CDF94522383E690040160E /* UserCompanyItemViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				14CDF94622383F3D0040160E /* UserCompanyItemTableViewCell.swift */,
+				14CDF94722383F3D0040160E /* UserCompanyItemTableViewCell.xib */,
+			);
+			path = UserCompanyItemViewCell;
+			sourceTree = "<group>";
+		};
+		14CDF96C223976EE0040160E /* LastIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				14CDF96E2239784B0040160E /* LastIndicatorView.swift */,
+				14CDF970223978550040160E /* LastIndicatorView.xib */,
+			);
+			path = LastIndicatorView;
 			sourceTree = "<group>";
 		};
 		14CEC86222303BB400AC23E5 /* SelectorFormItemTableViewCell */ = {
@@ -992,7 +1023,9 @@
 				141AEE66223518D000B9A354 /* AlertFormFieldsViewController.xib in Resources */,
 				14264CA32208C6E800655EEA /* LaunchScreen.storyboard in Resources */,
 				147196772232BFE0006A070C /* InputFormItemTableViewCell.xib in Resources */,
+				14CDF971223978550040160E /* LastIndicatorView.xib in Resources */,
 				14D351612214308300A77783 /* AutoMockable.stencil in Resources */,
+				14CDF94922383F3D0040160E /* UserCompanyItemTableViewCell.xib in Resources */,
 				144CA78822135AD9003BBF26 /* AutoHashable.stencil in Resources */,
 				148727CD2210413400C59344 /* UserFormViewController.xib in Resources */,
 				144CA78622135AD9003BBF26 /* AutoEquatable.stencil in Resources */,
@@ -1003,7 +1036,7 @@
 				14F30751222557DF00021C95 /* CameraRecognizerViewController.xib in Resources */,
 				14A54D3022115D720038A8F2 /* FormTextItemView.xib in Resources */,
 				141AEE5F2233F19200B9A354 /* SectionViewHeaderAdd.xib in Resources */,
-				1481C2CC222ACF2900C07080 /* EmptyListUserCompaniesTableViewCell.xib in Resources */,
+				1481C2CC222ACF2900C07080 /* EmptyListTableViewCell.xib in Resources */,
 				141850B9222C3EB500B0C2FB /* FormUserUtilitesCompanyViewController.xib in Resources */,
 				148727D72210D25D00C59344 /* Navigation.storyboard in Resources */,
 				1481A9AD221ADC090035E466 /* GoogleService-Info.plist in Resources */,
@@ -1162,6 +1195,7 @@
 				14215E252227041800662150 /* CompanyApiRequest.swift in Sources */,
 				1472B6712223F1C200D879D4 /* UIImageView+Extension.swift in Sources */,
 				148727D92210D2A700C59344 /* UIViewController+Extension.swift in Sources */,
+				14CDF96F2239784B0040160E /* LastIndicatorView.swift in Sources */,
 				145EA06E2228121500AB633E /* ApiResponse.swift in Sources */,
 				1441A2D422141D1400BF974A /* URError.swift in Sources */,
 				14872793220F232B00C59344 /* MainViewController.swift in Sources */,
@@ -1175,7 +1209,9 @@
 				14A54D3E221174260038A8F2 /* ButtonRound.swift in Sources */,
 				141A738F222964C9000E2247 /* RealmCounter.swift in Sources */,
 				148727CF2210479400C59344 /* UserFormPresenter.swift in Sources */,
+				14CDF94822383F3D0040160E /* UserCompanyItemTableViewCell.swift in Sources */,
 				148727D422104A8800C59344 /* UserFormViewRouter.swift in Sources */,
+				14CDF973223982B30040160E /* LastInticatorModelView.swift in Sources */,
 				14A54D4C2211AF830038A8F2 /* Constants.swift in Sources */,
 				1472429F221EDE2700E8FA56 /* WelcomeViewRouler.swift in Sources */,
 				1487279C220F283B00C59344 /* MainConfigurator.swift in Sources */,
@@ -1238,7 +1274,7 @@
 				148727CC2210413400C59344 /* UserFormViewController.swift in Sources */,
 				141AEE65223518D000B9A354 /* AlertFormFieldsViewController.swift in Sources */,
 				14215E3122271AF300662150 /* RealmManager.swift in Sources */,
-				1481C2CB222ACF2900C07080 /* EmptyListUserCompaniesTableViewCell.swift in Sources */,
+				1481C2CB222ACF2900C07080 /* EmptyListTableViewCell.swift in Sources */,
 				14CBA61C221D530F0024D06F /* UserFormProps.swift in Sources */,
 				14215E2722270E2900662150 /* UserProfileGateway.swift in Sources */,
 				141AEE7322354AAA00B9A354 /* ModalScaleTransiton.swift in Sources */,

@@ -17,9 +17,9 @@ class RealmManager: RealmManagerProtocol {
 
     // MARK: property
     static var nameDataBase: String = "UtilitiReport"
-    static var defaultConfiguration: Realm.Configuration {
+    private static var defaultConfiguration: Realm.Configuration {
         var config = Realm.Configuration(
-            schemaVersion: 1,
+            schemaVersion: 2,
             migrationBlock: { (_, _) in
                 
             }
@@ -52,17 +52,17 @@ class RealmManager: RealmManagerProtocol {
     func remove<S: Sequence>(_ objects: S, cascading: Bool = false) throws where S.Element: Object {
         try realm.write {
             if cascading {
-                self.realm.delete(objects, cascading: true)
+                self.realm.delete(objects, cascading: cascading)
             } else {
                 self.realm.delete(objects)
             }
         }
     }
     
-    func remove<S: Object>(_ objects: Results<S>, cascading: Bool) throws {
+    func remove<S: Object>(_ objects: Results<S>, cascading: Bool = false) throws {
         try realm.write {
             if cascading {
-                self.realm.delete(objects, cascading: true)
+                self.realm.delete(objects, cascading: cascading)
             } else {
                 self.realm.delete(objects)
             }

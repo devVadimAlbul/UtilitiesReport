@@ -15,6 +15,7 @@ struct ApiCompany: Codable, Equatable {
     var isNeedCounter: Bool = false
     var siteURL: String?
     var city: String
+    var type: String
     
     enum CodingKeys: String, CodingKey {
         case identifier = "id"
@@ -22,6 +23,7 @@ struct ApiCompany: Codable, Equatable {
         case isNeedCounter = "is_need_counter"
         case siteURL = "site_url"
         case city = "city"
+        case type = "type"
     }
     
     static func == (lhs: ApiCompany, rhs: ApiCompany) -> Bool {
@@ -35,6 +37,7 @@ struct ApiCompany: Codable, Equatable {
         isNeedCounter = try values.decode(Bool.self, forKey: .isNeedCounter)
         siteURL = try values.decodeIfPresent(String.self, forKey: .siteURL)
         city = try values.decode(String.self, forKey: .city)
+        type = try values.decode(String.self, forKey: .type)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -44,6 +47,7 @@ struct ApiCompany: Codable, Equatable {
         try container.encode(isNeedCounter, forKey: .isNeedCounter)
         try container.encode(siteURL, forKey: .siteURL)
         try container.encode(city, forKey: .city)
+        try container.encode(type, forKey: .type)
     }
 
     var company: Company {
@@ -52,6 +56,8 @@ struct ApiCompany: Codable, Equatable {
             name: name,
             isNeedCounter: isNeedCounter,
             siteURLString: siteURL,
-            city: city)
+            city: city,
+            type: CompanyType(rawValue: type) ?? .default
+        )
     }
 }

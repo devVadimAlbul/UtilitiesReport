@@ -30,6 +30,7 @@ class MainViewController: BasicViewController, MainView {
         configurator.configure(viewController: self)
         super.viewDidLoad()
         setupTableViewParams()
+        setupNavigationItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,8 +49,16 @@ class MainViewController: BasicViewController, MainView {
     private func registerCells() {
         tableView.register(UserProfileTableViewCell.nib(),
                            forCellReuseIdentifier: UserProfileTableViewCell.identifier)
-        tableView.register(EmptyListUserCompaniesTableViewCell.nib(),
-                           forCellReuseIdentifier: EmptyListUserCompaniesTableViewCell.identifier)
+        tableView.register(EmptyListTableViewCell.nib(),
+                           forCellReuseIdentifier: EmptyListTableViewCell.identifier)
+        tableView.register(UserCompanyItemTableViewCell.nib(),
+                           forCellReuseIdentifier: UserCompanyItemTableViewCell.identifier)
+    }
+    
+    private func setupNavigationItem() {
+        let addBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "add"), style: .done,
+                                           target: self, action: #selector(actionAddNavBar))
+        self.navigationItem.setRightBarButton(addBarButton, animated: true)
     }
     
     // MARK: dispaly methods
@@ -65,6 +74,11 @@ class MainViewController: BasicViewController, MainView {
         tableView.reloadData()
     }
     
+    // MARK: targat action
+    @objc func actionAddNavBar() {
+        mainPresenter?.actionAddNew()
+    }
+    
     // swiftlint:disable force_cast
     // MARK: config tableview cells
     fileprivate func getTableViewCell(type: TypeCellForMainView, at indexPath: IndexPath) -> UITableViewCell {
@@ -73,13 +87,11 @@ class MainViewController: BasicViewController, MainView {
             return tableView.dequeueReusableCell(withIdentifier: UserProfileTableViewCell.identifier,
                                                  for: indexPath)
         case .listUserCompaniesCell:
-            return UITableViewCell()
+            return tableView.dequeueReusableCell(withIdentifier: UserCompanyItemTableViewCell.identifier,
+                                                 for: indexPath)
         case .emptyListUserCompaniesCell:
-            let cell =  tableView.dequeueReusableCell(
-                withIdentifier: EmptyListUserCompaniesTableViewCell.identifier,
-                for: indexPath) as! EmptyListUserCompaniesTableViewCell
-            cell.delegate = self
-            return cell
+            return tableView.dequeueReusableCell(withIdentifier: EmptyListTableViewCell.identifier,
+                                                 for: indexPath) as! EmptyListTableViewCell
         }
     }
     
@@ -117,6 +129,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 extension MainViewController: AddUserCompanyDelegate {
     
     func actionAddUserCompany() {
-        mainPresenter?.router.pushToAddUserCompany()
+        mainPresenter?.actionAddNew()
     }
 }

@@ -31,22 +31,22 @@ class UserUtilitesCompanyGatewayImpl: UserUtilitesCompanyGateway {
     }
     
     func load(by identifier: String, completionHandler: @escaping LoadEntityCompletionHandler) {
-        
+        localStorage.load(by: identifier, completionHandler: completionHandler)
     }
     
     func fetch(completionHandler: @escaping FetchEntitiesCompletionHandler) {
-        
+        localStorage.fetch(completionHandler: completionHandler)
     }
     
     func delete(entity: UserUtilitiesCompany, completionHandler: @escaping DeleteEntityCompletionHandler) {
-        
+        localStorage.delete(entity: entity, completionHandler: completionHandler)
     }
     
     func deleteAll(completionHandler: @escaping DeleteEntityCompletionHandler) {
-        
+        localStorage.deleteAll(completionHandler: completionHandler)
     }
     
     func save(entity: UserUtilitiesCompany, completionHandler: @escaping AddEntityCompletionHandler) {
-        
+        localStorage.save(entity: entity, completionHandler: completionHandler)
     }
 }

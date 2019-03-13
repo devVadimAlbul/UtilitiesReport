@@ -84,10 +84,10 @@ class AlertFormFieldsViewController: BasicViewController, AlertFormFieldsView {
     
     private func updateContentTextField(in textField: UITextField, with item: Props.ItemField) {
         textField.placeholder = item.placeholder
-        updateTextIfNeaded(in: textField, with: item, using: \.value)
+        updateTextIfNeeded(in: textField, with: item, using: \.value)
     }
     
-    private func updateTextIfNeaded<T>(in textField: UITextField,
+    private func updateTextIfNeeded<T>(in textField: UITextField,
                                        with source: T,
                                        using keyPath: KeyPath<T, String?>) {
         guard !textField.isFirstResponder else { return }

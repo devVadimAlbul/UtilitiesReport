@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol StoringProvidable {
+protocol StorageProvidable {
     func saveValue(_ value: String?, forKey key: String) throws
     func saveData(_ data: Data?, forKey key: String) throws
     func getValue(forKey key: String) throws -> String?

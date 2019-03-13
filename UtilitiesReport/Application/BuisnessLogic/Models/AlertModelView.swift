@@ -17,5 +17,5 @@ struct AlertModelView {
 
 struct AlertActionModelView {
     let title: String?
-    var actionHandler: ((UIAlertAction) -> Void)?
+    var action: CommandWith<UIAlertAction>?
 }

@@ -3,6 +3,7 @@ disabled_rules: # rule identifiers to exclude from running
  - vertical_whitespace
  - superfluous_disable_command
  - nesting
+ - unused_closure_parameter
 #  - colon
 #  - comma
 #  - control_statement

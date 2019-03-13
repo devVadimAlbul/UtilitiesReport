@@ -18,6 +18,7 @@ enum TypeCellForMainView {
 protocol MainPresenter: PresenterProtocol {
     var router: MainViewRouter { get }
     func loadContent()
+    func actionAddNew()
     var numberOfSections: Int { get }
     func numberOfRows(in section: Int) -> Int
     func cellType(at indexPath: IndexPath) -> TypeCellForMainView?
@@ -57,6 +58,7 @@ class MainPresenterImpl: MainPresenter {
     
     func loadContent() {
         checkUserCreated()
+        loadListUserCompanies()
     }
     
     fileprivate func checkUserCreated() {
@@ -83,6 +85,10 @@ class MainPresenterImpl: MainPresenter {
                 self.mainView?.displayError(message: error.localizedDescription)
             }
         }
+    }
+    
+    func actionAddNew() {
+        router.pushToAddUserCompany()
     }
     
     // MARK: configurate tableview
@@ -113,10 +119,15 @@ class MainPresenterImpl: MainPresenter {
         switch cellView {
         case let cell as UserProfileViewCell:
             configureUserProfile(cell: cell)
-        case let cell as EmptyListUserCompaniesCell:
+        case let cell as EmptyListViewCell:
             cell.delegate = mainView as? AddUserCompanyDelegate
             cell.displayMessage("List utilities company for user is empty.")
             cell.displayNameAddButton("Add new company")
+        case let cell as UserCompanyItemViewCell:
+            let item = companies[indexPath.row]
+            cell.displayName(item.company?.name)
+            cell.displayAccountNumber(item.accountNumber)
+            cell.displayEmblem(item.company?.type.image ?? CompanyType.default.image)
         default: break
         }
     }
@@ -136,9 +147,7 @@ class MainPresenterImpl: MainPresenter {
                 router.pushToEditUserProfile(user)
             }
         case 1:
-            if !companies.isEmpty {
-               router.pushToAddUserCompany()
-            } else if companies.count > indexPath.row {
+            if companies.count > indexPath.row {
                 
             }
         default:

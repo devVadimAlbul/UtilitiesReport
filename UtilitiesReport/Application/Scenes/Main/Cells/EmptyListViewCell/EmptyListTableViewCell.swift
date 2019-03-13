@@ -12,13 +12,13 @@ protocol AddUserCompanyDelegate: AnyObject {
     func actionAddUserCompany()
 }
 
-protocol EmptyListUserCompaniesCell: BasicVeiwCellProtocol {
+protocol EmptyListViewCell: BasicVeiwCellProtocol {
     var delegate: AddUserCompanyDelegate? { get set }
     func displayNameAddButton(_ name: String)
     func displayMessage(_ message: String?)
 }
 
-class EmptyListUserCompaniesTableViewCell: UITableViewCell, EmptyListUserCompaniesCell {
+class EmptyListTableViewCell: UITableViewCell, EmptyListViewCell {
 
     // MARK: IBOutlet
     @IBOutlet weak var btnAddNewCompany: ButtonRound!

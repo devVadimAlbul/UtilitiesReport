@@ -17,11 +17,11 @@ extension UserProfileLocalStorageGateway {}
 
 class UserProfileLocalStorageGatewayImpl: UserProfileLocalStorageGateway {
     
-    fileprivate let storage: StoringProvidable
+    fileprivate let storage: StorageProvidable
     let storageKey: String
     
     init(storageKey: String = Constants.StoregeKeys.userProfile,
-         storage: StoringProvidable = DefaultsStorageImpl()) {
+         storage: StorageProvidable = DefaultsStorageImpl()) {
         self.storageKey = storageKey
         self.storage = storage
     }
