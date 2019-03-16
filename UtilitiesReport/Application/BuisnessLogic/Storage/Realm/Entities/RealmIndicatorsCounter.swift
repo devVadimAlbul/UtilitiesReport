@@ -14,6 +14,9 @@ class RealmIndicatorsCounter: Object {
     @objc dynamic var identifier = UUID().uuidString
     @objc dynamic var date = Date()
     @objc dynamic var value = ""
+    @objc dynamic var counter: RealmCounter?
+    @objc dynamic var state: String = ""
+    
     
     override static func primaryKey() -> String? {
         return "identifier"
@@ -23,13 +26,19 @@ class RealmIndicatorsCounter: Object {
         self.init(value: [
             "identifier": indicator.identifier,
             "date": indicator.date,
-            "value": indicator.value
+            "value": indicator.value,
+            "state": indicator.state.rawValue
         ])
+        if let counter = indicator.counter {
+           self.counter = RealmCounter(counter: counter)
+        }
     }
     
     var indicatorsModel: IndicatorsCounter {
         return IndicatorsCounter(identifier: identifier,
                                  date: date,
-                                 value: value)
+                                 value: value,
+                                 counter: counter?.counterModel,
+                                 state: IndicatorState(rawValue: state) ?? .created)
     }
 }

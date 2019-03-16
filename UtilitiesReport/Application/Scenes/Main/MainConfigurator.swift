@@ -22,11 +22,9 @@ class MainConfiguratorImpl: MainConfigurator {
         let loadUserCompanies = LoadUserComapaniesUseCaseImpl(
             gateway: UserUtilitesCompanyGatewayImpl(localStorage: storage)
         )
-        let detector = TextDetectorFirebaseImpl()
         let presenter = MainPresenterImpl(view: viewController, router: router,
                                           loadUserProfile: loadUserUseCase,
-                                          loadUserCompanies: loadUserCompanies,
-                                          textDetector: detector)
+                                          loadUserCompanies: loadUserCompanies)
         viewController.presneter = presenter
     }
 }

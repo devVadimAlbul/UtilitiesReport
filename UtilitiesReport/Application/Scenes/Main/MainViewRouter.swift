@@ -11,6 +11,7 @@ import UIKit.UINavigationController
 
 protocol MainViewRouter {
     func pushToEditUserProfile(_ user: UserProfile)
+    func pushListIndicators(userCounterID: String)
     func pushToTextRecognizer(with image: UIImage, delegate: TextRecognizerImageDelegate)
     func pushToAddUserCompany()
 }
@@ -40,5 +41,11 @@ class MainViewRouterImpl: MainViewRouter {
         let viewController = FormUserUtilitesCompanyViewController()
         viewController.configurator = FormUserUtilitesCompanyConfiguratorImpl()
         self.viewController?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func pushListIndicators(userCounterID: String) {
+        let listVC = ListIndicatorsCounterViewController()
+        listVC.configurator = ListIndicatorsCounterConfiguratorImpl(userCompanyIdentifier: userCounterID)
+        self.viewController?.navigationController?.pushViewController(listVC, animated: true)
     }
 }

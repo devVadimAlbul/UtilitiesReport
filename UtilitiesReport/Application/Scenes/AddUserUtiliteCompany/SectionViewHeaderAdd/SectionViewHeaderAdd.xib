@@ -13,24 +13,23 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SectionViewHeaderAdd" customModule="UtilitiesReport" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59h-06-Bh3">
-                    <rect key="frame" x="16" y="66.5" width="37.5" height="18"/>
+                    <rect key="frame" x="16" y="20.5" width="37.5" height="18"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyd-Wh-VIW" customClass="ButtonCircle" customModule="UtilitiesReport" customModuleProvider="target">
-                    <rect key="frame" x="329" y="60.5" width="30" height="30"/>
+                    <rect key="frame" x="318" y="9" width="41" height="41"/>
                     <constraints>
-                        <constraint firstAttribute="width" priority="999" constant="30" id="cad-Nt-H2Y"/>
                         <constraint firstAttribute="width" secondItem="dyd-Wh-VIW" secondAttribute="height" multiplier="1:1" id="dyN-G1-OwI"/>
                     </constraints>
                     <color key="tintColor" red="0.11856221829999999" green="0.30409542589999999" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                    <state key="normal" image="plus-icon"/>
+                    <state key="normal" image="add"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                             <color key="value" red="0.023529411760000001" green="0.19215686269999999" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -51,18 +50,15 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="dyd-Wh-VIW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" id="DeU-mB-UFn"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dyd-Wh-VIW" secondAttribute="trailing" constant="16" id="JgJ-IQ-Zr7"/>
-                <constraint firstItem="59h-06-Bh3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="K36-Tq-qGc"/>
+                <constraint firstAttribute="trailing" secondItem="dyd-Wh-VIW" secondAttribute="trailing" priority="999" constant="16" id="JgJ-IQ-Zr7"/>
+                <constraint firstItem="59h-06-Bh3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="K36-Tq-qGc"/>
                 <constraint firstItem="jH1-jC-5dR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="LEb-fq-PQ4"/>
                 <constraint firstItem="59h-06-Bh3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="OCS-WS-r7d"/>
                 <constraint firstAttribute="trailing" secondItem="jH1-jC-5dR" secondAttribute="trailing" id="Omb-8Y-RNB"/>
                 <constraint firstItem="jH1-jC-5dR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qbn-8c-O0q"/>
-                <constraint firstItem="dyd-Wh-VIW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="59h-06-Bh3" secondAttribute="trailing" constant="8" id="SpE-N4-NSz"/>
+                <constraint firstItem="dyd-Wh-VIW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="59h-06-Bh3" secondAttribute="trailing" priority="999" constant="8" id="SpE-N4-NSz"/>
                 <constraint firstItem="dyd-Wh-VIW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ev2-51-0uc"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dyd-Wh-VIW" secondAttribute="bottom" id="ynw-lk-lvU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -70,10 +66,10 @@
                 <outlet property="btnAdd" destination="dyd-Wh-VIW" id="zXu-Po-6q0"/>
                 <outlet property="lblTitle" destination="59h-06-Bh3" id="izy-OQ-KS3"/>
             </connections>
-            <point key="canvasLocation" x="2" y="-105"/>
+            <point key="canvasLocation" x="0.80000000000000004" y="-147.07646176911544"/>
         </view>
     </objects>
     <resources>
-        <image name="plus-icon" width="51" height="51"/>
+        <image name="add" width="31.5" height="31.5"/>
     </resources>
 </document>

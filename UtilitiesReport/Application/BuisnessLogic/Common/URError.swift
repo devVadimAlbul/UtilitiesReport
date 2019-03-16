@@ -17,6 +17,7 @@ enum URError: Error {
     case companyNotFound
     case userCompanyNotFound
     case incorrectUserUtitliesCompany
+    case idicatorCounterCantRemoved
 }
 
 extension URError: LocalizedError {
@@ -32,6 +33,8 @@ extension URError: LocalizedError {
         case .userCompanyNotFound: return "User untility company not found.\nPlease try again later."
         case .incorrectUserUtitliesCompany:
             return "Utilites company data incorrect in form.\nPlease check is it and try again."
+        case .idicatorCounterCantRemoved:
+            return "Indicator of counter can not deleted."
         }
     }
 }

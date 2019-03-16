@@ -33,7 +33,6 @@ class MainPresenterImpl: MainPresenter {
     var router: MainViewRouter
     fileprivate var loadUserProfile: LoadUserProfileUseCase
     fileprivate var loadUserCompanies: LoadUserComapaniesUseCase
-    fileprivate var textDetector: TextDetector
     
     fileprivate var userProfile: UserProfile?
     fileprivate var companies: [UserUtilitiesCompany] = []
@@ -42,13 +41,11 @@ class MainPresenterImpl: MainPresenter {
     init(view: MainView,
          router: MainViewRouter,
          loadUserProfile: LoadUserProfileUseCase,
-         loadUserCompanies: LoadUserComapaniesUseCase,
-         textDetector: TextDetector) {
+         loadUserCompanies: LoadUserComapaniesUseCase) {
         self.mainView = view
         self.router = router
         self.loadUserProfile = loadUserProfile
         self.loadUserCompanies = loadUserCompanies
-        self.textDetector = textDetector
     }
     
     // MARK: MainPresenter Methods
@@ -148,7 +145,8 @@ class MainPresenterImpl: MainPresenter {
             }
         case 1:
             if companies.count > indexPath.row {
-                
+                let item = companies[indexPath.row]
+                router.pushListIndicators(userCounterID: item.accountNumber)
             }
         default:
             break
