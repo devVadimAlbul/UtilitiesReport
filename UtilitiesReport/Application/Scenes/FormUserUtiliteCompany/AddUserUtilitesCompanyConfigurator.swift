@@ -30,6 +30,6 @@ class FormUserUtilitesCompanyConfiguratorImpl: FormUserUtilitesCompanyConfigurat
                                                              userUtitlitesCompany: nil,
                                                              companiesGateway: companiesGateway,
                                                              userCompanyGateway: userComapnyGateway)
-        viewController.presneter = presenter
+        viewController.presenter = presenter
     }
 }

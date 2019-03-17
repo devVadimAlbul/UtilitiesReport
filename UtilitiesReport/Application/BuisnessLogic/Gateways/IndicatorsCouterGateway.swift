@@ -17,4 +17,6 @@ protocol IndicatorsCouterGateway {
     func delete(entity: IndicatorsCounter, completionHandler: @escaping DeleteEntityCompletionHandler)
     func deleteAll(by predicate: NSPredicate, completionHandler: @escaping DeleteEntityCompletionHandler)
     func save(entity: IndicatorsCounter, completionHandler: @escaping AddEntityCompletionHandler)
+    func add(entity: IndicatorsCounter, toUserCompanyID identifier: String,
+             completionHandler: @escaping AddEntityCompletionHandler)
 }

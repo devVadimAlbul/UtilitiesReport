@@ -19,12 +19,12 @@ class MainConfiguratorImpl: MainConfigurator {
         let router = MainViewRouterImpl(viewController: viewController)
         let loadUserUseCase = LoadUserProfileUseCaseImpl(storage: UserProfileLocalStorageGatewayImpl())
         let storage = UserUtilCompanyLocalStorageGatewayImpl.default
-        let loadUserCompanies = LoadUserComapaniesUseCaseImpl(
+        let loadUserCompanies = LoadUserCompaniesUseCaseImpl(
             gateway: UserUtilitesCompanyGatewayImpl(localStorage: storage)
         )
         let presenter = MainPresenterImpl(view: viewController, router: router,
                                           loadUserProfile: loadUserUseCase,
                                           loadUserCompanies: loadUserCompanies)
-        viewController.presneter = presenter
+        viewController.presenter = presenter
     }
 }

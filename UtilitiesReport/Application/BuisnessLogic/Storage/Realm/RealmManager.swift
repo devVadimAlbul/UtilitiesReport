@@ -10,6 +10,7 @@ protocol RealmManagerProtocol {
     func getEntity<T: Object, KeyType>(withType type: T.Type, for primaryKey: KeyType) -> T?
     func save<T: Object>(_ object: T, update: Bool, completion: (() -> Void)?) throws
     func save<S: Sequence>(_ objects: S, update: Bool, completion: (() -> Void)?) throws where S.Element: Object
+    func write(completion: (Realm) -> Void) throws
 }
 
 // swiftlint:disable force_try
@@ -94,6 +95,12 @@ class RealmManager: RealmManagerProtocol {
                            completion: (() -> Void)? = nil) throws where S.Element: Object {
         try realm.write {
             self.realm.add(objects, update: update)
+        }
+    }
+    
+    func write(completion: (Realm) -> Void) throws {
+        try realm.write {
+            completion(realm)
         }
     }
 }

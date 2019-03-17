@@ -27,6 +27,6 @@ class UserFormConfiguratorImpl: UserFormConfigurator {
                                               profile: userProfile,
                                               saveUserProfileUseCase: saveUseCase)
         
-        view.presneter = presenter
+        view.presenter = presenter
     }
 }

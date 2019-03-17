@@ -3,6 +3,8 @@ import UIKit
 protocol ListIndicatorsCounterView: AnyObject {
     func displayPageTitle(_ title: String)
     func displayError(_ message: String)
+    func displayActionSheet(by model: AlertModelView)
+    func displayImagePicker(sourceType: UIImagePickerController.SourceType)
     func reloadAllData()
 }
 
@@ -14,7 +16,7 @@ class ListIndicatorsCounterViewController: BasicViewController, ListIndicatorsCo
     
     // MARK: preoprties
     private var listPresenter: ListIndicatorsCounterPresenter? {
-        return presneter as? ListIndicatorsCounterPresenter
+        return presenter as? ListIndicatorsCounterPresenter
     }
 
     // MARK: life-cycle
@@ -25,6 +27,10 @@ class ListIndicatorsCounterViewController: BasicViewController, ListIndicatorsCo
         setupNavigationItem()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        listPresenter?.updateContent()
+    }
     
     // MARK: setup func
     private func setupTableView() {
@@ -52,13 +58,30 @@ class ListIndicatorsCounterViewController: BasicViewController, ListIndicatorsCo
         showErrorAlert(message: message)
     }
     
+    func displayActionSheet(by model: AlertModelView) {
+        presentActionSheet(by: model)
+    }
+    
+    func displayImagePicker(sourceType: UIImagePickerController.SourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = sourceType
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            let name = sourceType == .camera ? "Camera" : "Photo library"
+            showErrorAlert(message: URError.notAvailable(name).localizedDescription)
+        }
+    }
+    
     func reloadAllData() {
         tableView.reloadData()
     }
     
     // MARK: target action
     @objc func actionAddNavBar() {
-        
+        listPresenter?.actionAddNewIndicator()
     }
 }
 
@@ -79,5 +102,37 @@ extension ListIndicatorsCounterViewController: UITableViewDelegate, UITableViewD
         listPresenter?.configure(cell: cell, at: indexPath)
         
         return cell
+    }
+}
+
+// MARK: - extension: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension ListIndicatorsCounterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            listPresenter?.router.pushToTextRecognizer(with: image, delegate: self)
+        }
+        picker.dismiss(animated: false, completion: nil)
+    }
+}
+
+// MARK: extension: TextRecognizerImageDelegate
+extension ListIndicatorsCounterViewController: TextRecognizerImageDelegate {
+    
+    func textRecognizerImage(_ viewRecognizer: TextRecognizerImageViewController,
+                             didRecognizedText text: String) {
+        listPresenter?.actionSaveIndicator(value: text.onlyDigits())
+    }
+}
+
+// MARK: extension: ItemIndicatorCounterCellDelegate
+extension ListIndicatorsCounterViewController: ItemIndicatorCounterCellDelegate {
+    
+    func actionSend(view: ItemIndicatorCounterViewCell) {
+        if let cell = view as? UITableViewCell,
+           let indexPath = tableView.indexPath(for: cell) {
+            
+        }
     }
 }

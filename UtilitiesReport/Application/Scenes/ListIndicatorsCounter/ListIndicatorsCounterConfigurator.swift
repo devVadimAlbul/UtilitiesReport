@@ -23,13 +23,15 @@ class ListIndicatorsCounterConfiguratorImpl: ListIndicatorsCounterConfigurator {
     func configure(viewController: ListIndicatorsCounterViewController) {
         let router = ListIndicatorsCounterRouterImpl(viewController: viewController)
         let indicatorsCounterGateway = IndicatorsCouterLocalStorageGatewayImpl()
-        let findUseCase = FindIndicatorsCounterUseCaseImpl(manager: RealmManager())
+        let loaclStorage = UserUtilCompanyLocalStorageGatewayImpl(manager: RealmManager())
+        let companyGateway = UserUtilitesCompanyGatewayImpl(localStorage: loaclStorage)
+        let loadUseCase = LoadUserCompaniesUseCaseImpl(gateway: companyGateway)
         let presenter = ListIndicatorsCounterPresenterImpl(router: router,
                                                            view: viewController,
                                                            userCompanyIdentifier: userCompanyIdentifier,
                                                            indicatorsCouterGateway: indicatorsCounterGateway,
-                                                           findUseCase: findUseCase)
+                                                           loadUseCase: loadUseCase)
         
-        viewController.presneter = presenter
+        viewController.presenter = presenter
     }
 }

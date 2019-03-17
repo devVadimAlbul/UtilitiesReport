@@ -23,7 +23,7 @@ class AlertFormFieldsViewController: BasicViewController, AlertFormFieldsView {
     // MARK: property
     var configurator: AlertFormFieldsConfigurator!
     var alertPresenter: AlertFormFieldsPresenter? {
-        return presneter as? AlertFormFieldsPresenter
+        return presenter as? AlertFormFieldsPresenter
     }
     var props: AlertFormFieldsViewController.Props = .initial {
         didSet {

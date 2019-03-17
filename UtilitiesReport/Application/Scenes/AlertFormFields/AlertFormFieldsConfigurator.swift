@@ -31,6 +31,6 @@ class AlertFormFieldsConfiguratorImpl: AlertFormFieldsConfigurator {
                                                      saveCommand: saveCommand,
                                                      cancelCommand: cancelCommand)
         
-        viewController.presneter = presenter
+        viewController.presenter = presenter
     }
 }

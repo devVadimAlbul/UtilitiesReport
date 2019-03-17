@@ -18,7 +18,7 @@ class CameraRecognizerViewController: BasicViewController, CameraRecognizerView 
     // MARK: property
     var configurator: CameraRecognizerConfigurator!
     fileprivate var cameraPresenter: CameraRecognizerPresenter? {
-        return presneter as? CameraRecognizerPresenter
+        return presenter as? CameraRecognizerPresenter
     }
     private(set) lazy var cameraLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
     

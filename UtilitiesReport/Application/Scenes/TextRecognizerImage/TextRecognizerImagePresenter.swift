@@ -37,8 +37,8 @@ class TextRecognizerImagePresenterImpl: TextRecognizerImagePresenter {
             guard let `self` = self else { return }
             switch result {
             case .success(let content):
-                self.viewTextRecognizer?.displaySuccess(content.text)
-                self.router.backToMainPage()
+                let text = content.text.removeWhiteSpace()
+                self.viewTextRecognizer?.displaySuccess(text)
             case .failure(let error):
                 self.viewTextRecognizer?.displayError(message: error.localizedDescription)
             }

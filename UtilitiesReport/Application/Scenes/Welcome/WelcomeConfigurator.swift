@@ -17,6 +17,6 @@ class WelcomeConfiguratorImpl: WelcomeConfigurator {
     func configure(viewController: WelcomeViewController) {
         let router = WelcomeViewRoulerImpl(viewController: viewController)
         let presenter = WelcomePresenterImpl(view: viewController, router: router)
-        viewController.presneter = presenter
+        viewController.presenter = presenter
     }
 }

@@ -18,6 +18,6 @@ class CameraRecognizerConfiguratorImpl: CameraRecognizerConfigurator {
         let router = CameraRecognizerRouterImpl(viewController: viewController)
         let presenter = CameraRecognizerPresenterImpl(view: viewController, router: router)
         
-        viewController.presneter = presenter
+        viewController.presenter = presenter
     }
 }

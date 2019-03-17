@@ -22,7 +22,7 @@ class MainViewController: BasicViewController, MainView {
     // MARK: property
     var configurator: MainConfigurator!
     var mainPresenter: MainPresenter? {
-        return presneter as? MainPresenter
+        return presenter as? MainPresenter
     }
 
     // MARK: life-cycle

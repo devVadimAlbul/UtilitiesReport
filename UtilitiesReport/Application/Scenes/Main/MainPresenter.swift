@@ -32,7 +32,7 @@ class MainPresenterImpl: MainPresenter {
     fileprivate weak var mainView: MainView?
     var router: MainViewRouter
     fileprivate var loadUserProfile: LoadUserProfileUseCase
-    fileprivate var loadUserCompanies: LoadUserComapaniesUseCase
+    fileprivate var loadUserCompanies: LoadUserCompaniesUseCase
     
     fileprivate var userProfile: UserProfile?
     fileprivate var companies: [UserUtilitiesCompany] = []
@@ -41,7 +41,7 @@ class MainPresenterImpl: MainPresenter {
     init(view: MainView,
          router: MainViewRouter,
          loadUserProfile: LoadUserProfileUseCase,
-         loadUserCompanies: LoadUserComapaniesUseCase) {
+         loadUserCompanies: LoadUserCompaniesUseCase) {
         self.mainView = view
         self.router = router
         self.loadUserProfile = loadUserProfile

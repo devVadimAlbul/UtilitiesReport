@@ -17,6 +17,11 @@ class RealmIndicatorsCounter: Object {
     @objc dynamic var counter: RealmCounter?
     @objc dynamic var state: String = ""
     
+    fileprivate let owners = LinkingObjects(fromType: RealmUserUtilitiesCompany.self, property: "indicators")
+    var parent: RealmUserUtilitiesCompany? {
+        return self.owners.first
+    }
+    
     
     override static func primaryKey() -> String? {
         return "identifier"

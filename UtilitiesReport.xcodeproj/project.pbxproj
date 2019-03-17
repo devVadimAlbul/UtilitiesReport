@@ -74,7 +74,7 @@
 		1481A9AD221ADC090035E466 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1481A9AC221ADC090035E466 /* GoogleService-Info.plist */; };
 		1481C2CB222ACF2900C07080 /* EmptyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481C2C9222ACF2900C07080 /* EmptyListTableViewCell.swift */; };
 		1481C2CC222ACF2900C07080 /* EmptyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1481C2CA222ACF2900C07080 /* EmptyListTableViewCell.xib */; };
-		1481C2D0222AE7B000C07080 /* LoadUserComapaniesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481C2CF222AE7B000C07080 /* LoadUserComapaniesUseCase.swift */; };
+		1481C2D0222AE7B000C07080 /* LoadUserCompaniesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481C2CF222AE7B000C07080 /* LoadUserCompaniesUseCase.swift */; };
 		14872793220F232B00C59344 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14872792220F232B00C59344 /* MainViewController.swift */; };
 		14872797220F236A00C59344 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14872796220F236A00C59344 /* MainPresenter.swift */; };
 		1487279C220F283B00C59344 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487279B220F283B00C59344 /* MainConfigurator.swift */; };
@@ -121,6 +121,12 @@
 		14C083B02212D83D001A5610 /* ViewRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083AF2212D83D001A5610 /* ViewRound.swift */; };
 		14C083B22212D928001A5610 /* ViewShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083B12212D928001A5610 /* ViewShadow.swift */; };
 		14C083B72212F25D001A5610 /* BasicVeiwCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */; };
+		14C84BC6223D4F9700C001BD /* FormIndicatorCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C84BC4223D4F9700C001BD /* FormIndicatorCounterViewController.swift */; };
+		14C84BC7223D4F9700C001BD /* FormIndicatorCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C84BC5223D4F9700C001BD /* FormIndicatorCounterViewController.xib */; };
+		14C84BC9223D501E00C001BD /* FormIndicatorCounterConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C84BC8223D501E00C001BD /* FormIndicatorCounterConfigurator.swift */; };
+		14C84BCB223D50AD00C001BD /* FormIndicatorCounterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C84BCA223D50AD00C001BD /* FormIndicatorCounterPresenter.swift */; };
+		14C84BCD223D515F00C001BD /* FormIndicatorCounterViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C84BCC223D515F00C001BD /* FormIndicatorCounterViewRouter.swift */; };
+		14C84BD0223D5B9C00C001BD /* FormIndicatorCounterProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C84BCF223D5B9C00C001BD /* FormIndicatorCounterProps.swift */; };
 		14CBA619221D40BC0024D06F /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBA618221D40BC0024D06F /* Command.swift */; };
 		14CBA61C221D530F0024D06F /* UserFormProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBA61B221D530F0024D06F /* UserFormProps.swift */; };
 		14CDF94822383F3D0040160E /* UserCompanyItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CDF94622383F3D0040160E /* UserCompanyItemTableViewCell.swift */; };
@@ -137,7 +143,6 @@
 		14D3516A2214768400A77783 /* UseCasesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D351692214768400A77783 /* UseCasesTest.swift */; };
 		14D6D94422299F8B003A67E3 /* UserUtilitesCompanyGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D6D94322299F8B003A67E3 /* UserUtilitesCompanyGateway.swift */; };
 		14D6D9462229A031003A67E3 /* UserUtilitesCompanyLocalStorageGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D6D9452229A031003A67E3 /* UserUtilitesCompanyLocalStorageGateway.swift */; };
-		14DFD308223CDE7700CB248E /* FindIndicatorsCounterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFD307223CDE7700CB248E /* FindIndicatorsCounterUseCase.swift */; };
 		14DFD30A223CE4A300CB248E /* SectionItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFD309223CE4A300CB248E /* SectionItemsModel.swift */; };
 		14F30750222557DF00021C95 /* CameraRecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F3074E222557DF00021C95 /* CameraRecognizerViewController.swift */; };
 		14F30751222557DF00021C95 /* CameraRecognizerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F3074F222557DF00021C95 /* CameraRecognizerViewController.xib */; };
@@ -244,7 +249,7 @@
 		1481A9AC221ADC090035E466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1481C2C9222ACF2900C07080 /* EmptyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListTableViewCell.swift; sourceTree = "<group>"; };
 		1481C2CA222ACF2900C07080 /* EmptyListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyListTableViewCell.xib; sourceTree = "<group>"; };
-		1481C2CF222AE7B000C07080 /* LoadUserComapaniesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUserComapaniesUseCase.swift; sourceTree = "<group>"; };
+		1481C2CF222AE7B000C07080 /* LoadUserCompaniesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUserCompaniesUseCase.swift; sourceTree = "<group>"; };
 		14872792220F232B00C59344 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		14872796220F236A00C59344 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		1487279B220F283B00C59344 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
@@ -292,6 +297,12 @@
 		14C083AF2212D83D001A5610 /* ViewRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRound.swift; sourceTree = "<group>"; };
 		14C083B12212D928001A5610 /* ViewShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewShadow.swift; sourceTree = "<group>"; };
 		14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicVeiwCellProtocol.swift; sourceTree = "<group>"; };
+		14C84BC4223D4F9700C001BD /* FormIndicatorCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormIndicatorCounterViewController.swift; sourceTree = "<group>"; };
+		14C84BC5223D4F9700C001BD /* FormIndicatorCounterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormIndicatorCounterViewController.xib; sourceTree = "<group>"; };
+		14C84BC8223D501E00C001BD /* FormIndicatorCounterConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormIndicatorCounterConfigurator.swift; sourceTree = "<group>"; };
+		14C84BCA223D50AD00C001BD /* FormIndicatorCounterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormIndicatorCounterPresenter.swift; sourceTree = "<group>"; };
+		14C84BCC223D515F00C001BD /* FormIndicatorCounterViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormIndicatorCounterViewRouter.swift; sourceTree = "<group>"; };
+		14C84BCF223D5B9C00C001BD /* FormIndicatorCounterProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormIndicatorCounterProps.swift; sourceTree = "<group>"; };
 		14CBA618221D40BC0024D06F /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		14CBA61B221D530F0024D06F /* UserFormProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormProps.swift; sourceTree = "<group>"; };
 		14CDF94622383F3D0040160E /* UserCompanyItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCompanyItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -308,7 +319,6 @@
 		14D351692214768400A77783 /* UseCasesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesTest.swift; sourceTree = "<group>"; };
 		14D6D94322299F8B003A67E3 /* UserUtilitesCompanyGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUtilitesCompanyGateway.swift; sourceTree = "<group>"; };
 		14D6D9452229A031003A67E3 /* UserUtilitesCompanyLocalStorageGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUtilitesCompanyLocalStorageGateway.swift; sourceTree = "<group>"; };
-		14DFD307223CDE7700CB248E /* FindIndicatorsCounterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIndicatorsCounterUseCase.swift; sourceTree = "<group>"; };
 		14DFD309223CE4A300CB248E /* SectionItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItemsModel.swift; sourceTree = "<group>"; };
 		14F3074E222557DF00021C95 /* CameraRecognizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRecognizerViewController.swift; sourceTree = "<group>"; };
 		14F3074F222557DF00021C95 /* CameraRecognizerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraRecognizerViewController.xib; sourceTree = "<group>"; };
@@ -341,20 +351,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		141850B5222C3E1000B0C2FB /* AddUserUtiliteCompany */ = {
+		141850B5222C3E1000B0C2FB /* FormUserUtiliteCompany */ = {
 			isa = PBXGroup;
 			children = (
-				141AEE742235714800B9A354 /* InfoFromItemTableViewCell */,
-				141AEE5B2233EF5200B9A354 /* SectionViewHeaderAdd */,
-				147196732232BFE0006A070C /* InputFormItemTableViewCell */,
-				14CEC86222303BB400AC23E5 /* SelectorFormItemTableViewCell */,
+				14C84BCE223D555000C001BD /* Cells */,
 				141850B6222C3EB500B0C2FB /* FormUserUtilitesCompanyViewController.swift */,
 				141850B7222C3EB500B0C2FB /* FormUserUtilitesCompanyViewController.xib */,
 				141850BA222C3EF500B0C2FB /* FormUserUtilitesCompanyPresenter.swift */,
 				141850BC222C3F0700B0C2FB /* AddUserUtilitesCompanyConfigurator.swift */,
 				141850BE222C3F1C00B0C2FB /* FormUserUtilitesCompanyRouter.swift */,
 			);
-			path = AddUserUtiliteCompany;
+			path = FormUserUtiliteCompany;
 			sourceTree = "<group>";
 		};
 		141AEE5B2233EF5200B9A354 /* SectionViewHeaderAdd */ = {
@@ -369,7 +376,6 @@
 		141AEE622235186500B9A354 /* AlertFormFields */ = {
 			isa = PBXGroup;
 			children = (
-				141AEE6D2235315100B9A354 /* Models */,
 				141AEE63223518D000B9A354 /* AlertFormFieldsViewController.swift */,
 				141AEE64223518D000B9A354 /* AlertFormFieldsViewController.xib */,
 				141AEE67223519FE00B9A354 /* AlertFormFieldsPresenter.swift */,
@@ -377,14 +383,6 @@
 				141AEE6B22351EF200B9A354 /* AlertFormFieldsProps.swift */,
 			);
 			path = AlertFormFields;
-			sourceTree = "<group>";
-		};
-		141AEE6D2235315100B9A354 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				141AEE6E2235317300B9A354 /* AlertFormModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		141AEE7122354A7200B9A354 /* Transition */ = {
@@ -573,7 +571,7 @@
 		1481C2CE222AE78600C07080 /* UserCompanies */ = {
 			isa = PBXGroup;
 			children = (
-				1481C2CF222AE7B000C07080 /* LoadUserComapaniesUseCase.swift */,
+				1481C2CF222AE7B000C07080 /* LoadUserCompaniesUseCase.swift */,
 			);
 			path = UserCompanies;
 			sourceTree = "<group>";
@@ -619,9 +617,10 @@
 		1487278E220F1B6E00C59344 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				14C84BC3223D4ED700C001BD /* FormIndicatorCounter */,
 				143A1B58223AA8A600766C2A /* ListIndicatorsCounter */,
 				141AEE622235186500B9A354 /* AlertFormFields */,
-				141850B5222C3E1000B0C2FB /* AddUserUtiliteCompany */,
+				141850B5222C3E1000B0C2FB /* FormUserUtiliteCompany */,
 				14F3074D2225577C00021C95 /* CameraRecognizer */,
 				14B7E83C2221D3E900293DB1 /* TextRecognizerImage */,
 				14CBA617221C922B0024D06F /* Welcome */,
@@ -772,6 +771,7 @@
 		148727D52210D22B00C59344 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				148727D62210D25D00C59344 /* Navigation.storyboard */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -827,7 +827,6 @@
 		14A54D462211AD7F0038A8F2 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				14DFD306223CDE5C00CB248E /* IndicatorsCounter */,
 				1481C2CE222AE78600C07080 /* UserCompanies */,
 				1481C2CD222AE74C00C07080 /* UserProfile */,
 			);
@@ -837,6 +836,7 @@
 		14A54D532211C68F0038A8F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				141AEE6E2235317300B9A354 /* AlertFormModel.swift */,
 				14A54D512211C6770038A8F2 /* AlertModelView.swift */,
 				14CDF972223982B30040160E /* LastInticatorModelView.swift */,
 				14DFD309223CE4A300CB248E /* SectionItemsModel.swift */,
@@ -902,10 +902,33 @@
 			path = UserProfileTableViewCell;
 			sourceTree = "<group>";
 		};
+		14C84BC3223D4ED700C001BD /* FormIndicatorCounter */ = {
+			isa = PBXGroup;
+			children = (
+				14C84BC8223D501E00C001BD /* FormIndicatorCounterConfigurator.swift */,
+				14C84BC4223D4F9700C001BD /* FormIndicatorCounterViewController.swift */,
+				14C84BC5223D4F9700C001BD /* FormIndicatorCounterViewController.xib */,
+				14C84BCA223D50AD00C001BD /* FormIndicatorCounterPresenter.swift */,
+				14C84BCC223D515F00C001BD /* FormIndicatorCounterViewRouter.swift */,
+				14C84BCF223D5B9C00C001BD /* FormIndicatorCounterProps.swift */,
+			);
+			path = FormIndicatorCounter;
+			sourceTree = "<group>";
+		};
+		14C84BCE223D555000C001BD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				141AEE742235714800B9A354 /* InfoFromItemTableViewCell */,
+				141AEE5B2233EF5200B9A354 /* SectionViewHeaderAdd */,
+				147196732232BFE0006A070C /* InputFormItemTableViewCell */,
+				14CEC86222303BB400AC23E5 /* SelectorFormItemTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		14CBA617221C922B0024D06F /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				148727D62210D25D00C59344 /* Navigation.storyboard */,
 				14724296221EDDB600E8FA56 /* WelcomeViewController.swift */,
 				14724297221EDDB600E8FA56 /* WelcomeViewController.xib */,
 				1472429A221EDDF700E8FA56 /* WelcomeConfigurator.swift */,
@@ -951,14 +974,6 @@
 				14727583223AD5FD00FA0927 /* IndicatorsCouterLocalStorageGateway.swift */,
 			);
 			path = Gateways;
-			sourceTree = "<group>";
-		};
-		14DFD306223CDE5C00CB248E /* IndicatorsCounter */ = {
-			isa = PBXGroup;
-			children = (
-				14DFD307223CDE7700CB248E /* FindIndicatorsCounterUseCase.swift */,
-			);
-			path = IndicatorsCounter;
 			sourceTree = "<group>";
 		};
 		14F3074D2225577C00021C95 /* CameraRecognizer */ = {
@@ -1086,6 +1101,7 @@
 				144CA78822135AD9003BBF26 /* AutoHashable.stencil in Resources */,
 				148727CD2210413400C59344 /* UserFormViewController.xib in Resources */,
 				144CA78622135AD9003BBF26 /* AutoEquatable.stencil in Resources */,
+				14C84BC7223D4F9700C001BD /* FormIndicatorCounterViewController.xib in Resources */,
 				14CEC86A22303CB700AC23E5 /* SelectorFormItemTableViewCell.xib in Resources */,
 				141AEE782235719100B9A354 /* InfoFromItemTableViewCell.xib in Resources */,
 				14724299221EDDB600E8FA56 /* WelcomeViewController.xib in Resources */,
@@ -1258,6 +1274,7 @@
 				148727D92210D2A700C59344 /* UIViewController+Extension.swift in Sources */,
 				14CDF96F2239784B0040160E /* LastIndicatorView.swift in Sources */,
 				145EA06E2228121500AB633E /* ApiResponse.swift in Sources */,
+				14C84BCD223D515F00C001BD /* FormIndicatorCounterViewRouter.swift in Sources */,
 				143A1B60223AAA9C00766C2A /* ListIndicatorsCounterRouter.swift in Sources */,
 				1441A2D422141D1400BF974A /* URError.swift in Sources */,
 				14872793220F232B00C59344 /* MainViewController.swift in Sources */,
@@ -1277,6 +1294,7 @@
 				14A54D4C2211AF830038A8F2 /* Constants.swift in Sources */,
 				1472429F221EDE2700E8FA56 /* WelcomeViewRouler.swift in Sources */,
 				1487279C220F283B00C59344 /* MainConfigurator.swift in Sources */,
+				14C84BD0223D5B9C00C001BD /* FormIndicatorCounterProps.swift in Sources */,
 				141A738922295ED7000E2247 /* IndicatorsCounter.swift in Sources */,
 				14264C992208C6E700655EEA /* AppDelegate.swift in Sources */,
 				14F3075522255B4100021C95 /* CameraRecognizerConfigurator.swift in Sources */,
@@ -1293,7 +1311,6 @@
 				14A54D3B22115E8B0038A8F2 /* NSObject+Extension.swift in Sources */,
 				14A54D2D22115B510038A8F2 /* FormTextItemView.swift in Sources */,
 				1472B66F2223EAD700D879D4 /* UIImage+Extension.swift in Sources */,
-				14DFD308223CDE7700CB248E /* FindIndicatorsCounterUseCase.swift in Sources */,
 				141AEE6F2235317300B9A354 /* AlertFormModel.swift in Sources */,
 				148727B7220F39B000C59344 /* UserProfile.swift in Sources */,
 				14D351672214531B00A77783 /* UserProfileLocalStorageGateway.swift in Sources */,
@@ -1302,7 +1319,7 @@
 				143A1B5B223AA8E100766C2A /* ListIndicatorsCounterViewController.swift in Sources */,
 				148727DC2210D31B00C59344 /* VCLoader.swift in Sources */,
 				14B7E8462221D5D400293DB1 /* TextRecognizerImageRouter.swift in Sources */,
-				1481C2D0222AE7B000C07080 /* LoadUserComapaniesUseCase.swift in Sources */,
+				1481C2D0222AE7B000C07080 /* LoadUserCompaniesUseCase.swift in Sources */,
 				147196762232BFE0006A070C /* InputFormItemTableViewCell.swift in Sources */,
 				14C083B22212D928001A5610 /* ViewShadow.swift in Sources */,
 				141AEE68223519FE00B9A354 /* AlertFormFieldsPresenter.swift in Sources */,
@@ -1336,6 +1353,7 @@
 				14872797220F236A00C59344 /* MainPresenter.swift in Sources */,
 				1441A2CB2214162600BF974A /* GetSavedUserProfileUseCase.swift in Sources */,
 				143A1B62223AAAC100766C2A /* ListIndicatorsCounterConfigurator.swift in Sources */,
+				14C84BC9223D501E00C001BD /* FormIndicatorCounterConfigurator.swift in Sources */,
 				14A54D3722115D9B0038A8F2 /* ViewFromXib.swift in Sources */,
 				148727CC2210413400C59344 /* UserFormViewController.swift in Sources */,
 				141AEE65223518D000B9A354 /* AlertFormFieldsViewController.swift in Sources */,
@@ -1345,8 +1363,10 @@
 				14215E2722270E2900662150 /* UserProfileGateway.swift in Sources */,
 				141AEE7322354AAA00B9A354 /* ModalScaleTransiton.swift in Sources */,
 				148727B1220F2F3B00C59344 /* PresenterProtocol.swift in Sources */,
+				14C84BC6223D4F9700C001BD /* FormIndicatorCounterViewController.swift in Sources */,
 				141AEE612233FA5D00B9A354 /* BasicSectionHeaderVeiwProtocol.swift in Sources */,
 				14D6D94422299F8B003A67E3 /* UserUtilitesCompanyGateway.swift in Sources */,
+				14C84BCB223D50AD00C001BD /* FormIndicatorCounterPresenter.swift in Sources */,
 				14727584223AD5FD00FA0927 /* IndicatorsCouterLocalStorageGateway.swift in Sources */,
 				141850BD222C3F0700B0C2FB /* AddUserUtilitesCompanyConfigurator.swift in Sources */,
 				141AEE5D2233F0B900B9A354 /* SectionViewHeaderAdd.swift in Sources */,

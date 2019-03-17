@@ -59,6 +59,25 @@ class IndicatorsCouterLocalStorageGatewayImpl: IndicatorsCouterLocalStorageGatew
         }
     }
     
+    func add(entity: IndicatorsCounter, toUserCompanyID identifier: String,
+             completionHandler: @escaping AddEntityCompletionHandler) {
+        if let company = manager.getEntity(withType: RealmUserUtilitiesCompany.self,
+                                           for: identifier) {
+            let indicator = RealmIndicatorsCounter(indicator: entity)
+            do {
+                try manager.write { realm in
+                    realm.add(indicator, update: true)
+                    company.indicators.append(indicator)
+                    completionHandler(.success(entity))
+                }
+            } catch {
+                completionHandler(.failure(error))
+            }
+        } else {
+             completionHandler(.failure(URError.userCompanyNotFound))
+        }
+    }
+    
     private func getEntity(by identifier: String) -> RealmIndicatorsCounter? {
         return manager.getEntity(withType: RealmIndicatorsCounter.self, for: identifier)
     }

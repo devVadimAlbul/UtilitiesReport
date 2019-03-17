@@ -11,13 +11,13 @@ import UIKit
 class BasicViewController: UIViewController {
     
     // MARK: property
-    var presneter: PresenterProtocol!
+    var presenter: PresenterProtocol!
 
     // MARK: life-cycle
     override func viewDidLoad() {
         loadViewIfNeeded()
         super.viewDidLoad()
-        presneter?.viewDidLoad()
+        presenter?.viewDidLoad()
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
@@ -72,5 +72,18 @@ class BasicViewController: UIViewController {
             alert.addAction(action)
         }
         present(alert, animated: true, completion: nil)
+    }
+    
+    func presentActionSheet(by model: AlertModelView) {
+        let actionSheet = UIAlertController(title: model.title, message: model.message, preferredStyle: .actionSheet)
+        
+        model.actions.forEach {
+            let action = UIAlertAction(title: $0.title, style: .default, handler: $0.action?.perform)
+            actionSheet.addAction(action)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true, completion: nil)
     }
 }

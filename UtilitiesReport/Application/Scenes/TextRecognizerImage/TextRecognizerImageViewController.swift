@@ -30,7 +30,7 @@ class TextRecognizerImageViewController: BasicViewController, TextRecognizerImag
     weak var delegate: TextRecognizerImageDelegate?
     var configurator: TextRecognizerImageConfigurator!
     var textRecPresenter: TextRecognizerImagePresenter? {
-        return presneter as? TextRecognizerImagePresenter
+        return presenter as? TextRecognizerImagePresenter
     }
     var contentImage: UIImage? {
         get {
@@ -114,7 +114,11 @@ class TextRecognizerImageViewController: BasicViewController, TextRecognizerImag
     
     func displaySuccess(_ text: String) {
         ProgressHUD.success("Success Recognized!", withDelay: 0.3)
-        delegate?.textRecognizerImage(self, didRecognizedText: text)
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
+            self.textRecPresenter?.router.backToMainPage()
+            self.delegate?.textRecognizerImage(self, didRecognizedText: text)
+        }
+       
     }
     
     // MARK: Action

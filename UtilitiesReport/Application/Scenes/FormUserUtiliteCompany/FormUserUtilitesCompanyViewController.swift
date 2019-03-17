@@ -32,7 +32,7 @@ class FormUserUtilitesCompanyViewController: BasicViewController, FormUserUtilit
     // MARK: property
     var configurator: FormUserUtilitesCompanyConfigurator!
     fileprivate var formPresenter: FormUserUtilitesCompanyPresenter? {
-        return presneter as? FormUserUtilitesCompanyPresenter
+        return presenter as? FormUserUtilitesCompanyPresenter
     }
     private var observers = [NSKeyValueObservation]()
     

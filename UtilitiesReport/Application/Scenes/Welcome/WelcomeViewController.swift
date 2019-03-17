@@ -22,7 +22,7 @@ class WelcomeViewController: BasicViewController, WelcomeView {
     // MARK: property
     var configurator: WelcomeConfigurator!
     var welcomePresenter: WelcomePresenter? {
-        return presneter as? WelcomePresenter
+        return presenter as? WelcomePresenter
     }
     
     // MARK: life-cycle

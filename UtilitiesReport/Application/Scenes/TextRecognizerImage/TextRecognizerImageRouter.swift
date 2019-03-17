@@ -21,7 +21,7 @@ class TextRecognizerImageRouterImpl: TextRecognizerImageRouter {
     }
     
     func backToMainPage() {
-        viewController?.navigationController?.popViewController(animated: true)
+        viewController?.navigationController?.popViewController(animated: false)
     }
  
 }

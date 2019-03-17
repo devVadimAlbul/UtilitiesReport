@@ -32,5 +32,8 @@ extension String {
         return allowedCharacters.isSuperset(of: characterSet)
     }
     
-    
+    private static var digits = UnicodeScalar("0")..."9"
+    func onlyDigits() -> String {
+        return String(unicodeScalars.filter(String.digits.contains))
+    }
 }

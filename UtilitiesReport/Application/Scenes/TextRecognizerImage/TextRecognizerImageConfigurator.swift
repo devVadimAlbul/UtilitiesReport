@@ -31,6 +31,6 @@ class TextRecognizerImageConfiguratorImpl: TextRecognizerImageConfigurator {
         let presenter = TextRecognizerImagePresenterImpl(view: viewController, router: router,
                                                          textDetector: detector)
         viewController.contentImage = contentImage
-        viewController.presneter = presenter
+        viewController.presenter = presenter
     }
 }
