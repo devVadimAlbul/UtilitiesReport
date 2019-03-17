@@ -103,6 +103,18 @@ extension ListIndicatorsCounterViewController: UITableViewDelegate, UITableViewD
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let title = listPresenter?.titleForHeader(in: section) else { return nil }
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
+        let label = UILabel()
+        label.frame = CGRect.init(x: 10, y: 5, width: headerView.frame.width-20, height: headerView.frame.height-10)
+        label.text = title
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.textColor = #colorLiteral(red: 0.1215686275, green: 0.1254901961, blue: 0.2549019608, alpha: 1)
+        headerView.addSubview(label)
+        return headerView
+    }
 }
 
 // MARK: - extension: UIImagePickerControllerDelegate, UINavigationControllerDelegate
@@ -132,7 +144,7 @@ extension ListIndicatorsCounterViewController: ItemIndicatorCounterCellDelegate 
     func actionSend(view: ItemIndicatorCounterViewCell) {
         if let cell = view as? UITableViewCell,
            let indexPath = tableView.indexPath(for: cell) {
-            
+            listPresenter?.actionSendItem(at: indexPath)
         }
     }
 }

@@ -205,6 +205,7 @@ class FormUserUtilitesCompanyPresenterImpl: FormUserUtilitesCompanyPresenter {
                 formUserCompanyView?.insertSection(counterSection.rawValue)
             } else {
                 formUserCompanyView?.removeSection(counterSection.rawValue)
+                userUtitlitesCompany?.counters.removeAll()
             }
         }
     }

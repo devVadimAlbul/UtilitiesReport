@@ -47,6 +47,7 @@ class FormIndicatorCounterViewController: BasicViewController, FormIndicatorCoun
     
     private func setupUI() {
         tfDate.inputView = datePicker
+        datePicker.maximumDate = Date()
         tfDate.addCancelDoneOnKeyboardWithTarget(self,
                                                  cancelAction: #selector(actionTFDateCancel),
                                                  doneAction: #selector(actionTFDateDone))
@@ -120,7 +121,7 @@ class FormIndicatorCounterViewController: BasicViewController, FormIndicatorCoun
         if let date = datePicker?.date {
             props.date.change.perform(with: date)
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMM yyyy"
+            dateFormatter.dateFormat = "MMMM yyyy"
             tfDate.text =  dateFormatter.string(from: date)
         }
     }

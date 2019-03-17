@@ -122,9 +122,7 @@ class MainPresenterImpl: MainPresenter {
             cell.displayNameAddButton("Add new company")
         case let cell as UserCompanyItemViewCell:
             let item = companies[indexPath.row]
-            cell.displayName(item.company?.name)
-            cell.displayAccountNumber(item.accountNumber)
-            cell.displayEmblem(item.company?.type.image ?? CompanyType.default.image)
+            configureUserComanyCell(cell: cell, with: item)
         default: break
         }
     }
@@ -135,6 +133,37 @@ class MainPresenterImpl: MainPresenter {
         cell.display(phoneNumber: user.phoneNumber)
         cell.display(address: user.address)
         cell.display(email: user.email)
+    }
+    
+    private func configureUserComanyCell(cell: UserCompanyItemViewCell,
+                                         with userCompany: UserUtilitiesCompany) {
+       
+        cell.displayName(userCompany.company?.name)
+        cell.displayAccountNumber(userCompany.accountNumber)
+        cell.displayEmblem(userCompany.company?.type.image ?? CompanyType.default.image)
+        cell.displayIndicators(getLastIndicators(in: userCompany))
+    }
+    
+    private func getLastIndicators(in userCompany: UserUtilitiesCompany) -> [LastInticatorModelView] {
+        let sortedList = userCompany.indicators.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
+        let isNeadCounter = userCompany.company?.isNeedCounter ?? false
+        if isNeadCounter {
+            let listCounter: [Counter] = userCompany.counters
+            let lastCounter = listCounter.compactMap({ counter in
+                return sortedList.first(where: {$0.counter?.identifier == counter.identifier})
+            })
+            let models = lastCounter.map({
+                return LastInticatorModelView(name: $0.counter?.placeInstallation,
+                                              months: $0.month, value: $0.value)
+            })
+            return models
+        } else {
+            if let first = sortedList.first {
+                return [LastInticatorModelView(name: first.counter?.placeInstallation,
+                                               months: first.month, value: first.value)]
+            }
+        }
+        return []
     }
     
     func didSelectCell(at indexPath: IndexPath) {

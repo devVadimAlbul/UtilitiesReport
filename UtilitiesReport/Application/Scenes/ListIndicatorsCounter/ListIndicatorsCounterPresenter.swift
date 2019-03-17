@@ -16,6 +16,8 @@ protocol ListIndicatorsCounterPresenter: PresenterProtocol {
     func numberOfSections() -> Int
     func numberOfRows(in section: Int) -> Int
     func configure(cell: BasicVeiwCellProtocol, at indexPath: IndexPath)
+    func titleForHeader(in section: Int) -> String?
+    func actionSendItem(at indexPath: IndexPath)
 }
 
 class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
@@ -140,11 +142,21 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
     
     func configure(cell: BasicVeiwCellProtocol, at indexPath: IndexPath) {
         if let cell = cell as? ItemIndicatorCounterViewCell {
-            let item =  listSections[indexPath.section].items[indexPath.row]
+            let item = listSections[indexPath.section].items[indexPath.row]
             cell.displayDateMonths(item.month)
             cell.displayCounter(item.counter?.placeInstallation)
             cell.displayValue(item.value)
-            cell.displayState(item.state.name)
+            cell.displayState(item.state.name, color: item.state.color)
+            cell.displayButtonSend(title: "Send", isHidden: item.state == .sended)
         }
+    }
+    
+    func titleForHeader(in section: Int) -> String? {
+        let item = listSections[section]
+        return item.title
+    }
+    
+    func actionSendItem(at indexPath: IndexPath) {
+//        if let
     }
 }

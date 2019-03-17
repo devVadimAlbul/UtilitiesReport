@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit.UIColor
 
 enum IndicatorState: String {
     case created
@@ -18,6 +19,14 @@ enum IndicatorState: String {
         case .created: return "Created"
         case .sended: return "Sended"
         case .failed: return "Failed send"
+        }
+    }
+    
+    var color: UIColor {
+        switch self {
+        case .created: return #colorLiteral(red: 0.968627451, green: 1, blue: 0.968627451, alpha: 1)
+        case .sended: return #colorLiteral(red: 0.3058823529, green: 0.8039215686, blue: 0.768627451, alpha: 1)
+        case .failed: return #colorLiteral(red: 1, green: 0.4196078431, blue: 0.4196078431, alpha: 1)
         }
     }
 }
@@ -48,7 +57,7 @@ struct IndicatorsCounter {
     
     var month: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM yyyy"
+        dateFormatter.dateFormat = "MMMM yyyy"
         return dateFormatter.string(from: date)
     }
 }

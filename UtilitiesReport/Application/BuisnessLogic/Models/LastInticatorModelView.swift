@@ -14,4 +14,9 @@ struct LastInticatorModelView {
     var months: String?
     var value: String?
     
+    init(name: String?, months: String?, value: String?) {
+        self.name = name
+        self.months = months
+        self.value = value
+    }
 }
