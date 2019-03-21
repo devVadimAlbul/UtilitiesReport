@@ -17,7 +17,7 @@ class AppDelegateConfiguratorImpl: AppDelegateConfigurator {
     
     func configure(delegate: AppDelegate) {
         let localStorage = UserProfileLocalStorageGatewayImpl()
-        let userUseCase = GetSavedUserProfileUseCaseImpl(storage: localStorage)
+        let userUseCase = LoadUserProfileUseCaseImpl(storage: localStorage)
         let router = AppDelegateRouterImpl(delegate: delegate)
         let presenter = AppDelegatePresenterImpl(appDelegate: delegate, router: router,
                                                  userUseCase: userUseCase)

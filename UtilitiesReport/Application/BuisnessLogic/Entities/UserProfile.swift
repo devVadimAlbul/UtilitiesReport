@@ -28,16 +28,18 @@ class UserProfile: Codable, Equatable {
     
     var address: String {
         var addr = "\(city.capitalized), \(street.capitalized) str. \(house)"
-        if let apartment = self.apartment {
+        if let apartment = self.apartment, !apartment.removeWhiteSpace().isEmpty {
             addr += ", apt: \(apartment)"
         }
         return addr
     }
     
-    required init(firstName: String, lastName: String,
+    required init(identifier: String = UUID().uuidString,
+                  firstName: String, lastName: String,
                   email: String, phoneNumber: String,
                   city: String, street: String,
                   house: String, apartment: String?) {
+        self.identifier = identifier
         self.firstName = firstName
         self.lastName = lastName
         self.phoneNumber = phoneNumber

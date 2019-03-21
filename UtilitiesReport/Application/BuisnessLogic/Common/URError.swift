@@ -9,6 +9,7 @@
 import Foundation
 
 enum URError: Error {
+    case userNotFound
     case userNotCreated
     case textNotRecognized
     case incorrectProfileForm
@@ -25,6 +26,7 @@ extension URError: LocalizedError {
     
     var errorDescription: String? {
         switch self {
+        case .userNotFound: return "User not found!"
         case .userNotCreated: return "User not ctrated!"
         case .textNotRecognized: return "Text not recognized on this image!"
         case .incorrectProfileForm: return "User Profile data incorrect in form.\nPlease check is it and try again."

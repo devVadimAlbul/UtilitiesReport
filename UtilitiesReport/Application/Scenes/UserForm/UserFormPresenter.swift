@@ -25,7 +25,7 @@ class UserFormPresenterImpl: UserFormPresenter {
     fileprivate weak var viewForm: UserFormView?
     fileprivate var isUserCreated: Bool = false
     fileprivate var saveUserProfileUseCase: SaveUserProfileUseCase!
-    fileprivate var saveCommand: CommandWith<Void>!
+    fileprivate var saveCommand: Command!
     fileprivate var itemsPropsValiad: [PartialKeyPath<UserProfile>: Props.ItemState] = [:]
     var router: UserFormViewRouter
     
@@ -45,7 +45,7 @@ class UserFormPresenterImpl: UserFormPresenter {
             isUserCreated = false
         }
         itemsPropsValiad = [:]
-        saveCommand = CommandWith(action: saveUserForm)
+        saveCommand = Command(action: saveUserForm)
     }
     
     
@@ -93,7 +93,7 @@ class UserFormPresenterImpl: UserFormPresenter {
             pageTitle: self.isUserCreated ? "Edit User" : "Create New User",
             saveButtonTitle: "Save",
             state: propsState,
-            actionSave: self.saveCommand.bind(to: ())
+            actionSave: self.saveCommand
         )
     }
     
@@ -102,7 +102,8 @@ class UserFormPresenterImpl: UserFormPresenter {
         viewForm?.props.state = state
     }
     
-    private func changeProdsItem(with key: KeyPath<Props, Props.Item>, to writeKey: WritableKeyPath<Props, Props.Item>,
+    private func changeProdsItem(with key: KeyPath<Props, Props.Item>,
+                                 to writeKey: WritableKeyPath<Props, Props.Item>,
                                  state: Props.ItemState, value: String?) {
         
         let item = viewForm?.props[keyPath: key]

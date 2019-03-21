@@ -145,7 +145,7 @@ class MainPresenterImpl: MainPresenter {
     }
     
     private func getLastIndicators(in userCompany: UserUtilitiesCompany) -> [LastInticatorModelView] {
-        let sortedList = userCompany.indicators.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
+        let sortedList = userCompany.indicators.sorted(by: {$0.date.compare($1.date) == .orderedDescending})
         let isNeadCounter = userCompany.company?.isNeedCounter ?? false
         if isNeadCounter {
             let listCounter: [Counter] = userCompany.counters

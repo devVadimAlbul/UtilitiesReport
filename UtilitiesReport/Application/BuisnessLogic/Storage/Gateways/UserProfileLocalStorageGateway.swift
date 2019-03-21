@@ -17,57 +17,43 @@ extension UserProfileLocalStorageGateway {}
 
 class UserProfileLocalStorageGatewayImpl: UserProfileLocalStorageGateway {
     
-    fileprivate let storage: StorageProvidable
-    let storageKey: String
+    fileprivate let storage: RealmManagerProtocol
     
-    init(storageKey: String = Constants.StoregeKeys.userProfile,
-         storage: StorageProvidable = DefaultsStorageImpl()) {
-        self.storageKey = storageKey
+    init(storage: RealmManagerProtocol = RealmManager()) {
         self.storage = storage
     }
     
-    func getEntity(by identifier: String) -> Result<UserProfile?> {
-        do {
-            guard let data = try storage.getData(forKey: identifier) else {
-                return .success(nil)
-            }
-            let jsonDecoder = JSONDecoder()
-            let user = try jsonDecoder.decode(UserProfile.self, from: data)
-            return .success(user)
-        } catch {
-            return .failure(error)
-        }
-    }
     
-    func fetch(completionHandler: @escaping (Result<[UserProfile]>) -> Void) {
-        do {
-            guard let data = try storage.getData(forKey: storageKey) else {
-                completionHandler(.success([]))
-                return
-            }
-            let jsonDecoder = JSONDecoder()
-            let user = try jsonDecoder.decode(UserProfile.self, from: data)
-            completionHandler(.success([user]))
-        } catch {
-            completionHandler(.failure(error))
+    func loadEntity(completionHandler: @escaping (Result<UserProfile>) -> Void) {
+        if let object = storage.allEntities(withType: RealmUserProfile.self).first {
+            completionHandler(.success(object.userProfileModel))
+        } else {
+            completionHandler(.failure(URError.userNotCreated))
         }
     }
     
     func add(parameters: UserProfile, completionHandler: @escaping (Result<UserProfile>) -> Void) {
         do {
-            let jsonEncoder = JSONEncoder()
-            let jsonData = try jsonEncoder.encode(parameters)
-            try storage.saveData(jsonData, forKey: storageKey)
-            let user = parameters
-            completionHandler(.success(user))
+            let object = RealmUserProfile(profile: parameters)
+            try storage.save(object, update: true) {
+                completionHandler(.success(object.userProfileModel))
+            }
         } catch {
             completionHandler(.failure(error))
         }
     }
     
     func delete(entity: UserProfile, completionHandler: @escaping (Result<Void>) -> Void) {
-        storage.removeObject(forKey: storageKey)
-        completionHandler(.success(()))
+        if let object = storage.getEntity(withType: RealmUserProfile.self, for: entity.identifier) {
+            do {
+                try storage.remove(object, cascading: true)
+                completionHandler(.success(()))
+            } catch {
+                completionHandler(.failure(error))
+            }
+        } else {
+            completionHandler(.success(()))
+        }
     }
     
 }

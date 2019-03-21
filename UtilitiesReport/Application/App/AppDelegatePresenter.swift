@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import IQKeyboardManagerSwift
+import Firebase
 
 protocol AppDelegatePresenter {
     var router: AppDelegateRouter { get set }
@@ -17,13 +18,13 @@ protocol AppDelegatePresenter {
 
 class AppDelegatePresenterImpl: AppDelegatePresenter {
  
-    fileprivate let userUseCase: GetSavedUserProfileUseCase
+    fileprivate let userUseCase: LoadUserProfileUseCase
     fileprivate weak var appDelegate: AppDelegateProtocol?
     var router: AppDelegateRouter
     
     init(appDelegate: AppDelegateProtocol,
          router: AppDelegateRouter,
-         userUseCase: GetSavedUserProfileUseCase) {
+         userUseCase: LoadUserProfileUseCase) {
         self.appDelegate = appDelegate
         self.router = router
         self.userUseCase = userUseCase
@@ -32,16 +33,23 @@ class AppDelegatePresenterImpl: AppDelegatePresenter {
     func didFinishLaunching() {
         ProgressHUD.configure()
         IQKeyboardManager.shared.enable = true
+        FirebaseApp.configure()
+        RealmManager.setConfiguration()
+        router.showFakeSpleashScreen()
         checkSavedUserProfile()
     }
     
     fileprivate func checkSavedUserProfile() {
-        let identifier = Constants.StoregeKeys.userProfile
-        if let user = try? userUseCase.getUserProfile(identifier: identifier),
-            user.firstName != "", user.lastName != "" {
-            router.goToMainViewController()
-        } else {
-            router.goToCreatedUserProfile()
+        userUseCase.load { [weak self] (result) in
+            guard let `self` = self else { return }
+            DispatchQueue.main.asyncAfter(deadline: .now()+3.0) {
+                switch result {
+                case .success:
+                    self.router.goToMainViewController()
+                case .failure:
+                    self.router.goToCreatedUserProfile()
+                }
+            }
         }
     }
 }

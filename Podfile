@@ -17,4 +17,9 @@ target 'UtilitiesReport' do
     pod 'Firebase/MLVision'
     pod 'Firebase/MLVisionTextModel'
     
+    target 'UtilitiesReportTests' do
+      inherit! :complete
+      pod 'Firebase'
+    end
+    
 end

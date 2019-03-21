@@ -1,4 +1,4 @@
-// Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.16.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 
@@ -198,35 +198,19 @@ class UserDefaultsDescribingMock: UserDefaultsDescribing {
 }
 class UserProfileLocalStorageGatewayMock: UserProfileLocalStorageGateway {
 
-    //MARK: - getEntity
+    //MARK: - loadEntity
 
-    var getEntityByCallsCount = 0
-    var getEntityByCalled: Bool {
-        return getEntityByCallsCount > 0
+    var loadEntityCompletionHandlerCallsCount = 0
+    var loadEntityCompletionHandlerCalled: Bool {
+        return loadEntityCompletionHandlerCallsCount > 0
     }
-    var getEntityByReceivedIdentifier: String?
-    var getEntityByReturnValue: Result<UserProfile?>!
-    var getEntityByClosure: ((String) -> Result<UserProfile?>)?
+    var loadEntityCompletionHandlerReceivedCompletionHandler: (LoadUserProfileCompletionHandler)?
+    var loadEntityCompletionHandlerClosure: ((@escaping LoadUserProfileCompletionHandler) -> Void)?
 
-    func getEntity(by identifier: String) -> Result<UserProfile?> {
-        getEntityByCallsCount += 1
-        getEntityByReceivedIdentifier = identifier
-        return getEntityByClosure.map({ $0(identifier) }) ?? getEntityByReturnValue
-    }
-
-    //MARK: - fetch
-
-    var fetchCompletionHandlerCallsCount = 0
-    var fetchCompletionHandlerCalled: Bool {
-        return fetchCompletionHandlerCallsCount > 0
-    }
-    var fetchCompletionHandlerReceivedCompletionHandler: (FetchUsersProfileCompletionHandler)?
-    var fetchCompletionHandlerClosure: ((@escaping FetchUsersProfileCompletionHandler) -> Void)?
-
-    func fetch(completionHandler: @escaping FetchUsersProfileCompletionHandler) {
-        fetchCompletionHandlerCallsCount += 1
-        fetchCompletionHandlerReceivedCompletionHandler = completionHandler
-        fetchCompletionHandlerClosure?(completionHandler)
+    func loadEntity(completionHandler: @escaping LoadUserProfileCompletionHandler) {
+        loadEntityCompletionHandlerCallsCount += 1
+        loadEntityCompletionHandlerReceivedCompletionHandler = completionHandler
+        loadEntityCompletionHandlerClosure?(completionHandler)
     }
 
     //MARK: - add

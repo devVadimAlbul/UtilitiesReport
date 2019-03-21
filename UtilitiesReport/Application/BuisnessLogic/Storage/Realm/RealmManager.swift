@@ -20,7 +20,7 @@ class RealmManager: RealmManagerProtocol {
     static var nameDataBase: String = "UtilitiReport"
     private static var defaultConfiguration: Realm.Configuration {
         var config = Realm.Configuration(
-            schemaVersion: 3,
+            schemaVersion: 4,
             migrationBlock: { (_, _) in
                 
             }

@@ -38,51 +38,30 @@ class UseCasesTest: XCTestCase {
         let useCase = LoadUserProfileUseCaseImpl(storage: storage)
         let testSetValue = getTestUserProfile()
         
-        storage.fetchBooksCompletionHandlerClosure = { (completion) in
-            completion(.success([testSetValue]))
+        storage.loadEntityCompletionHandlerClosure = { (completion) in
+            completion(.success(testSetValue))
         }
         
         useCase.load { (result) in
             self.assertThrow(result)
             let value = try! result.dematerialize()
             XCTAssertNotNil(value)
-            XCTAssertEqual(value!, testSetValue)
+            XCTAssertEqual(value, testSetValue)
         }
         
-        XCTAssertTrue(self.storage.fetchBooksCompletionHandlerCalled)
-        XCTAssertEqual(self.storage.fetchBooksCompletionHandlerCallsCount, 1)
-    }
-    
-    func test_get_user_profile_use_case_success() {
-        let useCase = GetSavedUserProfileUseCaseImpl(storage: storage)
-        let testSetValue = getTestUserProfile()
-        let testIdentifier = "test"
-        let expectedResult: Result<UserProfile?> = .success(testSetValue)
-        storage.getEntityByReturnValue = expectedResult
-        var result: UserProfile?
-        do {
-            result = try useCase.getUserProfile(identifier: testIdentifier)
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
-        
-        XCTAssertTrue(self.storage.getEntityByCalled)
-        XCTAssertEqual(self.storage.getEntityByCallsCount, 1)
-        XCTAssertNotNil(result)
-        XCTAssertEqual(result!, testSetValue)
-        XCTAssertEqual(storage.getEntityByReceivedIdentifier, testIdentifier)
+        XCTAssertTrue(self.storage.loadEntityCompletionHandlerCalled)
+        XCTAssertEqual(self.storage.loadEntityCompletionHandlerCallsCount, 1)
     }
     
     private func getTestUserProfile() -> UserProfile {
-        return UserProfile(
-            firstName: "test",
-            lastName: "test",
-            city: "testCity",
-            street: "testStreat",
-            house: "3",
-            apartment: "2",
-            phoneNumber: "093333333"
-        )
+        return UserProfile(firstName: "test",
+                           lastName: "test",
+                           email: "test@gmail.com",
+                           phoneNumber: "333333",
+                           city: "test",
+                           street: "test",
+                           house: "test",
+                           apartment: "109")
     }
     
     func assertThrow<T>(_ result: Result<T>, file: StaticString = #file, line: UInt = #line) {

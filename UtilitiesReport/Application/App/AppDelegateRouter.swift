@@ -11,6 +11,7 @@ import UIKit.UIWindow
 import UIKit.UINavigationController
 
 protocol AppDelegateRouter: AnyObject {
+    func showFakeSpleashScreen()
     func goToMainViewController()
     func goToCreatedUserProfile()
 }
@@ -34,6 +35,11 @@ class AppDelegateRouterImpl: AppDelegateRouter {
         let welcomeVC = WelcomeViewController()
         welcomeVC.configurator = WelcomeConfiguratorImpl()
         goToViewController(welcomeVC)
+    }
+    
+    func showFakeSpleashScreen() {
+        let spleash = FakeSpleashViewController()
+        goToViewController(spleash)
     }
     
     fileprivate func goToViewController(_ viewController: UIViewController) {
