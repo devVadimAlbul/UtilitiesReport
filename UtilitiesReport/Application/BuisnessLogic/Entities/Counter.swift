@@ -13,9 +13,15 @@ struct Counter {
     var identifier: String
     var placeInstallation: String
     
-    
     enum CodingKeys: String, CodingKey {
         case identifier = "id"
         case placeInstallation = "place_installation"
+    }
+    
+    var context: [String: Any] {
+        return [
+            "id": identifier,
+            "place": placeInstallation
+        ]
     }
 }

@@ -16,7 +16,7 @@ class FormUserUtilitesCompanyConfiguratorImpl: FormUserUtilitesCompanyConfigurat
     
     func configure(viewController: FormUserUtilitesCompanyViewController) {
         let router = FormUserUtilitesCompanyRouterImpl(viewController: viewController)
-        let apiGateway = ApiCompaniesGatewayImpl(apiClient: ApiClientImpl())
+        let apiGateway = ApiCompaniesGatewayImpl(apiClient: ApiAlamofireClientImpl())
         let manager = RealmManager()
         
         let localStorageCompany = CompaniesLocalStorageGatewayImpl(manager: manager)

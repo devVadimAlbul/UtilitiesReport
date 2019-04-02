@@ -96,4 +96,19 @@ class UserProfile: Codable, Equatable {
         try container.encodeIfPresent(apartment, forKey: .apartment)
     }
     
+    var context: [String: Any] {
+        var ctx: [String: Any] = [
+            "name": name,
+            "phoneNumber": phoneNumber,
+            "email": email,
+            "city": city,
+            "street": street,
+            "house": house
+        ]
+        
+        if let apt = apartment {
+            ctx["apartment"] = apt
+        }
+        return ctx
+    }
 }

@@ -50,7 +50,7 @@ struct ApiCompany: Codable, Equatable {
         try container.encode(type, forKey: .type)
     }
 
-    var company: Company {
+    var entity: Company {
         return Company(
             identifier: identifier,
             name: name,

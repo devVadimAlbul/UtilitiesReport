@@ -25,4 +25,13 @@ struct UserUtilitiesCompany {
         self.counters = counters
         self.indicators = indicators
     }
+    
+    var context: [String: Any] {
+        var ctx: [String: Any] = ["accountNumber": accountNumber]
+        
+        if let company = self.company {
+           ctx["company"] = company.context
+        }
+        return ctx
+    }
 }

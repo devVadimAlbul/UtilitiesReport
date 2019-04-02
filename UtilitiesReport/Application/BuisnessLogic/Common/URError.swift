@@ -20,6 +20,8 @@ enum URError: Error {
     case incorrectUserUtitliesCompany
     case idicatorCounterCantRemoved
     case notAvailable(String)
+    case templateNotFound
+    case urlInvalid
 }
 
 extension URError: LocalizedError {
@@ -40,6 +42,10 @@ extension URError: LocalizedError {
             return "Indicator of counter can not deleted."
         case let .notAvailable(name):
             return String(format: "%@ is not available.", name)
+        case .templateNotFound:
+            return "Company template for send indicators of counter not found."
+        case .urlInvalid:
+            return "Your url is invalid for send.\nPlease check is it and try again."
         }
     }
 }

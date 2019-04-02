@@ -12,6 +12,7 @@ import UIKit.UIImage
 protocol ListIndicatorsCounterRouter {
     func pushToTextRecognizer(with image: UIImage, delegate: TextRecognizerImageDelegate)
     func pushToFomIndicator(with indicator: IndicatorsCounter, to company: UserUtilitiesCompany)
+    func presentActionSheet(by model: AlertModelView)
 }
 
 class ListIndicatorsCounterRouterImpl: ListIndicatorsCounterRouter {
@@ -34,5 +35,9 @@ class ListIndicatorsCounterRouterImpl: ListIndicatorsCounterRouter {
         formVC.configurator = FormIndicatorCounterConfiguratorImpl(indicator: indicator,
                                                                    userUntilitesCompany: company)
         self.viewController?.navigationController?.pushViewController(formVC, animated: true)
+    }
+    
+    func presentActionSheet(by model: AlertModelView) {
+        viewController?.presentActionSheet(by: model)
     }
 }

@@ -30,17 +30,28 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
     private var userCompany: UserUtilitiesCompany?
     private var selectedCounter: Counter?
     private var listSections: [SectionItemsModel<IndicatorsCounter>] = []
+    private var templatesGateway: TemplatesGateway
+    private var downloadGateway: ApiDownloadTemplateGateway
+    private var templates: [TemplateReport] = []
+    private var generateTemplate: GenerateTemplateUseCase
     
     init(router: ListIndicatorsCounterRouter,
          view: ListIndicatorsCounterView,
          userCompanyIdentifier: String,
          indicatorsCouterGateway: IndicatorsCouterGateway,
-         loadUseCase: LoadUserCompaniesUseCase) {
+         loadUseCase: LoadUserCompaniesUseCase,
+         templatesGateway: TemplatesGateway,
+         downloadGateway: ApiDownloadTemplateGateway,
+         generateTemplate: GenerateTemplateUseCase) {
+        
         self.router = router
         self.view = view
         self.userCompanyIdentifier = userCompanyIdentifier
         self.indicatorsCouterGateway = indicatorsCouterGateway
         self.loadUseCase = loadUseCase
+        self.templatesGateway = templatesGateway
+        self.downloadGateway = downloadGateway
+        self.generateTemplate = generateTemplate
     }
     
     // MARK: load content
@@ -62,8 +73,23 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
                 self.view?.displayPageTitle(name)
                 self.listSections = self.generateSections(userCompany.indicators)
                 self.view?.reloadAllData()
+                self.loadTemplates()
             case let .failure(error):
                 self.view?.displayError(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func loadTemplates() {
+        guard let userCompany = self.userCompany, let company = userCompany.company else { return }
+        templatesGateway.fetch(company: company.identifier) { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case let .success(templates):
+                self.templates = templates
+            case let .failure(error):
+                print("[ListIndicatorsCounter] loadTemplates error:", error)
+//                self.view?.displayError(error.localizedDescription)
             }
         }
     }
@@ -104,7 +130,7 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
         let actionItems = counters.map(actionModel)
         let model = AlertModelView(title: "Use counter:",
                                    message: nil, actions: actionItems)
-        view?.displayActionSheet(by: model)
+        router.presentActionSheet(by: model)
     }
     
     private func selectPhotoProvider(counter: Counter? = nil) {
@@ -119,8 +145,9 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
         }))
         actionItems.append(libraryAction)
         let model = AlertModelView(title: "Use photos provider:",
-        message: nil, actions: actionItems)
-        view?.displayActionSheet(by: model)
+                                   message: nil, actions: actionItems)
+        
+        router.presentActionSheet(by: model)
     }
     
     func actionSaveIndicator(value: String) {
@@ -129,6 +156,58 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
                                           counter: selectedCounter, state: .created)
         self.selectedCounter = nil
         router.pushToFomIndicator(with: indicator, to: userCompany)
+    }
+    
+    private func selectTepmlates(indicator: IndicatorsCounter) {
+        guard !templates.isEmpty else {
+            self.view?.displayError(URError.templateNotFound.localizedDescription)
+            return
+        }
+        let actionModels: [AlertActionModelView] = templates.map { (template) in
+            return AlertActionModelView(title: template.type.name,
+                                        action: CommandWith(action: { [weak self] _ in
+                                            self?.sendIndicators(indicator, with: template)
+                                        })
+            )
+        }
+        let model = AlertModelView(title: "Send indicator of counter by use:",
+                                   message: nil, actions: actionModels)
+        router.presentActionSheet(by: model)
+    }
+    
+    private func sendIndicators(_ indicator: IndicatorsCounter, with template: TemplateReport) {
+        downloadGateway.download(parameter: template, progressHandler: { (progress) in
+            
+        }, complationHandler: { [weak self, template, indicator] result in
+            guard let `self` = self else { return }
+            switch result {
+            case let .success(content):
+                self.createTemplate([indicator], with: content, to: template)
+            case let .failure(error):
+                self.view?.displayError(error.localizedDescription)
+            }
+        })
+    }
+    
+    private func createTemplate(_ indicators: [IndicatorsCounter],
+                                with templateContent: String,
+                                to template: TemplateReport) {
+        guard let userCompany = userCompany else {
+            let error = URError.userCompanyNotFound
+            view?.displayError(error.localizedDescription)
+            return
+        }
+        generateTemplate.generate(with: indicators, by: userCompany,
+                                  template: templateContent) { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case let .success(content):
+                print(content)
+                
+            case let .failure(error):
+                self.view?.displayError(error.localizedDescription)
+            }
+        }
     }
     
     // MARK: table methods
@@ -143,6 +222,7 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
     func configure(cell: BasicVeiwCellProtocol, at indexPath: IndexPath) {
         if let cell = cell as? ItemIndicatorCounterViewCell {
             let item = listSections[indexPath.section].items[indexPath.row]
+            cell.delegate = view as? ItemIndicatorCounterCellDelegate
             cell.displayDateMonths(item.month)
             cell.displayCounter(item.counter?.placeInstallation)
             cell.displayValue(item.value)
@@ -157,6 +237,7 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
     }
     
     func actionSendItem(at indexPath: IndexPath) {
-//        if let
+        let item = listSections[indexPath.section].items[indexPath.row]
+        selectTepmlates(indicator: item)
     }
 }

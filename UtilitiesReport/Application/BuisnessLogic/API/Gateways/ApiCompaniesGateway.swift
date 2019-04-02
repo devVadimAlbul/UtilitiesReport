@@ -13,7 +13,7 @@ protocol ApiCompaniesGateway: CompaniesGateway {
 }
 
 class ApiCompaniesGatewayImpl: ApiCompaniesGateway {
-    let apiClient: ApiClient
+    private var apiClient: ApiClient
     
     init(apiClient: ApiClient) {
         self.apiClient = apiClient
@@ -24,19 +24,19 @@ class ApiCompaniesGatewayImpl: ApiCompaniesGateway {
         apiClient.execute(request: request) { (result: Result<ApiResponse<ApiCompany>>) in
             switch result {
             case let .success(response):
-                completionHandler(.success(response.entity.company))
+                completionHandler(.success(response.entity.entity))
             case let .failure(error):
                 completionHandler(.failure(error))
             }
         }
     }
     
-    func fetch(completionHandler: @escaping ApiCompaniesGatewayImpl.FetchEntitiesCompletionHandler) {
+    func fetch(completionHandler: @escaping FetchEntitiesCompletionHandler) {
         let request = CompanyApiRequest.getAll
         apiClient.execute(request: request) { (result: Result<ApiResponse<[ApiCompany]>>) in
             switch result {
             case let .success(response):
-                let companies = response.entity.map { return $0.company }
+                let companies = response.entity.map { return $0.entity }
                 completionHandler(.success(companies))
             case let .failure(error):
                 completionHandler(.failure(error))
@@ -48,7 +48,7 @@ class ApiCompaniesGatewayImpl: ApiCompaniesGateway {
         completionHandler(.success(()))
     }
     
-    func delete(entity: Company, completionHandler: @escaping ApiCompaniesGatewayImpl.DeleteEntityCompletionHandler) {
+    func delete(entity: Company, completionHandler: @escaping DeleteEntityCompletionHandler) {
         completionHandler(.success(()))
     }
 }

@@ -60,4 +60,28 @@ struct IndicatorsCounter {
         dateFormatter.dateFormat = "MMMM yyyy"
         return dateFormatter.string(from: date)
     }
+    
+    var monthName: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        return dateFormatter.string(from: date)
+    }
+    
+    var monthInt: Int {
+        let calendar = Calendar.current
+        return calendar.component(.month, from: date)
+    }
+    
+    var context: [String: Any] {
+        var ctx: [String: Any] = [
+            "value": value,
+            "monthInt": monthInt,
+            "month": monthName
+        ]
+        
+        if let counter = counter {
+            ctx["counter"] = counter.context
+        }
+        return ctx
+    }
 }

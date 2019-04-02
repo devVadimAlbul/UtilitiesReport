@@ -50,4 +50,11 @@ struct Company: Equatable {
     static func == (lhs: Company, rhs: Company) -> Bool {
         return lhs.identifier == rhs.identifier
     }
+    
+    var context: [String: Any] {
+        return [
+            "name": name,
+            "city": city
+        ]
+    }
 }
