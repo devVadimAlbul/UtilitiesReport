@@ -9,7 +9,8 @@
 import Foundation
 
 protocol GenerateTemplateUseCase {
-    func generate(with  indicators: [IndicatorsCounter], by company: UserUtilitiesCompany,
+    func generate(with  indicators: [IndicatorsCounter],
+                  by company: UserUtilitiesCompany,
                   template: String, completionHandler: @escaping (Result<String>) -> Void)
 }
 
@@ -41,5 +42,12 @@ class GenerateTemplateUseCaseImpl: GenerateTemplateUseCase {
     private func render(context: TemplateContext, template: String,
                         completionHandler: @escaping (Result<String>) -> Void) {
         templateParser.render(template: template, context: context.context, completionHandler: completionHandler)
+    }
+    
+    class var `default`: GenerateTemplateUseCase {
+        let userStorage = UserProfileLocalStorageGatewayImpl(storage: RealmManager())
+        let loadUseCase = LoadUserProfileUseCaseImpl(storage: userStorage)
+        let parser = TemplateParserImpl()
+        return GenerateTemplateUseCaseImpl(loadUserProfile: loadUseCase, templateParser: parser)
     }
 }

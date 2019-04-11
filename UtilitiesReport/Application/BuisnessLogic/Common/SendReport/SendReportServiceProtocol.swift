@@ -1,5 +1,5 @@
 //
-//  SendReport.swift
+//  SendReportServiceProtocol.swift
 //  UtilitiesReport
 //
 //  Created by Vadim Albul on 3/31/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SendReportProtocol {
-    func send(to params: TemplateReport, with content: String,
+protocol SendReportServiceProtocol {
+    func send(model: SendReportModel,
               completionHandler: @escaping (Result<Void>) -> Void)
 }

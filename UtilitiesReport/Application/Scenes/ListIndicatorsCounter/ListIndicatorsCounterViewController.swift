@@ -3,8 +3,10 @@ import UIKit
 protocol ListIndicatorsCounterView: AnyObject {
     func displayPageTitle(_ title: String)
     func displayError(_ message: String)
+    func displayMessage(_ message: String)
     func displayImagePicker(sourceType: UIImagePickerController.SourceType)
     func reloadAllData()
+    func displayProgress()
 }
 
 class ListIndicatorsCounterViewController: BasicViewController, ListIndicatorsCounterView {
@@ -55,6 +57,18 @@ class ListIndicatorsCounterViewController: BasicViewController, ListIndicatorsCo
     func displayError(_ message: String) {
         ProgressHUD.dismiss()
         showErrorAlert(message: message)
+    }
+    
+    func displayMessage(_ message: String) {
+        ProgressHUD.dismiss()
+        let modelView = AlertModelView(title: message, message: nil, actions: [
+                AlertActionModelView(title: "OK", action: nil)
+            ])
+        presentAlert(by: modelView)
+    }
+    
+    func displayProgress() {
+        ProgressHUD.show()
     }
     
     func displayImagePicker(sourceType: UIImagePickerController.SourceType) {

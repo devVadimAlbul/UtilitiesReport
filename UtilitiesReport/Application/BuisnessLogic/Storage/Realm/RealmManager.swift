@@ -95,6 +95,7 @@ class RealmManager: RealmManagerProtocol {
                            completion: (() -> Void)? = nil) throws where S.Element: Object {
         try realm.write {
             self.realm.add(objects, update: update)
+            completion?()
         }
     }
     

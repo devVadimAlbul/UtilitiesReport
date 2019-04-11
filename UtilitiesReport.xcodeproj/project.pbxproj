@@ -119,6 +119,9 @@
 		14A54D502211BB420038A8F2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D4F2211BB420038A8F2 /* String+Extension.swift */; };
 		14A54D522211C6770038A8F2 /* AlertModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D512211C6770038A8F2 /* AlertModelView.swift */; };
 		14A54D562211C8DB0038A8F2 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D552211C8DB0038A8F2 /* ProgressHUD.swift */; };
+		14B64E892259D60C00237A65 /* SendReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B64E882259D60C00237A65 /* SendReportModel.swift */; };
+		14B64E8B2259EC4300237A65 /* SendReportHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B64E8A2259EC4300237A65 /* SendReportHelper.swift */; };
+		14B64E8D225A498600237A65 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B64E8C225A498600237A65 /* HttpClient.swift */; };
 		14B7E83F2221D42B00293DB1 /* TextRecognizerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E83D2221D42B00293DB1 /* TextRecognizerImageViewController.swift */; };
 		14B7E8402221D42B00293DB1 /* TextRecognizerImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B7E83E2221D42B00293DB1 /* TextRecognizerImageViewController.xib */; };
 		14B7E8422221D4F800293DB1 /* TextRecognizerImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E8412221D4F800293DB1 /* TextRecognizerImagePresenter.swift */; };
@@ -151,8 +154,8 @@
 		14D3516A2214768400A77783 /* UseCasesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D351692214768400A77783 /* UseCasesTest.swift */; };
 		14D6D94422299F8B003A67E3 /* UserUtilitesCompanyGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D6D94322299F8B003A67E3 /* UserUtilitesCompanyGateway.swift */; };
 		14D6D9462229A031003A67E3 /* UserUtilitesCompanyLocalStorageGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D6D9452229A031003A67E3 /* UserUtilitesCompanyLocalStorageGateway.swift */; };
-		14DD089E22510E44000BDEE7 /* SendReportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD089D22510E44000BDEE7 /* SendReportProtocol.swift */; };
-		14DD08A022511044000BDEE7 /* FormSendReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD089F22511044000BDEE7 /* FormSendReport.swift */; };
+		14DD089E22510E44000BDEE7 /* SendReportServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD089D22510E44000BDEE7 /* SendReportServiceProtocol.swift */; };
+		14DD08A022511044000BDEE7 /* FormSendReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD089F22511044000BDEE7 /* FormSendReportService.swift */; };
 		14DD08A2225116DB000BDEE7 /* ApiResponseEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD08A1225116DB000BDEE7 /* ApiResponseEmpty.swift */; };
 		14DFD30A223CE4A300CB248E /* SectionItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFD309223CE4A300CB248E /* SectionItemsModel.swift */; };
 		14EA2388224F7DD000425DAB /* TemplateContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EA2387224F7DD000425DAB /* TemplateContext.swift */; };
@@ -160,6 +163,8 @@
 		14EB0F91224157E1000CBB64 /* FakeSpleashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB0F8F224157E1000CBB64 /* FakeSpleashViewController.swift */; };
 		14EB0F92224157E1000CBB64 /* FakeSpleashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14EB0F90224157E1000CBB64 /* FakeSpleashViewController.xib */; };
 		14EB0F94224168CD000CBB64 /* RealmUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB0F93224168CD000CBB64 /* RealmUserProfile.swift */; };
+		14EC74A52258EF45002A2A91 /* FormSendReportApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EC74A42258EF45002A2A91 /* FormSendReportApiRequest.swift */; };
+		14EC74A72258EFEB002A2A91 /* FormationReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EC74A62258EFEB002A2A91 /* FormationReportManager.swift */; };
 		14F30750222557DF00021C95 /* CameraRecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F3074E222557DF00021C95 /* CameraRecognizerViewController.swift */; };
 		14F30751222557DF00021C95 /* CameraRecognizerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F3074F222557DF00021C95 /* CameraRecognizerViewController.xib */; };
 		14F3075322255B0E00021C95 /* CameraRecognizerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F3075222255B0E00021C95 /* CameraRecognizerPresenter.swift */; };
@@ -311,6 +316,9 @@
 		14A54D4F2211BB420038A8F2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		14A54D512211C6770038A8F2 /* AlertModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModelView.swift; sourceTree = "<group>"; };
 		14A54D552211C8DB0038A8F2 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		14B64E882259D60C00237A65 /* SendReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReportModel.swift; sourceTree = "<group>"; };
+		14B64E8A2259EC4300237A65 /* SendReportHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReportHelper.swift; sourceTree = "<group>"; };
+		14B64E8C225A498600237A65 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		14B7E83D2221D42B00293DB1 /* TextRecognizerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerImageViewController.swift; sourceTree = "<group>"; };
 		14B7E83E2221D42B00293DB1 /* TextRecognizerImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextRecognizerImageViewController.xib; sourceTree = "<group>"; };
 		14B7E8412221D4F800293DB1 /* TextRecognizerImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerImagePresenter.swift; sourceTree = "<group>"; };
@@ -344,8 +352,8 @@
 		14D351692214768400A77783 /* UseCasesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesTest.swift; sourceTree = "<group>"; };
 		14D6D94322299F8B003A67E3 /* UserUtilitesCompanyGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUtilitesCompanyGateway.swift; sourceTree = "<group>"; };
 		14D6D9452229A031003A67E3 /* UserUtilitesCompanyLocalStorageGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUtilitesCompanyLocalStorageGateway.swift; sourceTree = "<group>"; };
-		14DD089D22510E44000BDEE7 /* SendReportProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReportProtocol.swift; sourceTree = "<group>"; };
-		14DD089F22511044000BDEE7 /* FormSendReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSendReport.swift; sourceTree = "<group>"; };
+		14DD089D22510E44000BDEE7 /* SendReportServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReportServiceProtocol.swift; sourceTree = "<group>"; };
+		14DD089F22511044000BDEE7 /* FormSendReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSendReportService.swift; sourceTree = "<group>"; };
 		14DD08A1225116DB000BDEE7 /* ApiResponseEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseEmpty.swift; sourceTree = "<group>"; };
 		14DFD309223CE4A300CB248E /* SectionItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItemsModel.swift; sourceTree = "<group>"; };
 		14EA2387224F7DD000425DAB /* TemplateContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateContext.swift; sourceTree = "<group>"; };
@@ -353,6 +361,8 @@
 		14EB0F8F224157E1000CBB64 /* FakeSpleashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSpleashViewController.swift; sourceTree = "<group>"; };
 		14EB0F90224157E1000CBB64 /* FakeSpleashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FakeSpleashViewController.xib; sourceTree = "<group>"; };
 		14EB0F93224168CD000CBB64 /* RealmUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUserProfile.swift; sourceTree = "<group>"; };
+		14EC74A42258EF45002A2A91 /* FormSendReportApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSendReportApiRequest.swift; sourceTree = "<group>"; };
+		14EC74A62258EFEB002A2A91 /* FormationReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormationReportManager.swift; sourceTree = "<group>"; };
 		14F3074E222557DF00021C95 /* CameraRecognizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRecognizerViewController.swift; sourceTree = "<group>"; };
 		14F3074F222557DF00021C95 /* CameraRecognizerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraRecognizerViewController.xib; sourceTree = "<group>"; };
 		14F3075222255B0E00021C95 /* CameraRecognizerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRecognizerPresenter.swift; sourceTree = "<group>"; };
@@ -449,6 +459,7 @@
 				145EA06D2228121500AB633E /* ApiResponse.swift */,
 				1478739622478A540063CCC7 /* ApiAlamofireClient.swift */,
 				142036C5224959BE00F7ED0A /* ApiDownloadClient.swift */,
+				14B64E8C225A498600237A65 /* HttpClient.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1031,8 +1042,11 @@
 		14DD089C22510C27000BDEE7 /* SendReport */ = {
 			isa = PBXGroup;
 			children = (
-				14DD089D22510E44000BDEE7 /* SendReportProtocol.swift */,
-				14DD089F22511044000BDEE7 /* FormSendReport.swift */,
+				14EC74A32258EF30002A2A91 /* Form */,
+				14DD089D22510E44000BDEE7 /* SendReportServiceProtocol.swift */,
+				14EC74A62258EFEB002A2A91 /* FormationReportManager.swift */,
+				14B64E882259D60C00237A65 /* SendReportModel.swift */,
+				14B64E8A2259EC4300237A65 /* SendReportHelper.swift */,
 			);
 			path = SendReport;
 			sourceTree = "<group>";
@@ -1043,6 +1057,15 @@
 				14EA238A224F7FB700425DAB /* GenerateTemplateUseCase.swift */,
 			);
 			path = TemplateContext;
+			sourceTree = "<group>";
+		};
+		14EC74A32258EF30002A2A91 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				14DD089F22511044000BDEE7 /* FormSendReportService.swift */,
+				14EC74A42258EF45002A2A91 /* FormSendReportApiRequest.swift */,
+			);
+			path = Form;
 			sourceTree = "<group>";
 		};
 		14F3074D2225577C00021C95 /* CameraRecognizer */ = {
@@ -1439,6 +1462,7 @@
 				14DFD30A223CE4A300CB248E /* SectionItemsModel.swift in Sources */,
 				14215E2D222710FB00662150 /* ApiCompaniesGateway.swift in Sources */,
 				14A54D502211BB420038A8F2 /* String+Extension.swift in Sources */,
+				14EC74A72258EFEB002A2A91 /* FormationReportManager.swift in Sources */,
 				14B7E83F2221D42B00293DB1 /* TextRecognizerImageViewController.swift in Sources */,
 				14215E252227041800662150 /* CompanyApiRequest.swift in Sources */,
 				14EA238B224F7FB700425DAB /* GenerateTemplateUseCase.swift in Sources */,
@@ -1467,12 +1491,13 @@
 				14CDF94822383F3D0040160E /* UserCompanyItemTableViewCell.swift in Sources */,
 				148727D422104A8800C59344 /* UserFormViewRouter.swift in Sources */,
 				14CDF973223982B30040160E /* LastInticatorModelView.swift in Sources */,
-				14DD089E22510E44000BDEE7 /* SendReportProtocol.swift in Sources */,
+				14DD089E22510E44000BDEE7 /* SendReportServiceProtocol.swift in Sources */,
 				14A54D4C2211AF830038A8F2 /* Constants.swift in Sources */,
 				142036C822495F7400F7ED0A /* ApiDownloadTemplateGateway.swift in Sources */,
 				14EB0F94224168CD000CBB64 /* RealmUserProfile.swift in Sources */,
 				1472429F221EDE2700E8FA56 /* WelcomeViewRouler.swift in Sources */,
 				1487279C220F283B00C59344 /* MainConfigurator.swift in Sources */,
+				14B64E892259D60C00237A65 /* SendReportModel.swift in Sources */,
 				14C84BD0223D5B9C00C001BD /* FormIndicatorCounterProps.swift in Sources */,
 				141A738922295ED7000E2247 /* IndicatorsCounter.swift in Sources */,
 				14264C992208C6E700655EEA /* AppDelegate.swift in Sources */,
@@ -1486,6 +1511,7 @@
 				14DD08A2225116DB000BDEE7 /* ApiResponseEmpty.swift in Sources */,
 				141AEE6A22351D0F00B9A354 /* AlertFormFieldsConfigurator.swift in Sources */,
 				14CBA619221D40BC0024D06F /* Command.swift in Sources */,
+				14B64E8D225A498600237A65 /* HttpClient.swift in Sources */,
 				14A54D3522115D9B0038A8F2 /* ControlFromXib.swift in Sources */,
 				14F307592225C51700021C95 /* Company.swift in Sources */,
 				14215E2F2227177A00662150 /* CompaniesLocalStorageGateway.swift in Sources */,
@@ -1503,6 +1529,7 @@
 				144CEB8C2247AD4A006C3BA4 /* ApiTemplateReport.swift in Sources */,
 				1481C2D0222AE7B000C07080 /* LoadUserCompaniesUseCase.swift in Sources */,
 				140E864D224CBA0400039762 /* TemplateParser.swift in Sources */,
+				14EC74A52258EF45002A2A91 /* FormSendReportApiRequest.swift in Sources */,
 				147196762232BFE0006A070C /* InputFormItemTableViewCell.swift in Sources */,
 				14C083B22212D928001A5610 /* ViewShadow.swift in Sources */,
 				141AEE68223519FE00B9A354 /* AlertFormFieldsPresenter.swift in Sources */,
@@ -1511,9 +1538,10 @@
 				142036C6224959BE00F7ED0A /* ApiDownloadClient.swift in Sources */,
 				148727C32210268F00C59344 /* StorageProtocols.swift in Sources */,
 				14A54D562211C8DB0038A8F2 /* ProgressHUD.swift in Sources */,
-				14DD08A022511044000BDEE7 /* FormSendReport.swift in Sources */,
+				14DD08A022511044000BDEE7 /* FormSendReportService.swift in Sources */,
 				145406C52219688D008C94F4 /* TextDetector.swift in Sources */,
 				14215E2A22270FAF00662150 /* CompaniesGateway.swift in Sources */,
+				14B64E8B2259EC4300237A65 /* SendReportHelper.swift in Sources */,
 				14C083B72212F25D001A5610 /* BasicVeiwCellProtocol.swift in Sources */,
 				148727C82210283100C59344 /* UserDefaults+Extension.swift in Sources */,
 				1441A2CF221418B600BF974A /* AppDelegateConfigurator.swift in Sources */,

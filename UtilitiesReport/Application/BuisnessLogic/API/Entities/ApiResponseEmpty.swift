@@ -10,8 +10,8 @@ import Foundation
 
 
 struct ApiResponseEmpty: Decodable {
-    
+
     init(from decoder: Decoder) throws {
-        
+ 
     }
 }

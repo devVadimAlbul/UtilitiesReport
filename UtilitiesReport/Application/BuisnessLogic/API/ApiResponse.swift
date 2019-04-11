@@ -64,7 +64,7 @@ struct ApiResponse<Response> {
     }
 }
 
-private func defaultJsonDecode<T: Decodable>(_ data: Data?) throws -> T {
+func defaultJsonDecode<T: Decodable>(_ data: Data?) throws -> T {
     guard let rData = data else {
         throw ApiError.dataNotFound
     }
@@ -75,6 +75,30 @@ extension ApiResponse where Response: Decodable {
     
     init(data: Data?, httpUrlResponse: HTTPURLResponse) throws {
         try self.init(data: data, httpUrlResponse: httpUrlResponse, decode: defaultJsonDecode)
+    }
+}
+
+extension ApiResponse where Response == Data {
+    
+    init(data: Data?, httpUrlResponse: HTTPURLResponse) throws {
+        try self.init(data: data, httpUrlResponse: httpUrlResponse, decode: { data in
+            guard let rData = data else {
+                throw ApiError.dataNotFound
+            }
+            return rData
+        })
+    }
+}
+
+extension ApiResponse where Response == String {
+    
+    init(data: Data?, httpUrlResponse: HTTPURLResponse) throws {
+        try self.init(data: data, httpUrlResponse: httpUrlResponse, decode: { data in
+            guard let rData = data else {
+                throw ApiError.dataNotFound
+            }
+            return String(decoding: rData, as: UTF8.self)
+        })
     }
 }
 

@@ -13,14 +13,17 @@ protocol ListIndicatorsCounterRouter {
     func pushToTextRecognizer(with image: UIImage, delegate: TextRecognizerImageDelegate)
     func pushToFomIndicator(with indicator: IndicatorsCounter, to company: UserUtilitiesCompany)
     func presentActionSheet(by model: AlertModelView)
+    func sendReport(model: SendReportModel, completionHandler: @escaping (Result<Void>)->Void)
 }
 
 class ListIndicatorsCounterRouterImpl: ListIndicatorsCounterRouter {
     
     private weak var viewController: ListIndicatorsCounterViewController?
+    private var reportHelper: SendReportHelper
     
-    init(viewController: ListIndicatorsCounterViewController) {
+    init(viewController: ListIndicatorsCounterViewController, reportHelper: SendReportHelper) {
         self.viewController = viewController
+        self.reportHelper = reportHelper
     }
     
     func pushToTextRecognizer(with image: UIImage, delegate: TextRecognizerImageDelegate) {
@@ -39,5 +42,10 @@ class ListIndicatorsCounterRouterImpl: ListIndicatorsCounterRouter {
     
     func presentActionSheet(by model: AlertModelView) {
         viewController?.presentActionSheet(by: model)
+    }
+    
+    func sendReport(model: SendReportModel, completionHandler: @escaping (Result<Void>)->Void) {
+        guard let viewController = self.viewController else { return }
+        reportHelper.send(model: model, in: viewController, completionHandler: completionHandler)
     }
 }

@@ -21,19 +21,16 @@ class ListIndicatorsCounterConfiguratorImpl: ListIndicatorsCounterConfigurator {
     }
     
     func configure(viewController: ListIndicatorsCounterViewController) {
-        let router = ListIndicatorsCounterRouterImpl(viewController: viewController)
+        let router = ListIndicatorsCounterRouterImpl(viewController: viewController,
+                                                     reportHelper: SendReportHelperImpl())
         
         let indicatorsCounterGateway = IndicatorsCouterLocalStorageGatewayImpl()
         let localStorage = UserUtilCompanyLocalStorageGatewayImpl(manager: RealmManager())
         let companyGateway = UserUtilitesCompanyGatewayImpl(localStorage: localStorage)
         let loadUseCase = LoadUserCompaniesUseCaseImpl(gateway: companyGateway)
-        let userStorage = UserProfileLocalStorageGatewayImpl(storage: RealmManager())
-        let loadUserProfile = LoadUserProfileUseCaseImpl(storage: userStorage)
         let apiGateway = ApiTemplatesGatewayImpl(apiClient: ApiAlamofireClientImpl())
         let templatesGateway = TemplatesGatewayImpl(apiGateway: apiGateway)
-        let downloadGateway = ApiDownloadTemplateGatewayImpl(apiDownloadClient: ApiDownloadClientImpl())
-        let generateTemplate = GenerateTemplateUseCaseImpl(loadUserProfile: loadUserProfile,
-                                                           templateParser: TemplateParserImpl())
+        let formationReportManager = FormationReportManagerImpl()
         
         let presenter = ListIndicatorsCounterPresenterImpl(router: router,
                                                            view: viewController,
@@ -41,8 +38,7 @@ class ListIndicatorsCounterConfiguratorImpl: ListIndicatorsCounterConfigurator {
                                                            indicatorsCouterGateway: indicatorsCounterGateway,
                                                            loadUseCase: loadUseCase,
                                                            templatesGateway: templatesGateway,
-                                                           downloadGateway: downloadGateway,
-                                                           generateTemplate: generateTemplate)
+                                                           formationReportManager: formationReportManager)
         
         viewController.presenter = presenter
     }

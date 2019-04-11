@@ -31,9 +31,8 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
     private var selectedCounter: Counter?
     private var listSections: [SectionItemsModel<IndicatorsCounter>] = []
     private var templatesGateway: TemplatesGateway
-    private var downloadGateway: ApiDownloadTemplateGateway
+    private var formationReportManager: FormationReportManager
     private var templates: [TemplateReport] = []
-    private var generateTemplate: GenerateTemplateUseCase
     
     init(router: ListIndicatorsCounterRouter,
          view: ListIndicatorsCounterView,
@@ -41,8 +40,7 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
          indicatorsCouterGateway: IndicatorsCouterGateway,
          loadUseCase: LoadUserCompaniesUseCase,
          templatesGateway: TemplatesGateway,
-         downloadGateway: ApiDownloadTemplateGateway,
-         generateTemplate: GenerateTemplateUseCase) {
+         formationReportManager: FormationReportManager) {
         
         self.router = router
         self.view = view
@@ -50,8 +48,7 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
         self.indicatorsCouterGateway = indicatorsCouterGateway
         self.loadUseCase = loadUseCase
         self.templatesGateway = templatesGateway
-        self.downloadGateway = downloadGateway
-        self.generateTemplate = generateTemplate
+        self.formationReportManager = formationReportManager
     }
     
     // MARK: load content
@@ -98,9 +95,10 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
         let sortedList = list.sorted(by: {$0.date.compare($1.date) == .orderedAscending})
         let group = Dictionary(grouping: sortedList) { $0.month }
         let section = group.map { (key, values) -> SectionItemsModel<IndicatorsCounter> in
-            return SectionItemsModel(title: key, items: values)
+            let firstDate = values.first?.date ?? Date()
+            return SectionItemsModel(title: key, items: values, date: firstDate)
         }
-        let sortSections = section
+        let sortSections = section.sorted(by: {$0.date.compare($1.date) == .orderedDescending})
         return sortSections
     }
     
@@ -158,7 +156,7 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
         router.pushToFomIndicator(with: indicator, to: userCompany)
     }
     
-    private func selectTepmlates(indicator: IndicatorsCounter) {
+    private func selectTepmlates(indicators: [IndicatorsCounter]) {
         guard !templates.isEmpty else {
             self.view?.displayError(URError.templateNotFound.localizedDescription)
             return
@@ -166,7 +164,7 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
         let actionModels: [AlertActionModelView] = templates.map { (template) in
             return AlertActionModelView(title: template.type.name,
                                         action: CommandWith(action: { [weak self] _ in
-                                            self?.sendIndicators(indicator, with: template)
+                                            self?.formationTemplate(with: indicators, template: template)
                                         })
             )
         }
@@ -175,35 +173,62 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
         router.presentActionSheet(by: model)
     }
     
-    private func sendIndicators(_ indicator: IndicatorsCounter, with template: TemplateReport) {
-        downloadGateway.download(parameter: template, progressHandler: { (progress) in
-            
-        }, complationHandler: { [weak self, template, indicator] result in
+    private func formationTemplate(with indicators: [IndicatorsCounter], template: TemplateReport) {
+        guard let userCompany = self.userCompany else { return }
+        view?.displayProgress()
+        formationReportManager.formation(with: indicators, template: template,
+                                         userCompany: userCompany) { [weak self] (result) in
             guard let `self` = self else { return }
             switch result {
-            case let .success(content):
-                self.createTemplate([indicator], with: content, to: template)
+            case let .success(model):
+                self.send(model: model)
             case let .failure(error):
                 self.view?.displayError(error.localizedDescription)
             }
-        })
+        }
     }
     
-    private func createTemplate(_ indicators: [IndicatorsCounter],
-                                with templateContent: String,
-                                to template: TemplateReport) {
-        guard let userCompany = userCompany else {
-            let error = URError.userCompanyNotFound
-            view?.displayError(error.localizedDescription)
-            return
-        }
-        generateTemplate.generate(with: indicators, by: userCompany,
-                                  template: templateContent) { [weak self] (result) in
+    private func send(model: SendReportModel) {
+        router.sendReport(model: model) { [weak self] (result) in
             guard let `self` = self else { return }
             switch result {
-            case let .success(content):
-                print(content)
-                
+            case .success:
+                self.updateState(by: model.indicators, state: .sended)
+                self.view?.displayMessage("Success send utilites report!")
+            case let .failure(error):
+                self.view?.displayError(error.localizedDescription)
+                self.updateState(by: model.indicators, state: .failed)
+            }
+        }
+    }
+    
+    private func updateState(by indicators: [IndicatorsCounter], state: IndicatorState) {
+        var indicators = indicators
+        for index in 0..<indicators.count {
+            indicators[index].state = state
+        }
+        indicatorsCouterGateway.save(entities: indicators) { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .success:
+                self.updateList()
+            case let .failure(error):
+                self.view?.displayError(error.localizedDescription)
+            }
+            
+        }
+    }
+    
+    private func updateList() {
+        loadUseCase.loadCompany(by: userCompanyIdentifier) { [weak self] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case let .success(userCompany):
+                self.userCompany = userCompany
+                let name = userCompany.company?.name ?? userCompany.accountNumber
+                self.view?.displayPageTitle(name)
+                self.listSections = self.generateSections(userCompany.indicators)
+                self.view?.reloadAllData()
             case let .failure(error):
                 self.view?.displayError(error.localizedDescription)
             }
@@ -238,6 +263,6 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
     
     func actionSendItem(at indexPath: IndexPath) {
         let item = listSections[indexPath.section].items[indexPath.row]
-        selectTepmlates(indicator: item)
+        selectTepmlates(indicators: [item])
     }
 }

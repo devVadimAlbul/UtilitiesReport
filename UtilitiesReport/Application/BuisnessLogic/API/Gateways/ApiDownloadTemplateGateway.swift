@@ -46,4 +46,9 @@ class ApiDownloadTemplateGatewayImpl: ApiDownloadTemplateGateway {
                 }
         })
     }
+    
+    class var `default`: ApiDownloadTemplateGateway {
+        let apiDownload = ApiDownloadClientImpl()
+        return ApiDownloadTemplateGatewayImpl(apiDownloadClient: apiDownload)
+    }
 }
