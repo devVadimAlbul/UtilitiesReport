@@ -102,6 +102,8 @@
 		148727D72210D25D00C59344 /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148727D62210D25D00C59344 /* Navigation.storyboard */; };
 		148727D92210D2A700C59344 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148727D82210D2A700C59344 /* UIViewController+Extension.swift */; };
 		148727DC2210D31B00C59344 /* VCLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148727DB2210D31B00C59344 /* VCLoader.swift */; };
+		14925EC7226B15A600A20AA7 /* SmsSendReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14925EC6226B15A600A20AA7 /* SmsSendReportService.swift */; };
+		14925ECA226B1F8D00A20AA7 /* EmailSendReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14925EC9226B1F8D00A20AA7 /* EmailSendReportService.swift */; };
 		14A54D2D22115B510038A8F2 /* FormTextItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D2C22115B510038A8F2 /* FormTextItemView.swift */; };
 		14A54D3022115D720038A8F2 /* FormTextItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A54D2F22115D720038A8F2 /* FormTextItemView.xib */; };
 		14A54D3522115D9B0038A8F2 /* ControlFromXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D3222115D9B0038A8F2 /* ControlFromXib.swift */; };
@@ -299,6 +301,8 @@
 		148727D62210D25D00C59344 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
 		148727D82210D2A700C59344 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		148727DB2210D31B00C59344 /* VCLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLoader.swift; sourceTree = "<group>"; };
+		14925EC6226B15A600A20AA7 /* SmsSendReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsSendReportService.swift; sourceTree = "<group>"; };
+		14925EC9226B1F8D00A20AA7 /* EmailSendReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSendReportService.swift; sourceTree = "<group>"; };
 		14A54D2C22115B510038A8F2 /* FormTextItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextItemView.swift; sourceTree = "<group>"; };
 		14A54D2F22115D720038A8F2 /* FormTextItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormTextItemView.xib; sourceTree = "<group>"; };
 		14A54D3222115D9B0038A8F2 /* ControlFromXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlFromXib.swift; sourceTree = "<group>"; };
@@ -846,6 +850,22 @@
 			path = Loader;
 			sourceTree = "<group>";
 		};
+		14925EC5226B157700A20AA7 /* SMS */ = {
+			isa = PBXGroup;
+			children = (
+				14925EC6226B15A600A20AA7 /* SmsSendReportService.swift */,
+			);
+			path = SMS;
+			sourceTree = "<group>";
+		};
+		14925EC8226B1F7600A20AA7 /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				14925EC9226B1F8D00A20AA7 /* EmailSendReportService.swift */,
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
 		14A54D2B22115AD00038A8F2 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
@@ -1042,6 +1062,8 @@
 		14DD089C22510C27000BDEE7 /* SendReport */ = {
 			isa = PBXGroup;
 			children = (
+				14925EC8226B1F7600A20AA7 /* Email */,
+				14925EC5226B157700A20AA7 /* SMS */,
 				14EC74A32258EF30002A2A91 /* Form */,
 				14DD089D22510E44000BDEE7 /* SendReportServiceProtocol.swift */,
 				14EC74A62258EFEB002A2A91 /* FormationReportManager.swift */,
@@ -1454,6 +1476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				141AEE6C22351EF200B9A354 /* AlertFormFieldsProps.swift in Sources */,
+				14925EC7226B15A600A20AA7 /* SmsSendReportService.swift in Sources */,
 				14CEC86922303CB700AC23E5 /* SelectorFormItemTableViewCell.swift in Sources */,
 				14A54D3622115D9B0038A8F2 /* ViewFromXibProtocol.swift in Sources */,
 				14F3075722255B6200021C95 /* CameraRecognizerRouter.swift in Sources */,
@@ -1562,6 +1585,7 @@
 				1441A2CD2214179400BF974A /* AppDelegatePresenter.swift in Sources */,
 				1478739722478A540063CCC7 /* ApiAlamofireClient.swift in Sources */,
 				145EA06A2227CA1700AB633E /* RealmCompany.swift in Sources */,
+				14925ECA226B1F8D00A20AA7 /* EmailSendReportService.swift in Sources */,
 				14B7E8442221D57E00293DB1 /* TextRecognizerImageConfigurator.swift in Sources */,
 				14724298221EDDB600E8FA56 /* WelcomeViewController.swift in Sources */,
 				14872797220F236A00C59344 /* MainPresenter.swift in Sources */,

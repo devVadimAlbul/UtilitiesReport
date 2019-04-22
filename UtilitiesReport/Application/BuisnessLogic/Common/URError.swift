@@ -22,7 +22,9 @@ enum URError: Error {
     case notAvailable(String)
     case templateNotFound
     case urlInvalid
+    case phoneNumberInvalid
     case reportNotSend
+    case emailInvalid
 }
 
 extension URError: LocalizedError {
@@ -47,6 +49,10 @@ extension URError: LocalizedError {
             return "Company template for send indicators of counter not found."
         case .urlInvalid:
             return "Your url is invalid for send.\nPlease check is it and try again."
+        case .phoneNumberInvalid:
+            return "Your phone number is invalid for send.\nPlease check is it and try again."
+        case .emailInvalid:
+            return "Your email is invalid for send.\nPlease check is it and try again."
         case .reportNotSend:
             return "Can not be sent utilities report on company.\nPlease check is it and try again."
         }

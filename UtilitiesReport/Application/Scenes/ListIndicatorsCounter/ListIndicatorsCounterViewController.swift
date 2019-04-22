@@ -7,6 +7,7 @@ protocol ListIndicatorsCounterView: AnyObject {
     func displayImagePicker(sourceType: UIImagePickerController.SourceType)
     func reloadAllData()
     func displayProgress()
+    func removeCell(by indexPath: IndexPath)
 }
 
 class ListIndicatorsCounterViewController: BasicViewController, ListIndicatorsCounterView {
@@ -85,7 +86,17 @@ class ListIndicatorsCounterViewController: BasicViewController, ListIndicatorsCo
     }
     
     func reloadAllData() {
+        ProgressHUD.dismiss()
         tableView.reloadData()
+    }
+    
+    func removeCell(by indexPath: IndexPath) {
+        if tableView.numberOfSections > indexPath.section &&
+            tableView.numberOfRows(inSection: indexPath.section) > indexPath.row {
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
     }
     
     // MARK: target action
@@ -124,6 +135,17 @@ extension ListIndicatorsCounterViewController: UITableViewDelegate, UITableViewD
         headerView.addSubview(label)
         return headerView
     }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return listPresenter?.canEditCell(at: indexPath) ?? false
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            listPresenter?.actionDeleteIndicator(for: indexPath)
+        }
+    }
 }
 
 // MARK: - extension: UIImagePickerControllerDelegate, UINavigationControllerDelegate
@@ -153,6 +175,7 @@ extension ListIndicatorsCounterViewController: ItemIndicatorCounterCellDelegate 
     func actionSend(view: ItemIndicatorCounterViewCell) {
         if let cell = view as? UITableViewCell,
            let indexPath = tableView.indexPath(for: cell) {
+            ProgressHUD.show()
             listPresenter?.actionSendItem(at: indexPath)
         }
     }

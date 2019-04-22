@@ -11,9 +11,9 @@ import UIKit.UIImage
 
 protocol ListIndicatorsCounterRouter {
     func pushToTextRecognizer(with image: UIImage, delegate: TextRecognizerImageDelegate)
-    func pushToFomIndicator(with indicator: IndicatorsCounter, to company: UserUtilitiesCompany)
+    func pushToFormIndicator(with indicator: IndicatorsCounter, to company: UserUtilitiesCompany)
     func presentActionSheet(by model: AlertModelView)
-    func sendReport(model: SendReportModel, completionHandler: @escaping (Result<Void>)->Void)
+    func sendReport(model: SendReportModel, completionHandler: @escaping (Result<SendReportStatus>) -> Void)
 }
 
 class ListIndicatorsCounterRouterImpl: ListIndicatorsCounterRouter {
@@ -33,7 +33,7 @@ class ListIndicatorsCounterRouterImpl: ListIndicatorsCounterRouter {
         self.viewController?.navigationController?.pushViewController(viewController, animated: false)
     }
     
-    func pushToFomIndicator(with indicator: IndicatorsCounter, to company: UserUtilitiesCompany) {
+    func pushToFormIndicator(with indicator: IndicatorsCounter, to company: UserUtilitiesCompany) {
         let formVC = FormIndicatorCounterViewController()
         formVC.configurator = FormIndicatorCounterConfiguratorImpl(indicator: indicator,
                                                                    userUntilitesCompany: company)
@@ -44,7 +44,7 @@ class ListIndicatorsCounterRouterImpl: ListIndicatorsCounterRouter {
         viewController?.presentActionSheet(by: model)
     }
     
-    func sendReport(model: SendReportModel, completionHandler: @escaping (Result<Void>)->Void) {
+    func sendReport(model: SendReportModel, completionHandler: @escaping (Result<SendReportStatus>) -> Void) {
         guard let viewController = self.viewController else { return }
         reportHelper.send(model: model, in: viewController, completionHandler: completionHandler)
     }

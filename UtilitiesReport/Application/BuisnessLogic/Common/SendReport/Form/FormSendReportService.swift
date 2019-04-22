@@ -20,7 +20,7 @@ class FormSendReportServiceImpl: FormSendReportService {
     }
     
     func send(model: SendReportModel,
-              completionHandler: @escaping (Result<Void>) -> Void) {
+              completionHandler: @escaping (Result<SendReportStatus>) -> Void) {
         guard let url = URL(string: model.sendTo) else {
             completionHandler(.failure(URError.urlInvalid))
             return
@@ -44,23 +44,23 @@ class FormSendReportServiceImpl: FormSendReportService {
         }
     }
     
-    private func checkResponse(_ response: ApiResponse<String>) -> Result<Void> {
+    private func checkResponse(_ response: ApiResponse<String>) -> Result<SendReportStatus> {
         guard let data = response.data else { return .failure(URError.notAvailable("response")) }
     
         if let result = try? JSONSerialization.jsonObject(with:
             data, options: []),
-            let json = result as? [String: Any]  {
+            let json = result as? [String: Any] {
             if let code = json["code"] as? Int, code != 200 {
                 return .failure(URError.notAvailable("response"))
             }
             if json.values.contains(where: {($0 as? String)?.contains("success") ?? false}) {
-                return .success(())
+                return .success(.sent)
             }
         } else {
             if response.entity.contains("Дані успішно відправлено та найближчим часом будуть оброблені.") {
-                return .success(())
+                return .success(.sent)
             }
         }
-        return .success(())
+        return .success(.sent)
     }
 }

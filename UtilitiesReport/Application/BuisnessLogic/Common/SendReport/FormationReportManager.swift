@@ -55,6 +55,7 @@ class FormationReportManagerImpl: FormationReportManager {
             guard let `self` = self else { return }
             switch result {
             case let .success(content):
+                print(content)
                 self.createTemplate(indicators: indicators,
                                     templateContent: content,
                                     userCompany: userCompany,
@@ -72,12 +73,12 @@ class FormationReportManagerImpl: FormationReportManager {
         generateTemplate.generate(with: indicators,
                                   by: userCompany,
                                   template: templateContent) { (result) in
-                                    switch result {
-                                    case let .success(content):
-                                        completionHandler(.success(content))
-                                    case let .failure(error):
-                                        completionHandler(.failure(error))
-                                    }
+            switch result {
+            case let .success(content):
+                completionHandler(.success(content))
+            case let .failure(error):
+                completionHandler(.failure(error))
+            }
         }
     }
 }

@@ -31,8 +31,10 @@ class IndicatorsCouterLocalStorageGatewayImpl: IndicatorsCouterLocalStorageGatew
             do {
                 try manager.remove(object, cascading: true)
                 completionHandler(.success(()))
+                return
             } catch {
                 completionHandler(.failure(error))
+                return
             }
         }
         completionHandler(.failure(URError.idicatorCounterCantRemoved))

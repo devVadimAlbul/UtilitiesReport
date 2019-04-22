@@ -8,7 +8,13 @@
 
 import Foundation
 
+enum SendReportStatus {
+    case sent
+    case cancelled
+}
+
+
 protocol SendReportServiceProtocol {
     func send(model: SendReportModel,
-              completionHandler: @escaping (Result<Void>) -> Void)
+              completionHandler: @escaping (Result<SendReportStatus>) -> Void)
 }

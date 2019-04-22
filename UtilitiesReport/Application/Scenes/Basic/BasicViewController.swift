@@ -46,6 +46,7 @@ class BasicViewController: UIViewController {
     
     // MARK: present methods
     public func navigationPresent(_ viewController: UIViewController, animated: Bool = true, isNeedClose: Bool = true) {
+        ProgressHUD.dismiss()
         let navigation = VCLoader<UINavigationController>.loadInitial(storyboardId: .navigation)
         navigation.viewControllers = [viewController]
         let closeButton = UIBarButtonItem(image: #imageLiteral(resourceName: "close"), style: .done, target: self, action: #selector(closeViewController))
@@ -58,6 +59,7 @@ class BasicViewController: UIViewController {
     
     // MARK: present alert view
     func showErrorAlert(title: String = "Error!", message: String, buttonText: String = "Cancel") {
+        ProgressHUD.dismiss()
         let model = AlertModelView(title: title, message: message, actions: [
                 AlertActionModelView(title: buttonText, action: nil)
             ])
@@ -65,6 +67,7 @@ class BasicViewController: UIViewController {
     }
     
     func presentAlert(by model: AlertModelView) {
+        ProgressHUD.dismiss()
         let alert = UIAlertController(title: model.title, message: model.message, preferredStyle: .alert)
         
         model.actions.forEach {
@@ -75,6 +78,7 @@ class BasicViewController: UIViewController {
     }
     
     func presentActionSheet(by model: AlertModelView) {
+        ProgressHUD.dismiss()
         let actionSheet = UIAlertController(title: model.title, message: model.message, preferredStyle: .actionSheet)
         
         model.actions.forEach {
