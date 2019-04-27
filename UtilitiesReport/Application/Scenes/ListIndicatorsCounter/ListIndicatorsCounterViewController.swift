@@ -2,6 +2,7 @@ import UIKit
 
 protocol ListIndicatorsCounterView: AnyObject {
     func displayPageTitle(_ title: String)
+    func displayEmptyMessage(_ text: String)
     func displayError(_ message: String)
     func displayMessage(_ message: String)
     func displayImagePicker(sourceType: UIImagePickerController.SourceType)
@@ -13,10 +14,12 @@ protocol ListIndicatorsCounterView: AnyObject {
 class ListIndicatorsCounterViewController: BasicViewController, ListIndicatorsCounterView {
     
     // MARK: IBOutlet
+    @IBOutlet weak var viewEmpty: UIView!
+    @IBOutlet weak var lblEmptyMessage: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    var configurator: ListIndicatorsCounterConfigurator!
     
-    // MARK: preoprties
+    // MARK: property
+    var configurator: ListIndicatorsCounterConfigurator!
     private var listPresenter: ListIndicatorsCounterPresenter? {
         return presenter as? ListIndicatorsCounterPresenter
     }
@@ -55,6 +58,10 @@ class ListIndicatorsCounterViewController: BasicViewController, ListIndicatorsCo
         self.title = title
     }
     
+    func displayEmptyMessage(_ text: String) {
+        lblEmptyMessage.text = text
+    }
+    
     func displayError(_ message: String) {
         ProgressHUD.dismiss()
         showErrorAlert(message: message)
@@ -88,6 +95,7 @@ class ListIndicatorsCounterViewController: BasicViewController, ListIndicatorsCo
     func reloadAllData() {
         ProgressHUD.dismiss()
         tableView.reloadData()
+        viewEmpty.isHidden = !(listPresenter?.checkIsEmptyList() ?? true)
     }
     
     func removeCell(by indexPath: IndexPath) {

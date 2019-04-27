@@ -14,6 +14,12 @@ protocol FormUserUtilitesCompanyConfigurator {
 
 class FormUserUtilitesCompanyConfiguratorImpl: FormUserUtilitesCompanyConfigurator {
     
+    private var userUtitlitesCompany: UserUtilitiesCompany?
+    
+    init(userUtitlitesCompany: UserUtilitiesCompany? = nil) {
+        self.userUtitlitesCompany = userUtitlitesCompany
+    }
+    
     func configure(viewController: FormUserUtilitesCompanyViewController) {
         let router = FormUserUtilitesCompanyRouterImpl(viewController: viewController)
         let apiGateway = ApiCompaniesGatewayImpl(apiClient: ApiAlamofireClientImpl())
@@ -27,7 +33,7 @@ class FormUserUtilitesCompanyConfiguratorImpl: FormUserUtilitesCompanyConfigurat
         
         let presenter = FormUserUtilitesCompanyPresenterImpl(view: viewController,
                                                              router: router,
-                                                             userUtitlitesCompany: nil,
+                                                             userUtitlitesCompany: userUtitlitesCompany,
                                                              companiesGateway: companiesGateway,
                                                              userCompanyGateway: userComapnyGateway)
         viewController.presenter = presenter

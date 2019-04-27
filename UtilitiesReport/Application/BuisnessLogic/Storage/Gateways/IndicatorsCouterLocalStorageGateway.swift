@@ -29,7 +29,7 @@ class IndicatorsCouterLocalStorageGatewayImpl: IndicatorsCouterLocalStorageGatew
     func delete(entity: IndicatorsCounter, completionHandler: @escaping DeleteEntityCompletionHandler) {
         if let object = getEntity(by: entity.identifier) {
             do {
-                try manager.remove(object, cascading: true)
+                try manager.remove(object, cascading: false)
                 completionHandler(.success(()))
                 return
             } catch {
@@ -43,7 +43,7 @@ class IndicatorsCouterLocalStorageGatewayImpl: IndicatorsCouterLocalStorageGatew
     func deleteAll(by predicate: NSPredicate, completionHandler: @escaping DeleteEntityCompletionHandler) {
         let objects = manager.allEntities(withType: RealmIndicatorsCounter.self, predicate: predicate)
         do {
-            try manager.remove(objects, cascading: true)
+            try manager.remove(objects, cascading: false)
             completionHandler(.success(()))
         } catch {
             completionHandler(.failure(error))

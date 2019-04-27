@@ -13,6 +13,7 @@ protocol ListIndicatorsCounterPresenter: PresenterProtocol {
     func updateContent()
     func actionAddNewIndicator()
     func actionSaveIndicator(value: String)
+    func checkIsEmptyList() -> Bool
     func numberOfSections() -> Int
     func numberOfRows(in section: Int) -> Int
     func configure(cell: BasicVeiwCellProtocol, at indexPath: IndexPath)
@@ -60,6 +61,8 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
     // MARK: load content
     func viewDidLoad() {
         isNeedUpdate = true
+        let text = "List indicators of counter is empty!\nPlease add indicators, clicking to button \"+\"."
+        view?.displayEmptyMessage(text)
     }
     
     func updateContent() {
@@ -279,6 +282,10 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
                 self.view?.displayError(error.localizedDescription)
             }
         }
+    }
+    
+    func checkIsEmptyList() -> Bool {
+        return listSections.isEmpty
     }
     
     // MARK: table methods

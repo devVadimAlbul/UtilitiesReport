@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit.UIImage
+import UIKit.UIAlertController
 
 enum TypeCellForMainView {
     case userProfileCell
@@ -24,6 +25,9 @@ protocol MainPresenter: PresenterProtocol {
     func cellType(at indexPath: IndexPath) -> TypeCellForMainView?
     func configure(cellView: BasicVeiwCellProtocol, for indexPath: IndexPath)
     func didSelectCell(at indexPath: IndexPath)
+    func canEditCell(at indexPath: IndexPath) -> Bool
+    func actionEditItem(for indexPath: IndexPath)
+    func actionDeleteItem(for indexPath: IndexPath)
 }
 
 class MainPresenterImpl: MainPresenter {
@@ -32,7 +36,7 @@ class MainPresenterImpl: MainPresenter {
     fileprivate weak var mainView: MainView?
     var router: MainViewRouter
     fileprivate var loadUserProfile: LoadUserProfileUseCase
-    fileprivate var loadUserCompanies: LoadUserCompaniesUseCase
+    fileprivate var userCompanyGateway: UserUtilitesCompanyGateway
     
     fileprivate var userProfile: UserProfile?
     fileprivate var companies: [UserUtilitiesCompany] = []
@@ -41,11 +45,11 @@ class MainPresenterImpl: MainPresenter {
     init(view: MainView,
          router: MainViewRouter,
          loadUserProfile: LoadUserProfileUseCase,
-         loadUserCompanies: LoadUserCompaniesUseCase) {
+         userCompanyGateway: UserUtilitesCompanyGateway) {
         self.mainView = view
         self.router = router
         self.loadUserProfile = loadUserProfile
-        self.loadUserCompanies = loadUserCompanies
+        self.userCompanyGateway = userCompanyGateway
     }
     
     // MARK: MainPresenter Methods
@@ -72,7 +76,7 @@ class MainPresenterImpl: MainPresenter {
     }
     
     fileprivate func loadListUserCompanies() {
-        loadUserCompanies.loadList { [weak self] (result) in
+        userCompanyGateway.fetch { [weak self] (result) in
             guard let `self` = self else { return }
             switch result {
             case .success(let companies):
@@ -85,7 +89,7 @@ class MainPresenterImpl: MainPresenter {
     }
     
     func actionAddNew() {
-        router.pushToAddUserCompany()
+        router.pushToFormUserCompany(uaerCompany: nil)
     }
     
     // MARK: configurate tableview
@@ -180,6 +184,59 @@ class MainPresenterImpl: MainPresenter {
         default:
             break
         }
+    }
+    
+    func canEditCell(at indexPath: IndexPath) -> Bool {
+        switch indexPath.section {
+        case 0:  return false
+        case 1: return companies.isEmpty ? false : true
+        default: return false
+        }
+    }
+    
+    func actionEditItem(for indexPath: IndexPath) {
+        if companies.count > indexPath.row {
+            let item = companies[indexPath.row]
+            router.pushToFormUserCompany(uaerCompany: item)
+        }
+    }
+    
+    func actionDeleteItem(for indexPath: IndexPath) {
+        if companies.count > indexPath.row {
+            let commandDelete = CommandWith<UIAlertAction> { [weak self, indexPath] _ in
+                guard let `self` = self else { return }
+                self.deleteItem(for: indexPath)
+            }
+            let title = "Are you sure delete user utilites company?"
+            let model = AlertModelView(title: title, message: nil,
+                                       actions: [
+                                        AlertActionModelView(title: "Yes", action: commandDelete),
+                                        AlertActionModelView(title: "No", action: nil)
+                ])
+            mainView?.displayAlert(with: model)
+        }
+    }
+    
+    private func deleteItem(for indexPath: IndexPath) {
+        let item = self.companies[indexPath.row]
+        ProgressHUD.show()
+        self.userCompanyGateway.delete(entity: item, completionHandler: { [weak self, indexPath] (result) in
+            guard let `self` = self else { return }
+            switch result {
+            case .success:
+                ProgressHUD.dismiss()
+                self.companies.remove(at: indexPath.row)
+                if self.companies.isEmpty {
+                    self.mainView?.updateUIContent()
+                } else {
+                    self.mainView?.removeCell(at: indexPath)
+                }
+            case let .failure(error):
+                self.mainView?.displayError(message: error.localizedDescription)
+            }
+            
+        })
+       
     }
   
 }

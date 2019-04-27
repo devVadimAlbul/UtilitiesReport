@@ -129,6 +129,11 @@
 		14B7E8422221D4F800293DB1 /* TextRecognizerImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E8412221D4F800293DB1 /* TextRecognizerImagePresenter.swift */; };
 		14B7E8442221D57E00293DB1 /* TextRecognizerImageConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E8432221D57E00293DB1 /* TextRecognizerImageConfigurator.swift */; };
 		14B7E8462221D5D400293DB1 /* TextRecognizerImageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E8452221D5D400293DB1 /* TextRecognizerImageRouter.swift */; };
+		14BC576322748813006D1FBE /* SelectIndicatorsCountersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BC576122748813006D1FBE /* SelectIndicatorsCountersViewController.swift */; };
+		14BC576422748813006D1FBE /* SelectIndicatorsCountersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BC576222748813006D1FBE /* SelectIndicatorsCountersViewController.xib */; };
+		14BC576622748BD5006D1FBE /* SelectIndicatorsCountersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BC576522748BD5006D1FBE /* SelectIndicatorsCountersRouter.swift */; };
+		14BC576822748CAF006D1FBE /* SelectIndicatorsCountersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BC576722748CAF006D1FBE /* SelectIndicatorsCountersPresenter.swift */; };
+		14BC576A22748D4B006D1FBE /* SelectIndicatorsCountersConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BC576922748D4B006D1FBE /* SelectIndicatorsCountersConfigurator.swift */; };
 		14C083AD2212D7EA001A5610 /* UserProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083AB2212D7EA001A5610 /* UserProfileTableViewCell.swift */; };
 		14C083AE2212D7EA001A5610 /* UserProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C083AC2212D7EA001A5610 /* UserProfileTableViewCell.xib */; };
 		14C083B02212D83D001A5610 /* ViewRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C083AF2212D83D001A5610 /* ViewRound.swift */; };
@@ -328,6 +333,11 @@
 		14B7E8412221D4F800293DB1 /* TextRecognizerImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerImagePresenter.swift; sourceTree = "<group>"; };
 		14B7E8432221D57E00293DB1 /* TextRecognizerImageConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerImageConfigurator.swift; sourceTree = "<group>"; };
 		14B7E8452221D5D400293DB1 /* TextRecognizerImageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerImageRouter.swift; sourceTree = "<group>"; };
+		14BC576122748813006D1FBE /* SelectIndicatorsCountersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIndicatorsCountersViewController.swift; sourceTree = "<group>"; };
+		14BC576222748813006D1FBE /* SelectIndicatorsCountersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectIndicatorsCountersViewController.xib; sourceTree = "<group>"; };
+		14BC576522748BD5006D1FBE /* SelectIndicatorsCountersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIndicatorsCountersRouter.swift; sourceTree = "<group>"; };
+		14BC576722748CAF006D1FBE /* SelectIndicatorsCountersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIndicatorsCountersPresenter.swift; sourceTree = "<group>"; };
+		14BC576922748D4B006D1FBE /* SelectIndicatorsCountersConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIndicatorsCountersConfigurator.swift; sourceTree = "<group>"; };
 		14BF8EE061A7CEA857E5954A /* Pods-UtilitiesReport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtilitiesReport.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport.debug.xcconfig"; sourceTree = "<group>"; };
 		14C083AB2212D7EA001A5610 /* UserProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewCell.swift; sourceTree = "<group>"; };
 		14C083AC2212D7EA001A5610 /* UserProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileTableViewCell.xib; sourceTree = "<group>"; };
@@ -677,6 +687,7 @@
 		1487278E220F1B6E00C59344 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				14BC5760227487E3006D1FBE /* SelectIndicatorsCounters */,
 				14C84BC3223D4ED700C001BD /* FormIndicatorCounter */,
 				143A1B58223AA8A600766C2A /* ListIndicatorsCounter */,
 				141AEE622235186500B9A354 /* AlertFormFields */,
@@ -945,6 +956,18 @@
 				14B7E8452221D5D400293DB1 /* TextRecognizerImageRouter.swift */,
 			);
 			path = TextRecognizerImage;
+			sourceTree = "<group>";
+		};
+		14BC5760227487E3006D1FBE /* SelectIndicatorsCounters */ = {
+			isa = PBXGroup;
+			children = (
+				14BC576122748813006D1FBE /* SelectIndicatorsCountersViewController.swift */,
+				14BC576222748813006D1FBE /* SelectIndicatorsCountersViewController.xib */,
+				14BC576522748BD5006D1FBE /* SelectIndicatorsCountersRouter.swift */,
+				14BC576722748CAF006D1FBE /* SelectIndicatorsCountersPresenter.swift */,
+				14BC576922748D4B006D1FBE /* SelectIndicatorsCountersConfigurator.swift */,
+			);
+			path = SelectIndicatorsCounters;
 			sourceTree = "<group>";
 		};
 		14C083A72212D37D001A5610 /* Sourcery */ = {
@@ -1225,6 +1248,7 @@
 				14C84BC7223D4F9700C001BD /* FormIndicatorCounterViewController.xib in Resources */,
 				14CEC86A22303CB700AC23E5 /* SelectorFormItemTableViewCell.xib in Resources */,
 				141AEE782235719100B9A354 /* InfoFromItemTableViewCell.xib in Resources */,
+				14BC576422748813006D1FBE /* SelectIndicatorsCountersViewController.xib in Resources */,
 				14724299221EDDB600E8FA56 /* WelcomeViewController.xib in Resources */,
 				14D3515622141F3F00A77783 /* MainViewController.xib in Resources */,
 				14F30751222557DF00021C95 /* CameraRecognizerViewController.xib in Resources */,
@@ -1482,6 +1506,7 @@
 				14F3075722255B6200021C95 /* CameraRecognizerRouter.swift in Sources */,
 				141850BB222C3EF500B0C2FB /* FormUserUtilitesCompanyPresenter.swift in Sources */,
 				14A54D522211C6770038A8F2 /* AlertModelView.swift in Sources */,
+				14BC576A22748D4B006D1FBE /* SelectIndicatorsCountersConfigurator.swift in Sources */,
 				14DFD30A223CE4A300CB248E /* SectionItemsModel.swift in Sources */,
 				14215E2D222710FB00662150 /* ApiCompaniesGateway.swift in Sources */,
 				14A54D502211BB420038A8F2 /* String+Extension.swift in Sources */,
@@ -1514,8 +1539,10 @@
 				14CDF94822383F3D0040160E /* UserCompanyItemTableViewCell.swift in Sources */,
 				148727D422104A8800C59344 /* UserFormViewRouter.swift in Sources */,
 				14CDF973223982B30040160E /* LastInticatorModelView.swift in Sources */,
+				14BC576622748BD5006D1FBE /* SelectIndicatorsCountersRouter.swift in Sources */,
 				14DD089E22510E44000BDEE7 /* SendReportServiceProtocol.swift in Sources */,
 				14A54D4C2211AF830038A8F2 /* Constants.swift in Sources */,
+				14BC576322748813006D1FBE /* SelectIndicatorsCountersViewController.swift in Sources */,
 				142036C822495F7400F7ED0A /* ApiDownloadTemplateGateway.swift in Sources */,
 				14EB0F94224168CD000CBB64 /* RealmUserProfile.swift in Sources */,
 				1472429F221EDE2700E8FA56 /* WelcomeViewRouler.swift in Sources */,
@@ -1596,6 +1623,7 @@
 				141AEE65223518D000B9A354 /* AlertFormFieldsViewController.swift in Sources */,
 				14215E3122271AF300662150 /* RealmManager.swift in Sources */,
 				1481C2CB222ACF2900C07080 /* EmptyListTableViewCell.swift in Sources */,
+				14BC576822748CAF006D1FBE /* SelectIndicatorsCountersPresenter.swift in Sources */,
 				14CBA61C221D530F0024D06F /* UserFormProps.swift in Sources */,
 				14215E2722270E2900662150 /* UserProfileGateway.swift in Sources */,
 				141AEE7322354AAA00B9A354 /* ModalScaleTransiton.swift in Sources */,

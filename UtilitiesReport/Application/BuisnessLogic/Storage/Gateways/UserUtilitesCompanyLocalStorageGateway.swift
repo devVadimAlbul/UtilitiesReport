@@ -65,10 +65,15 @@ class UserUtilCompanyLocalStorageGatewayImpl: UserUtilCompanyLocalStorageGateway
         }
     }
     
-    func save(entity: UserUtilitiesCompany,
+    func save(entity: UserUtilitiesCompany, by uuid: String?,
               completionHandler: @escaping AddEntityCompletionHandler) {
+        
         let object = RealmUserUtilitiesCompany(userCompany: entity)
         do {
+            if let uuid = uuid, uuid != object.accountNumber,
+                let oldUserCompany = getUserCompany(by: uuid) {
+                try manager.remove(oldUserCompany, cascading: false)
+            }
             try manager.save(object, update: true, completion: {
                 completionHandler(.success(object.objectCopy.userCompanyModel))
             })

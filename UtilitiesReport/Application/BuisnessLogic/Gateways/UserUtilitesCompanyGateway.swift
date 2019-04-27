@@ -18,7 +18,7 @@ protocol UserUtilitesCompanyGateway {
     func fetch(completionHandler: @escaping FetchEntitiesCompletionHandler)
     func delete(entity: UserUtilitiesCompany, completionHandler: @escaping DeleteEntityCompletionHandler)
     func deleteAll(completionHandler: @escaping DeleteEntityCompletionHandler)
-    func save(entity: UserUtilitiesCompany, completionHandler: @escaping AddEntityCompletionHandler)
+    func save(entity: UserUtilitiesCompany, by uuid: String?, completionHandler: @escaping AddEntityCompletionHandler)
 }
 
 
@@ -46,7 +46,7 @@ class UserUtilitesCompanyGatewayImpl: UserUtilitesCompanyGateway {
         localStorage.deleteAll(completionHandler: completionHandler)
     }
     
-    func save(entity: UserUtilitiesCompany, completionHandler: @escaping AddEntityCompletionHandler) {
-        localStorage.save(entity: entity, completionHandler: completionHandler)
+    func save(entity: UserUtilitiesCompany, by uuid: String?, completionHandler: @escaping AddEntityCompletionHandler) {
+        localStorage.save(entity: entity, by: uuid, completionHandler: completionHandler)
     }
 }

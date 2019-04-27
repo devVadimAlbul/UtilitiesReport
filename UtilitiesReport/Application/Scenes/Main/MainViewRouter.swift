@@ -12,7 +12,7 @@ import UIKit.UINavigationController
 protocol MainViewRouter {
     func pushToEditUserProfile(_ user: UserProfile)
     func pushListIndicators(userCounterID: String)
-    func pushToAddUserCompany()
+    func pushToFormUserCompany(uaerCompany: UserUtilitiesCompany?)
 }
 
 class MainViewRouterImpl: MainViewRouter {
@@ -29,9 +29,9 @@ class MainViewRouterImpl: MainViewRouter {
         self.viewController?.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func pushToAddUserCompany() {
+    func pushToFormUserCompany(uaerCompany: UserUtilitiesCompany? = nil) {
         let viewController = FormUserUtilitesCompanyViewController()
-        viewController.configurator = FormUserUtilitesCompanyConfiguratorImpl()
+        viewController.configurator = FormUserUtilitesCompanyConfiguratorImpl(userUtitlitesCompany: uaerCompany)
         self.viewController?.navigationController?.pushViewController(viewController, animated: true)
     }
     

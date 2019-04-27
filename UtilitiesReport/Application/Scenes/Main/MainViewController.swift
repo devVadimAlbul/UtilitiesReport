@@ -10,7 +10,9 @@ import UIKit
 
 protocol MainView: AnyObject {
     func displayError(message: String)
+    func displayAlert(with model: AlertModelView)
     func updateUIContent()
+    func removeCell(at indexPath: IndexPath)
     func displayPageTitle(_ title: String)
 }
 
@@ -70,8 +72,23 @@ class MainViewController: BasicViewController, MainView {
         showErrorAlert(message: message)
     }
     
+    func displayAlert(with model: AlertModelView) {
+        ProgressHUD.dismiss()
+        self.presentAlert(by: model)
+    }
+    
     func updateUIContent() {
         tableView.reloadData()
+    }
+    
+    func removeCell(at indexPath: IndexPath) {
+        if tableView.numberOfSections > indexPath.section &&
+            tableView.numberOfRows(inSection: indexPath.section) > indexPath.row {
+            
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
     }
     
     // MARK: targat action
@@ -122,6 +139,23 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         mainPresenter?.didSelectCell(at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return mainPresenter?.canEditCell(at: indexPath) ?? false
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            self.mainPresenter?.actionEditItem(for: indexPath)
+        }
+        edit.backgroundColor = #colorLiteral(red: 0.3647058824, green: 0.4274509804, blue: 0.4666666667, alpha: 1)
+        
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            self.mainPresenter?.actionDeleteItem(for: indexPath)
+        }
+        
+        return [delete, edit]
     }
 }
 

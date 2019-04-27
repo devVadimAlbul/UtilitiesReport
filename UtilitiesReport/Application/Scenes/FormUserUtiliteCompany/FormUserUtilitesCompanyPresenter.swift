@@ -61,6 +61,7 @@ class FormUserUtilitesCompanyPresenterImpl: FormUserUtilitesCompanyPresenter {
     private var listCompanies: [Company] = []
     private var isNeedValid: Bool = false
     private var isNeedCounter: Bool = false
+    private var companyId: String?
     
     init(view: FormUserUtilitesCompanyView,
          router: FormUserUtilitesCompanyRouter,
@@ -77,6 +78,7 @@ class FormUserUtilitesCompanyPresenterImpl: FormUserUtilitesCompanyPresenter {
     // MARK: load methods
     func viewDidLoad() {
         let title = userUtitlitesCompany == nil ? "Add Utilites Company" : "Edit Utilites Company"
+        companyId = userUtitlitesCompany?.accountNumber
         if userUtitlitesCompany == nil {
             userUtitlitesCompany = UserUtilitiesCompany()
         }
@@ -306,7 +308,7 @@ class FormUserUtilitesCompanyPresenterImpl: FormUserUtilitesCompanyPresenter {
     
     private func saveInStorageUserComapany() {
         guard let userUtitlitesCompany = userUtitlitesCompany else { return }
-        userCompanyGateway.save(entity: userUtitlitesCompany) { [weak self] (result) in
+        userCompanyGateway.save(entity: userUtitlitesCompany, by: companyId) { [weak self] (result) in
             guard let `self` = self else { return }
             switch result {
             case .success:

@@ -33,6 +33,17 @@ class RealmUserUtilitiesCompany: Object {
         self.indicators.append(objectsIn: indicators)
     }
     
+    func update(userCompany: UserUtilitiesCompany) {
+        self.accountNumber = userCompany.accountNumber
+        if let company = userCompany.company {
+            self.company = RealmCompany(company: company)
+        }
+        let counters = userCompany.counters.map({RealmCounter(counter: $0)})
+        self.counters.append(objectsIn: counters)
+        let indicators = userCompany.indicators.map({RealmIndicatorsCounter(indicator: $0)})
+        self.indicators.append(objectsIn: indicators)
+    }
+    
     var objectCopy: RealmUserUtilitiesCompany {
         return RealmUserUtilitiesCompany(value: self)
     }
