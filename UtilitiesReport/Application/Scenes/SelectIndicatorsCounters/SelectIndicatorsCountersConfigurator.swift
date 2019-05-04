@@ -14,6 +14,14 @@ protocol SelectIndicatorsCountersConfigurator {
 
 class SelectIndicatorsCountersConfiguratorImpl: SelectIndicatorsCountersConfigurator {
     
+    private let seletedIndicator: IndicatorsCounter
+    private let userUntilitesCompany: UserUtilitiesCompany
+
+    init(seletedIndicator: IndicatorsCounter, userUntilitesCompany: UserUtilitiesCompany) {
+        self.seletedIndicator = seletedIndicator
+        self.userUntilitesCompany = userUntilitesCompany
+    }
+    
     func configure(viewController: SelectIndicatorsCountersViewController) {
         let router = SelectIndicatorsCountersRouterImpl(viewController: viewController)
 

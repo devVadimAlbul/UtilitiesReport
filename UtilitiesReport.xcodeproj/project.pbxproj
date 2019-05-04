@@ -45,6 +45,8 @@
 		14264CA02208C6E800655EEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14264C9F2208C6E800655EEA /* Assets.xcassets */; };
 		14264CA32208C6E800655EEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14264CA12208C6E800655EEA /* LaunchScreen.storyboard */; };
 		14290B232213410500620AE1 /* Sourcery.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14290B222213410500620AE1 /* Sourcery.generated.swift */; };
+		1435B9AD227DE16100FAE358 /* SelectItemCounterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1435B9AB227DE16100FAE358 /* SelectItemCounterTableViewCell.swift */; };
+		1435B9AE227DE16100FAE358 /* SelectItemCounterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1435B9AC227DE16100FAE358 /* SelectItemCounterTableViewCell.xib */; };
 		143A1B5B223AA8E100766C2A /* ListIndicatorsCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A1B59223AA8E100766C2A /* ListIndicatorsCounterViewController.swift */; };
 		143A1B5C223AA8E100766C2A /* ListIndicatorsCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 143A1B5A223AA8E100766C2A /* ListIndicatorsCounterViewController.xib */; };
 		143A1B5E223AAA6000766C2A /* ListIndicatorsCounterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A1B5D223AAA6000766C2A /* ListIndicatorsCounterPresenter.swift */; };
@@ -249,6 +251,8 @@
 		14264CA92208C6E800655EEA /* UtilitiesReportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilitiesReportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14264CAF2208C6E800655EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14290B222213410500620AE1 /* Sourcery.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourcery.generated.swift; sourceTree = "<group>"; };
+		1435B9AB227DE16100FAE358 /* SelectItemCounterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectItemCounterTableViewCell.swift; sourceTree = "<group>"; };
+		1435B9AC227DE16100FAE358 /* SelectItemCounterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectItemCounterTableViewCell.xib; sourceTree = "<group>"; };
 		143A1B59223AA8E100766C2A /* ListIndicatorsCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIndicatorsCounterViewController.swift; sourceTree = "<group>"; };
 		143A1B5A223AA8E100766C2A /* ListIndicatorsCounterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListIndicatorsCounterViewController.xib; sourceTree = "<group>"; };
 		143A1B5D223AAA6000766C2A /* ListIndicatorsCounterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIndicatorsCounterPresenter.swift; sourceTree = "<group>"; };
@@ -566,6 +570,23 @@
 				14264CAF2208C6E800655EEA /* Info.plist */,
 			);
 			path = UtilitiesReportTests;
+			sourceTree = "<group>";
+		};
+		1435B9A9227DE11B00FAE358 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1435B9AA227DE12700FAE358 /* SelectItemCounter */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1435B9AA227DE12700FAE358 /* SelectItemCounter */ = {
+			isa = PBXGroup;
+			children = (
+				1435B9AB227DE16100FAE358 /* SelectItemCounterTableViewCell.swift */,
+				1435B9AC227DE16100FAE358 /* SelectItemCounterTableViewCell.xib */,
+			);
+			path = SelectItemCounter;
 			sourceTree = "<group>";
 		};
 		143A1B58223AA8A600766C2A /* ListIndicatorsCounter */ = {
@@ -961,6 +982,7 @@
 		14BC5760227487E3006D1FBE /* SelectIndicatorsCounters */ = {
 			isa = PBXGroup;
 			children = (
+				1435B9A9227DE11B00FAE358 /* Cells */,
 				14BC576122748813006D1FBE /* SelectIndicatorsCountersViewController.swift */,
 				14BC576222748813006D1FBE /* SelectIndicatorsCountersViewController.xib */,
 				14BC576522748BD5006D1FBE /* SelectIndicatorsCountersRouter.swift */,
@@ -1237,6 +1259,7 @@
 			files = (
 				141AEE66223518D000B9A354 /* AlertFormFieldsViewController.xib in Resources */,
 				14264CA32208C6E800655EEA /* LaunchScreen.storyboard in Resources */,
+				1435B9AE227DE16100FAE358 /* SelectItemCounterTableViewCell.xib in Resources */,
 				147196772232BFE0006A070C /* InputFormItemTableViewCell.xib in Resources */,
 				14CDF971223978550040160E /* LastIndicatorView.xib in Resources */,
 				14D351612214308300A77783 /* AutoMockable.stencil in Resources */,
@@ -1532,6 +1555,7 @@
 				14724295221EC46600E8FA56 /* UINavigationController+Extension.swift in Sources */,
 				148727AE220F2EA700C59344 /* BasicViewController.swift in Sources */,
 				14C083B02212D83D001A5610 /* ViewRound.swift in Sources */,
+				1435B9AD227DE16100FAE358 /* SelectItemCounterTableViewCell.swift in Sources */,
 				14A54D3E221174260038A8F2 /* ButtonRound.swift in Sources */,
 				144CEB882247A8E6006C3BA4 /* TemplateReport.swift in Sources */,
 				141A738F222964C9000E2247 /* RealmCounter.swift in Sources */,

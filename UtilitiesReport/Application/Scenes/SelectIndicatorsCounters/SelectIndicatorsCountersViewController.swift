@@ -51,7 +51,8 @@ class SelectIndicatorsCountersViewController: BasicViewController, SelectIndicat
     }
     
     private func registerNibs() {
-        
+        tableView.register(SelectItemCounterTableViewCell.nib(),
+                           forCellReuseIdentifier: SelectItemCounterTableViewCell.identifier)
     }
     
     // MARK: display methods
@@ -98,8 +99,12 @@ extension SelectIndicatorsCountersViewController: UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: SelectItemCounterTableViewCell.identifier,
+            for: indexPath) as? SelectItemCounterTableViewCell else {
+            return UITableViewCell()
+        }
+        indicatorsPresenter?.configure(cellView: cell, for: indexPath)
         return cell
     }
 }
