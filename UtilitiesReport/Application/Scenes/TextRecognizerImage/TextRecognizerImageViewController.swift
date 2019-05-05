@@ -124,7 +124,7 @@ class TextRecognizerImageViewController: BasicViewController, TextRecognizerImag
     // MARK: Action
     @objc func actionRecognize(_ sender: UIBarButtonItem) {
         guard let cropImage = imageView.image?.cropped(boundingBox: cropArea) else { return }
-        ProgressHUD.show(mesage: "Recognizing...")
+        ProgressHUD.show(message: "Recognizing...")
         textRecPresenter?.textRecognize(image: cropImage)
     }
 }

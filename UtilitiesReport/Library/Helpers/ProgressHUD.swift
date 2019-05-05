@@ -7,35 +7,39 @@
 //
 
 import Foundation
-import SVProgressHUD
+import KRProgressHUD
 
 
 class ProgressHUD {
     
     class func configure() {
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultMaskType(.black)
+        let appearance = KRProgressHUD.appearance()
+        appearance.style = .black
+        appearance.maskType = .black
     }
-
     
-    class func show(mesage: String? = nil) {
-        SVProgressHUD.show(withStatus: mesage)
+    class func show(message: String? = nil) {
+        if let message = message {
+            KRProgressHUD.showMessage(message)
+        } else {
+            KRProgressHUD.show()
+        }
     }
     
     class func success(_ message: String = "Success!", withDelay: TimeInterval = 0.3) {
-        SVProgressHUD.showSuccess(withStatus: message)
-        SVProgressHUD.dismiss(withDelay: withDelay)
+        KRProgressHUD.showSuccess(withMessage: message)
+        DispatchQueue.main.asyncAfter(deadline: .now()+withDelay) {
+            KRProgressHUD.dismiss()
+        }
     }
     
     class func dismiss() {
-        SVProgressHUD.dismiss()
-    }
-    
-    class func showProgress(_ progress: Double, status: String? = nil) {
-        SVProgressHUD.showProgress(Float(progress), status: "Loading...")
+        DispatchQueue.main.async {
+            KRProgressHUD.dismiss()
+        }
     }
     
     class func error(_ message: String) {
-        SVProgressHUD.showError(withStatus: message)
+        KRProgressHUD.showError(withMessage: message)
     }
 }

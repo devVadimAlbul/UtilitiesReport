@@ -90,7 +90,7 @@ class FormIndicatorCounterViewController: BasicViewController, FormIndicatorCoun
             ProgressHUD.dismiss()
             showErrorAlert(message: error)
         case .loading:
-            ProgressHUD.show(mesage: "Loading...")
+            ProgressHUD.show(message: "Loading...")
         case .success:
             ProgressHUD.success("Save success!", withDelay: 0.3)
             DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {

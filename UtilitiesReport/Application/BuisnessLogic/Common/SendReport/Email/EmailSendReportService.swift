@@ -65,6 +65,8 @@ extension EmailSendReportServiceImpl: MFMailComposeViewControllerDelegate {
                     self.completionCommand?.perform(with: .success(.cancelled))
                 case .failed:
                     self.completionCommand?.perform(with: .failure(URError.reportNotSend))
+                @unknown default:
+                    break
                 }
             }
             self.completionCommand = nil

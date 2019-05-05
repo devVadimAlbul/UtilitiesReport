@@ -91,7 +91,7 @@ class UserFormViewController: BasicViewController, UserFormView {
             ProgressHUD.dismiss()
             showErrorAlert(message: error)
         case .loading:
-            ProgressHUD.show(mesage: "Loading...")
+            ProgressHUD.show(message: "Loading...")
         case .success:
             ProgressHUD.success("Save success!", withDelay: 0.5)
         }
