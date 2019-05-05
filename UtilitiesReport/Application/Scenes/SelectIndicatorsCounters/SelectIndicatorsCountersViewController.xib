@@ -14,7 +14,6 @@
             <connections>
                 <outlet property="btnSend" destination="Ih1-J5-Ye8" id="bR9-KP-WoW"/>
                 <outlet property="heightTableConstraint" destination="XxT-Ag-3cV" id="x8F-tc-F61"/>
-                <outlet property="lblTitle" destination="I6j-PK-yYV" id="lhi-B4-Svl"/>
                 <outlet property="tableView" destination="2pj-qZ-WKt" id="6Sq-xy-Wye"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,43 +29,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4p-eo-fHO">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92L-6d-Xvc">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3Q-2O-KLQ">
-                                            <rect key="frame" x="0.0" y="8" width="50" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="atp-Bd-5M0"/>
-                                                <constraint firstAttribute="width" constant="50" id="jF5-gI-Nwx"/>
-                                            </constraints>
-                                            <color key="tintColor" red="0.054901960780000002" green="0.1529411765" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <state key="normal" image="close"/>
-                                            <connections>
-                                                <action selector="clickedClose:" destination="-1" eventType="touchUpInside" id="Hl0-O1-fO2"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="I6j-PK-yYV">
-                                            <rect key="frame" x="183" y="13" width="48" height="24"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                            <color key="textColor" red="0.054901960780000002" green="0.1529411765" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="J3Q-2O-KLQ" firstAttribute="leading" secondItem="92L-6d-Xvc" secondAttribute="leading" id="2V1-Kt-6oG"/>
-                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="I6j-PK-yYV" secondAttribute="bottom" id="5H6-zV-TS8"/>
-                                        <constraint firstItem="J3Q-2O-KLQ" firstAttribute="top" secondItem="92L-6d-Xvc" secondAttribute="topMargin" id="7oi-Mv-JC2"/>
-                                        <constraint firstItem="I6j-PK-yYV" firstAttribute="centerY" secondItem="92L-6d-Xvc" secondAttribute="centerY" priority="750" id="7uo-3u-hFR"/>
-                                        <constraint firstItem="I6j-PK-yYV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="92L-6d-Xvc" secondAttribute="top" id="hfY-xW-ygC"/>
-                                        <constraint firstItem="I6j-PK-yYV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J3Q-2O-KLQ" secondAttribute="trailing" constant="5" id="jQQ-sb-0h1"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="I6j-PK-yYV" secondAttribute="trailing" constant="16" id="qXD-UV-hbC"/>
-                                        <constraint firstAttribute="height" constant="50" id="t5e-gs-CA3"/>
-                                        <constraint firstItem="I6j-PK-yYV" firstAttribute="centerX" secondItem="92L-6d-Xvc" secondAttribute="centerX" priority="750" id="xGW-pc-Q4A"/>
-                                    </constraints>
-                                </view>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2pj-qZ-WKt">
-                                    <rect key="frame" x="0.0" y="50" width="414" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="750" constant="200" id="XxT-Ag-3cV"/>
@@ -99,13 +63,10 @@
                                 <constraint firstItem="Ih1-J5-Ye8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="w4p-eo-fHO" secondAttribute="leading" constant="20" id="3zG-7d-Yjd"/>
                                 <constraint firstItem="Ih1-J5-Ye8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2pj-qZ-WKt" secondAttribute="bottom" constant="20" id="4YE-jM-fJs"/>
                                 <constraint firstAttribute="trailing" secondItem="2pj-qZ-WKt" secondAttribute="trailing" id="4lZ-gm-inZ"/>
-                                <constraint firstItem="2pj-qZ-WKt" firstAttribute="top" secondItem="92L-6d-Xvc" secondAttribute="bottom" id="AR9-hW-ggX"/>
-                                <constraint firstItem="92L-6d-Xvc" firstAttribute="leading" secondItem="w4p-eo-fHO" secondAttribute="leading" id="OR9-Cm-CE7"/>
+                                <constraint firstItem="2pj-qZ-WKt" firstAttribute="top" secondItem="w4p-eo-fHO" secondAttribute="top" id="9KI-Xq-Xt3"/>
                                 <constraint firstAttribute="bottom" secondItem="Ih1-J5-Ye8" secondAttribute="bottom" constant="30" id="RNp-Gx-1aa"/>
                                 <constraint firstItem="Ih1-J5-Ye8" firstAttribute="centerX" secondItem="w4p-eo-fHO" secondAttribute="centerX" id="eT6-fK-iGz"/>
                                 <constraint firstItem="2pj-qZ-WKt" firstAttribute="leading" secondItem="w4p-eo-fHO" secondAttribute="leading" id="qxK-5Y-3LD"/>
-                                <constraint firstAttribute="trailing" secondItem="92L-6d-Xvc" secondAttribute="trailing" id="w64-0c-GPt"/>
-                                <constraint firstItem="92L-6d-Xvc" firstAttribute="top" secondItem="w4p-eo-fHO" secondAttribute="top" id="wcA-Ij-9ds"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -131,7 +92,4 @@
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
         </view>
     </objects>
-    <resources>
-        <image name="close" width="18" height="18"/>
-    </resources>
 </document>

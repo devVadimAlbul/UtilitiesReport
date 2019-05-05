@@ -52,7 +52,7 @@ class ListIndicatorsCounterRouterImpl: ListIndicatorsCounterRouter {
                                                                          userUntilitesCompany: userCompany)
         selectVC.delegate = self.viewController
         ProgressHUD.dismiss()
-        self.viewController?.present(selectVC, animated: true, completion: nil)
+        self.viewController?.navigationPresent(selectVC)
     }
     
     func sendReport(model: SendReportModel, completionHandler: @escaping (Result<SendReportStatus>) -> Void) {

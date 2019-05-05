@@ -26,7 +26,6 @@ protocol SelectIndicatorsCountersView: AnyObject {
 class SelectIndicatorsCountersViewController: BasicViewController, SelectIndicatorsCountersView {
     
     // MARK: IBOutlet
-    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnSend: ButtonRound!
     @IBOutlet weak var heightTableConstraint: NSLayoutConstraint!
@@ -60,6 +59,7 @@ class SelectIndicatorsCountersViewController: BasicViewController, SelectIndicat
     private func setupTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
+        tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         registerNibs()
     }
     
@@ -70,7 +70,7 @@ class SelectIndicatorsCountersViewController: BasicViewController, SelectIndicat
     
     // MARK: display methods
     func displayPageTitle(_ title: String) {
-        self.lblTitle.text = title
+        self.title = title
     }
     
     func displayButtonTitle(_ title: String) {
@@ -103,9 +103,9 @@ class SelectIndicatorsCountersViewController: BasicViewController, SelectIndicat
         let handlerChangeContentSize = {
             [weak self] (tableView: UITableView, change: NSKeyValueObservedChange<CGSize>) in
             guard let `self` = self else { return }
-            if let contentSize = change.newValue {
-                let minHeight = self.view.bounds.height * 0.55
-                self.heightTableConstraint?.constant = min(minHeight, contentSize.height)
+            if var contentSize = change.newValue {
+                contentSize.height += tableView.contentInset.top+tableView.contentInset.bottom
+                self.heightTableConstraint?.constant = contentSize.height
                 self.updateConstraints(animated: true)
             }
         }
@@ -118,10 +118,6 @@ class SelectIndicatorsCountersViewController: BasicViewController, SelectIndicat
     // MARK: IBAction
     @IBAction func clickedSend(_ sender: Any) {
         indicatorsPresenter?.actionSend()
-    }
-    
-    @IBAction func clickedClose(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
     }
 }
 
