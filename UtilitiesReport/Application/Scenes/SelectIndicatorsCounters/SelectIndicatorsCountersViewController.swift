@@ -57,8 +57,7 @@ class SelectIndicatorsCountersViewController: BasicViewController, SelectIndicat
     
     // MARK: setup UI
     private func setupTableView() {
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = 60
         tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         registerNibs()
     }

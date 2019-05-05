@@ -41,16 +41,16 @@
                                     </connections>
                                 </tableView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ih1-J5-Ye8" customClass="ButtonRound" customModule="UtilitiesReport" customModuleProvider="target">
-                                    <rect key="frame" x="147.5" y="726" width="119" height="62"/>
-                                    <color key="backgroundColor" red="0.56470588239999997" green="0.86666666670000003" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                    <rect key="frame" x="154" y="752" width="106" height="36"/>
+                                    <color key="backgroundColor" red="0.49803921569999998" green="0.70980392160000005" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <inset key="contentEdgeInsets" minX="30" minY="15" maxX="30" maxY="15"/>
+                                    <inset key="contentEdgeInsets" minX="30" minY="6" maxX="30" maxY="6"/>
                                     <state key="normal" title="Send"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSize" value="YES"/>
                                         <userDefinedRuntimeAttribute type="number" keyPath="roundRadius">
-                                            <real key="value" value="10"/>
+                                            <real key="value" value="5"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>

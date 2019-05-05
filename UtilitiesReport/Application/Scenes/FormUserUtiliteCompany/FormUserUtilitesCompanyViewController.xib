@@ -44,7 +44,7 @@
                                 </tableView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10t-86-7CE" customClass="ButtonRound" customModule="UtilitiesReport" customModuleProvider="target">
                                     <rect key="frame" x="111.5" y="572" width="152" height="45"/>
-                                    <color key="backgroundColor" red="0.49718188569999999" green="0.71144927099999999" blue="0.06644424602" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.49803921568627452" green="0.70980392156862748" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="9Zl-OV-TNa"/>
                                         <constraint firstAttribute="width" secondItem="10t-86-7CE" secondAttribute="height" multiplier="220:65" priority="750" id="JB1-uu-KA5"/>
