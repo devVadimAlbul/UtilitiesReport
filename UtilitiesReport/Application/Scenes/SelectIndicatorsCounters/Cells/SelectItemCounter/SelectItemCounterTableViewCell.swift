@@ -10,6 +10,7 @@ import UIKit
 
 protocol SelectItemCounterDelegate: AnyObject {
     func selectItemCounter(_ view: SelectItemCounterViewCell, didSelectIndex index: Int, in list: [String])
+    func actionAddNewItem(with view: SelectItemCounterViewCell)
 }
 
 protocol SelectItemCounterViewCell: BasicVeiwCellProtocol {
@@ -19,6 +20,8 @@ protocol SelectItemCounterViewCell: BasicVeiwCellProtocol {
     func displayListItems(_ list: [String], selectedIndex: Int?)
     var delegate: SelectItemCounterDelegate? { get set }
     var identifier: String? { get set }
+    var isNeedAddItem: Bool { get set }
+    var isValid: Bool { get set }
 }
 
 class SelectItemCounterTableViewCell: UITableViewCell, SelectItemCounterViewCell {
@@ -28,10 +31,11 @@ class SelectItemCounterTableViewCell: UITableViewCell, SelectItemCounterViewCell
     
     // MARK: property
     var identifier: String?
+    var isNeedAddItem: Bool = false
     weak var delegate: SelectItemCounterDelegate?
     private var pickerView: UIPickerView = UIPickerView()
     private var listItems: [String] = []
-    private var isValid: Bool = true {
+    var isValid: Bool = true {
         didSet {
             tfValue.layer.borderColor = isValid ? #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) : #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
         }
@@ -55,6 +59,8 @@ class SelectItemCounterTableViewCell: UITableViewCell, SelectItemCounterViewCell
         pickerView.delegate = self
         pickerView.backgroundColor = .white
         pickerView.dataSource = self
+        tfValue.addTarget(self, action: #selector(actionEditingDidEnd), for: .editingDidEndOnExit)
+        tfValue.addDoneOnKeyboardWithTarget(self, action: #selector(actionEditingDidEnd))
     }
     
     func displayTitle(_ title: String) {
@@ -70,13 +76,28 @@ class SelectItemCounterTableViewCell: UITableViewCell, SelectItemCounterViewCell
     }
     
     func displayListItems(_ list: [String], selectedIndex: Int?) {
-        self.listItems = listItems
+        self.listItems = list
+        if isNeedAddItem {
+            self.listItems.append("Add new")
+        }
         pickerView.reloadAllComponents()
         if let selectedIndex = selectedIndex, list.count > selectedIndex {
             pickerView.selectRow(selectedIndex, inComponent: 0, animated: false)
             tfValue.text = listItems[selectedIndex]
         } else {
             tfValue.text = nil
+        }
+    }
+    
+    @objc private func actionEditingDidEnd() {
+        tfValue.resignFirstResponder()
+        guard isNeedAddItem else { return }
+        let selectedIndex = pickerView.selectedRow(inComponent: 0)
+        if listItems.count == 1 || (listItems.count-1) < selectedIndex {
+            delegate?.actionAddNewItem(with: self)
+        } else {
+            delegate?.selectItemCounter(self, didSelectIndex: selectedIndex, in: listItems)
+            tfValue.text = listItems[selectedIndex]
         }
     }
 }
@@ -98,10 +119,20 @@ extension SelectItemCounterTableViewCell: UIPickerViewDelegate, UIPickerViewData
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        delegate?.selectItemCounter(self, didSelectIndex: row, in: listItems)
         isValid = true
-        if listItems.count > row {
-            tfValue.text = listItems[row]
+        if isNeedAddItem {
+            if (listItems.count-1) > row {
+                delegate?.selectItemCounter(self, didSelectIndex: row, in: listItems)
+                tfValue.text = listItems[row]
+            } else {
+                tfValue.text = nil
+            }
+        } else {
+            if listItems.count > row {
+                delegate?.selectItemCounter(self, didSelectIndex: row, in: listItems)
+                tfValue.text = listItems[row]
+            }
         }
+      
     }
 }

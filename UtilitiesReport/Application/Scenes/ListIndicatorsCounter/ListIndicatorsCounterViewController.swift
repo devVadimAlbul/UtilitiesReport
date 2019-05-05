@@ -168,7 +168,7 @@ extension ListIndicatorsCounterViewController: UIImagePickerControllerDelegate, 
     }
 }
 
-// MARK: extension: TextRecognizerImageDelegate
+// MARK: - extension: TextRecognizerImageDelegate
 extension ListIndicatorsCounterViewController: TextRecognizerImageDelegate {
     
     func textRecognizerImage(_ viewRecognizer: TextRecognizerImageViewController,
@@ -177,7 +177,7 @@ extension ListIndicatorsCounterViewController: TextRecognizerImageDelegate {
     }
 }
 
-// MARK: extension: ItemIndicatorCounterCellDelegate
+// MARK: - extension: ItemIndicatorCounterCellDelegate
 extension ListIndicatorsCounterViewController: ItemIndicatorCounterCellDelegate {
     
     func actionSend(view: ItemIndicatorCounterViewCell) {
@@ -186,5 +186,17 @@ extension ListIndicatorsCounterViewController: ItemIndicatorCounterCellDelegate 
             ProgressHUD.show()
             listPresenter?.actionSendItem(at: indexPath)
         }
+    }
+}
+
+// MARK: - extension: SelectIndicatorsCountersDelegate
+extension ListIndicatorsCounterViewController: SelectIndicatorsCountersDelegate {
+    func didSelectIndicators(_ indicators: [IndicatorsCounter]) {
+        ProgressHUD.show()
+        listPresenter?.actionSendIndicators(with: indicators)
+    }
+    
+    func didSelectNewIndicator(for counter: Counter) {
+        listPresenter?.actionAddNewIndicator(with: counter)
     }
 }

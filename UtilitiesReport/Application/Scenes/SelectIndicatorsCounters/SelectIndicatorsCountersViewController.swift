@@ -8,8 +8,19 @@
 
 import UIKit
 
+protocol SelectIndicatorsCountersDelegate: AnyObject {
+    func didSelectIndicators(_ indicators: [IndicatorsCounter])
+    func didSelectNewIndicator(for counter: Counter)
+}
+
 protocol SelectIndicatorsCountersView: AnyObject {
+    var delegate: SelectIndicatorsCountersDelegate? { get set }
     func displayPageTitle(_ title: String)
+    func displayButtonTitle(_ title: String)
+    func updateAllData()
+    func displaySelected(indicators: [IndicatorsCounter])
+    func displayNewItem(for counter: Counter)
+    func displayError(message: String)
 }
 
 class SelectIndicatorsCountersViewController: BasicViewController, SelectIndicatorsCountersView {
@@ -21,6 +32,7 @@ class SelectIndicatorsCountersViewController: BasicViewController, SelectIndicat
     @IBOutlet weak var heightTableConstraint: NSLayoutConstraint!
     
     // MARK: property
+    weak var delegate: SelectIndicatorsCountersDelegate?
     var configurator: SelectIndicatorsCountersConfigurator!
     private var indicatorsPresenter: SelectIndicatorsCountersPresenter? {
         return presenter as? SelectIndicatorsCountersPresenter
@@ -31,6 +43,7 @@ class SelectIndicatorsCountersViewController: BasicViewController, SelectIndicat
     override func viewDidLoad() {
         configurator?.configure(viewController: self)
         super.viewDidLoad()
+        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +73,31 @@ class SelectIndicatorsCountersViewController: BasicViewController, SelectIndicat
         self.lblTitle.text = title
     }
     
+    func displayButtonTitle(_ title: String) {
+        self.btnSend.setTitle(title, for: .normal)
+    }
+    
+    func displaySelected(indicators: [IndicatorsCounter]) {
+        self.dismiss(animated: true, completion: {
+            self.delegate?.didSelectIndicators(indicators)
+        })
+    }
+    
+    func displayNewItem(for counter: Counter) {
+        self.dismiss(animated: true) {
+            self.delegate?.didSelectNewIndicator(for: counter)
+        }
+    }
+    
+    func displayError(message: String) {
+        self.showErrorAlert(message: message)
+    }
+    
+    // MARK: update UI
+    func updateAllData() {
+        tableView.reloadData()
+    }
+    
     // MARK: observer
     fileprivate func addObserver() {
         let handlerChangeContentSize = {
@@ -79,7 +117,7 @@ class SelectIndicatorsCountersViewController: BasicViewController, SelectIndicat
     
     // MARK: IBAction
     @IBAction func clickedSend(_ sender: Any) {
-        
+        indicatorsPresenter?.actionSend()
     }
     
     @IBAction func clickedClose(_ sender: Any) {
@@ -104,7 +142,20 @@ extension SelectIndicatorsCountersViewController: UITableViewDelegate, UITableVi
             for: indexPath) as? SelectItemCounterTableViewCell else {
             return UITableViewCell()
         }
-        indicatorsPresenter?.configure(cellView: cell, for: indexPath)
+        indicatorsPresenter?.configure(cell: cell, for: indexPath)
         return cell
+    }
+}
+
+// MARK: extension: SelectItemCounterDelegate
+extension SelectIndicatorsCountersViewController: SelectItemCounterDelegate {
+    
+    func selectItemCounter(_ view: SelectItemCounterViewCell,
+                           didSelectIndex index: Int, in list: [String]) {
+        indicatorsPresenter?.selectItem(cell: view, at: index)
+    }
+    
+    func actionAddNewItem(with view: SelectItemCounterViewCell) {
+        indicatorsPresenter?.actionAddNewItem(with: view)
     }
 }

@@ -104,6 +104,7 @@
 		148727D72210D25D00C59344 /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 148727D62210D25D00C59344 /* Navigation.storyboard */; };
 		148727D92210D2A700C59344 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148727D82210D2A700C59344 /* UIViewController+Extension.swift */; };
 		148727DC2210D31B00C59344 /* VCLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148727DB2210D31B00C59344 /* VCLoader.swift */; };
+		1488BBC1227F072800448320 /* SelectIndicatorCounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488BBC0227F072800448320 /* SelectIndicatorCounterModel.swift */; };
 		14925EC7226B15A600A20AA7 /* SmsSendReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14925EC6226B15A600A20AA7 /* SmsSendReportService.swift */; };
 		14925ECA226B1F8D00A20AA7 /* EmailSendReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14925EC9226B1F8D00A20AA7 /* EmailSendReportService.swift */; };
 		14A54D2D22115B510038A8F2 /* FormTextItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D2C22115B510038A8F2 /* FormTextItemView.swift */; };
@@ -310,6 +311,7 @@
 		148727D62210D25D00C59344 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
 		148727D82210D2A700C59344 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		148727DB2210D31B00C59344 /* VCLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLoader.swift; sourceTree = "<group>"; };
+		1488BBC0227F072800448320 /* SelectIndicatorCounterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIndicatorCounterModel.swift; sourceTree = "<group>"; };
 		14925EC6226B15A600A20AA7 /* SmsSendReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsSendReportService.swift; sourceTree = "<group>"; };
 		14925EC9226B1F8D00A20AA7 /* EmailSendReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSendReportService.swift; sourceTree = "<group>"; };
 		14A54D2C22115B510038A8F2 /* FormTextItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextItemView.swift; sourceTree = "<group>"; };
@@ -951,6 +953,7 @@
 		14A54D532211C68F0038A8F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1488BBC0227F072800448320 /* SelectIndicatorCounterModel.swift */,
 				141AEE6E2235317300B9A354 /* AlertFormModel.swift */,
 				14A54D512211C6770038A8F2 /* AlertModelView.swift */,
 				14CDF972223982B30040160E /* LastInticatorModelView.swift */,
@@ -1571,6 +1574,7 @@
 				14EB0F94224168CD000CBB64 /* RealmUserProfile.swift in Sources */,
 				1472429F221EDE2700E8FA56 /* WelcomeViewRouler.swift in Sources */,
 				1487279C220F283B00C59344 /* MainConfigurator.swift in Sources */,
+				1488BBC1227F072800448320 /* SelectIndicatorCounterModel.swift in Sources */,
 				14B64E892259D60C00237A65 /* SendReportModel.swift in Sources */,
 				14C84BD0223D5B9C00C001BD /* FormIndicatorCounterProps.swift in Sources */,
 				141A738922295ED7000E2247 /* IndicatorsCounter.swift in Sources */,

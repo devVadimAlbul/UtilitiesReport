@@ -12,6 +12,8 @@ import UIKit.UIImage
 protocol ListIndicatorsCounterRouter {
     func pushToTextRecognizer(with image: UIImage, delegate: TextRecognizerImageDelegate)
     func pushToFormIndicator(with indicator: IndicatorsCounter, to company: UserUtilitiesCompany)
+    func presentSelectIndicatorsCounters(userCompany: UserUtilitiesCompany,
+                                         seletedIndicator: IndicatorsCounter)
     func presentActionSheet(by model: AlertModelView)
     func sendReport(model: SendReportModel, completionHandler: @escaping (Result<SendReportStatus>) -> Void)
 }
@@ -42,6 +44,15 @@ class ListIndicatorsCounterRouterImpl: ListIndicatorsCounterRouter {
     
     func presentActionSheet(by model: AlertModelView) {
         viewController?.presentActionSheet(by: model)
+    }
+    
+    func presentSelectIndicatorsCounters(userCompany: UserUtilitiesCompany, seletedIndicator: IndicatorsCounter) {
+        let selectVC = SelectIndicatorsCountersViewController()
+        selectVC.configurator = SelectIndicatorsCountersConfiguratorImpl(seletedIndicator: seletedIndicator,
+                                                                         userUntilitesCompany: userCompany)
+        selectVC.delegate = self.viewController
+        ProgressHUD.dismiss()
+        self.viewController?.present(selectVC, animated: true, completion: nil)
     }
     
     func sendReport(model: SendReportModel, completionHandler: @escaping (Result<SendReportStatus>) -> Void) {

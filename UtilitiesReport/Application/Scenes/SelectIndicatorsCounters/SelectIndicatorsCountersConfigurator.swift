@@ -26,7 +26,9 @@ class SelectIndicatorsCountersConfiguratorImpl: SelectIndicatorsCountersConfigur
         let router = SelectIndicatorsCountersRouterImpl(viewController: viewController)
 
         let presenter = SelectIndicatorsCountersPresenterImpl(view: viewController,
-                                                              router: router)
+                                                              router: router,
+                                                              selectedIndicator: seletedIndicator,
+                                                              userUntilitesCompany: userUntilitesCompany)
         
         viewController.presenter = presenter
     }

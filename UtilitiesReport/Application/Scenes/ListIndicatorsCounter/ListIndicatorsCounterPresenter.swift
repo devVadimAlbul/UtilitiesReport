@@ -12,7 +12,9 @@ protocol ListIndicatorsCounterPresenter: PresenterProtocol {
     var router: ListIndicatorsCounterRouter { get set }
     func updateContent()
     func actionAddNewIndicator()
+    func actionAddNewIndicator(with counter: Counter)
     func actionSaveIndicator(value: String)
+    func actionSendIndicators(with list: [IndicatorsCounter])
     func checkIsEmptyList() -> Bool
     func numberOfSections() -> Int
     func numberOfRows(in section: Int) -> Int
@@ -147,6 +149,10 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
         }
     }
     
+    func actionAddNewIndicator(with counter: Counter) {
+        selectPhotoProvider(counter: counter)
+    }
+    
     func actionSaveIndicator(value: String) {
         guard let userCompany = self.userCompany else { return }
         let indicator = IndicatorsCounter(date: Date(), value: value,
@@ -155,6 +161,9 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
         router.pushToFormIndicator(with: indicator, to: userCompany)
     }
     
+    func actionSendIndicators(with list: [IndicatorsCounter]) {
+        selectTepmlates(indicators: list)
+    }
     
     // MARK: select methods
     private func selectCounters(counters: [Counter]) {
@@ -339,6 +348,10 @@ class ListIndicatorsCounterPresenterImpl: ListIndicatorsCounterPresenter {
     
     func actionSendItem(at indexPath: IndexPath) {
         let item = listSections[indexPath.section].items[indexPath.row]
-        selectTepmlates(indicators: [item])
+        if let userCompany = self.userCompany, userCompany.counters.count >= 2 {
+            router.presentSelectIndicatorsCounters(userCompany: userCompany, seletedIndicator: item)
+        } else {
+            selectTepmlates(indicators: [item])
+        }
     }
 }
