@@ -10,21 +10,20 @@ import Foundation
 import UIKit.UIImageView
 
 extension UIImageView {
-    func imageFrame() -> CGRect {
-        let imageViewSize = self.frame.size
+    func getImageFrame(in rect: CGRect) -> CGRect {
         guard let imageSize = self.image?.size else { return CGRect.zero }
         let imageRatio = imageSize.width / imageSize.height
-        let imageViewRatio = imageViewSize.width / imageViewSize.height
+        let imageViewRatio = rect.width / rect.height
         if imageRatio < imageViewRatio {
-            let scaleFactor = imageViewSize.height / imageSize.height
+            let scaleFactor = rect.height / imageSize.height
             let width = imageSize.width * scaleFactor
-            let topLeftX = (imageViewSize.width - width) * 0.5
-            return CGRect(x: topLeftX, y: 0, width: width, height: imageViewSize.height)
+            let topLeftX = (rect.width - width) * 0.5
+            return CGRect(x: topLeftX, y: 0, width: width, height: rect.height)
         } else {
-            let scalFactor = imageViewSize.width / imageSize.width
+            let scalFactor = rect.width / imageSize.width
             let height = imageSize.height * scalFactor
-            let topLeftY = (imageViewSize.height - height) * 0.5
-            return CGRect(x: 0, y: topLeftY, width: imageViewSize.width, height: height)
+            let topLeftY = (rect.height - height) * 0.5
+            return CGRect(x: 0, y: topLeftY, width: rect.width, height: height)
         }
     }
 }

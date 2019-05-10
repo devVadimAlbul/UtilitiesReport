@@ -143,7 +143,7 @@ class FormUserUtilitesCompanyViewController: BasicViewController, FormUserUtilit
             guard let `self` = self else { return }
             if let contentSize = change.newValue {
                 let minHeight = self.view.bounds.height * 0.55
-                self.heightTableViewConstraint?.constant = min(minHeight, contentSize.height)
+                self.heightTableViewConstraint?.constant = max(minHeight, contentSize.height)
                 self.updateConstraints(animated: true)
             }
         }

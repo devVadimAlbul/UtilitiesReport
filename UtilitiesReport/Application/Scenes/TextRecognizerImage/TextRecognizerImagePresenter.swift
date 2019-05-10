@@ -13,6 +13,7 @@ import Firebase
 protocol TextRecognizerImagePresenter: PresenterProtocol {
     var router: TextRecognizerImageRouter { get }
     func textRecognize(image: UIImage)
+    func saveRecognizedText()
 }
 
 class TextRecognizerImagePresenterImpl: TextRecognizerImagePresenter {
@@ -20,6 +21,7 @@ class TextRecognizerImagePresenterImpl: TextRecognizerImagePresenter {
     var router: TextRecognizerImageRouter
     fileprivate weak var viewTextRecognizer: TextRecognizerImageView?
     fileprivate var textDetector: TextDetector
+    private var recognizedText: String?
     
     init(view: TextRecognizerImageView, router: TextRecognizerImageRouter,
          textDetector: TextDetector) {
@@ -37,11 +39,21 @@ class TextRecognizerImagePresenterImpl: TextRecognizerImagePresenter {
             guard let `self` = self else { return }
             switch result {
             case .success(let content):
+                print(content.text)
                 let text = content.text.removeWhiteSpace()
-                self.viewTextRecognizer?.displaySuccess(text)
+                self.recognizedText = text
+                self.viewTextRecognizer?.displayRecognizeTextSuccess(text)
             case .failure(let error):
-                self.viewTextRecognizer?.displayError(message: error.localizedDescription)
+                self.viewTextRecognizer?.displayRecognizeTextWarring(error.localizedDescription)
             }
+        }
+    }
+    
+    func saveRecognizedText()  {
+        if let text = self.recognizedText {
+            self.viewTextRecognizer?.displaySuccess(text)
+        } else {
+            self.viewTextRecognizer?.displayError(message: URError.textNotRecognized.localizedDescription)
         }
     }
 }

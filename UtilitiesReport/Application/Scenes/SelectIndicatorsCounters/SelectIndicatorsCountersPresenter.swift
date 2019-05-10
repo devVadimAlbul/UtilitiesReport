@@ -38,7 +38,7 @@ class SelectIndicatorsCountersPresenterImpl: SelectIndicatorsCountersPresenter {
     }
     
     func viewDidLoad() {
-        view?.displayPageTitle("Select indicators for all counters")
+        view?.displayPageTitle("Select indicators")
         view?.displayButtonTitle("Send")
         groupIndicators()
     }
