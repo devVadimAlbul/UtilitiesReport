@@ -45,6 +45,7 @@ class AlertFormFieldsPresenterImpl: AlertFormFieldsPresenter {
                           changed: @escaping (String?) -> Void) -> Props.ItemField {
             return Props.ItemField(
                 placeholder: item.name,
+                keyboardType: item.keyboardType,
                 value: item.value,
                 change: CommandWith<String?>(action: changed)
             )

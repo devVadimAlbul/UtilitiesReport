@@ -45,7 +45,9 @@ class UserUtilCompanyLocalStorageGatewayImpl: UserUtilCompanyLocalStorageGateway
         if let item = manager.getEntity(withType: RealmUserUtilitiesCompany.self,
                                         for: entity.accountNumber) {
             do {
-                try manager.remove(item, cascading: true)
+                try manager.remove(item.indicators, cascading: false)
+                try manager.remove(item.counters, cascading: false)
+                try manager.remove(item, cascading: false)
                 completionHandler(.success(()))
             } catch {
                 completionHandler(.failure(error))

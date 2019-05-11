@@ -6,13 +6,14 @@
 //  Copyright © 2019 Vadim Albul. All rights reserved.
 //
 
-import Foundation
+import UIKit.UITextInput
 
 struct AlertFormModel {
     struct AlertFormField {
         let identifier: String
         var name: String
         var value: String?
+        var keyboardType: UIKeyboardType = .default
         var checkValid: ((String?) -> Bool)?
         var invaidMessage: String = ""
     }

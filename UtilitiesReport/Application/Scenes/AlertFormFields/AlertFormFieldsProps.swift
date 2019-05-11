@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit.UITextInput
 
 extension AlertFormFieldsViewController {
     
@@ -20,10 +21,11 @@ extension AlertFormFieldsViewController {
         
         struct ItemField {
             var placeholder: String
+            var keyboardType: UIKeyboardType
             var value: String?
             var change: CommandWith<String?>
             
-            static var initial: ItemField = ItemField(placeholder: "", value: nil, change: .nop)
+            static var initial: ItemField = ItemField(placeholder: "", keyboardType: .default, value: nil, change: .nop)
         }
         
         var fields: [ItemField]

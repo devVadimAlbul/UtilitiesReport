@@ -109,6 +109,7 @@ class AlertFormFieldsViewController: BasicViewController, AlertFormFieldsView {
         textField.placeholderColor(.white)
         textField.layer.cornerRadius = 8
         textField.clipsToBounds = true
+        textField.keyboardType = item.keyboardType
         textField.font = .preferredFont(forTextStyle: .body)
         textField.adjustsFontForContentSizeCategory = true
         textField.heightAnchor.constraint(equalToConstant: 45).isActive = true

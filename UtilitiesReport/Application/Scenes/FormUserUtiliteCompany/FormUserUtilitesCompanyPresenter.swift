@@ -170,7 +170,7 @@ class FormUserUtilitesCompanyPresenterImpl: FormUserUtilitesCompanyPresenter {
         cell.displayTitle("Account number:")
         cell.displayPlaceholder("Enter account number")
         cell.displayValue(userUtitlitesCompany.accountNumber)
-        cell.setKeyboardType(.numbersAndPunctuation)
+        cell.setKeyboardType(.numberPad)
         let isValid = isNeedValid ? !userUtitlitesCompany.accountNumber.removeWhiteSpace().isEmpty : true
         cell.displayWarningMessage("Incorrect account number", isShow: !isValid)
         cell.identifier = FormUserUtilitesCompanyItemType.accountNumber.identifier
@@ -336,6 +336,7 @@ class FormUserUtilitesCompanyPresenterImpl: FormUserUtilitesCompanyPresenter {
                     identifier: Counter.CodingKeys.identifier.rawValue,
                     name: "Identifier",
                     value: counter?.identifier,
+                    keyboardType: .numberPad,
                     checkValid: validText,
                     invaidMessage: "The identifier of counter is empty!"
                 ),
@@ -343,6 +344,7 @@ class FormUserUtilitesCompanyPresenterImpl: FormUserUtilitesCompanyPresenter {
                     identifier: Counter.CodingKeys.placeInstallation.rawValue,
                     name: "Place installation",
                     value: counter?.placeInstallation,
+                    keyboardType: .default,
                     checkValid: validText,
                     invaidMessage: "The place installation of counter is empty!"
                 )
