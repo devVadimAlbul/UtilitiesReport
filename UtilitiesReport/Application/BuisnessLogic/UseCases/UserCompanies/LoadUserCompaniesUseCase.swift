@@ -9,9 +9,9 @@
 import Foundation
 
 protocol LoadUserCompaniesUseCase {    
-    func loadList(_ completionHandler: @escaping (Result<[UserUtilitiesCompany]>) -> Void)
+    func loadList(_ completionHandler: @escaping (Result<[UserUtilitiesCompany], Error>) -> Void)
     func loadCompany(by identifier: String,
-                     completionHandler: @escaping (_ result: Result<UserUtilitiesCompany>) -> Void)
+                     completionHandler: @escaping (_ result: Result<UserUtilitiesCompany, Error>) -> Void)
   
 }
 
@@ -23,12 +23,12 @@ class LoadUserCompaniesUseCaseImpl: LoadUserCompaniesUseCase {
         self.gateway = gateway
     }
     
-    func loadList(_ completionHandler: @escaping (Result<[UserUtilitiesCompany]>) -> Void) {
+    func loadList(_ completionHandler: @escaping (Result<[UserUtilitiesCompany], Error>) -> Void) {
         gateway.fetch(completionHandler: completionHandler)
     }
     
     func loadCompany(by identifier: String,
-                     completionHandler: @escaping (_ result: Result<UserUtilitiesCompany>) -> Void) {
+                     completionHandler: @escaping (_ result: Result<UserUtilitiesCompany, Error>) -> Void) {
         gateway.load(by: identifier, completionHandler: completionHandler)
     }
 }

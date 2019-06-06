@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias SaveUserProfileUseCaseCompletionHandler = (_ books: Result<Void>) -> Void
+typealias SaveUserProfileUseCaseCompletionHandler = (_ books: Result<Void, Error>) -> Void
 
 protocol SaveUserProfileUseCase {
     func save(user: UserProfile, completionHandler: @escaping SaveUserProfileUseCaseCompletionHandler)

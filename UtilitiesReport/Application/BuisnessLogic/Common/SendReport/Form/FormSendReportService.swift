@@ -13,14 +13,14 @@ protocol FormSendReportService: SendReportServiceProtocol {
 }
 
 class FormSendReportServiceImpl: FormSendReportService {
-    private var client: HttpClient
+    private var client: ApiAlamofireClient
     
-    init(client: HttpClient) {
+    init(client: ApiAlamofireClient) {
         self.client = client
     }
     
     func send(model: SendReportModel,
-              completionHandler: @escaping (Result<SendReportStatus>) -> Void) {
+              completionHandler: @escaping (Result<SendReportStatus, Error>) -> Void) {
         guard let url = URL(string: model.sendTo) else {
             completionHandler(.failure(URError.urlInvalid))
             return
@@ -33,7 +33,7 @@ class FormSendReportServiceImpl: FormSendReportService {
             return
         }
         
-        client.execute(request: request) { (result) in
+        client.execute(request: request) { (result: Result<ApiResponse<String>, Error>) in
             switch result {
             case let .success(response):
                 let resultR = self.checkResponse(response)
@@ -44,7 +44,7 @@ class FormSendReportServiceImpl: FormSendReportService {
         }
     }
     
-    private func checkResponse(_ response: ApiResponse<String>) -> Result<SendReportStatus> {
+    private func checkResponse(_ response: ApiResponse<String>) -> Result<SendReportStatus, Error> {
         guard let data = response.data else { return .failure(URError.notAvailable("response")) }
     
         if let result = try? JSONSerialization.jsonObject(with:

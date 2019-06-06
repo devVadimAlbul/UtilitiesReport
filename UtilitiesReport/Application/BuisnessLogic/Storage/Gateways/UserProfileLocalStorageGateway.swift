@@ -24,7 +24,7 @@ class UserProfileLocalStorageGatewayImpl: UserProfileLocalStorageGateway {
     }
     
     
-    func loadEntity(completionHandler: @escaping (Result<UserProfile>) -> Void) {
+    func loadEntity(completionHandler: @escaping (Result<UserProfile, Error>) -> Void) {
         if let object = storage.allEntities(withType: RealmUserProfile.self).first {
             completionHandler(.success(object.userProfileModel))
         } else {
@@ -32,7 +32,7 @@ class UserProfileLocalStorageGatewayImpl: UserProfileLocalStorageGateway {
         }
     }
     
-    func add(parameters: UserProfile, completionHandler: @escaping (Result<UserProfile>) -> Void) {
+    func add(parameters: UserProfile, completionHandler: @escaping (Result<UserProfile, Error>) -> Void) {
         do {
             let object = RealmUserProfile(profile: parameters)
             try storage.save(object, update: true) {
@@ -43,7 +43,7 @@ class UserProfileLocalStorageGatewayImpl: UserProfileLocalStorageGateway {
         }
     }
     
-    func delete(entity: UserProfile, completionHandler: @escaping (Result<Void>) -> Void) {
+    func delete(entity: UserProfile, completionHandler: @escaping (Result<Void, Error>) -> Void) {
         if let object = storage.getEntity(withType: RealmUserProfile.self, for: entity.identifier) {
             do {
                 try storage.remove(object, cascading: true)

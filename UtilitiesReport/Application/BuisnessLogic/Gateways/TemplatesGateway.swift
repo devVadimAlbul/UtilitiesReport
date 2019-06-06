@@ -9,8 +9,8 @@
 import Foundation
 
 protocol TemplatesGateway {
-    typealias LoadEntityHandler = (_ result: Result<TemplateReport>) -> Void
-    typealias FetchEntitiesHandler = (_ result: Result<[TemplateReport]>) -> Void
+    typealias LoadEntityHandler = (_ result: Result<TemplateReport, Error>) -> Void
+    typealias FetchEntitiesHandler = (_ result: Result<[TemplateReport], Error>) -> Void
     
     func load(by identifier: String, completionHandler: @escaping LoadEntityHandler)
     func fetch(company companyID: String, completionHandler: @escaping FetchEntitiesHandler)

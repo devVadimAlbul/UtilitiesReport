@@ -23,7 +23,7 @@ class ApiTemplatesGatewayImpl: ApiTemplatesGateway {
     
     func load(by identifier: String, completionHandler: @escaping LoadEntityHandler) {
         let request = TemplateApiRequest.get(identifier)
-        apiClient.execute(request: request) { (result: Result<ApiResponse<ApiTemplateReport>>) in
+        apiClient.execute(request: request) { (result: Result<ApiResponse<ApiTemplateReport>, Error>) in
             switch result {
             case let .success(response):
                 completionHandler(.success(response.entity.entity))
@@ -35,7 +35,7 @@ class ApiTemplatesGatewayImpl: ApiTemplatesGateway {
     
     func fetch(company companyID: String, completionHandler: @escaping FetchEntitiesHandler) {
         let request = TemplateApiRequest.getList(companyID: companyID)
-        apiClient.execute(request: request) { (result: Result<ApiResponse<[ApiTemplateReport]>>) in
+        apiClient.execute(request: request) { (result: Result<ApiResponse<[ApiTemplateReport]>, Error>) in
             switch result {
             case let .success(response):
                 let enities = response.entity.map({$0.entity})

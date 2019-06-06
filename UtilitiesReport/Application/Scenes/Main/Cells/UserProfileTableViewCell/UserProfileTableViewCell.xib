@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,54 +13,54 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserProfileTableViewCell" rowHeight="392" id="KGk-i7-Jjw" customClass="UserProfileTableViewCell" customModule="UtilitiesReport" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="392"/>
+            <rect key="frame" x="0.0" y="0.0" width="436" height="392"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="391.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="436" height="391.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VtZ-Uh-CHH" customClass="ViewShadow" customModule="UtilitiesReport" customModuleProvider="target">
-                        <rect key="frame" x="16" y="11" width="288" height="370"/>
+                        <rect key="frame" x="20" y="11" width="396" height="370"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="jTw-hR-uum">
-                                <rect key="frame" x="16" y="16" width="256" height="338"/>
+                                <rect key="frame" x="20" y="20" width="356" height="330"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Kj3-TV-npz">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="356" height="27.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Uk-YZ-pVv">
-                                                <rect key="frame" x="0.0" y="0.0" width="102.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="142.5" height="27.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" red="0.070588235294117646" green="0.17254901960784313" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uTy-9m-vnU">
-                                                <rect key="frame" x="110.5" y="0.0" width="145.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <rect key="frame" x="150.5" y="0.0" width="205.5" height="27.5"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPg-Hx-ra9">
-                                        <rect key="frame" x="0.0" y="32.5" width="256" height="1"/>
+                                        <rect key="frame" x="0.0" y="39.5" width="356" height="1"/>
                                         <color key="backgroundColor" red="0.77254901960784317" green="0.83529411764705885" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="eZl-XU-26F"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ddi-WH-hht">
-                                        <rect key="frame" x="0.0" y="45.5" width="256" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="52.5" width="356" height="27.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rc3-F7-VBo">
-                                                <rect key="frame" x="0.0" y="0.0" width="102.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="142.5" height="27.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" red="0.070588235294117646" green="0.17254901960784313" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="SUl-x2-SdW">
-                                                <rect key="frame" x="110.5" y="0.0" width="145.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <rect key="frame" x="150.5" y="0.0" width="205.5" height="27.5"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -70,35 +70,35 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oTg-X1-FhI">
-                                        <rect key="frame" x="0.0" y="78" width="256" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="92" width="356" height="27.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CuS-Ul-Uaz">
-                                                <rect key="frame" x="0.0" y="0.0" width="102.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="142.5" height="27.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" red="0.070588235294117646" green="0.17254901960784313" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="LvD-cD-ss0">
-                                                <rect key="frame" x="110.5" y="0.0" width="145.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <rect key="frame" x="150.5" y="0.0" width="205.5" height="27.5"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HJZ-kX-mqL">
-                                        <rect key="frame" x="0.0" y="110.5" width="256" height="227.5"/>
+                                        <rect key="frame" x="0.0" y="131.5" width="356" height="198.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vy6-IT-zUv">
-                                                <rect key="frame" x="0.0" y="0.0" width="102.5" height="18"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="142.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" red="0.070588235294117646" green="0.17254901960784313" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="og5-19-FuV">
-                                                <rect key="frame" x="110.5" y="0.0" width="145.5" height="174.5"/>
+                                                <rect key="frame" x="150.5" y="0.0" width="205.5" height="136"/>
                                                 <string key="text">Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label</string>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -114,10 +114,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="jTw-hR-uum" firstAttribute="top" secondItem="VtZ-Uh-CHH" secondAttribute="top" constant="16" id="136-8T-M2V"/>
-                            <constraint firstAttribute="trailing" secondItem="jTw-hR-uum" secondAttribute="trailing" constant="16" id="Obq-ue-Z6E"/>
-                            <constraint firstAttribute="bottom" secondItem="jTw-hR-uum" secondAttribute="bottom" constant="16" id="idi-ro-2Tp"/>
-                            <constraint firstItem="jTw-hR-uum" firstAttribute="leading" secondItem="VtZ-Uh-CHH" secondAttribute="leading" constant="16" id="qkT-0f-KyL"/>
+                            <constraint firstItem="jTw-hR-uum" firstAttribute="top" secondItem="VtZ-Uh-CHH" secondAttribute="top" constant="20" id="136-8T-M2V"/>
+                            <constraint firstAttribute="trailing" secondItem="jTw-hR-uum" secondAttribute="trailing" constant="20" id="Obq-ue-Z6E"/>
+                            <constraint firstAttribute="bottom" secondItem="jTw-hR-uum" secondAttribute="bottom" constant="20" id="idi-ro-2Tp"/>
+                            <constraint firstItem="jTw-hR-uum" firstAttribute="leading" secondItem="VtZ-Uh-CHH" secondAttribute="leading" constant="20" id="qkT-0f-KyL"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="roundRadius">
@@ -158,7 +158,7 @@
                 <outlet property="lblPhoneTitle" destination="Rc3-F7-VBo" id="dv1-n9-Eon"/>
                 <outlet property="lblPhoneValue" destination="SUl-x2-SdW" id="fVy-dG-enh"/>
             </connections>
-            <point key="canvasLocation" x="11.199999999999999" y="297.75112443778113"/>
+            <point key="canvasLocation" x="104" y="297.75112443778113"/>
         </tableViewCell>
     </objects>
 </document>

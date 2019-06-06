@@ -11,14 +11,14 @@ import UIKit.UIImage
 import Firebase
 
 protocol TextDetector: class {
-    func recognize(_ image: UIImage, completion: @escaping (Result<VisionText>) -> Void)
+    func recognize(_ image: UIImage, completion: @escaping (Result<VisionText, Error>) -> Void)
 }
 
 class TextDetectorFirebaseImpl: TextDetector {
     
     let vision = Vision.vision()
     
-    func recognize(_ image: UIImage, completion: @escaping (Result<VisionText>) -> Void) {
+    func recognize(_ image: UIImage, completion: @escaping (Result<VisionText, Error>) -> Void) {
         let textRecognizer = vision.onDeviceTextRecognizer()
         let visionImage = VisionImage(image: image)
         textRecognizer.process(visionImage) { result, error in

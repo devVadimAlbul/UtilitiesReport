@@ -9,10 +9,10 @@
 import Foundation
 
 protocol UserUtilitesCompanyGateway {
-    typealias LoadEntityCompletionHandler = (_ result: Result<UserUtilitiesCompany>) -> Void
-    typealias FetchEntitiesCompletionHandler = (_ result: Result<[UserUtilitiesCompany]>) -> Void
-    typealias AddEntityCompletionHandler = (_ result: Result<UserUtilitiesCompany>) -> Void
-    typealias DeleteEntityCompletionHandler = (_ result: Result<Void>) -> Void
+    typealias LoadEntityCompletionHandler = (_ result: Result<UserUtilitiesCompany, Error>) -> Void
+    typealias FetchEntitiesCompletionHandler = (_ result: Result<[UserUtilitiesCompany], Error>) -> Void
+    typealias AddEntityCompletionHandler = (_ result: Result<UserUtilitiesCompany, Error>) -> Void
+    typealias DeleteEntityCompletionHandler = (_ result: Result<Void, Error>) -> Void
     
     func load(by identifier: String, completionHandler: @escaping LoadEntityCompletionHandler)
     func fetch(completionHandler: @escaping FetchEntitiesCompletionHandler)

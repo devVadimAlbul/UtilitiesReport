@@ -10,7 +10,8 @@ import Foundation
 import Alamofire
 
 protocol ApiAlamofireClient: ApiClient {
-    
+    func execute(request: ApiRequest,
+                               completionHandler: @escaping (Swift.Result<String, Error>) -> Void)
 }
 
 class ApiAlamofireClientImpl: ApiAlamofireClient {
@@ -28,11 +29,11 @@ class ApiAlamofireClientImpl: ApiAlamofireClient {
         self.completionHandlerQueue = completionHandlerQueue
     }
     
-    func execute<T>(request: ApiRequest,
-                    completionHandler: @escaping (Result<ApiResponse<T>>) -> Void) where T: Decodable {
+    func execute<T: Decodable>(request: ApiRequest,
+                               completionHandler: @escaping (Swift.Result<ApiResponse<T>, Error>) -> Void) {
         
         let requestData = Alamofire.request(request.urlRequest)
-            .validate(statusCode: 200..<500).validate(statusCode: 200..<500)
+            .validate(statusCode: 200..<300)
             .responseJSON { (response) in
                 self.debugResponceJSON(response: response, description: request.urlRequest.description)
             }.response(queue: completionHandlerQueue) { (response) in
@@ -40,16 +41,15 @@ class ApiAlamofireClientImpl: ApiAlamofireClient {
                     completionHandler(.failure(ApiError.networkRequestError(response.error)))
                     return
                 }
-                let successRange = 200...299
-                if successRange.contains(httpUrlResponse.statusCode) {
+                if let error = response.error {
+                    completionHandler(.failure(error))
+                } else {
                     do {
                         let result = try ApiResponse<T>(data: response.data, httpUrlResponse: httpUrlResponse)
                         completionHandler(.success(result))
                     } catch {
                         completionHandler(.failure(error))
                     }
-                } else {
-                    completionHandler(.failure(NetworkApiError(data: response.data, httpUrlResponse: httpUrlResponse)))
                 }
         }
         
@@ -74,6 +74,18 @@ class ApiAlamofireClientImpl: ApiAlamofireClient {
                     print("=============\n")
                 }
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func execute(request: ApiRequest,
+                 completionHandler: @escaping (Swift.Result<String, Error>) -> Void) {
+        execute(request: request) { (response: Swift.Result<ApiResponse<HTMLCodeResponse>, Error>) in
+            switch response {
+            case let .success(responseCode):
+                completionHandler(.success(responseCode.entity.content))
+            case let .failure(error):
+                completionHandler(.failure(error))
             }
         }
     }

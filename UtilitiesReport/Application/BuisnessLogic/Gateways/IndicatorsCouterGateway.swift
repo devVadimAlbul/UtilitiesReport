@@ -9,10 +9,10 @@
 import Foundation
 
 protocol IndicatorsCouterGateway {
-    typealias FetchEntitiesCompletionHandler = (_ result: Result<[IndicatorsCounter]>) -> Void
-    typealias AddEntityCompletionHandler = (_ result: Result<IndicatorsCounter>) -> Void
-    typealias AddEntitiesCompletionHandler = (_ result: Result<[IndicatorsCounter]>) -> Void
-    typealias DeleteEntityCompletionHandler = (_ result: Result<Void>) -> Void
+    typealias FetchEntitiesCompletionHandler = (_ result: Result<[IndicatorsCounter], Error>) -> Void
+    typealias AddEntityCompletionHandler = (_ result: Result<IndicatorsCounter, Error>) -> Void
+    typealias AddEntitiesCompletionHandler = (_ result: Result<[IndicatorsCounter], Error>) -> Void
+    typealias DeleteEntityCompletionHandler = (_ result: Result<Void, Error>) -> Void
     
     func fetch(by predicate: NSPredicate, completionHandler: @escaping FetchEntitiesCompletionHandler)
     func delete(entity: IndicatorsCounter, completionHandler: @escaping DeleteEntityCompletionHandler)

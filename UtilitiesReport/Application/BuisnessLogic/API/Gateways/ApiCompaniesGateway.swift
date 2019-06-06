@@ -21,7 +21,7 @@ class ApiCompaniesGatewayImpl: ApiCompaniesGateway {
     
     func load(by identifier: String, completionHandler: @escaping ApiCompaniesGatewayImpl.LoadEntityCompletionHandler) {
         let request = CompanyApiRequest.get(identifier)
-        apiClient.execute(request: request) { (result: Result<ApiResponse<ApiCompany>>) in
+        apiClient.execute(request: request) { (result: Result<ApiResponse<ApiCompany>, Error>) in
             switch result {
             case let .success(response):
                 completionHandler(.success(response.entity.entity))
@@ -33,7 +33,7 @@ class ApiCompaniesGatewayImpl: ApiCompaniesGateway {
     
     func fetch(completionHandler: @escaping FetchEntitiesCompletionHandler) {
         let request = CompanyApiRequest.getAll
-        apiClient.execute(request: request) { (result: Result<ApiResponse<[ApiCompany]>>) in
+        apiClient.execute(request: request) { (result: Result<ApiResponse<[ApiCompany]>, Error>) in
             switch result {
             case let .success(response):
                 let companies = response.entity.map { return $0.entity }
@@ -44,7 +44,7 @@ class ApiCompaniesGatewayImpl: ApiCompaniesGateway {
         }
     }
     
-    func deleteAll(completionHandler: @escaping (Result<Void>) -> Void) {
+    func deleteAll(completionHandler: @escaping (Result<Void, Error>) -> Void) {
         completionHandler(.success(()))
     }
     

@@ -118,60 +118,97 @@ class UserFormPresenterImpl: UserFormPresenter {
     private func checkValidForm() -> Bool {
         var isValid: Bool = true
         
-        userProfile.map {
-            var firstNameState: Props.ItemState = .valid
-            if $0.firstName.removeWhiteSpace().isEmpty {
-               isValid = false
-               firstNameState = .invalid(message: "Incorrect first name")
+        func checkValid(key: PartialKeyPath<UserProfile>, name: String, check: (String?) -> Bool) ->  Props.ItemState {
+            let value = userProfile?[keyPath: key] as? String
+            if check(value) {
+                return .valid
             }
-            self.itemsPropsValiad[\UserProfile.firstName] = firstNameState
-            
-            var lastNameState: Props.ItemState = .valid
-            if $0.lastName.removeWhiteSpace().isEmpty {
-                isValid = false
-                lastNameState = .invalid(message: "Incorrect last name")
-            }
-            self.itemsPropsValiad[\UserProfile.lastName] = lastNameState
-            
-            var phoneState: Props.ItemState = .valid
-            if $0.phoneNumber.removeWhiteSpace().isEmpty || !$0.phoneNumber.isPhoneNumberValid {
-                isValid = false
-                phoneState = .invalid(message: "Incorrect phone number")
-            }
-            self.itemsPropsValiad[\UserProfile.phoneNumber] = phoneState
-            
-            var emailState: Props.ItemState = .valid
-            if $0.email.removeWhiteSpace().isEmpty || !$0.email.isEmailValid {
-                isValid = false
-                emailState = .invalid(message: "Incorrect email")
-            }
-            self.itemsPropsValiad[\UserProfile.email] = emailState
-            
-            
-            var cityState: Props.ItemState = .valid
-            if $0.city.removeWhiteSpace().isEmpty {
-                isValid = false
-                cityState = .invalid(message: "Incorrect city")
-            }
-            self.itemsPropsValiad[\UserProfile.city] = cityState
-            
-            var streetState: Props.ItemState = .valid
-            if $0.street.removeWhiteSpace().isEmpty {
-                isValid = false
-                streetState = .invalid(message: "Incorrect street")
-            }
-            self.itemsPropsValiad[\UserProfile.street] = streetState
-            
-            var houseState: Props.ItemState = .valid
-            if $0.house.removeWhiteSpace().isEmpty {
-                isValid = false
-                houseState = .invalid(message: "Incorrect house")
-            }
-            self.itemsPropsValiad[\UserProfile.house] = houseState
+            return .invalid(message: "Incorrect \(name)")
         }
+        
+        
+        userProfile.getAllKeys().forEach({ keyPath in
+            let state = checkValid(key: keyPath,
+                                   name: userProfile.namesPaths[keyPath] ?? "",
+                                   check: { (value) -> Bool in
+                if let value = value, !value.removeWhiteSpace().isEmpty {
+                    if keyPath == \UserProfile.email {
+                        return value.isEmailValid
+                    }
+                    if keyPath == \UserProfile.phoneNumber {
+                        return value.isPhoneNumberValid
+                    }
+                    return true
+                }
+                return false
+            })
+            self.itemsPropsValiad[keyPath] = state
+        })
+        if itemsPropsValiad.values.contains(where: { (item) -> Bool in
+            switch item {
+            case .invalid(message: _): return true
+            case .valid: return false
+            }
+        }) {
+            return false
+        }
+        return true
+//        checkValid(key: \UserProfile.firstName, check: {_ in return false})
+//        userProfile.map {
+//            var firstNameState: Props.ItemState = .valid
+//            if $0.firstName.removeWhiteSpace().isEmpty {
+//               isValid = false
+//               firstNameState = .invalid(message: "Incorrect first name")
+//            }
+//            self.itemsPropsValiad[\UserProfile.firstName] = firstNameState
+//
+//            var lastNameState: Props.ItemState = .valid
+//            if $0.lastName.removeWhiteSpace().isEmpty {
+//                isValid = false
+//                lastNameState = .invalid(message: "Incorrect last name")
+//            }
+//            self.itemsPropsValiad[\UserProfile.lastName] = lastNameState
+//
+//            var phoneState: Props.ItemState = .valid
+//            if $0.phoneNumber.removeWhiteSpace().isEmpty || !$0.phoneNumber.isPhoneNumberValid {
+//                isValid = false
+//                phoneState = .invalid(message: "Incorrect phone number")
+//            }
+//            self.itemsPropsValiad[\UserProfile.phoneNumber] = phoneState
+//
+//            var emailState: Props.ItemState = .valid
+//            if $0.email.removeWhiteSpace().isEmpty || !$0.email.isEmailValid {
+//                isValid = false
+//                emailState = .invalid(message: "Incorrect email")
+//            }
+//            self.itemsPropsValiad[\UserProfile.email] = emailState
+//
+//
+//            var cityState: Props.ItemState = .valid
+//            if $0.city.removeWhiteSpace().isEmpty {
+//                isValid = false
+//                cityState = .invalid(message: "Incorrect city")
+//            }
+//            self.itemsPropsValiad[\UserProfile.city] = cityState
+//
+//            var streetState: Props.ItemState = .valid
+//            if $0.street.removeWhiteSpace().isEmpty {
+//                isValid = false
+//                streetState = .invalid(message: "Incorrect street")
+//            }
+//            self.itemsPropsValiad[\UserProfile.street] = streetState
+//
+//            var houseState: Props.ItemState = .valid
+//            if $0.house.removeWhiteSpace().isEmpty {
+//                isValid = false
+//                houseState = .invalid(message: "Incorrect house")
+//            }
+//            self.itemsPropsValiad[\UserProfile.house] = houseState
+//        }
         return isValid
     }
     
+
     // MARK: actions
     func saveUserForm() {
         guard let state = viewForm?.props.state else { return }

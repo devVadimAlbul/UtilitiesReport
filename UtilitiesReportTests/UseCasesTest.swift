@@ -64,7 +64,7 @@ class UseCasesTest: XCTestCase {
                            apartment: "109")
     }
     
-    func assertThrow<T>(_ result: Result<T>, file: StaticString = #file, line: UInt = #line) {
+    func assertThrow<T>(_ result: Result<T, Error>, file: StaticString = #file, line: UInt = #line) {
         XCTAssertNoThrow(try result.dematerialize(), file: file, line: line)
     }
 }

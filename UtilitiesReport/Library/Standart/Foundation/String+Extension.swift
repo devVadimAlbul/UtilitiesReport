@@ -27,9 +27,9 @@ extension String {
     }
     
     var isPhoneNumberValid: Bool {
-        let allowedCharacters = CharacterSet(charactersIn: "+0123456789 ")
-        let characterSet = CharacterSet(charactersIn: self)
-        return allowedCharacters.isSuperset(of: characterSet)
+        let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        return phoneTest.evaluate(with: self)
     }
     
     private static var digits = UnicodeScalar("0")..."9"

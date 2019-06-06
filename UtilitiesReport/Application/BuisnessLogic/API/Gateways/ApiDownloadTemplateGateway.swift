@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ApiDownloadTemplateGateway {
-    typealias DownloadCompletionHandler = (_ result: Result<String>) -> Void
+    typealias DownloadCompletionHandler = (_ result: Result<String, Error>) -> Void
     typealias DownloadProgressHandler = (Progress) -> Void
     
     func download(parameter: TemplateReport,

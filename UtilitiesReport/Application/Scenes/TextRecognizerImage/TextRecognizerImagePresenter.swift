@@ -49,7 +49,7 @@ class TextRecognizerImagePresenterImpl: TextRecognizerImagePresenter {
         }
     }
     
-    func saveRecognizedText()  {
+    func saveRecognizedText() {
         if let text = self.recognizedText {
             self.viewTextRecognizer?.displaySuccess(text)
         } else {

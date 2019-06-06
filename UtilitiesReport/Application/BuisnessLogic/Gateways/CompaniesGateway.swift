@@ -10,15 +10,15 @@ import Foundation
 
 
 protocol CompaniesGateway {
-    typealias LoadEntityCompletionHandler = (_ result: Result<Company>) -> Void
-    typealias FetchEntitiesCompletionHandler = (_ result: Result<[Company]>) -> Void
-    typealias AddEntityCompletionHandler = (_ result: Result<Company>) -> Void
-    typealias DeleteEntityCompletionHandler = (_ result: Result<Void>) -> Void
+    typealias LoadEntityCompletionHandler = (_ result: Result<Company, Error>) -> Void
+    typealias FetchEntitiesCompletionHandler = (_ result: Result<[Company], Error>) -> Void
+    typealias AddEntityCompletionHandler = (_ result: Result<Company, Error>) -> Void
+    typealias DeleteEntityCompletionHandler = (_ result: Result<Void, Error>) -> Void
     
     func load(by identifier: String, completionHandler: @escaping LoadEntityCompletionHandler)
     func fetch(completionHandler: @escaping FetchEntitiesCompletionHandler)
     func delete(entity: Company, completionHandler: @escaping DeleteEntityCompletionHandler)
-    func deleteAll(completionHandler: @escaping (_ result: Result<Void>) -> Void)
+    func deleteAll(completionHandler: @escaping (_ result: Result<Void, Error>) -> Void)
 }
 
 
@@ -50,7 +50,7 @@ class CompaniesGatewayImpl: CompaniesGateway {
         }
     }
     
-    func deleteAll(completionHandler: @escaping (Result<Void>) -> Void) {
+    func deleteAll(completionHandler: @escaping (Result<Void, Error>) -> Void) {
         apiGateway.deleteAll { [weak self] (result) in
             self?.localStorageGateway.deleteAll { _ in }
             completionHandler(result)
@@ -58,7 +58,7 @@ class CompaniesGatewayImpl: CompaniesGateway {
     }
     
     // MARK: private handles
-    private func handleFetchApiResult(_ result: Result<[Company]>,
+    private func handleFetchApiResult(_ result: Result<[Company], Error>,
                                       completionHandler: @escaping FetchEntitiesCompletionHandler) {
         switch result {
         case let .success(companies):
@@ -69,7 +69,7 @@ class CompaniesGatewayImpl: CompaniesGateway {
         }
     }
     
-    private func handleLoadApiResult(_ result: Result<Company>, with identifier: String,
+    private func handleLoadApiResult(_ result: Result<Company, Error>, with identifier: String,
                                      completionHandler: @escaping LoadEntityCompletionHandler) {
         switch result {
         case .success(let company):

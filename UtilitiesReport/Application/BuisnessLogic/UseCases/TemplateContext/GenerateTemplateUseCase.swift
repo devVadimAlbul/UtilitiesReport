@@ -11,7 +11,7 @@ import Foundation
 protocol GenerateTemplateUseCase {
     func generate(with  indicators: [IndicatorsCounter],
                   by company: UserUtilitiesCompany,
-                  template: String, completionHandler: @escaping (Result<String>) -> Void)
+                  template: String, completionHandler: @escaping (Result<String, Error>) -> Void)
 }
 
 class GenerateTemplateUseCaseImpl: GenerateTemplateUseCase {
@@ -27,7 +27,7 @@ class GenerateTemplateUseCaseImpl: GenerateTemplateUseCase {
     func generate(with  indicators: [IndicatorsCounter],
                   by company: UserUtilitiesCompany,
                   template: String,
-                  completionHandler: @escaping (Result<String>) -> Void) {
+                  completionHandler: @escaping (Result<String, Error>) -> Void) {
         loadUserProfile.load { (result) in
             switch result {
             case let .success(user):
@@ -40,7 +40,7 @@ class GenerateTemplateUseCaseImpl: GenerateTemplateUseCase {
     }
     
     private func render(context: TemplateContext, template: String,
-                        completionHandler: @escaping (Result<String>) -> Void) {
+                        completionHandler: @escaping (Result<String, Error>) -> Void) {
         templateParser.render(template: template, context: context.context, completionHandler: completionHandler)
     }
     

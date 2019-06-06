@@ -11,7 +11,7 @@ import Stencil
 
 protocol TemplateParser {
     func render(template: String, context: [String: Any],
-                completionHandler: @escaping (Result<String>) -> Void)
+                completionHandler: @escaping (Result<String, Error>) -> Void)
 }
 
 class TemplateParserImpl: TemplateParser {
@@ -23,7 +23,7 @@ class TemplateParserImpl: TemplateParser {
     }
     
     func render(template: String, context: [String: Any],
-                completionHandler: @escaping (Result<String>) -> Void) {
+                completionHandler: @escaping (Result<String, Error>) -> Void) {
         do {
             let rendered = try environment.renderTemplate(string: template, context: context)
             completionHandler(.success(rendered))

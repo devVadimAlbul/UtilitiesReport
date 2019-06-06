@@ -1,31 +1,31 @@
 PODS:
   - Alamofire (4.8.2)
-  - Firebase (6.0.0):
-    - Firebase/Core (= 6.0.0)
-  - Firebase/Core (6.0.0):
+  - Firebase (6.1.0):
+    - Firebase/Core (= 6.1.0)
+  - Firebase/Core (6.1.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.0.0)
-  - Firebase/CoreOnly (6.0.0):
-    - FirebaseCore (= 6.0.0)
-  - Firebase/MLVision (6.0.0):
+    - FirebaseAnalytics (= 6.0.1)
+  - Firebase/CoreOnly (6.1.0):
+    - FirebaseCore (= 6.0.1)
+  - Firebase/MLVision (6.1.0):
     - Firebase/CoreOnly
     - FirebaseMLVision (~> 0.16.0)
-  - Firebase/MLVisionTextModel (6.0.0):
+  - Firebase/MLVisionTextModel (6.1.0):
     - Firebase/CoreOnly
     - FirebaseMLVisionTextModel (~> 0.16.0)
-  - FirebaseAnalytics (6.0.0):
+  - FirebaseAnalytics (6.0.1):
     - FirebaseCore (~> 6.0)
-    - FirebaseInstanceID (~> 4.0)
-    - GoogleAppMeasurement (= 6.0.0)
+    - FirebaseInstanceID (~> 4.1)
+    - GoogleAppMeasurement (= 6.0.1)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 0.3)
-  - FirebaseCore (6.0.0):
+  - FirebaseCore (6.0.1):
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/Logger (~> 6.0)
-  - FirebaseInstanceID (4.0.0):
+  - FirebaseInstanceID (4.1.0):
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
@@ -42,12 +42,12 @@ PODS:
     - GoogleMobileVision/Detector (~> 1.4)
   - FirebaseMLVisionTextModel (0.16.0):
     - GoogleMobileVision/TextDetector (~> 1.4)
-  - GoogleAPIClientForREST/Core (1.3.8):
+  - GoogleAPIClientForREST/Core (1.3.9):
     - GTMSessionFetcher (>= 1.1.7)
-  - GoogleAPIClientForREST/Vision (1.3.8):
+  - GoogleAPIClientForREST/Vision (1.3.9):
     - GoogleAPIClientForREST/Core
     - GTMSessionFetcher (>= 1.1.7)
-  - GoogleAppMeasurement (6.0.0):
+  - GoogleAppMeasurement (6.0.1):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
@@ -60,34 +60,34 @@ PODS:
     - Protobuf (~> 3.1)
   - GoogleMobileVision/TextDetector (1.6.0):
     - GoogleMobileVision/Detector (~> 1.6)
-  - GoogleToolboxForMac/Defines (2.2.0)
-  - GoogleToolboxForMac/Logger (2.2.0):
-    - GoogleToolboxForMac/Defines (= 2.2.0)
-  - "GoogleToolboxForMac/NSData+zlib (2.2.0)":
-    - GoogleToolboxForMac/Defines (= 2.2.0)
-  - GoogleUtilities/AppDelegateSwizzler (6.0.0):
+  - GoogleToolboxForMac/Defines (2.2.1)
+  - GoogleToolboxForMac/Logger (2.2.1):
+    - GoogleToolboxForMac/Defines (= 2.2.1)
+  - "GoogleToolboxForMac/NSData+zlib (2.2.1)":
+    - GoogleToolboxForMac/Defines (= 2.2.1)
+  - GoogleUtilities/AppDelegateSwizzler (6.1.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.0.0)
-  - GoogleUtilities/Logger (6.0.0):
+  - GoogleUtilities/Environment (6.1.0)
+  - GoogleUtilities/Logger (6.1.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.0.0):
+  - GoogleUtilities/MethodSwizzler (6.1.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.0.0):
+  - GoogleUtilities/Network (6.1.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.0.0)"
-  - GoogleUtilities/Reachability (6.0.0):
+  - "GoogleUtilities/NSData+zlib (6.1.0)"
+  - GoogleUtilities/Reachability (6.1.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.0.0):
+  - GoogleUtilities/UserDefaults (6.1.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher (1.2.1):
-    - GTMSessionFetcher/Full (= 1.2.1)
-  - GTMSessionFetcher/Core (1.2.1)
-  - GTMSessionFetcher/Full (1.2.1):
-    - GTMSessionFetcher/Core (= 1.2.1)
+  - GTMSessionFetcher (1.2.2):
+    - GTMSessionFetcher/Full (= 1.2.2)
+  - GTMSessionFetcher/Core (1.2.2)
+  - GTMSessionFetcher/Full (1.2.2):
+    - GTMSessionFetcher/Core (= 1.2.2)
   - IQKeyboardManagerSwift (6.3.0)
   - KRActivityIndicatorView (3.0.2)
   - KRProgressHUD (3.4.1):
@@ -119,7 +119,7 @@ DEPENDENCIES:
   - KRProgressHUD (~> 3.4)
   - RealmSwift (~> 3.14)
   - Sourcery (~> 0.16)
-  - Stencil (~> 0.13)
+  - Stencil (from `https://github.com/stencilproject/Stencil.git`)
   - SwiftLint (~> 0.32)
 
 SPEC REPOS:
@@ -147,24 +147,32 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - Sourcery
-    - Stencil
     - SwiftLint
+
+EXTERNAL SOURCES:
+  Stencil:
+    :git: https://github.com/stencilproject/Stencil.git
+
+CHECKOUT OPTIONS:
+  Stencil:
+    :commit: e516ca9389b64da70b71a461925bbca66f65fe61
+    :git: https://github.com/stencilproject/Stencil.git
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  Firebase: fa80b9d987ca014a1ba9357496ef2a0178b28b12
-  FirebaseAnalytics: 1743c5f4de3687d0745709dfdc4b1dea1484f44c
-  FirebaseCore: e38f025287b413255a53acc1945d048a112047f7
-  FirebaseInstanceID: 0e0348a3c00a734fa376a070f5ad4533ad975cb5
+  Firebase: 8d77bb33624ae9b62d745d82ec023de5f70f7e4f
+  FirebaseAnalytics: 629301c2b9925f3537d4093a17a72751ae5b7084
+  FirebaseCore: 66bdef3b310a026880e2a5bc8aa586ab62ce4543
+  FirebaseInstanceID: 27bed93a59b6685f5c3e0c028a878a764fd75c33
   FirebaseMLCommon: d430756ba2a16bac8fefc81ea416e7f822f052fd
   FirebaseMLVision: 35d0a720334b141d70a55e7e817c1cac23f32285
   FirebaseMLVisionTextModel: f5ca6d55bee8f00e08afca69d211fdc4efee1fef
-  GoogleAPIClientForREST: 5447a194eae517986cafe6421a5330b80b820591
-  GoogleAppMeasurement: 7f028ea162b72c8f326daec74afc95d94f7a47d6
+  GoogleAPIClientForREST: 44c7b678cbab11d26a47eab7309d6179b1a61f0c
+  GoogleAppMeasurement: 51d8d9ea48f0ca44484d29cfbdef976fbd4fc336
   GoogleMobileVision: 31cfb4319fd0c03d80105680abd9eae9da5e3b47
-  GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
-  GoogleUtilities: f1faafc033ea203adf1783ce00af455bb99d0e5b
-  GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
+  GoogleUtilities: 84df567c76ca84f67b7bb40e769fdd4acc746a10
+  GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   KRActivityIndicatorView: a2022d5d3e366207d2690f6bcc550f83aa91241b
   KRProgressHUD: 115363b48feb530ab1f36c4146ed22e779e0f5aa
@@ -174,9 +182,9 @@ SPEC CHECKSUMS:
   Realm: 9b834e1be6062f544805252c812348872dc5d4ed
   RealmSwift: 8a41886f8ab6efef9eb8df97de2f2bb911561a79
   Sourcery: 16779170d35ee204666843b09031f36721a84bcc
-  Stencil: b5128a0a43ece9225db5cbd94d6569fe6fba609b
+  Stencil: 5375f49b7460e2a8227f434546d4847a577affe0
   SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
 
-PODFILE CHECKSUM: 97252f1c015c4dd92facbd6e720f40c952e38fb7
+PODFILE CHECKSUM: de8e390776dad303189d816c95728ce6e3ff2cff
 
 COCOAPODS: 1.6.1

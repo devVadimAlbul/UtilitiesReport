@@ -14,7 +14,7 @@ protocol ApiRequest {
 
 protocol ApiClient {
     func execute<T: Decodable>(request: ApiRequest,
-                               completionHandler: @escaping (_ result: Result<ApiResponse<T>>) -> Void)
+                               completionHandler: @escaping (_ result: Result<ApiResponse<T>, Error>) -> Void)
 }
 
 protocol URLSessionProtocol {
@@ -38,7 +38,8 @@ class ApiClientImpl: ApiClient {
         self.urlSession = urlSession
     }
     
-    func execute<T: Decodable>(request: ApiRequest, completionHandler: @escaping (Result<ApiResponse<T>>) -> Void) {
+    func execute<T: Decodable>(request: ApiRequest,
+                               completionHandler: @escaping (Result<ApiResponse<T>, Error>) -> Void) {
         let dataTask = urlSession.dataTask(with: request.urlRequest) { (data, response, error) in
             guard let httpUrlResponse = response as? HTTPURLResponse else {
                 completionHandler(.failure(ApiError.networkRequestError(error)))

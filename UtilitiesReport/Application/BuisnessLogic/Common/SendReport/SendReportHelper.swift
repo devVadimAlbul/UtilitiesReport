@@ -11,7 +11,7 @@ import UIKit.UIViewController
 
 protocol SendReportHelper {
     func send(model: SendReportModel, in controller: UIViewController,
-              completionHandler: @escaping (Result<SendReportStatus>) -> Void)
+              completionHandler: @escaping (Result<SendReportStatus, Error>) -> Void)
 }
 
 
@@ -20,7 +20,7 @@ class SendReportHelperImpl: SendReportHelper {
     private var service: SendReportServiceProtocol?
     
     func send(model: SendReportModel, in controller: UIViewController,
-              completionHandler: @escaping (Result<SendReportStatus>) -> Void) {
+              completionHandler: @escaping (Result<SendReportStatus, Error>) -> Void) {
       
         if let service = getReportService(with: model.type, in: controller) {
             self.service = service
@@ -42,7 +42,7 @@ class SendReportHelperImpl: SendReportHelper {
                                   in controller: UIViewController) -> SendReportServiceProtocol? {
         switch type {
         case .form:
-            return FormSendReportServiceImpl(client: HttpClientImpl())
+            return FormSendReportServiceImpl(client: ApiAlamofireClientImpl())
         case .sms:
             return SmsSendReportServiceImpl(viewController: controller)
         case .email:

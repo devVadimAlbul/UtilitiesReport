@@ -16,5 +16,5 @@ enum SendReportStatus {
 
 protocol SendReportServiceProtocol {
     func send(model: SendReportModel,
-              completionHandler: @escaping (Result<SendReportStatus>) -> Void)
+              completionHandler: @escaping (Result<SendReportStatus, Error>) -> Void)
 }

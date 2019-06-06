@@ -10,9 +10,9 @@ import Foundation
 
 protocol UserProfileGateway {
 //    typealias FetchUsersProfileCompletionHandler = (_ result: Result<[UserProfile]>) -> Void
-    typealias AddUserProfileCompletionHandler = (_ result: Result<UserProfile>) -> Void
-    typealias DeleteUserProfileCompletionHandler = (_ result: Result<Void>) -> Void
-    typealias LoadUserProfileCompletionHandler = (_ result: Result<UserProfile>) -> Void
+    typealias AddUserProfileCompletionHandler = (_ result: Result<UserProfile, Error>) -> Void
+    typealias DeleteUserProfileCompletionHandler = (_ result: Result<Void, Error>) -> Void
+    typealias LoadUserProfileCompletionHandler = (_ result: Result<UserProfile, Error>) -> Void
     
 //    func getEntity(by identifier: String) -> Result<UserProfile?>
 //    func fetch(completionHandler: @escaping FetchUsersProfileCompletionHandler)

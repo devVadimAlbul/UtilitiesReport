@@ -10,8 +10,7 @@ target 'UtilitiesReport' do
     pod 'Sourcery', '~> 0.16'
     pod 'SwiftLint', '~> 0.32'
     pod 'Alamofire', '~> 4.8'
-    pod 'Stencil', '~> 0.13'
-    
+    pod 'Stencil', :git => 'https://github.com/stencilproject/Stencil.git'
     pod 'Firebase/Core'
     pod 'Firebase/MLVision'
     pod 'Firebase/MLVisionTextModel'
@@ -21,4 +20,12 @@ target 'UtilitiesReport' do
       pod 'Firebase'
     end
     
+end
+
+post_install do |installer_representation|
+  installer_representation.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES'] = '$(inherited)'
+    end
+  end
 end

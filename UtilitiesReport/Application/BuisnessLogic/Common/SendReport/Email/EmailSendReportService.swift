@@ -17,7 +17,7 @@ protocol EmailSendReportService: SendReportServiceProtocol {
 class EmailSendReportServiceImpl: NSObject, EmailSendReportService {
     
     private weak var viewController: UIViewController?
-    private var completionCommand: CommandWith<Result<SendReportStatus>>?
+    private var completionCommand: CommandWith<Result<SendReportStatus, Error>>?
     private var queue: DispatchQueue
     
     init(viewController: UIViewController, on queue: DispatchQueue = .main) {
@@ -26,7 +26,7 @@ class EmailSendReportServiceImpl: NSObject, EmailSendReportService {
         super.init()
     }
     
-    func send(model: SendReportModel, completionHandler: @escaping (Result<SendReportStatus>) -> Void) {
+    func send(model: SendReportModel, completionHandler: @escaping (Result<SendReportStatus, Error>) -> Void) {
         guard MFMailComposeViewController.canSendMail(),
             let viewController = self.viewController else {
             completionHandler(.failure(URError.reportNotSend))

@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 protocol CompaniesLocalStorageGateway: CompaniesGateway {
-    func save(companis: [Company], completionHandler: @escaping (_ result: Result<Void>) -> Void)
+    func save(companis: [Company], completionHandler: @escaping (_ result: Result<Void, Error>) -> Void)
     
 }
 
@@ -52,7 +52,7 @@ class CompaniesLocalStorageGatewayImpl: CompaniesLocalStorageGateway {
         }
     }
     
-    func deleteAll(completionHandler: @escaping (_ result: Result<Void>) -> Void) {
+    func deleteAll(completionHandler: @escaping (_ result: Result<Void, Error>) -> Void) {
         let objects = manager.allEntities(withType: RealmCompany.self)
         do {
             try manager.remove(objects, cascading: true)
@@ -62,7 +62,7 @@ class CompaniesLocalStorageGatewayImpl: CompaniesLocalStorageGateway {
         }
     }
     
-    func save(companis: [Company], completionHandler: @escaping (_ result: Result<Void>) -> Void) {
+    func save(companis: [Company], completionHandler: @escaping (_ result: Result<Void, Error>) -> Void) {
         let realmCompanies = companis.map({RealmCompany(company: $0)})
         do {
             try manager.save(realmCompanies, update: true) {

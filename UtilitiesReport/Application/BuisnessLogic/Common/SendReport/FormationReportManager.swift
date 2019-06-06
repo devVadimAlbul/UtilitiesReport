@@ -13,7 +13,7 @@ protocol FormationReportManager {
     func formation(with indicators: [IndicatorsCounter],
                    template: TemplateReport,
                    userCompany: UserUtilitiesCompany,
-                   completionHandler: @escaping (Result<SendReportModel>) -> Void)
+                   completionHandler: @escaping (Result<SendReportModel, Error>) -> Void)
 }
 
 class FormationReportManagerImpl: FormationReportManager {
@@ -30,7 +30,7 @@ class FormationReportManagerImpl: FormationReportManager {
     func formation(with indicators: [IndicatorsCounter],
                    template: TemplateReport,
                    userCompany: UserUtilitiesCompany,
-                   completionHandler: @escaping (Result<SendReportModel>) -> Void) {
+                   completionHandler: @escaping (Result<SendReportModel, Error>) -> Void) {
         downloadTemoplateContent(indicators: indicators, with: template, userCompany: userCompany) { (result) in
             switch result {
             case let .success(context):
@@ -48,7 +48,7 @@ class FormationReportManagerImpl: FormationReportManager {
     private func downloadTemoplateContent(indicators: [IndicatorsCounter],
                                           with template: TemplateReport,
                                           userCompany: UserUtilitiesCompany,
-                                          completionHandler: @escaping (_ result: Result<String>) -> Void) {
+                                          completionHandler: @escaping (_ result: Result<String, Error>) -> Void) {
         downloadGateway.download(parameter: template, progressHandler: { (progress) in
             
         }, complationHandler: { [weak self, indicators, userCompany] result in
@@ -69,7 +69,7 @@ class FormationReportManagerImpl: FormationReportManager {
     private func createTemplate(indicators: [IndicatorsCounter],
                                 templateContent: String,
                                 userCompany: UserUtilitiesCompany,
-                                completionHandler: @escaping (_ result: Result<String>) -> Void) {
+                                completionHandler: @escaping (_ result: Result<String, Error>) -> Void) {
         generateTemplate.generate(with: indicators,
                                   by: userCompany,
                                   template: templateContent) { (result) in

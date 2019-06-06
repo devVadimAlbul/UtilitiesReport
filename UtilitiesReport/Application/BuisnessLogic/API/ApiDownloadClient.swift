@@ -12,7 +12,7 @@ import Alamofire
 protocol ApiDownloadClient {
     func download(request: ApiRequest,
                   progressHandler:  @escaping (Progress) -> Void,
-                  completionHandler: @escaping (Result<URL>) -> Void)
+                  completionHandler: @escaping (Swift.Result<URL, Error>) -> Void)
 }
 
 class ApiDownloadClientImpl: ApiDownloadClient {
@@ -32,7 +32,7 @@ class ApiDownloadClientImpl: ApiDownloadClient {
     
     func download(request: ApiRequest,
                   progressHandler:  @escaping (Progress) -> Void,
-                  completionHandler: @escaping (Result<URL>) -> Void) {
+                  completionHandler: @escaping (Swift.Result<URL, Error>) -> Void) {
         
          let destination: DownloadRequest.DownloadFileDestination
         

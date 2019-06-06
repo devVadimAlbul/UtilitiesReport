@@ -25,6 +25,7 @@ enum ApiError {
     case networkError(Error)
     case dataNotFound
     case networkRequestError(Error?)
+    case dataNotParse
 }
 
 extension ApiError: LocalizedError {
@@ -36,6 +37,8 @@ extension ApiError: LocalizedError {
             return "Not found data by request"
         case .networkRequestError(let error):
             return error?.localizedDescription ?? "Network request error - no other information"
+        case .dataNotParse:
+            return "Data not parsing by request."
         }
     }
 }
@@ -45,66 +48,34 @@ struct NetworkApiError: Error {
     let httpUrlResponse: HTTPURLResponse
 }
 
-struct ApiResponse<Response> {
+struct VoidResponse: Decodable {
+    
+}
+
+struct HTMLCodeResponse: Decodable {
+    var content: String
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        content = try container.decode(String.self)
+    }
+}
+
+struct ApiResponse<Response: Decodable> {
     let entity: Response
     let httpUrlResponse: HTTPURLResponse
     let data: Data?
-    private var decode: (Data?) throws -> Response
     
-    init(data: Data?, httpUrlResponse: HTTPURLResponse,
-         decode: @escaping ((Data?) throws -> Response)) throws {
-        self.httpUrlResponse = httpUrlResponse
+    init(data: Data?, httpUrlResponse: HTTPURLResponse) throws {
         self.data = data
-        self.decode = decode
+        self.httpUrlResponse = httpUrlResponse
+        guard let data = data else {
+            throw ApiError.dataNotFound
+        }
         do {
-            self.entity = try decode(data)
+            self.entity = try JSONDecoder().decode(Response.self, from: data)
         } catch {
             throw ApiParseError(error: error, httpUrlResponse: httpUrlResponse, data: data)
         }
-    }
-}
-
-func defaultJsonDecode<T: Decodable>(_ data: Data?) throws -> T {
-    guard let rData = data else {
-        throw ApiError.dataNotFound
-    }
-    return try JSONDecoder().decode(T.self, from: rData)
-}
-
-extension ApiResponse where Response: Decodable {
-    
-    init(data: Data?, httpUrlResponse: HTTPURLResponse) throws {
-        try self.init(data: data, httpUrlResponse: httpUrlResponse, decode: defaultJsonDecode)
-    }
-}
-
-extension ApiResponse where Response == Data {
-    
-    init(data: Data?, httpUrlResponse: HTTPURLResponse) throws {
-        try self.init(data: data, httpUrlResponse: httpUrlResponse, decode: { data in
-            guard let rData = data else {
-                throw ApiError.dataNotFound
-            }
-            return rData
-        })
-    }
-}
-
-extension ApiResponse where Response == String {
-    
-    init(data: Data?, httpUrlResponse: HTTPURLResponse) throws {
-        try self.init(data: data, httpUrlResponse: httpUrlResponse, decode: { data in
-            guard let rData = data else {
-                throw ApiError.dataNotFound
-            }
-            return String(decoding: rData, as: UTF8.self)
-        })
-    }
-}
-
-extension ApiResponse where Response == Void {
-    
-    init(data: Data?, httpUrlResponse: HTTPURLResponse) throws {
-        try self.init(data: data, httpUrlResponse: httpUrlResponse, decode: {_ in () })
     }
 }

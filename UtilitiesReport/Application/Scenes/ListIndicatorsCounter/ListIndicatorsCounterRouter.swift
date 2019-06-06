@@ -15,7 +15,7 @@ protocol ListIndicatorsCounterRouter {
     func presentSelectIndicatorsCounters(userCompany: UserUtilitiesCompany,
                                          seletedIndicator: IndicatorsCounter)
     func presentActionSheet(by model: AlertModelView)
-    func sendReport(model: SendReportModel, completionHandler: @escaping (Result<SendReportStatus>) -> Void)
+    func sendReport(model: SendReportModel, completionHandler: @escaping (Result<SendReportStatus, Error>) -> Void)
 }
 
 class ListIndicatorsCounterRouterImpl: ListIndicatorsCounterRouter {
@@ -55,7 +55,7 @@ class ListIndicatorsCounterRouterImpl: ListIndicatorsCounterRouter {
         self.viewController?.navigationPresent(selectVC)
     }
     
-    func sendReport(model: SendReportModel, completionHandler: @escaping (Result<SendReportStatus>) -> Void) {
+    func sendReport(model: SendReportModel, completionHandler: @escaping (Result<SendReportStatus, Error>) -> Void) {
         guard let viewController = self.viewController else { return }
         reportHelper.send(model: model, in: viewController, completionHandler: completionHandler)
     }

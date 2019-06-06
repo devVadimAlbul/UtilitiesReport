@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias LoadUserProfileUseCaseCompletionHandler = (_ books: Result<UserProfile>) -> Void
+typealias LoadUserProfileUseCaseCompletionHandler = (_ books: Result<UserProfile, Error>) -> Void
 
 protocol LoadUserProfileUseCase {
     func load(completionHandler: @escaping LoadUserProfileUseCaseCompletionHandler)

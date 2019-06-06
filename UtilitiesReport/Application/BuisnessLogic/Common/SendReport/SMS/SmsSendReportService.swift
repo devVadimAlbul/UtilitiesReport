@@ -17,7 +17,7 @@ protocol SmsSendReportService: SendReportServiceProtocol {
 class SmsSendReportServiceImpl: NSObject, SmsSendReportService {
     
     private weak var viewController: UIViewController?
-    private var completionCommand: CommandWith<Result<SendReportStatus>>?
+    private var completionCommand: CommandWith<Result<SendReportStatus, Error>>?
     private var queue: DispatchQueue
     
     init(viewController: UIViewController, on queue: DispatchQueue = .main) {
@@ -28,7 +28,7 @@ class SmsSendReportServiceImpl: NSObject, SmsSendReportService {
     
     
     func send(model: SendReportModel,
-              completionHandler: @escaping (Result<SendReportStatus>) -> Void) {
+              completionHandler: @escaping (Result<SendReportStatus, Error>) -> Void) {
         guard MFMessageComposeViewController.canSendText(),
             let viewController = self.viewController else {
             completionHandler(.failure(URError.reportNotSend))

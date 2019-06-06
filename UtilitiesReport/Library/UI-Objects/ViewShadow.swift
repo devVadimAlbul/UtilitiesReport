@@ -55,13 +55,13 @@ class ViewShadow: ViewRound {
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        layer.shouldRasterize = true
+//        layer.shouldRasterize = true
         layer.masksToBounds = false
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        layer.shouldRasterize = true
+//        layer.shouldRasterize = true
         layer.masksToBounds = false
     }
 }

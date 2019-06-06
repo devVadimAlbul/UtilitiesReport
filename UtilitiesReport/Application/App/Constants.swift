@@ -17,6 +17,7 @@ enum Constants {
     
     enum Api {
 //        static let apiURLString = "http://localhost:3000/"
-        static let apiURLString = "http://192.168.0.15:3000/"
+        static let apiURLString = "http://192.168.0.194:3000/"
+        
     }
 }
