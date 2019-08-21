@@ -1,4 +1,4 @@
-// Generated using Sourcery 0.16.1 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.16.2 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 
@@ -198,34 +198,49 @@ class UserDefaultsDescribingMock: UserDefaultsDescribing {
 }
 class UserProfileLocalStorageGatewayMock: UserProfileLocalStorageGateway {
 
-    //MARK: - loadEntity
+    //MARK: - deleteAll
 
-    var loadEntityCompletionHandlerCallsCount = 0
-    var loadEntityCompletionHandlerCalled: Bool {
-        return loadEntityCompletionHandlerCallsCount > 0
+    var deleteAllCompletionHandlerCallsCount = 0
+    var deleteAllCompletionHandlerCalled: Bool {
+        return deleteAllCompletionHandlerCallsCount > 0
     }
-    var loadEntityCompletionHandlerReceivedCompletionHandler: (LoadUserProfileCompletionHandler)?
-    var loadEntityCompletionHandlerClosure: ((@escaping LoadUserProfileCompletionHandler) -> Void)?
+    var deleteAllCompletionHandlerReceivedCompletionHandler: ((Result<Void, Error>) -> Void)?
+    var deleteAllCompletionHandlerClosure: ((@escaping (Result<Void, Error>) -> Void) -> Void)?
 
-    func loadEntity(completionHandler: @escaping LoadUserProfileCompletionHandler) {
-        loadEntityCompletionHandlerCallsCount += 1
-        loadEntityCompletionHandlerReceivedCompletionHandler = completionHandler
-        loadEntityCompletionHandlerClosure?(completionHandler)
+    func deleteAll(completionHandler: @escaping (Result<Void, Error>) -> Void) {
+        deleteAllCompletionHandlerCallsCount += 1
+        deleteAllCompletionHandlerReceivedCompletionHandler = completionHandler
+        deleteAllCompletionHandlerClosure?(completionHandler)
     }
 
-    //MARK: - add
+    //MARK: - load
 
-    var addParametersCompletionHandlerCallsCount = 0
-    var addParametersCompletionHandlerCalled: Bool {
-        return addParametersCompletionHandlerCallsCount > 0
+    var loadCompletionHandlerCallsCount = 0
+    var loadCompletionHandlerCalled: Bool {
+        return loadCompletionHandlerCallsCount > 0
     }
-    var addParametersCompletionHandlerReceivedArguments: (parameters: UserProfile, completionHandler: AddUserProfileCompletionHandler)?
-    var addParametersCompletionHandlerClosure: ((UserProfile, @escaping AddUserProfileCompletionHandler) -> Void)?
+    var loadCompletionHandlerReceivedCompletionHandler: (LoadUserProfileCompletionHandler)?
+    var loadCompletionHandlerClosure: ((@escaping LoadUserProfileCompletionHandler) -> Void)?
 
-    func add(parameters: UserProfile, completionHandler: @escaping AddUserProfileCompletionHandler) {
-        addParametersCompletionHandlerCallsCount += 1
-        addParametersCompletionHandlerReceivedArguments = (parameters: parameters, completionHandler: completionHandler)
-        addParametersCompletionHandlerClosure?(parameters, completionHandler)
+    func load(completionHandler: @escaping LoadUserProfileCompletionHandler) {
+        loadCompletionHandlerCallsCount += 1
+        loadCompletionHandlerReceivedCompletionHandler = completionHandler
+        loadCompletionHandlerClosure?(completionHandler)
+    }
+
+    //MARK: - save
+
+    var saveParametersCompletionHandlerCallsCount = 0
+    var saveParametersCompletionHandlerCalled: Bool {
+        return saveParametersCompletionHandlerCallsCount > 0
+    }
+    var saveParametersCompletionHandlerReceivedArguments: (parameters: UserProfile, completionHandler: AddUserProfileCompletionHandler)?
+    var saveParametersCompletionHandlerClosure: ((UserProfile, @escaping AddUserProfileCompletionHandler) -> Void)?
+
+    func save(parameters: UserProfile, completionHandler: @escaping AddUserProfileCompletionHandler) {
+        saveParametersCompletionHandlerCallsCount += 1
+        saveParametersCompletionHandlerReceivedArguments = (parameters: parameters, completionHandler: completionHandler)
+        saveParametersCompletionHandlerClosure?(parameters, completionHandler)
     }
 
     //MARK: - delete

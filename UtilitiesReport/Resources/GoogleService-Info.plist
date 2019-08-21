@@ -2,39 +2,35 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
-	<string>ca-app-pub-3940256099942544/2934735716</string>
-	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
-	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>771919294356-sv2ai6dfr172a7n5g50eh9e5ugc58nra.apps.googleusercontent.com</string>
+	<string>159446926002-e3rsfa76lrs5e1ej50i51f9i7659e3mo.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.771919294356-sv2ai6dfr172a7n5g50eh9e5ugc58nra</string>
+	<string>com.googleusercontent.apps.159446926002-e3rsfa76lrs5e1ej50i51f9i7659e3mo</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDSG5GaRCkxv9sRVm55v6woOO8lZJcIouY</string>
+	<string>AIzaSyCSzxOtpyZ8u3iccjoG_pGKrwhWTy1BiyY</string>
 	<key>GCM_SENDER_ID</key>
-	<string>771919294356</string>
+	<string>159446926002</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.dev.utilities.report</string>
 	<key>PROJECT_ID</key>
-	<string>utilitiesreport</string>
+	<string>utilitiesreport-8d0ea</string>
 	<key>STORAGE_BUCKET</key>
-	<string>utilitiesreport.appspot.com</string>
+	<string>utilitiesreport-8d0ea.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:771919294356:ios:c5b504811f612548</string>
+	<string>1:159446926002:ios:c5b504811f612548</string>
 	<key>DATABASE_URL</key>
-	<string>https://utilitiesreport.firebaseio.com</string>
+	<string>https://utilitiesreport-8d0ea.firebaseio.com</string>
 </dict>
 </plist>

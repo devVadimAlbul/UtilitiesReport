@@ -33,7 +33,7 @@ class AppDelegatePresenterImpl: AppDelegatePresenter {
     func didFinishLaunching() {
         ProgressHUD.configure()
         IQKeyboardManager.shared.enable = true
-        FirebaseApp.configure()
+ 
         RealmManager.setConfiguration()
         router.showFakeSpleashScreen()
         checkSavedUserProfile()
@@ -47,7 +47,7 @@ class AppDelegatePresenterImpl: AppDelegatePresenter {
                 case .success:
                     self.router.goToMainViewController()
                 case .failure:
-                    self.router.goToCreatedUserProfile()
+                    self.router.goToWelcomePage()
                 }
             }
         }

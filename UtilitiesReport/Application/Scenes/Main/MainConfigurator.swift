@@ -10,19 +10,21 @@ import Foundation
 import UIKit.UITableView
 
 protocol MainConfigurator {
-    func configure(viewController: MainViewController)
+  func configure(viewController: MainViewController)
 }
 
 class MainConfiguratorImpl: MainConfigurator {
-    
-    func configure(viewController: MainViewController) {
-        let router = MainViewRouterImpl(viewController: viewController)
-        let loadUserUseCase = LoadUserProfileUseCaseImpl(storage: UserProfileLocalStorageGatewayImpl())
-        let storage = UserUtilCompanyLocalStorageGatewayImpl.default
-        let userCompanyGateway = UserUtilitesCompanyGatewayImpl(localStorage: storage)
-        let presenter = MainPresenterImpl(view: viewController, router: router,
-                                          loadUserProfile: loadUserUseCase,
-                                          userCompanyGateway: userCompanyGateway)
-        viewController.presenter = presenter
-    }
+  
+  func configure(viewController: MainViewController) {
+    let router = MainViewRouterImpl(viewController: viewController)
+    let userProfileGateway = UserProfileGatewayImpl(api: FirebaseUserProfileGatewayImpl(),
+                                                    storage: UserProfileLocalStorageGatewayImpl())
+    let loadUserUseCase = LoadUserProfileUseCaseImpl(gateway: userProfileGateway)
+    let storage = UserUtilCompanyLocalStorageGatewayImpl.default
+    let userCompanyGateway = UserUtilitesCompanyGatewayImpl(localStorage: storage)
+    let presenter = MainPresenterImpl(view: viewController, router: router,
+                                      loadUserProfile: loadUserUseCase,
+                                      userCompanyGateway: userCompanyGateway)
+    viewController.presenter = presenter
+  }
 }

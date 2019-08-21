@@ -22,10 +22,13 @@ class WelcomeViewRoulerImpl: WelcomeViewRouler {
     }
     
     func presentUserForm() {
-        let userFormVC = UserFormViewController()
-        userFormVC.configurator = UserFormConfiguratorImpl(userProfile: nil)
-        let navigation = VCLoader<UINavigationController>.loadInitial(storyboardId: .navigation)
-        navigation.viewControllers = [userFormVC]
-        viewController?.present(navigation, animated: true, completion: nil)
+//        let userFormVC = UserFormViewController()
+//        userFormVC.configurator = UserFormConfiguratorImpl(userProfile: nil)
+//        let navigation = VCLoader<UINavigationController>.loadInitial(storyboardId: .navigation)
+//        navigation.viewControllers = [userFormVC]
+//        viewController?.present(navigation, animated: true, completion: nil)
+      let singUpVC = SingUpViewController()
+      singUpVC.configurator = SingUpViewConfiguratorImpl()
+      viewController?.present(singUpVC, animated: true, completion: nil)
     }
 }

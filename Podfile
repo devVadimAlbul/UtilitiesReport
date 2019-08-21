@@ -12,9 +12,12 @@ target 'UtilitiesReport' do
     pod 'Alamofire', '~> 4.8'
     pod 'Stencil', :git => 'https://github.com/stencilproject/Stencil.git'
     pod 'Firebase/Core'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Firestore'
+    pod 'Firebase/Database'
     pod 'Firebase/MLVision'
     pod 'Firebase/MLVisionTextModel'
-    
+
     target 'UtilitiesReportTests' do
       inherit! :complete
       pod 'Firebase'

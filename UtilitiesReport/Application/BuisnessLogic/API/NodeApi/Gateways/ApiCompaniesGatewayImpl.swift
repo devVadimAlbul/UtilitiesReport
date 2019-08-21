@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol ApiCompaniesGateway: CompaniesGateway {
-    
-}
-
 class ApiCompaniesGatewayImpl: ApiCompaniesGateway {
     private var apiClient: ApiClient
     
@@ -19,7 +15,7 @@ class ApiCompaniesGatewayImpl: ApiCompaniesGateway {
         self.apiClient = apiClient
     }
     
-    func load(by identifier: String, completionHandler: @escaping ApiCompaniesGatewayImpl.LoadEntityCompletionHandler) {
+    func load(by identifier: String, completionHandler: @escaping LoadEntityCompletionHandler) {
         let request = CompanyApiRequest.get(identifier)
         apiClient.execute(request: request) { (result: Result<ApiResponse<ApiCompany>, Error>) in
             switch result {

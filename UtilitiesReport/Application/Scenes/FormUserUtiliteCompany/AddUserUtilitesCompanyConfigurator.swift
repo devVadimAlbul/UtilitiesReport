@@ -22,7 +22,7 @@ class FormUserUtilitesCompanyConfiguratorImpl: FormUserUtilitesCompanyConfigurat
     
     func configure(viewController: FormUserUtilitesCompanyViewController) {
         let router = FormUserUtilitesCompanyRouterImpl(viewController: viewController)
-        let apiGateway = ApiCompaniesGatewayImpl(apiClient: ApiAlamofireClientImpl())
+        let apiGateway = FirebaseCompaniesGatewayImpl()
         let manager = RealmManager()
         
         let localStorageCompany = CompaniesLocalStorageGatewayImpl(manager: manager)

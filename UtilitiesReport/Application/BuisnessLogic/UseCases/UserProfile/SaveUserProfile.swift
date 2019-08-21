@@ -16,14 +16,14 @@ protocol SaveUserProfileUseCase {
 
 class SaveUserProfileUseCaseImpl: SaveUserProfileUseCase {
     
-    fileprivate let storage: UserProfileLocalStorageGateway
+    fileprivate let gateway: UserProfileGateway
     
-    init(storage: UserProfileLocalStorageGateway) {
-        self.storage = storage
+    init(gateway: UserProfileGateway) {
+        self.gateway = gateway
     }
     
     func save(user: UserProfile, completionHandler: @escaping SaveUserProfileUseCaseCompletionHandler) {
-        storage.add(parameters: user) { (result) in
+        gateway.save(parameters: user) { (result) in
             switch result {
             case .success: completionHandler(.success(()))
             case .failure(let error): completionHandler(.failure(error))

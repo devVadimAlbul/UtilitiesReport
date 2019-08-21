@@ -10,8 +10,7 @@ import Foundation
 import Alamofire
 
 protocol ApiAlamofireClient: ApiClient {
-    func execute(request: ApiRequest,
-                               completionHandler: @escaping (Swift.Result<String, Error>) -> Void)
+    func execute(request: ApiRequest, completionHandler: @escaping (Swift.Result<String, Error>) -> Void)
 }
 
 class ApiAlamofireClientImpl: ApiAlamofireClient {

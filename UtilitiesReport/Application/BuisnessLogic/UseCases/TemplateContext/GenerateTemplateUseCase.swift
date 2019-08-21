@@ -45,8 +45,9 @@ class GenerateTemplateUseCaseImpl: GenerateTemplateUseCase {
     }
     
     class var `default`: GenerateTemplateUseCase {
-        let userStorage = UserProfileLocalStorageGatewayImpl(storage: RealmManager())
-        let loadUseCase = LoadUserProfileUseCaseImpl(storage: userStorage)
+        let userProfileGateway = UserProfileGatewayImpl(api: FirebaseUserProfileGatewayImpl(),
+                                                        storage: UserProfileLocalStorageGatewayImpl())
+        let loadUseCase = LoadUserProfileUseCaseImpl(gateway: userProfileGateway)
         let parser = TemplateParserImpl()
         return GenerateTemplateUseCaseImpl(loadUserProfile: loadUseCase, templateParser: parser)
     }

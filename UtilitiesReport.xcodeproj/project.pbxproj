@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,7 +37,7 @@
 		14215E252227041800662150 /* CompanyApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14215E242227041800662150 /* CompanyApiRequest.swift */; };
 		14215E2722270E2900662150 /* UserProfileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14215E2622270E2900662150 /* UserProfileGateway.swift */; };
 		14215E2A22270FAF00662150 /* CompaniesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14215E2922270FAF00662150 /* CompaniesGateway.swift */; };
-		14215E2D222710FB00662150 /* ApiCompaniesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14215E2C222710FB00662150 /* ApiCompaniesGateway.swift */; };
+		14215E2D222710FB00662150 /* ApiCompaniesGatewayImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14215E2C222710FB00662150 /* ApiCompaniesGatewayImpl.swift */; };
 		14215E2F2227177A00662150 /* CompaniesLocalStorageGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14215E2E2227177A00662150 /* CompaniesLocalStorageGateway.swift */; };
 		14215E3122271AF300662150 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14215E3022271AF200662150 /* RealmManager.swift */; };
 		14215E3422271DE200662150 /* Realm+CascadeDeleting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14215E3322271DE200662150 /* Realm+CascadeDeleting.swift */; };
@@ -45,6 +45,17 @@
 		14264CA02208C6E800655EEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14264C9F2208C6E800655EEA /* Assets.xcassets */; };
 		14264CA32208C6E800655EEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14264CA12208C6E800655EEA /* LaunchScreen.storyboard */; };
 		14290B232213410500620AE1 /* Sourcery.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14290B222213410500620AE1 /* Sourcery.generated.swift */; };
+		142D002E2309795700AD81F6 /* ApiCompaniesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D002D2309795700AD81F6 /* ApiCompaniesGateway.swift */; };
+		142D003223097B2D00AD81F6 /* SingUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D003123097B2D00AD81F6 /* SingUpUseCase.swift */; };
+		142D003523097C3700AD81F6 /* AuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D003423097C3700AD81F6 /* AuthGateway.swift */; };
+		142D003723097D0D00AD81F6 /* ApiAuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D003623097D0D00AD81F6 /* ApiAuthGateway.swift */; };
+		142D003923097D4800AD81F6 /* FirebaseAuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D003823097D4800AD81F6 /* FirebaseAuthGateway.swift */; };
+		142D003B2309A34400AD81F6 /* ApiUserProfileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D003A2309A34400AD81F6 /* ApiUserProfileGateway.swift */; };
+		142D003E2309A3A400AD81F6 /* FirebaseUserProfileGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D003D2309A3A400AD81F6 /* FirebaseUserProfileGateway.swift */; };
+		142D00402309A63E00AD81F6 /* UserProfile+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D003F2309A63E00AD81F6 /* UserProfile+Extension.swift */; };
+		142D612C2301860C001D0A24 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D612B2301860C001D0A24 /* FirebaseHelper.swift */; };
+		142D61302301B029001D0A24 /* FirebaseCompaniesGatewayImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D612F2301B029001D0A24 /* FirebaseCompaniesGatewayImpl.swift */; };
+		142D61332301B284001D0A24 /* Company+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D61322301B284001D0A24 /* Company+Extension.swift */; };
 		1435B9AD227DE16100FAE358 /* SelectItemCounterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1435B9AB227DE16100FAE358 /* SelectItemCounterTableViewCell.swift */; };
 		1435B9AE227DE16100FAE358 /* SelectItemCounterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1435B9AC227DE16100FAE358 /* SelectItemCounterTableViewCell.xib */; };
 		143A1B5B223AA8E100766C2A /* ListIndicatorsCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143A1B59223AA8E100766C2A /* ListIndicatorsCounterViewController.swift */; };
@@ -107,6 +118,11 @@
 		1488BBC1227F072800448320 /* SelectIndicatorCounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488BBC0227F072800448320 /* SelectIndicatorCounterModel.swift */; };
 		14925EC7226B15A600A20AA7 /* SmsSendReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14925EC6226B15A600A20AA7 /* SmsSendReportService.swift */; };
 		14925ECA226B1F8D00A20AA7 /* EmailSendReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14925EC9226B1F8D00A20AA7 /* EmailSendReportService.swift */; };
+		149601332302ED5B00C2A38B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149601312302ED5B00C2A38B /* LoginViewController.swift */; };
+		149601342302ED5B00C2A38B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 149601322302ED5B00C2A38B /* LoginViewController.xib */; };
+		149601362302ED7700C2A38B /* LoginViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149601352302ED7700C2A38B /* LoginViewRouter.swift */; };
+		149601382302F04900C2A38B /* LoginViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149601372302F04900C2A38B /* LoginViewPresenter.swift */; };
+		1496013A2302F13400C2A38B /* LoginViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149601392302F13400C2A38B /* LoginViewConfigurator.swift */; };
 		14A54D2D22115B510038A8F2 /* FormTextItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D2C22115B510038A8F2 /* FormTextItemView.swift */; };
 		14A54D3022115D720038A8F2 /* FormTextItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A54D2F22115D720038A8F2 /* FormTextItemView.xib */; };
 		14A54D3522115D9B0038A8F2 /* ControlFromXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D3222115D9B0038A8F2 /* ControlFromXib.swift */; };
@@ -123,6 +139,12 @@
 		14A54D502211BB420038A8F2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D4F2211BB420038A8F2 /* String+Extension.swift */; };
 		14A54D522211C6770038A8F2 /* AlertModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D512211C6770038A8F2 /* AlertModelView.swift */; };
 		14A54D562211C8DB0038A8F2 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D552211C8DB0038A8F2 /* ProgressHUD.swift */; };
+		14B3AC6B2308111F00784166 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC692308111F00784166 /* SingUpViewController.swift */; };
+		14B3AC6C2308111F00784166 /* SingUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B3AC6A2308111F00784166 /* SingUpViewController.xib */; };
+		14B3AC6E2308113F00784166 /* SingUpViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC6D2308113F00784166 /* SingUpViewRouter.swift */; };
+		14B3AC70230811AE00784166 /* SingUpViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC6F230811AE00784166 /* SingUpViewPresenter.swift */; };
+		14B3AC722308124700784166 /* SingUpViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC712308124700784166 /* SingUpViewConfigurator.swift */; };
+		14B3AC742308306E00784166 /* SingUpViewController+Props.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC732308306E00784166 /* SingUpViewController+Props.swift */; };
 		14B64E892259D60C00237A65 /* SendReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B64E882259D60C00237A65 /* SendReportModel.swift */; };
 		14B64E8B2259EC4300237A65 /* SendReportHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B64E8A2259EC4300237A65 /* SendReportHelper.swift */; };
 		14B7E83F2221D42B00293DB1 /* TextRecognizerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E83D2221D42B00293DB1 /* TextRecognizerImageViewController.swift */; };
@@ -181,6 +203,7 @@
 		14F307592225C51700021C95 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F307582225C51700021C95 /* Company.swift */; };
 		14F3075B2225C72700021C95 /* UserUtilitiesCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F3075A2225C72700021C95 /* UserUtilitiesCompany.swift */; };
 		14F3075D2225D47500021C95 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F3075C2225D47500021C95 /* Counter.swift */; };
+		14F48656230854360036C1AC /* SingUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F48655230854360036C1AC /* SingUpModel.swift */; };
 		9CD49AA797F5FE683C95410B /* Pods_UtilitiesReport_UtilitiesReportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B39EDCAA64214CE1EE8EA28B /* Pods_UtilitiesReport_UtilitiesReportTests.framework */; };
 		F050662A90973A51BB6D818E /* Pods_UtilitiesReport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B686A475B168EF1A6A5D4035 /* Pods_UtilitiesReport.framework */; };
 /* End PBXBuildFile section */
@@ -238,7 +261,7 @@
 		14215E242227041800662150 /* CompanyApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyApiRequest.swift; sourceTree = "<group>"; };
 		14215E2622270E2900662150 /* UserProfileGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileGateway.swift; sourceTree = "<group>"; };
 		14215E2922270FAF00662150 /* CompaniesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesGateway.swift; sourceTree = "<group>"; };
-		14215E2C222710FB00662150 /* ApiCompaniesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCompaniesGateway.swift; sourceTree = "<group>"; };
+		14215E2C222710FB00662150 /* ApiCompaniesGatewayImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCompaniesGatewayImpl.swift; sourceTree = "<group>"; };
 		14215E2E2227177A00662150 /* CompaniesLocalStorageGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesLocalStorageGateway.swift; sourceTree = "<group>"; };
 		14215E3022271AF200662150 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		14215E3322271DE200662150 /* Realm+CascadeDeleting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+CascadeDeleting.swift"; sourceTree = "<group>"; };
@@ -250,6 +273,17 @@
 		14264CA92208C6E800655EEA /* UtilitiesReportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilitiesReportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14264CAF2208C6E800655EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14290B222213410500620AE1 /* Sourcery.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourcery.generated.swift; sourceTree = "<group>"; };
+		142D002D2309795700AD81F6 /* ApiCompaniesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCompaniesGateway.swift; sourceTree = "<group>"; };
+		142D003123097B2D00AD81F6 /* SingUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpUseCase.swift; sourceTree = "<group>"; };
+		142D003423097C3700AD81F6 /* AuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGateway.swift; sourceTree = "<group>"; };
+		142D003623097D0D00AD81F6 /* ApiAuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAuthGateway.swift; sourceTree = "<group>"; };
+		142D003823097D4800AD81F6 /* FirebaseAuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthGateway.swift; sourceTree = "<group>"; };
+		142D003A2309A34400AD81F6 /* ApiUserProfileGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUserProfileGateway.swift; sourceTree = "<group>"; };
+		142D003D2309A3A400AD81F6 /* FirebaseUserProfileGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserProfileGateway.swift; sourceTree = "<group>"; };
+		142D003F2309A63E00AD81F6 /* UserProfile+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+Extension.swift"; sourceTree = "<group>"; };
+		142D612B2301860C001D0A24 /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		142D612F2301B029001D0A24 /* FirebaseCompaniesGatewayImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCompaniesGatewayImpl.swift; sourceTree = "<group>"; };
+		142D61322301B284001D0A24 /* Company+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+Extension.swift"; sourceTree = "<group>"; };
 		1435B9AB227DE16100FAE358 /* SelectItemCounterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectItemCounterTableViewCell.swift; sourceTree = "<group>"; };
 		1435B9AC227DE16100FAE358 /* SelectItemCounterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectItemCounterTableViewCell.xib; sourceTree = "<group>"; };
 		143A1B59223AA8E100766C2A /* ListIndicatorsCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListIndicatorsCounterViewController.swift; sourceTree = "<group>"; };
@@ -312,6 +346,11 @@
 		1488BBC0227F072800448320 /* SelectIndicatorCounterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIndicatorCounterModel.swift; sourceTree = "<group>"; };
 		14925EC6226B15A600A20AA7 /* SmsSendReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsSendReportService.swift; sourceTree = "<group>"; };
 		14925EC9226B1F8D00A20AA7 /* EmailSendReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSendReportService.swift; sourceTree = "<group>"; };
+		149601312302ED5B00C2A38B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		149601322302ED5B00C2A38B /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		149601352302ED7700C2A38B /* LoginViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewRouter.swift; sourceTree = "<group>"; };
+		149601372302F04900C2A38B /* LoginViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewPresenter.swift; sourceTree = "<group>"; };
+		149601392302F13400C2A38B /* LoginViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewConfigurator.swift; sourceTree = "<group>"; };
 		14A54D2C22115B510038A8F2 /* FormTextItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextItemView.swift; sourceTree = "<group>"; };
 		14A54D2F22115D720038A8F2 /* FormTextItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormTextItemView.xib; sourceTree = "<group>"; };
 		14A54D3222115D9B0038A8F2 /* ControlFromXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlFromXib.swift; sourceTree = "<group>"; };
@@ -328,6 +367,12 @@
 		14A54D4F2211BB420038A8F2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		14A54D512211C6770038A8F2 /* AlertModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModelView.swift; sourceTree = "<group>"; };
 		14A54D552211C8DB0038A8F2 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		14B3AC692308111F00784166 /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
+		14B3AC6A2308111F00784166 /* SingUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingUpViewController.xib; sourceTree = "<group>"; };
+		14B3AC6D2308113F00784166 /* SingUpViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewRouter.swift; sourceTree = "<group>"; };
+		14B3AC6F230811AE00784166 /* SingUpViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewPresenter.swift; sourceTree = "<group>"; };
+		14B3AC712308124700784166 /* SingUpViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewConfigurator.swift; sourceTree = "<group>"; };
+		14B3AC732308306E00784166 /* SingUpViewController+Props.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingUpViewController+Props.swift"; sourceTree = "<group>"; };
 		14B64E882259D60C00237A65 /* SendReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReportModel.swift; sourceTree = "<group>"; };
 		14B64E8A2259EC4300237A65 /* SendReportHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReportHelper.swift; sourceTree = "<group>"; };
 		14B7E83D2221D42B00293DB1 /* TextRecognizerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerImageViewController.swift; sourceTree = "<group>"; };
@@ -387,6 +432,7 @@
 		14F307582225C51700021C95 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		14F3075A2225C72700021C95 /* UserUtilitiesCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUtilitiesCompany.swift; sourceTree = "<group>"; };
 		14F3075C2225D47500021C95 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		14F48655230854360036C1AC /* SingUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpModel.swift; sourceTree = "<group>"; };
 		91F8685E9A0C0FBB69CA7BC2 /* Pods-UtilitiesReport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtilitiesReport.release.xcconfig"; path = "Pods/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport.release.xcconfig"; sourceTree = "<group>"; };
 		B39EDCAA64214CE1EE8EA28B /* Pods_UtilitiesReport_UtilitiesReportTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtilitiesReport_UtilitiesReportTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B686A475B168EF1A6A5D4035 /* Pods_UtilitiesReport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtilitiesReport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -468,9 +514,9 @@
 		14215E192226FFDD00662150 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				14215E2B222710D600662150 /* Gateways */,
-				14215E23222703AE00662150 /* Requests */,
-				14215E202227022200662150 /* Entities */,
+				142D612D2301B00F001D0A24 /* Firebase */,
+				142D002C2309793C00AD81F6 /* Protocols */,
+				142D003C2309A36900AD81F6 /* NodeApi */,
 				14215E1A2226FFF100662150 /* ApiClient.swift */,
 				145EA06D2228121500AB633E /* ApiResponse.swift */,
 				1478739622478A540063CCC7 /* ApiAlamofireClient.swift */,
@@ -501,6 +547,7 @@
 		14215E2822270E3200662150 /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
+				142D003423097C3700AD81F6 /* AuthGateway.swift */,
 				14727587223AE09700FA0927 /* IndicatorsCouterGateway.swift */,
 				14215E2622270E2900662150 /* UserProfileGateway.swift */,
 				14215E2922270FAF00662150 /* CompaniesGateway.swift */,
@@ -513,7 +560,7 @@
 		14215E2B222710D600662150 /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
-				14215E2C222710FB00662150 /* ApiCompaniesGateway.swift */,
+				14215E2C222710FB00662150 /* ApiCompaniesGatewayImpl.swift */,
 				144CEB892247AC80006C3BA4 /* ApiTemplatesGateway.swift */,
 				142036C722495F7400F7ED0A /* ApiDownloadTemplateGateway.swift */,
 			);
@@ -567,6 +614,62 @@
 				14264CAF2208C6E800655EEA /* Info.plist */,
 			);
 			path = UtilitiesReportTests;
+			sourceTree = "<group>";
+		};
+		142D002C2309793C00AD81F6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				142D002D2309795700AD81F6 /* ApiCompaniesGateway.swift */,
+				142D003623097D0D00AD81F6 /* ApiAuthGateway.swift */,
+				142D003A2309A34400AD81F6 /* ApiUserProfileGateway.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		142D003023097B0D00AD81F6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				142D003123097B2D00AD81F6 /* SingUpUseCase.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		142D003C2309A36900AD81F6 /* NodeApi */ = {
+			isa = PBXGroup;
+			children = (
+				14215E2B222710D600662150 /* Gateways */,
+				14215E23222703AE00662150 /* Requests */,
+				14215E202227022200662150 /* Entities */,
+			);
+			path = NodeApi;
+			sourceTree = "<group>";
+		};
+		142D612D2301B00F001D0A24 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				142D61312301B256001D0A24 /* Entities */,
+				142D612E2301B018001D0A24 /* Gateways */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		142D612E2301B018001D0A24 /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				142D612F2301B029001D0A24 /* FirebaseCompaniesGatewayImpl.swift */,
+				142D003823097D4800AD81F6 /* FirebaseAuthGateway.swift */,
+				142D003D2309A3A400AD81F6 /* FirebaseUserProfileGateway.swift */,
+			);
+			path = Gateways;
+			sourceTree = "<group>";
+		};
+		142D61312301B256001D0A24 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				142D61322301B284001D0A24 /* Company+Extension.swift */,
+				142D003F2309A63E00AD81F6 /* UserProfile+Extension.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		1435B9A9227DE11B00FAE358 /* Cells */ = {
@@ -691,10 +794,10 @@
 			isa = PBXGroup;
 			children = (
 				14A54D532211C68F0038A8F2 /* Models */,
+				14A54D462211AD7F0038A8F2 /* UseCases */,
 				14215E2822270E3200662150 /* Gateways */,
 				14215E192226FFDD00662150 /* API */,
 				148727B5220F395F00C59344 /* Entities */,
-				14A54D462211AD7F0038A8F2 /* UseCases */,
 				148727BF2210251400C59344 /* Storage */,
 				14872799220F23B600C59344 /* Protocols */,
 				14872798220F239B00C59344 /* Common */,
@@ -705,6 +808,8 @@
 		1487278E220F1B6E00C59344 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				14B3AC682308110300784166 /* SingUp */,
+				149601302302ED2C00C2A38B /* Login */,
 				14BC5760227487E3006D1FBE /* SelectIndicatorsCounters */,
 				14C84BC3223D4ED700C001BD /* FormIndicatorCounter */,
 				143A1B58223AA8A600766C2A /* ListIndicatorsCounter */,
@@ -743,6 +848,7 @@
 				1441A2D322141D1400BF974A /* URError.swift */,
 				14CBA618221D40BC0024D06F /* Command.swift */,
 				140E864C224CBA0400039762 /* TemplateParser.swift */,
+				142D612B2301860C001D0A24 /* FirebaseHelper.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -894,6 +1000,18 @@
 			path = Email;
 			sourceTree = "<group>";
 		};
+		149601302302ED2C00C2A38B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				149601312302ED5B00C2A38B /* LoginViewController.swift */,
+				149601322302ED5B00C2A38B /* LoginViewController.xib */,
+				149601352302ED7700C2A38B /* LoginViewRouter.swift */,
+				149601372302F04900C2A38B /* LoginViewPresenter.swift */,
+				149601392302F13400C2A38B /* LoginViewConfigurator.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		14A54D2B22115AD00038A8F2 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
@@ -937,6 +1055,7 @@
 		14A54D462211AD7F0038A8F2 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				142D003023097B0D00AD81F6 /* Auth */,
 				14EA2389224F7F9C00425DAB /* TemplateContext */,
 				1481C2CE222AE78600C07080 /* UserCompanies */,
 				1481C2CD222AE74C00C07080 /* UserProfile */,
@@ -952,6 +1071,7 @@
 				14A54D512211C6770038A8F2 /* AlertModelView.swift */,
 				14CDF972223982B30040160E /* LastInticatorModelView.swift */,
 				14DFD309223CE4A300CB248E /* SectionItemsModel.swift */,
+				14F48655230854360036C1AC /* SingUpModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -962,6 +1082,19 @@
 				14A54D552211C8DB0038A8F2 /* ProgressHUD.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		14B3AC682308110300784166 /* SingUp */ = {
+			isa = PBXGroup;
+			children = (
+				14B3AC692308111F00784166 /* SingUpViewController.swift */,
+				14B3AC6A2308111F00784166 /* SingUpViewController.xib */,
+				14B3AC6D2308113F00784166 /* SingUpViewRouter.swift */,
+				14B3AC6F230811AE00784166 /* SingUpViewPresenter.swift */,
+				14B3AC712308124700784166 /* SingUpViewConfigurator.swift */,
+				14B3AC732308306E00784166 /* SingUpViewController+Props.swift */,
+			);
+			path = SingUp;
 			sourceTree = "<group>";
 		};
 		14B7E83C2221D3E900293DB1 /* TextRecognizerImage */ = {
@@ -1259,12 +1392,14 @@
 				141AEE66223518D000B9A354 /* AlertFormFieldsViewController.xib in Resources */,
 				14264CA32208C6E800655EEA /* LaunchScreen.storyboard in Resources */,
 				1435B9AE227DE16100FAE358 /* SelectItemCounterTableViewCell.xib in Resources */,
+				14B3AC6C2308111F00784166 /* SingUpViewController.xib in Resources */,
 				147196772232BFE0006A070C /* InputFormItemTableViewCell.xib in Resources */,
 				14CDF971223978550040160E /* LastIndicatorView.xib in Resources */,
 				14D351612214308300A77783 /* AutoMockable.stencil in Resources */,
 				14CDF94922383F3D0040160E /* UserCompanyItemTableViewCell.xib in Resources */,
 				14EB0F92224157E1000CBB64 /* FakeSpleashViewController.xib in Resources */,
 				144CA78822135AD9003BBF26 /* AutoHashable.stencil in Resources */,
+				149601342302ED5B00C2A38B /* LoginViewController.xib in Resources */,
 				148727CD2210413400C59344 /* UserFormViewController.xib in Resources */,
 				144CA78622135AD9003BBF26 /* AutoEquatable.stencil in Resources */,
 				14C84BC7223D4F9700C001BD /* FormIndicatorCounterViewController.xib in Resources */,
@@ -1304,16 +1439,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport-UtilitiesReportTests/Pods-UtilitiesReport-UtilitiesReportTests-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMobileVision/GoogleMVTextDetectorResources.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport-UtilitiesReportTests/Pods-UtilitiesReport-UtilitiesReportTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVTextDetectorResources.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport-UtilitiesReportTests/Pods-UtilitiesReport-UtilitiesReportTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1406,42 +1536,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport-UtilitiesReportTests/Pods-UtilitiesReport-UtilitiesReportTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/PathKit/PathKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Stencil/Stencil.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport-UtilitiesReportTests/Pods-UtilitiesReport-UtilitiesReportTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PathKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stencil.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport-UtilitiesReportTests/Pods-UtilitiesReport-UtilitiesReportTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1454,16 +1553,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMobileVision/GoogleMVTextDetectorResources.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVTextDetectorResources.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1476,42 +1570,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/PathKit/PathKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Stencil/Stencil.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PathKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stencil.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1525,7 +1588,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				142D003B2309A34400AD81F6 /* ApiUserProfileGateway.swift in Sources */,
 				141AEE6C22351EF200B9A354 /* AlertFormFieldsProps.swift in Sources */,
+				142D003223097B2D00AD81F6 /* SingUpUseCase.swift in Sources */,
 				14925EC7226B15A600A20AA7 /* SmsSendReportService.swift in Sources */,
 				14CEC86922303CB700AC23E5 /* SelectorFormItemTableViewCell.swift in Sources */,
 				14A54D3622115D9B0038A8F2 /* ViewFromXibProtocol.swift in Sources */,
@@ -1533,11 +1598,14 @@
 				141850BB222C3EF500B0C2FB /* FormUserUtilitesCompanyPresenter.swift in Sources */,
 				14A54D522211C6770038A8F2 /* AlertModelView.swift in Sources */,
 				14BC576A22748D4B006D1FBE /* SelectIndicatorsCountersConfigurator.swift in Sources */,
+				142D003523097C3700AD81F6 /* AuthGateway.swift in Sources */,
 				14DFD30A223CE4A300CB248E /* SectionItemsModel.swift in Sources */,
-				14215E2D222710FB00662150 /* ApiCompaniesGateway.swift in Sources */,
+				14215E2D222710FB00662150 /* ApiCompaniesGatewayImpl.swift in Sources */,
 				14A54D502211BB420038A8F2 /* String+Extension.swift in Sources */,
+				142D003723097D0D00AD81F6 /* ApiAuthGateway.swift in Sources */,
 				14EC74A72258EFEB002A2A91 /* FormationReportManager.swift in Sources */,
 				14B7E83F2221D42B00293DB1 /* TextRecognizerImageViewController.swift in Sources */,
+				142D61332301B284001D0A24 /* Company+Extension.swift in Sources */,
 				14215E252227041800662150 /* CompanyApiRequest.swift in Sources */,
 				14EA238B224F7FB700425DAB /* GenerateTemplateUseCase.swift in Sources */,
 				14727588223AE09700FA0927 /* IndicatorsCouterGateway.swift in Sources */,
@@ -1554,15 +1622,20 @@
 				14A54D4E2211AFD60038A8F2 /* LoadtUserProfile.swift in Sources */,
 				1472429B221EDDF700E8FA56 /* WelcomeConfigurator.swift in Sources */,
 				141A738D22296365000E2247 /* RealmIndicatorsCounter.swift in Sources */,
+				14B3AC742308306E00784166 /* SingUpViewController+Props.swift in Sources */,
 				14B7E8422221D4F800293DB1 /* TextRecognizerImagePresenter.swift in Sources */,
 				14724295221EC46600E8FA56 /* UINavigationController+Extension.swift in Sources */,
 				148727AE220F2EA700C59344 /* BasicViewController.swift in Sources */,
+				14B3AC6B2308111F00784166 /* SingUpViewController.swift in Sources */,
+				14B3AC70230811AE00784166 /* SingUpViewPresenter.swift in Sources */,
 				14C083B02212D83D001A5610 /* ViewRound.swift in Sources */,
 				1435B9AD227DE16100FAE358 /* SelectItemCounterTableViewCell.swift in Sources */,
 				14A54D3E221174260038A8F2 /* ButtonRound.swift in Sources */,
 				144CEB882247A8E6006C3BA4 /* TemplateReport.swift in Sources */,
 				141A738F222964C9000E2247 /* RealmCounter.swift in Sources */,
+				149601332302ED5B00C2A38B /* LoginViewController.swift in Sources */,
 				148727CF2210479400C59344 /* UserFormPresenter.swift in Sources */,
+				14F48656230854360036C1AC /* SingUpModel.swift in Sources */,
 				14CDF94822383F3D0040160E /* UserCompanyItemTableViewCell.swift in Sources */,
 				148727D422104A8800C59344 /* UserFormViewRouter.swift in Sources */,
 				14CDF973223982B30040160E /* LastInticatorModelView.swift in Sources */,
@@ -1577,9 +1650,12 @@
 				1488BBC1227F072800448320 /* SelectIndicatorCounterModel.swift in Sources */,
 				14B64E892259D60C00237A65 /* SendReportModel.swift in Sources */,
 				14C84BD0223D5B9C00C001BD /* FormIndicatorCounterProps.swift in Sources */,
+				142D00402309A63E00AD81F6 /* UserProfile+Extension.swift in Sources */,
 				141A738922295ED7000E2247 /* IndicatorsCounter.swift in Sources */,
 				14264C992208C6E700655EEA /* AppDelegate.swift in Sources */,
+				142D61302301B029001D0A24 /* FirebaseCompaniesGatewayImpl.swift in Sources */,
 				14F3075522255B4100021C95 /* CameraRecognizerConfigurator.swift in Sources */,
+				14B3AC6E2308113F00784166 /* SingUpViewRouter.swift in Sources */,
 				1472B66B2223D23D00D879D4 /* CropView.swift in Sources */,
 				144CEB862247A83D006C3BA4 /* TemplatesGateway.swift in Sources */,
 				14F3075D2225D47500021C95 /* Counter.swift in Sources */,
@@ -1612,15 +1688,20 @@
 				141AEE68223519FE00B9A354 /* AlertFormFieldsPresenter.swift in Sources */,
 				1487279F220F28F400C59344 /* MainViewRouter.swift in Sources */,
 				14215E3422271DE200662150 /* Realm+CascadeDeleting.swift in Sources */,
+				149601362302ED7700C2A38B /* LoginViewRouter.swift in Sources */,
 				142036C6224959BE00F7ED0A /* ApiDownloadClient.swift in Sources */,
 				148727C32210268F00C59344 /* StorageProtocols.swift in Sources */,
 				14A54D562211C8DB0038A8F2 /* ProgressHUD.swift in Sources */,
 				14DD08A022511044000BDEE7 /* FormSendReportService.swift in Sources */,
+				1496013A2302F13400C2A38B /* LoginViewConfigurator.swift in Sources */,
 				145406C52219688D008C94F4 /* TextDetector.swift in Sources */,
 				14215E2A22270FAF00662150 /* CompaniesGateway.swift in Sources */,
+				142D002E2309795700AD81F6 /* ApiCompaniesGateway.swift in Sources */,
 				14B64E8B2259EC4300237A65 /* SendReportHelper.swift in Sources */,
 				14C083B72212F25D001A5610 /* BasicVeiwCellProtocol.swift in Sources */,
+				149601382302F04900C2A38B /* LoginViewPresenter.swift in Sources */,
 				148727C82210283100C59344 /* UserDefaults+Extension.swift in Sources */,
+				14B3AC722308124700784166 /* SingUpViewConfigurator.swift in Sources */,
 				1441A2CF221418B600BF974A /* AppDelegateConfigurator.swift in Sources */,
 				14290B232213410500620AE1 /* Sourcery.generated.swift in Sources */,
 				141850B8222C3EB500B0C2FB /* FormUserUtilitesCompanyViewController.swift in Sources */,
@@ -1637,8 +1718,10 @@
 				14C083AD2212D7EA001A5610 /* UserProfileTableViewCell.swift in Sources */,
 				1441A2CD2214179400BF974A /* AppDelegatePresenter.swift in Sources */,
 				1478739722478A540063CCC7 /* ApiAlamofireClient.swift in Sources */,
+				142D612C2301860C001D0A24 /* FirebaseHelper.swift in Sources */,
 				145EA06A2227CA1700AB633E /* RealmCompany.swift in Sources */,
 				14925ECA226B1F8D00A20AA7 /* EmailSendReportService.swift in Sources */,
+				142D003E2309A3A400AD81F6 /* FirebaseUserProfileGateway.swift in Sources */,
 				14B7E8442221D57E00293DB1 /* TextRecognizerImageConfigurator.swift in Sources */,
 				14724298221EDDB600E8FA56 /* WelcomeViewController.swift in Sources */,
 				14872797220F236A00C59344 /* MainPresenter.swift in Sources */,
@@ -1663,6 +1746,7 @@
 				141850BD222C3F0700B0C2FB /* AddUserUtilitesCompanyConfigurator.swift in Sources */,
 				141AEE5D2233F0B900B9A354 /* SectionViewHeaderAdd.swift in Sources */,
 				14A54D482211ADBC0038A8F2 /* SaveUserProfile.swift in Sources */,
+				142D003923097D4800AD81F6 /* FirebaseAuthGateway.swift in Sources */,
 				148727C12210253900C59344 /* DefaultsStorage.swift in Sources */,
 				14EB0F91224157E1000CBB64 /* FakeSpleashViewController.swift in Sources */,
 				143A1B5E223AAA6000766C2A /* ListIndicatorsCounterPresenter.swift in Sources */,

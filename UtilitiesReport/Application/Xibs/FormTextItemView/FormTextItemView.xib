@@ -23,21 +23,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Jfc-Cm-Ue0">
-                    <rect key="frame" x="24" y="8" width="327" height="84"/>
+                    <rect key="frame" x="16" y="8" width="343" height="84"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="u6o-0h-cf9">
-                            <rect key="frame" x="0.0" y="0.0" width="327" height="54"/>
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="58"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cha-4l-DX8">
-                                    <rect key="frame" x="0.0" y="0.0" width="131.5" height="54"/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="131.5" height="58"/>
+                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VFy-87-oIJ">
-                                    <rect key="frame" x="139.5" y="0.0" width="187.5" height="54"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <rect key="frame" x="139.5" y="0.0" width="203.5" height="58"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.65105083626760563" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="40" id="ESa-WI-OcE"/>
+                                        <constraint firstAttribute="height" priority="999" constant="50" id="ESa-WI-OcE"/>
                                     </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
@@ -49,20 +50,28 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZWu-rF-W22">
-                            <rect key="frame" x="0.0" y="57" width="327" height="27"/>
+                            <rect key="frame" x="0.0" y="61" width="343" height="23"/>
                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="12"/>
                             <color key="textColor" red="0.74904873704663211" green="0.0" blue="0.042526539874986218" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="999" constant="70" id="DSK-TF-crM"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="DSK-TF-crM"/>
+                        </mask>
+                    </variation>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Jfc-Cm-Ue0" secondAttribute="bottom" constant="8" id="LTr-7x-iJd"/>
                 <constraint firstItem="Jfc-Cm-Ue0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="eVb-HU-5zj"/>
-                <constraint firstAttribute="trailingMargin" secondItem="Jfc-Cm-Ue0" secondAttribute="trailing" constant="8" id="gIh-O5-wZw"/>
-                <constraint firstItem="Jfc-Cm-Ue0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="8" id="kiN-up-6Xr"/>
+                <constraint firstAttribute="trailingMargin" secondItem="Jfc-Cm-Ue0" secondAttribute="trailing" id="gIh-O5-wZw"/>
+                <constraint firstItem="Jfc-Cm-Ue0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="kiN-up-6Xr"/>
                 <constraint firstItem="cha-4l-DX8" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.35" priority="999" id="s8J-vB-ZHS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SingUpViewController" customModule="UtilitiesReport" customModuleProvider="target">
+            <connections>
+                <outlet property="btnClose" destination="Ybg-Zv-ihQ" id="MeY-0z-YSn"/>
+                <outlet property="btnRegiter" destination="nLN-Uc-bZ0" id="W3Y-8p-R3r"/>
+                <outlet property="ftApartment" destination="dpy-GG-l0l" id="skQ-3U-NFK"/>
+                <outlet property="ftCity" destination="EW2-8p-jYG" id="KJV-Aa-GhI"/>
+                <outlet property="ftConfirmPassword" destination="BfA-8a-lnI" id="FGT-Yf-rDy"/>
+                <outlet property="ftEmail" destination="M0w-wS-lWd" id="Yxh-eZ-QXj"/>
+                <outlet property="ftFirstName" destination="xKz-5y-Wm9" id="cbs-Tb-QKJ"/>
+                <outlet property="ftHouse" destination="lUT-Va-oxy" id="PzX-J4-AxK"/>
+                <outlet property="ftLastName" destination="fpg-dw-vJc" id="oru-jk-ip8"/>
+                <outlet property="ftPassword" destination="NzF-YB-iB3" id="XIZ-O4-e55"/>
+                <outlet property="ftPhoneNumber" destination="TFP-os-nw2" id="7wG-py-811"/>
+                <outlet property="ftStreet" destination="395-fT-2fP" id="qpH-sv-w77"/>
+                <outlet property="lblPageTitle" destination="msb-1m-dg5" id="Fmg-mX-ohb"/>
+                <outlet property="scrollView" destination="hc6-bO-IY2" id="O0g-68-fsv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-page-v2" translatesAutoresizingMaskIntoConstraints="NO" id="dWn-6X-8KV">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" red="0.49718188569999999" green="0.71144927099999999" blue="0.06644424602" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6d6-Qa-XPX">
+                    <rect key="frame" x="0.0" y="44" width="414" height="70"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efi-Oi-Xd2">
+                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" priority="999" constant="70" id="kiz-3X-lp2"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sing Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msb-1m-dg5">
+                            <rect key="frame" x="70" y="0.0" width="274" height="70"/>
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="26"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybg-Zv-ihQ">
+                            <rect key="frame" x="344" y="0.0" width="70" height="70"/>
+                            <constraints>
+                                <constraint firstAttribute="width" priority="999" constant="70" id="0qx-3q-TDG"/>
+                            </constraints>
+                            <state key="normal" image="close"/>
+                            <connections>
+                                <action selector="clickedClose:" destination="-1" eventType="touchUpInside" id="Ef5-qn-Aey"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="nLF-lD-WW9"/>
+                    </constraints>
+                </stackView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hc6-bO-IY2">
+                    <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBt-ad-vKB">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="658"/>
+                            <subviews>
+                                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Kjt-YT-gkk">
+                                    <rect key="frame" x="20" y="0.0" width="374" height="550"/>
+                                    <subviews>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0w-wS-lWd" customClass="FormTextItemView" customModule="UtilitiesReport" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NzF-YB-iB3" customClass="FormTextItemView" customModule="UtilitiesReport" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="50" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BfA-8a-lnI" customClass="FormTextItemView" customModule="UtilitiesReport" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="100" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sbq-SI-jcl">
+                                            <rect key="frame" x="0.0" y="150" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" priority="999" constant="50" id="5WN-la-lex"/>
+                                            </constraints>
+                                        </view>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKz-5y-Wm9" customClass="FormTextItemView" customModule="UtilitiesReport" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="200" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpg-dw-vJc" customClass="FormTextItemView" customModule="UtilitiesReport" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="250" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFP-os-nw2" customClass="FormTextItemView" customModule="UtilitiesReport" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="300" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EW2-8p-jYG" customClass="FormTextItemView" customModule="UtilitiesReport" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="350" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="395-fT-2fP" customClass="FormTextItemView" customModule="UtilitiesReport" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="400" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUT-Va-oxy" customClass="FormTextItemView" customModule="UtilitiesReport" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="450" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpy-GG-l0l" customClass="FormTextItemView" customModule="UtilitiesReport" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="500" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLN-Uc-bZ0" customClass="ButtonRound" customModule="UtilitiesReport" customModuleProvider="target">
+                                    <rect key="frame" x="41.5" y="580" width="331" height="58"/>
+                                    <color key="backgroundColor" red="0.85098039215686272" green="0.25490196078431371" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="58" id="qmn-3v-XaX"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
+                                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                                    <state key="normal" title="Register">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSize" value="NO"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="roundRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="clickedRegister:" destination="-1" eventType="touchUpInside" id="Dno-pA-cdW"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailingMargin" secondItem="Kjt-YT-gkk" secondAttribute="trailing" constant="12" id="MsG-2g-Kja"/>
+                                <constraint firstAttribute="bottom" secondItem="nLN-Uc-bZ0" secondAttribute="bottom" constant="20" id="TYP-Dy-7xF"/>
+                                <constraint firstItem="Kjt-YT-gkk" firstAttribute="top" secondItem="CBt-ad-vKB" secondAttribute="top" id="aT0-HH-ud0"/>
+                                <constraint firstItem="nLN-Uc-bZ0" firstAttribute="centerX" secondItem="CBt-ad-vKB" secondAttribute="centerX" id="ce1-wH-R6f"/>
+                                <constraint firstItem="nLN-Uc-bZ0" firstAttribute="top" secondItem="Kjt-YT-gkk" secondAttribute="bottom" constant="30" id="jol-EK-Hsb"/>
+                                <constraint firstItem="nLN-Uc-bZ0" firstAttribute="width" secondItem="CBt-ad-vKB" secondAttribute="width" multiplier="0.8" id="rwS-sX-MaC"/>
+                                <constraint firstItem="Kjt-YT-gkk" firstAttribute="leading" secondItem="CBt-ad-vKB" secondAttribute="leadingMargin" constant="12" id="vBr-AB-Ngq"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="CBt-ad-vKB" firstAttribute="height" secondItem="hc6-bO-IY2" secondAttribute="height" priority="750" id="2Rb-sB-gnB"/>
+                        <constraint firstItem="CBt-ad-vKB" firstAttribute="top" secondItem="hc6-bO-IY2" secondAttribute="top" id="aiy-M3-H3g"/>
+                        <constraint firstItem="CBt-ad-vKB" firstAttribute="leading" secondItem="hc6-bO-IY2" secondAttribute="leading" id="nF9-Dy-A82"/>
+                        <constraint firstAttribute="bottom" secondItem="CBt-ad-vKB" secondAttribute="bottom" id="qaf-5J-iGX"/>
+                        <constraint firstAttribute="trailing" secondItem="CBt-ad-vKB" secondAttribute="trailing" id="sYa-Ea-6A6"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dWn-6X-8KV" secondAttribute="trailing" id="02J-6n-TKW"/>
+                <constraint firstItem="dWn-6X-8KV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2y2-Fh-BMx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6d6-Qa-XPX" secondAttribute="trailing" id="3yL-5H-6qO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hc6-bO-IY2" secondAttribute="trailing" id="8ql-9P-Tqy"/>
+                <constraint firstItem="hc6-bO-IY2" firstAttribute="top" secondItem="6d6-Qa-XPX" secondAttribute="bottom" id="JJA-Wu-aLp"/>
+                <constraint firstItem="dWn-6X-8KV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KlY-NH-SqY"/>
+                <constraint firstItem="CBt-ad-vKB" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Oqh-hN-joZ"/>
+                <constraint firstAttribute="bottom" secondItem="dWn-6X-8KV" secondAttribute="bottom" id="QbB-E6-z0N"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hc6-bO-IY2" secondAttribute="bottom" id="Ygi-xV-Sxh"/>
+                <constraint firstItem="6d6-Qa-XPX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Zbj-A6-Ye7"/>
+                <constraint firstItem="6d6-Qa-XPX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nKg-fm-Tu5"/>
+                <constraint firstItem="hc6-bO-IY2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="q1f-zR-qlu"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg-page-v2" width="414" height="896"/>
+        <image name="close" width="18" height="18"/>
+    </resources>
+</document>

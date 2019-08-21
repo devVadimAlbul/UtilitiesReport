@@ -24,6 +24,11 @@ class FormTextItemView: ViewFromXib {
             tfItem.nextField = nextFormItem?.tfItem
         }
     }
+  @IBInspectable var isSecureTextEntry: Bool = false {
+    didSet {
+      tfItem.isSecureTextEntry = isSecureTextEntry
+    }
+  }
     
     // MARK: life-cycle
     override func awakeFromNib() {

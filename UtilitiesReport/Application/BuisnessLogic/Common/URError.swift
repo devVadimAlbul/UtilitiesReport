@@ -9,6 +9,7 @@
 import Foundation
 
 enum URError: Error {
+    case userNotAuth
     case userNotFound
     case userNotCreated
     case textNotRecognized
@@ -25,16 +26,19 @@ enum URError: Error {
     case phoneNumberInvalid
     case reportNotSend
     case emailInvalid
+    case incorrectSingUpData
 }
 
 extension URError: LocalizedError {
     
     var errorDescription: String? {
         switch self {
+        case .userNotAuth: return "User Not Authorized!"
         case .userNotFound: return "User not found!"
-        case .userNotCreated: return "User not ctrated!"
+        case .userNotCreated: return "User not created!\nPlease check input data and try again."
         case .textNotRecognized: return "Text not recognized on this image!"
         case .incorrectProfileForm: return "User Profile data incorrect in form.\nPlease check is it and try again."
+        case .incorrectSingUpData: return "Sing up data incorrect in form.\nPlease check is it and try again."
         case .companyNoSaved: return "Company no saved.\nPlease check is it and try again."
         case .companyCantRemoved: return "The company can't be removed.\nPlease check is it and try again."
         case .companyNotFound: return "This company not found.\nPlease try again later."

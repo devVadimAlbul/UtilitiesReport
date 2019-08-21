@@ -79,7 +79,7 @@ class IndicatorsCouterLocalStorageGatewayImpl: IndicatorsCouterLocalStorageGatew
             let indicator = RealmIndicatorsCounter(indicator: entity)
             do {
                 try manager.write { realm in
-                    realm.add(indicator, update: true)
+                    realm.add(indicator, update: .all)
                     company.indicators.append(indicator)
                     completionHandler(.success(entity))
                 }

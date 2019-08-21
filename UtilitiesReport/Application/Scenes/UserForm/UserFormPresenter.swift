@@ -116,8 +116,6 @@ class UserFormPresenterImpl: UserFormPresenter {
     
     // MARK: check methods
     private func checkValidForm() -> Bool {
-        var isValid: Bool = true
-        
         func checkValid(key: PartialKeyPath<UserProfile>, name: String, check: (String?) -> Bool) ->  Props.ItemState {
             let value = userProfile?[keyPath: key] as? String
             if check(value) {
@@ -125,7 +123,6 @@ class UserFormPresenterImpl: UserFormPresenter {
             }
             return .invalid(message: "Incorrect \(name)")
         }
-        
         
         userProfile.getAllKeys().forEach({ keyPath in
             let state = checkValid(key: keyPath,
@@ -205,7 +202,6 @@ class UserFormPresenterImpl: UserFormPresenter {
 //            }
 //            self.itemsPropsValiad[\UserProfile.house] = houseState
 //        }
-        return isValid
     }
     
 

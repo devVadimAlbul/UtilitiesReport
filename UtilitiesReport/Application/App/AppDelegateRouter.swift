@@ -13,7 +13,7 @@ import UIKit.UINavigationController
 protocol AppDelegateRouter: AnyObject {
     func showFakeSpleashScreen()
     func goToMainViewController()
-    func goToCreatedUserProfile()
+    func goToWelcomePage()
 }
 
 class AppDelegateRouterImpl: AppDelegateRouter {
@@ -31,7 +31,7 @@ class AppDelegateRouterImpl: AppDelegateRouter {
         goToViewController(navigation)
     }
     
-    func goToCreatedUserProfile() {
+    func goToWelcomePage() {
         let welcomeVC = WelcomeViewController()
         welcomeVC.configurator = WelcomeConfiguratorImpl()
         goToViewController(welcomeVC)

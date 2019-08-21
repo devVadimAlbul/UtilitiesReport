@@ -29,6 +29,7 @@ class WelcomeViewController: BasicViewController, WelcomeView {
     override func viewDidLoad() {
         configurator.configure(viewController: self)
         super.viewDidLoad()
+//        FirebaseHelper.shared.auth(email: "test.acount.app@gmail.com", password: "acount241")
     }
 
     // MARK: IBAction

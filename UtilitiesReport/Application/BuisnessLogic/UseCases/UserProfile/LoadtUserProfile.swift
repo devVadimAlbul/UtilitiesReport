@@ -16,13 +16,13 @@ protocol LoadUserProfileUseCase {
 
 class LoadUserProfileUseCaseImpl: LoadUserProfileUseCase {
     
-    fileprivate let storage: UserProfileLocalStorageGateway
+    fileprivate let gateway: UserProfileGateway
     
-    init(storage: UserProfileLocalStorageGateway) {
-        self.storage = storage
+    init(gateway: UserProfileGateway) {
+        self.gateway = gateway
     }
     
     func load(completionHandler: @escaping LoadUserProfileUseCaseCompletionHandler) {
-        storage.loadEntity(completionHandler: completionHandler)
+        gateway.load(completionHandler: completionHandler)
     }
 }

@@ -35,10 +35,14 @@ class UserProfile: Equatable {
     }
     
     required init(identifier: String = UUID().uuidString,
-                  firstName: String, lastName: String,
-                  email: String, phoneNumber: String,
-                  city: String, street: String,
-                  house: String, apartment: String?) {
+                  firstName: String,
+                  lastName: String,
+                  email: String,
+                  phoneNumber: String,
+                  city: String,
+                  street: String,
+                  house: String,
+                  apartment: String?) {
         self.identifier = identifier
         self.firstName = firstName
         self.lastName = lastName

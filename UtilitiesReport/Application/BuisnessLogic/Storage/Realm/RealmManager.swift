@@ -86,7 +86,7 @@ class RealmManager: RealmManagerProtocol {
     // MARK: save
     func save<T: Object>(_ object: T, update: Bool = true, completion: (() -> Void)? = nil) throws {
         try realm.write {
-            self.realm.add(object, update: update)
+          self.realm.add(object, update: update ? .all : .error)
             completion?()
         }
     }
@@ -94,7 +94,7 @@ class RealmManager: RealmManagerProtocol {
     func save<S: Sequence>(_ objects: S, update: Bool = true,
                            completion: (() -> Void)? = nil) throws where S.Element: Object {
         try realm.write {
-            self.realm.add(objects, update: update)
+            self.realm.add(objects, update: update ? .all : .error)
             completion?()
         }
     }
