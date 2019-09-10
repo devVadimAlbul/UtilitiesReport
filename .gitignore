@@ -55,7 +55,10 @@ Pods/
 
 Carthage/Build
 
-UtilitiesReport/Private 
+
+# gitsecret
+UtilitiesReport/Private/GoogleService-Info.plist
+.gitsecret/keys/random_seed 
 
 # fastlane
 #
