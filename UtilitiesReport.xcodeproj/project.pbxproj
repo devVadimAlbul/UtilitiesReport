@@ -613,6 +613,7 @@
 				14C083A72212D37D001A5610 /* Sourcery */,
 				1487278B220F184400C59344 /* Application */,
 				148727A3220F2AA700C59344 /* Library */,
+				14F84498232793B500FC0DBC /* Private */,
 				148727A2220F299000C59344 /* Resources */,
 			);
 			path = UtilitiesReport;
@@ -883,7 +884,6 @@
 		148727A2220F299000C59344 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				14F84498232793B500FC0DBC /* Private */,
 				14264C9F2208C6E800655EEA /* Assets.xcassets */,
 				14264CA12208C6E800655EEA /* LaunchScreen.storyboard */,
 				14264CA42208C6E800655EEA /* Info.plist */,
