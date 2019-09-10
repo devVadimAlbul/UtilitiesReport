@@ -883,8 +883,8 @@
 		148727A2220F299000C59344 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				14F84498232793B500FC0DBC /* Private */,
 				14264C9F2208C6E800655EEA /* Assets.xcassets */,
-				1481A9AC221ADC090035E466 /* GoogleService-Info.plist */,
 				14264CA12208C6E800655EEA /* LaunchScreen.storyboard */,
 				14264CA42208C6E800655EEA /* Info.plist */,
 			);
@@ -1301,6 +1301,14 @@
 				14F3075622255B6200021C95 /* CameraRecognizerRouter.swift */,
 			);
 			path = CameraRecognizer;
+			sourceTree = "<group>";
+		};
+		14F84498232793B500FC0DBC /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				1481A9AC221ADC090035E466 /* GoogleService-Info.plist */,
+			);
+			path = Private;
 			sourceTree = "<group>";
 		};
 		5AAAD89BAAEC3691BAFFCCCD /* Pods */ = {
