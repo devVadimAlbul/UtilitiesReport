@@ -33,7 +33,7 @@ extension URError: LocalizedError {
     
     var errorDescription: String? {
         switch self {
-        case .userNotAuth: return "User Not Authorized!"
+        case .userNotAuth: return "User not authorized!"
         case .userNotFound: return "User not found!"
         case .userNotCreated: return "User not created!\nPlease check input data and try again."
         case .textNotRecognized: return "Text not recognized on this image!"

@@ -110,12 +110,6 @@ class UserFormViewController: BasicViewController, UserFormView {
         }
         updateTextIfNeeded(in: textView, with: item, using: \.value)
     }
-    private func updateTextIfNeeded<T>(in textView: FormTextItemView,
-                                       with source: T,
-                                       using keyPath: KeyPath<T, String?>) {
-        guard !textView.tfItem.isFirstResponder else { return }
-        textView.value = source[keyPath: keyPath]
-    }
     
     // MARK: change props
     fileprivate func changePropsItem(_ item: Props.Item, at text: String?) {

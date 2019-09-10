@@ -53,7 +53,7 @@ class UserProfile: Equatable {
         self.house = house
         self.apartment = apartment
     }
-
+  
     init() {
 
     }

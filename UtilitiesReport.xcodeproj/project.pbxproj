@@ -46,7 +46,7 @@
 		14264CA32208C6E800655EEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14264CA12208C6E800655EEA /* LaunchScreen.storyboard */; };
 		14290B232213410500620AE1 /* Sourcery.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14290B222213410500620AE1 /* Sourcery.generated.swift */; };
 		142D002E2309795700AD81F6 /* ApiCompaniesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D002D2309795700AD81F6 /* ApiCompaniesGateway.swift */; };
-		142D003223097B2D00AD81F6 /* SingUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D003123097B2D00AD81F6 /* SingUpUseCase.swift */; };
+		142D003223097B2D00AD81F6 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D003123097B2D00AD81F6 /* SignUpUseCase.swift */; };
 		142D003523097C3700AD81F6 /* AuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D003423097C3700AD81F6 /* AuthGateway.swift */; };
 		142D003723097D0D00AD81F6 /* ApiAuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D003623097D0D00AD81F6 /* ApiAuthGateway.swift */; };
 		142D003923097D4800AD81F6 /* FirebaseAuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D003823097D4800AD81F6 /* FirebaseAuthGateway.swift */; };
@@ -139,12 +139,14 @@
 		14A54D502211BB420038A8F2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D4F2211BB420038A8F2 /* String+Extension.swift */; };
 		14A54D522211C6770038A8F2 /* AlertModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D512211C6770038A8F2 /* AlertModelView.swift */; };
 		14A54D562211C8DB0038A8F2 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A54D552211C8DB0038A8F2 /* ProgressHUD.swift */; };
-		14B3AC6B2308111F00784166 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC692308111F00784166 /* SingUpViewController.swift */; };
-		14B3AC6C2308111F00784166 /* SingUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B3AC6A2308111F00784166 /* SingUpViewController.xib */; };
-		14B3AC6E2308113F00784166 /* SingUpViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC6D2308113F00784166 /* SingUpViewRouter.swift */; };
-		14B3AC70230811AE00784166 /* SingUpViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC6F230811AE00784166 /* SingUpViewPresenter.swift */; };
-		14B3AC722308124700784166 /* SingUpViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC712308124700784166 /* SingUpViewConfigurator.swift */; };
-		14B3AC742308306E00784166 /* SingUpViewController+Props.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC732308306E00784166 /* SingUpViewController+Props.swift */; };
+		14AE2A48230FC1440011D76E /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE2A47230FC1440011D76E /* SignInUseCase.swift */; };
+		14AE2A4F231000570011D76E /* DoubleLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AE2A4E231000570011D76E /* DoubleLaunch.storyboard */; };
+		14B3AC6B2308111F00784166 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC692308111F00784166 /* SignUpViewController.swift */; };
+		14B3AC6C2308111F00784166 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B3AC6A2308111F00784166 /* SignUpViewController.xib */; };
+		14B3AC6E2308113F00784166 /* SignUpViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC6D2308113F00784166 /* SignUpViewRouter.swift */; };
+		14B3AC70230811AE00784166 /* SignUpViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC6F230811AE00784166 /* SignUpViewPresenter.swift */; };
+		14B3AC722308124700784166 /* SignUpViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC712308124700784166 /* SignUpViewConfigurator.swift */; };
+		14B3AC742308306E00784166 /* SignUpViewController+Props.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3AC732308306E00784166 /* SignUpViewController+Props.swift */; };
 		14B64E892259D60C00237A65 /* SendReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B64E882259D60C00237A65 /* SendReportModel.swift */; };
 		14B64E8B2259EC4300237A65 /* SendReportHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B64E8A2259EC4300237A65 /* SendReportHelper.swift */; };
 		14B7E83F2221D42B00293DB1 /* TextRecognizerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E83D2221D42B00293DB1 /* TextRecognizerImageViewController.swift */; };
@@ -187,7 +189,10 @@
 		14DD089E22510E44000BDEE7 /* SendReportServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD089D22510E44000BDEE7 /* SendReportServiceProtocol.swift */; };
 		14DD08A022511044000BDEE7 /* FormSendReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD089F22511044000BDEE7 /* FormSendReportService.swift */; };
 		14DD08A2225116DB000BDEE7 /* ApiResponseEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DD08A1225116DB000BDEE7 /* ApiResponseEmpty.swift */; };
+		14DDAECC230ED6C500670573 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DDAECB230ED6C500670573 /* SignInModel.swift */; };
 		14DFD30A223CE4A300CB248E /* SectionItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DFD309223CE4A300CB248E /* SectionItemsModel.swift */; };
+		14E20688230D60E60033E75A /* LoginViewController+Props.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E20687230D60E60033E75A /* LoginViewController+Props.swift */; };
+		14E2068B230D62220033E75A /* PropsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2068A230D62220033E75A /* PropsProtocol.swift */; };
 		14EA2388224F7DD000425DAB /* TemplateContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EA2387224F7DD000425DAB /* TemplateContext.swift */; };
 		14EA238B224F7FB700425DAB /* GenerateTemplateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EA238A224F7FB700425DAB /* GenerateTemplateUseCase.swift */; };
 		14EB0F91224157E1000CBB64 /* FakeSpleashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB0F8F224157E1000CBB64 /* FakeSpleashViewController.swift */; };
@@ -195,6 +200,7 @@
 		14EB0F94224168CD000CBB64 /* RealmUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB0F93224168CD000CBB64 /* RealmUserProfile.swift */; };
 		14EC74A52258EF45002A2A91 /* FormSendReportApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EC74A42258EF45002A2A91 /* FormSendReportApiRequest.swift */; };
 		14EC74A72258EFEB002A2A91 /* FormationReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EC74A62258EFEB002A2A91 /* FormationReportManager.swift */; };
+		14EF06F923102D5B00B8E9DB /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EF06F823102D5B00B8E9DB /* LogoutUseCase.swift */; };
 		14F30750222557DF00021C95 /* CameraRecognizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F3074E222557DF00021C95 /* CameraRecognizerViewController.swift */; };
 		14F30751222557DF00021C95 /* CameraRecognizerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F3074F222557DF00021C95 /* CameraRecognizerViewController.xib */; };
 		14F3075322255B0E00021C95 /* CameraRecognizerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F3075222255B0E00021C95 /* CameraRecognizerPresenter.swift */; };
@@ -203,7 +209,7 @@
 		14F307592225C51700021C95 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F307582225C51700021C95 /* Company.swift */; };
 		14F3075B2225C72700021C95 /* UserUtilitiesCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F3075A2225C72700021C95 /* UserUtilitiesCompany.swift */; };
 		14F3075D2225D47500021C95 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F3075C2225D47500021C95 /* Counter.swift */; };
-		14F48656230854360036C1AC /* SingUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F48655230854360036C1AC /* SingUpModel.swift */; };
+		14F48656230854360036C1AC /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F48655230854360036C1AC /* SignUpModel.swift */; };
 		9CD49AA797F5FE683C95410B /* Pods_UtilitiesReport_UtilitiesReportTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B39EDCAA64214CE1EE8EA28B /* Pods_UtilitiesReport_UtilitiesReportTests.framework */; };
 		F050662A90973A51BB6D818E /* Pods_UtilitiesReport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B686A475B168EF1A6A5D4035 /* Pods_UtilitiesReport.framework */; };
 /* End PBXBuildFile section */
@@ -274,7 +280,7 @@
 		14264CAF2208C6E800655EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14290B222213410500620AE1 /* Sourcery.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourcery.generated.swift; sourceTree = "<group>"; };
 		142D002D2309795700AD81F6 /* ApiCompaniesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCompaniesGateway.swift; sourceTree = "<group>"; };
-		142D003123097B2D00AD81F6 /* SingUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpUseCase.swift; sourceTree = "<group>"; };
+		142D003123097B2D00AD81F6 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
 		142D003423097C3700AD81F6 /* AuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGateway.swift; sourceTree = "<group>"; };
 		142D003623097D0D00AD81F6 /* ApiAuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAuthGateway.swift; sourceTree = "<group>"; };
 		142D003823097D4800AD81F6 /* FirebaseAuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthGateway.swift; sourceTree = "<group>"; };
@@ -367,12 +373,14 @@
 		14A54D4F2211BB420038A8F2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		14A54D512211C6770038A8F2 /* AlertModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModelView.swift; sourceTree = "<group>"; };
 		14A54D552211C8DB0038A8F2 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
-		14B3AC692308111F00784166 /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
-		14B3AC6A2308111F00784166 /* SingUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingUpViewController.xib; sourceTree = "<group>"; };
-		14B3AC6D2308113F00784166 /* SingUpViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewRouter.swift; sourceTree = "<group>"; };
-		14B3AC6F230811AE00784166 /* SingUpViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewPresenter.swift; sourceTree = "<group>"; };
-		14B3AC712308124700784166 /* SingUpViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewConfigurator.swift; sourceTree = "<group>"; };
-		14B3AC732308306E00784166 /* SingUpViewController+Props.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingUpViewController+Props.swift"; sourceTree = "<group>"; };
+		14AE2A47230FC1440011D76E /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
+		14AE2A4E231000570011D76E /* DoubleLaunch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DoubleLaunch.storyboard; sourceTree = "<group>"; };
+		14B3AC692308111F00784166 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		14B3AC6A2308111F00784166 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		14B3AC6D2308113F00784166 /* SignUpViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewRouter.swift; sourceTree = "<group>"; };
+		14B3AC6F230811AE00784166 /* SignUpViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewPresenter.swift; sourceTree = "<group>"; };
+		14B3AC712308124700784166 /* SignUpViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewConfigurator.swift; sourceTree = "<group>"; };
+		14B3AC732308306E00784166 /* SignUpViewController+Props.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewController+Props.swift"; sourceTree = "<group>"; };
 		14B64E882259D60C00237A65 /* SendReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReportModel.swift; sourceTree = "<group>"; };
 		14B64E8A2259EC4300237A65 /* SendReportHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReportHelper.swift; sourceTree = "<group>"; };
 		14B7E83D2221D42B00293DB1 /* TextRecognizerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizerImageViewController.swift; sourceTree = "<group>"; };
@@ -416,7 +424,10 @@
 		14DD089D22510E44000BDEE7 /* SendReportServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReportServiceProtocol.swift; sourceTree = "<group>"; };
 		14DD089F22511044000BDEE7 /* FormSendReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSendReportService.swift; sourceTree = "<group>"; };
 		14DD08A1225116DB000BDEE7 /* ApiResponseEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseEmpty.swift; sourceTree = "<group>"; };
+		14DDAECB230ED6C500670573 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		14DFD309223CE4A300CB248E /* SectionItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItemsModel.swift; sourceTree = "<group>"; };
+		14E20687230D60E60033E75A /* LoginViewController+Props.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Props.swift"; sourceTree = "<group>"; };
+		14E2068A230D62220033E75A /* PropsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropsProtocol.swift; sourceTree = "<group>"; };
 		14EA2387224F7DD000425DAB /* TemplateContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateContext.swift; sourceTree = "<group>"; };
 		14EA238A224F7FB700425DAB /* GenerateTemplateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateTemplateUseCase.swift; sourceTree = "<group>"; };
 		14EB0F8F224157E1000CBB64 /* FakeSpleashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSpleashViewController.swift; sourceTree = "<group>"; };
@@ -424,6 +435,7 @@
 		14EB0F93224168CD000CBB64 /* RealmUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUserProfile.swift; sourceTree = "<group>"; };
 		14EC74A42258EF45002A2A91 /* FormSendReportApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSendReportApiRequest.swift; sourceTree = "<group>"; };
 		14EC74A62258EFEB002A2A91 /* FormationReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormationReportManager.swift; sourceTree = "<group>"; };
+		14EF06F823102D5B00B8E9DB /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
 		14F3074E222557DF00021C95 /* CameraRecognizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRecognizerViewController.swift; sourceTree = "<group>"; };
 		14F3074F222557DF00021C95 /* CameraRecognizerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraRecognizerViewController.xib; sourceTree = "<group>"; };
 		14F3075222255B0E00021C95 /* CameraRecognizerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRecognizerPresenter.swift; sourceTree = "<group>"; };
@@ -432,7 +444,7 @@
 		14F307582225C51700021C95 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		14F3075A2225C72700021C95 /* UserUtilitiesCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUtilitiesCompany.swift; sourceTree = "<group>"; };
 		14F3075C2225D47500021C95 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
-		14F48655230854360036C1AC /* SingUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpModel.swift; sourceTree = "<group>"; };
+		14F48655230854360036C1AC /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		91F8685E9A0C0FBB69CA7BC2 /* Pods-UtilitiesReport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UtilitiesReport.release.xcconfig"; path = "Pods/Target Support Files/Pods-UtilitiesReport/Pods-UtilitiesReport.release.xcconfig"; sourceTree = "<group>"; };
 		B39EDCAA64214CE1EE8EA28B /* Pods_UtilitiesReport_UtilitiesReportTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtilitiesReport_UtilitiesReportTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B686A475B168EF1A6A5D4035 /* Pods_UtilitiesReport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtilitiesReport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -629,7 +641,9 @@
 		142D003023097B0D00AD81F6 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				142D003123097B2D00AD81F6 /* SingUpUseCase.swift */,
+				142D003123097B2D00AD81F6 /* SignUpUseCase.swift */,
+				14AE2A47230FC1440011D76E /* SignInUseCase.swift */,
+				14EF06F823102D5B00B8E9DB /* LogoutUseCase.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -808,6 +822,7 @@
 		1487278E220F1B6E00C59344 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				14AE2A49230FDB0F0011D76E /* DoubleLaunch */,
 				14B3AC682308110300784166 /* SingUp */,
 				149601302302ED2C00C2A38B /* Login */,
 				14BC5760227487E3006D1FBE /* SelectIndicatorsCounters */,
@@ -860,6 +875,7 @@
 				148727BD22101E2900C59344 /* UserDefaultsDescribing.swift */,
 				14C083B62212F25D001A5610 /* BasicVeiwCellProtocol.swift */,
 				141AEE602233FA5D00B9A354 /* BasicSectionHeaderVeiwProtocol.swift */,
+				14E2068A230D62220033E75A /* PropsProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1008,6 +1024,7 @@
 				149601352302ED7700C2A38B /* LoginViewRouter.swift */,
 				149601372302F04900C2A38B /* LoginViewPresenter.swift */,
 				149601392302F13400C2A38B /* LoginViewConfigurator.swift */,
+				14E20687230D60E60033E75A /* LoginViewController+Props.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1071,7 +1088,8 @@
 				14A54D512211C6770038A8F2 /* AlertModelView.swift */,
 				14CDF972223982B30040160E /* LastInticatorModelView.swift */,
 				14DFD309223CE4A300CB248E /* SectionItemsModel.swift */,
-				14F48655230854360036C1AC /* SingUpModel.swift */,
+				14F48655230854360036C1AC /* SignUpModel.swift */,
+				14DDAECB230ED6C500670573 /* SignInModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1084,15 +1102,23 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		14AE2A49230FDB0F0011D76E /* DoubleLaunch */ = {
+			isa = PBXGroup;
+			children = (
+				14AE2A4E231000570011D76E /* DoubleLaunch.storyboard */,
+			);
+			path = DoubleLaunch;
+			sourceTree = "<group>";
+		};
 		14B3AC682308110300784166 /* SingUp */ = {
 			isa = PBXGroup;
 			children = (
-				14B3AC692308111F00784166 /* SingUpViewController.swift */,
-				14B3AC6A2308111F00784166 /* SingUpViewController.xib */,
-				14B3AC6D2308113F00784166 /* SingUpViewRouter.swift */,
-				14B3AC6F230811AE00784166 /* SingUpViewPresenter.swift */,
-				14B3AC712308124700784166 /* SingUpViewConfigurator.swift */,
-				14B3AC732308306E00784166 /* SingUpViewController+Props.swift */,
+				14B3AC692308111F00784166 /* SignUpViewController.swift */,
+				14B3AC6A2308111F00784166 /* SignUpViewController.xib */,
+				14B3AC6D2308113F00784166 /* SignUpViewRouter.swift */,
+				14B3AC6F230811AE00784166 /* SignUpViewPresenter.swift */,
+				14B3AC712308124700784166 /* SignUpViewConfigurator.swift */,
+				14B3AC732308306E00784166 /* SignUpViewController+Props.swift */,
 			);
 			path = SingUp;
 			sourceTree = "<group>";
@@ -1392,7 +1418,7 @@
 				141AEE66223518D000B9A354 /* AlertFormFieldsViewController.xib in Resources */,
 				14264CA32208C6E800655EEA /* LaunchScreen.storyboard in Resources */,
 				1435B9AE227DE16100FAE358 /* SelectItemCounterTableViewCell.xib in Resources */,
-				14B3AC6C2308111F00784166 /* SingUpViewController.xib in Resources */,
+				14B3AC6C2308111F00784166 /* SignUpViewController.xib in Resources */,
 				147196772232BFE0006A070C /* InputFormItemTableViewCell.xib in Resources */,
 				14CDF971223978550040160E /* LastIndicatorView.xib in Resources */,
 				14D351612214308300A77783 /* AutoMockable.stencil in Resources */,
@@ -1407,6 +1433,7 @@
 				141AEE782235719100B9A354 /* InfoFromItemTableViewCell.xib in Resources */,
 				14BC576422748813006D1FBE /* SelectIndicatorsCountersViewController.xib in Resources */,
 				14724299221EDDB600E8FA56 /* WelcomeViewController.xib in Resources */,
+				14AE2A4F231000570011D76E /* DoubleLaunch.storyboard in Resources */,
 				14D3515622141F3F00A77783 /* MainViewController.xib in Resources */,
 				14F30751222557DF00021C95 /* CameraRecognizerViewController.xib in Resources */,
 				14A54D3022115D720038A8F2 /* FormTextItemView.xib in Resources */,
@@ -1590,7 +1617,7 @@
 			files = (
 				142D003B2309A34400AD81F6 /* ApiUserProfileGateway.swift in Sources */,
 				141AEE6C22351EF200B9A354 /* AlertFormFieldsProps.swift in Sources */,
-				142D003223097B2D00AD81F6 /* SingUpUseCase.swift in Sources */,
+				142D003223097B2D00AD81F6 /* SignUpUseCase.swift in Sources */,
 				14925EC7226B15A600A20AA7 /* SmsSendReportService.swift in Sources */,
 				14CEC86922303CB700AC23E5 /* SelectorFormItemTableViewCell.swift in Sources */,
 				14A54D3622115D9B0038A8F2 /* ViewFromXibProtocol.swift in Sources */,
@@ -1608,6 +1635,7 @@
 				142D61332301B284001D0A24 /* Company+Extension.swift in Sources */,
 				14215E252227041800662150 /* CompanyApiRequest.swift in Sources */,
 				14EA238B224F7FB700425DAB /* GenerateTemplateUseCase.swift in Sources */,
+				14EF06F923102D5B00B8E9DB /* LogoutUseCase.swift in Sources */,
 				14727588223AE09700FA0927 /* IndicatorsCouterGateway.swift in Sources */,
 				1472B6712223F1C200D879D4 /* UIImageView+Extension.swift in Sources */,
 				148727D92210D2A700C59344 /* UIViewController+Extension.swift in Sources */,
@@ -1622,12 +1650,12 @@
 				14A54D4E2211AFD60038A8F2 /* LoadtUserProfile.swift in Sources */,
 				1472429B221EDDF700E8FA56 /* WelcomeConfigurator.swift in Sources */,
 				141A738D22296365000E2247 /* RealmIndicatorsCounter.swift in Sources */,
-				14B3AC742308306E00784166 /* SingUpViewController+Props.swift in Sources */,
+				14B3AC742308306E00784166 /* SignUpViewController+Props.swift in Sources */,
 				14B7E8422221D4F800293DB1 /* TextRecognizerImagePresenter.swift in Sources */,
 				14724295221EC46600E8FA56 /* UINavigationController+Extension.swift in Sources */,
 				148727AE220F2EA700C59344 /* BasicViewController.swift in Sources */,
-				14B3AC6B2308111F00784166 /* SingUpViewController.swift in Sources */,
-				14B3AC70230811AE00784166 /* SingUpViewPresenter.swift in Sources */,
+				14B3AC6B2308111F00784166 /* SignUpViewController.swift in Sources */,
+				14B3AC70230811AE00784166 /* SignUpViewPresenter.swift in Sources */,
 				14C083B02212D83D001A5610 /* ViewRound.swift in Sources */,
 				1435B9AD227DE16100FAE358 /* SelectItemCounterTableViewCell.swift in Sources */,
 				14A54D3E221174260038A8F2 /* ButtonRound.swift in Sources */,
@@ -1635,10 +1663,11 @@
 				141A738F222964C9000E2247 /* RealmCounter.swift in Sources */,
 				149601332302ED5B00C2A38B /* LoginViewController.swift in Sources */,
 				148727CF2210479400C59344 /* UserFormPresenter.swift in Sources */,
-				14F48656230854360036C1AC /* SingUpModel.swift in Sources */,
+				14F48656230854360036C1AC /* SignUpModel.swift in Sources */,
 				14CDF94822383F3D0040160E /* UserCompanyItemTableViewCell.swift in Sources */,
 				148727D422104A8800C59344 /* UserFormViewRouter.swift in Sources */,
 				14CDF973223982B30040160E /* LastInticatorModelView.swift in Sources */,
+				14DDAECC230ED6C500670573 /* SignInModel.swift in Sources */,
 				14BC576622748BD5006D1FBE /* SelectIndicatorsCountersRouter.swift in Sources */,
 				14DD089E22510E44000BDEE7 /* SendReportServiceProtocol.swift in Sources */,
 				14A54D4C2211AF830038A8F2 /* Constants.swift in Sources */,
@@ -1655,7 +1684,7 @@
 				14264C992208C6E700655EEA /* AppDelegate.swift in Sources */,
 				142D61302301B029001D0A24 /* FirebaseCompaniesGatewayImpl.swift in Sources */,
 				14F3075522255B4100021C95 /* CameraRecognizerConfigurator.swift in Sources */,
-				14B3AC6E2308113F00784166 /* SingUpViewRouter.swift in Sources */,
+				14B3AC6E2308113F00784166 /* SignUpViewRouter.swift in Sources */,
 				1472B66B2223D23D00D879D4 /* CropView.swift in Sources */,
 				144CEB862247A83D006C3BA4 /* TemplatesGateway.swift in Sources */,
 				14F3075D2225D47500021C95 /* Counter.swift in Sources */,
@@ -1701,7 +1730,7 @@
 				14C083B72212F25D001A5610 /* BasicVeiwCellProtocol.swift in Sources */,
 				149601382302F04900C2A38B /* LoginViewPresenter.swift in Sources */,
 				148727C82210283100C59344 /* UserDefaults+Extension.swift in Sources */,
-				14B3AC722308124700784166 /* SingUpViewConfigurator.swift in Sources */,
+				14B3AC722308124700784166 /* SignUpViewConfigurator.swift in Sources */,
 				1441A2CF221418B600BF974A /* AppDelegateConfigurator.swift in Sources */,
 				14290B232213410500620AE1 /* Sourcery.generated.swift in Sources */,
 				141850B8222C3EB500B0C2FB /* FormUserUtilitesCompanyViewController.swift in Sources */,
@@ -1712,11 +1741,14 @@
 				14727581223AC2EB00FA0927 /* ItemIndicatorCounterTableViewCell.swift in Sources */,
 				14A54D3922115DD30038A8F2 /* UIView+Extension.swift in Sources */,
 				14D6D9462229A031003A67E3 /* UserUtilitesCompanyLocalStorageGateway.swift in Sources */,
+				14E20688230D60E60033E75A /* LoginViewController+Props.swift in Sources */,
 				141AEE772235719100B9A354 /* InfoFromItemTableViewCell.swift in Sources */,
+				14AE2A48230FC1440011D76E /* SignInUseCase.swift in Sources */,
 				14215E222227022F00662150 /* ApiCompany.swift in Sources */,
 				141A738B2229633A000E2247 /* RealmUserUtilitiesCompany.swift in Sources */,
 				14C083AD2212D7EA001A5610 /* UserProfileTableViewCell.swift in Sources */,
 				1441A2CD2214179400BF974A /* AppDelegatePresenter.swift in Sources */,
+				14E2068B230D62220033E75A /* PropsProtocol.swift in Sources */,
 				1478739722478A540063CCC7 /* ApiAlamofireClient.swift in Sources */,
 				142D612C2301860C001D0A24 /* FirebaseHelper.swift in Sources */,
 				145EA06A2227CA1700AB633E /* RealmCompany.swift in Sources */,

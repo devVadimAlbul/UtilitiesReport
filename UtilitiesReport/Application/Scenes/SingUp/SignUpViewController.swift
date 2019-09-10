@@ -1,11 +1,12 @@
 import UIKit
+import Hero
 
-protocol SingUpView: AnyObject {
-  var configurator: SingUpViewConfigurator! { get set }
-  var props: SingUpViewController.Props { get set }
+protocol SignUpView: AnyObject {
+  var configurator: SignUpViewConfigurator! { get set }
+  var props: SignUpViewController.Props { get set }
 }
 
-class SingUpViewController: BasicViewController, SingUpView {
+class SignUpViewController: BasicViewController, SignUpView {
   
   // MARK: IBOutlet
   @IBOutlet weak var scrollView: UIScrollView!
@@ -25,11 +26,11 @@ class SingUpViewController: BasicViewController, SingUpView {
   @IBOutlet weak var btnRegiter: ButtonRound!
   
   // MARK: property
-  var configurator: SingUpViewConfigurator!
-  private var singUpPresenter: SingUpViewPresenter? {
-    return presenter as? SingUpViewPresenter
+  var configurator: SignUpViewConfigurator!
+  private var singUpPresenter: SignUpViewPresenter? {
+    return presenter as? SignUpViewPresenter
   }
-  var props: SingUpViewController.Props = .initial {
+  var props: SignUpViewController.Props = .initial {
     didSet {
       render(props: props)
     }
@@ -45,6 +46,8 @@ class SingUpViewController: BasicViewController, SingUpView {
   
   // NARK: render ui content
   private func setupUIContent() {
+    lblPageTitle.hero.isEnabled = true
+    lblPageTitle.hero.modifiers = [.scale()]
     scrollView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
     
     setTextViewParams(in: ftEmail, with: InputItemType.email.rawValue, keyboard: .emailAddress, nextView: ftPassword)
@@ -69,57 +72,6 @@ class SingUpViewController: BasicViewController, SingUpView {
     textView.delegate = self
   }
   
-  private func render(props: Props) {
-    self.navigationItem.title = props.pageTitle
-    btnRegiter.setTitle(props.registerButtonTitle, for: .normal)
-    updateContentTextView(in: ftEmail, with: props.email)
-    updateContentTextView(in: ftPassword, with: props.password)
-    updateContentTextView(in: ftConfirmPassword, with: props.confirmPassword)
-    updateContentTextView(in: ftFirstName, with: props.firstName)
-    updateContentTextView(in: ftLastName, with: props.lastName)
-    updateContentTextView(in: ftPhoneNumber, with: props.phoneNumber)
-    updateContentTextView(in: ftCity, with: props.city)
-    updateContentTextView(in: ftStreet, with: props.street)
-    updateContentTextView(in: ftHouse, with: props.house)
-    updateContentTextView(in: ftApartment, with: props.apartment)
-    
-    updatePageState(props.state)
-    view.setNeedsLayout()
-  }
-  
-  private func updateContentTextView(in textView: FormTextItemView, with item: Props.Item) {
-    textView.placeholder = item.placeholder
-    textView.title = item.name
-    switch item.state {
-    case .valid:
-      textView.isValid = true
-    case .invalid(message: let message):
-      textView.warningMessage = message
-      textView.isValid = false
-    }
-    updateTextIfNeeded(in: textView, with: item, using: \.value)
-  }
-  
-  private func updateTextIfNeeded<T>(in textView: FormTextItemView,
-                                     with source: T,
-                                     using keyPath: KeyPath<T, String?>) {
-    guard !textView.tfItem.isFirstResponder else { return }
-    textView.value = source[keyPath: keyPath]
-  }
-  
-  private func updatePageState(_ state: Props.PropsState) {
-      switch state {
-      case .edit: ProgressHUD.dismiss()
-      case .falied(error: let error):
-        ProgressHUD.dismiss()
-        showErrorAlert(message: error)
-      case .loading:
-        ProgressHUD.show(message: "Loading...")
-      case .success:
-        ProgressHUD.success("Save success!", withDelay: 0.5)
-      }
-  }
-  
   // MARK: IBAction
   @IBAction func clickedClose(_ sender: Any) {
     self.dismiss(animated: true, completion: nil)
@@ -132,7 +84,7 @@ class SingUpViewController: BasicViewController, SingUpView {
 
 
 // swiftlint:disable cyclomatic_complexity
-extension SingUpViewController: FormTextItemViewDelegate {
+extension SignUpViewController: FormTextItemViewDelegate {
   
   func didChangeFormText(view: FormTextItemView, at text: String?) {
     guard let inputItemType = InputItemType(rawValue: view.identifier) else { return }

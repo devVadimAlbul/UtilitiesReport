@@ -22,9 +22,12 @@ class MainConfiguratorImpl: MainConfigurator {
     let loadUserUseCase = LoadUserProfileUseCaseImpl(gateway: userProfileGateway)
     let storage = UserUtilCompanyLocalStorageGatewayImpl.default
     let userCompanyGateway = UserUtilitesCompanyGatewayImpl(localStorage: storage)
+    let logoutUseCase = LogoutUseCaseImpl(gateway: AuthGatewayImpl(api: FirebaseAuthGatewayImpl(),
+                                                                   storage: UserProfileLocalStorageGatewayImpl()))
     let presenter = MainPresenterImpl(view: viewController, router: router,
                                       loadUserProfile: loadUserUseCase,
-                                      userCompanyGateway: userCompanyGateway)
+                                      userCompanyGateway: userCompanyGateway,
+                                      logoutUseCase: logoutUseCase)
     viewController.presenter = presenter
   }
 }

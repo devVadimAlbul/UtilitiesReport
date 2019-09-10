@@ -1,24 +1,24 @@
 import Foundation
 
-protocol SingUpViewPresenter: PresenterProtocol {
-  var router: SingUpViewRouter { get set }
+protocol SignUpViewPresenter: PresenterProtocol {
+  var router: SignUpViewRouter { get set }
 }
 
-class SingUpViewPresenterImpl: SingUpViewPresenter {
-  typealias Props = SingUpViewController.Props
+class SignUpViewPresenterImpl: SignUpViewPresenter {
+  typealias Props = SignUpViewController.Props
   
   enum PresenterState {
     case initial
     case valid
   }
 
-  var router: SingUpViewRouter
-  private weak var view: SingUpView?
-  private var model: SingUpModel = .init()
-  private var useCase: SingUpUseCase
-  fileprivate var itemsPropsValiad: [PartialKeyPath<SingUpModel>: Props.ItemState] = [:]
+  var router: SignUpViewRouter
+  private weak var view: SignUpView?
+  private var model: SignUpModel = .init()
+  private var useCase: SignUpUseCase
+  fileprivate var itemsPropsValiad: [PartialKeyPath<SignUpModel>: PropsItemState] = [:]
   
-  init(view: SingUpView, router: SingUpViewRouter, useCase: SingUpUseCase) {
+  init(view: SignUpView, router: SignUpViewRouter, useCase: SignUpUseCase) {
     self.view = view
     self.router = router
     self.useCase = useCase
@@ -28,14 +28,14 @@ class SingUpViewPresenterImpl: SingUpViewPresenter {
     presentProps()
   }
   
-  private func presentProps(state: PresenterState = .initial, propsState: Props.PropsState = .edit) {
+  private func presentProps(state: PresenterState = .initial, propsState: PropsState = .edit) {
     view?.props = generateProps(state: state, propsState: propsState)
   }
 
   // MARK: generate methods
-  private func generateProps(state: PresenterState = .initial, propsState: Props.PropsState = .edit) -> Props {
+  private func generateProps(state: PresenterState = .initial, propsState: PropsState = .edit) -> Props {
     
-    func generateItem(with key: PartialKeyPath<SingUpModel>, name: String,
+    func generateItem(with key: PartialKeyPath<SignUpModel>, name: String,
                       action: @escaping (String?) -> Void) -> Props.Item {
       let placeholder = "Enter \(name.lowercased())"
       let value = model[keyPath: key] as? String
@@ -43,30 +43,30 @@ class SingUpViewPresenterImpl: SingUpViewPresenter {
         self?.itemsPropsValiad[key] = .valid
         action(changeValue)
       })
-      let stateItem: Props.ItemState = state == .initial ? .valid : (itemsPropsValiad[key] ?? .valid)
+      let stateItem: PropsItemState = state == .initial ? .valid : (itemsPropsValiad[key] ?? .valid)
       return Props.Item(name: "\(name):", value: value, placeholder: placeholder, change: command, state: stateItem)
     }
     
     return Props(
-      email: generateItem(with: \SingUpModel.email, name: "Email",
+      email: generateItem(with: \SignUpModel.email, name: "Email",
                           action: { self.model.email = $0 ?? ""}),
-      password: generateItem(with: \SingUpModel.password, name: "Password",
+      password: generateItem(with: \SignUpModel.password, name: "Password",
                              action: {self.model.password = $0}),
-      confirmPassword: generateItem(with: \SingUpModel.confirmPassword, name: "Confirm password",
+      confirmPassword: generateItem(with: \SignUpModel.confirmPassword, name: "Confirm password",
                                     action: {self.model.confirmPassword = $0}),
-      firstName: generateItem(with: \SingUpModel.firstName, name: "First Name",
+      firstName: generateItem(with: \SignUpModel.firstName, name: "First Name",
                               action: {self.model.firstName = $0 ?? ""}),
-      lastName: generateItem(with: \SingUpModel.lastName, name: "Last Name",
+      lastName: generateItem(with: \SignUpModel.lastName, name: "Last Name",
                              action: {self.model.lastName = $0 ?? ""}),
-      phoneNumber: generateItem(with: \SingUpModel.phoneNumber, name: "Phone number",
+      phoneNumber: generateItem(with: \SignUpModel.phoneNumber, name: "Phone number",
                                 action: {self.model.phoneNumber = $0 ?? ""}),
-      city: generateItem(with: \SingUpModel.city, name: "City",
+      city: generateItem(with: \SignUpModel.city, name: "City",
                          action: {self.model.city = $0 ?? ""}),
-      street: generateItem(with: \SingUpModel.street, name: "Street",
+      street: generateItem(with: \SignUpModel.street, name: "Street",
                            action: {self.model.street = $0 ?? ""}),
-      house: generateItem(with: \SingUpModel.house, name: "House",
+      house: generateItem(with: \SignUpModel.house, name: "House",
                           action: {self.model.house = $0 ?? ""}),
-      apartment: generateItem(with: \SingUpModel.apartment, name: "Apartment",
+      apartment: generateItem(with: \SignUpModel.apartment, name: "Apartment",
                               action: {self.model.apartment = $0}),
       pageTitle: "Sing Up",
       registerButtonTitle: "Register",
@@ -75,16 +75,12 @@ class SingUpViewPresenterImpl: SingUpViewPresenter {
     )
   }
   
-  private func changeState(_ state: Props.PropsState) {
-    view?.props.state = state
-  }
-  
   private func registerModel() {
       guard let state = view?.props.state else { return }
       switch state {
       case .loading: return
       default:
-        changeState(.loading)
+        presentProps(state: .initial, propsState: .loading)
         if checkAllData() {
           sendToRegister()
         } else {
@@ -97,8 +93,8 @@ class SingUpViewPresenterImpl: SingUpViewPresenter {
   private func checkAllData() -> Bool {
     self.itemsPropsValiad.removeAll()
     
-    func checkValid(key: PartialKeyPath<SingUpModel>,
-                    name: String, check: (String?) -> Bool) -> Props.ItemState {
+    func checkValid(key: PartialKeyPath<SignUpModel>,
+                    name: String, check: (String?) -> Bool) -> PropsItemState {
       let value = model[keyPath: key] as? String
       if check(value) {
         return .valid
@@ -111,14 +107,11 @@ class SingUpViewPresenterImpl: SingUpViewPresenter {
                              name: model.namesPaths[keyPath] ?? "",
                              check: { (value) -> Bool in
         guard let value = value, !value.removeWhiteSpace().isEmpty else { return false }
-        if keyPath == \SingUpModel.email {
+        if keyPath == \SignUpModel.email {
           return value.isEmailValid
         }
-        if keyPath == \SingUpModel.phoneNumber {
+        if keyPath == \SignUpModel.phoneNumber {
           return value.isPhoneNumberValid
-        }
-        if keyPath == \SingUpModel.password {
-          return value.count > 5
         }
         return true
       })
@@ -127,7 +120,7 @@ class SingUpViewPresenterImpl: SingUpViewPresenter {
     
     if let password = model.password, let confirm = model.confirmPassword, password != confirm {
       let message = "This password does not match that entered in the password field."
-      itemsPropsValiad[\SingUpModel.confirmPassword] = .invalid(message: message)
+      itemsPropsValiad[\SignUpModel.confirmPassword] = .invalid(message: message)
     }
     
     if itemsPropsValiad.values.contains(where: { (item) -> Bool in
@@ -144,14 +137,17 @@ class SingUpViewPresenterImpl: SingUpViewPresenter {
   private func sendToRegister() {
     useCase.register(user: model) { [weak self] (result) in
       guard let `self` = self else { return }
-      switch result {
-      case .success:
-        self.presentProps(state: .valid, propsState: .success)
-        self.router.goToMainPage()
-      case .failure(let error):
-        self.presentProps(state: .valid,
-                          propsState: .falied(error: error.localizedDescription))
+      DispatchQueue.main.async {
+        switch result {
+        case .success:
+          self.presentProps(state: .valid, propsState: .success)
+          self.router.goToMainPage()
+        case .failure(let error):
+          self.presentProps(state: .valid,
+                            propsState: .falied(error: error.localizedDescription))
+        }
       }
+
     }
   }
 

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="UtilitiesReport" customModuleProvider="target">
             <connections>
-                <outlet property="btnStart" destination="q5c-ew-ENP" id="oq9-NO-YIG"/>
+                <outlet property="btnSignIn" destination="q5c-ew-ENP" id="9Rj-gU-HD9"/>
+                <outlet property="btnSignUp" destination="b0h-as-UuM" id="Cb7-0W-h05"/>
                 <outlet property="lblDescription" destination="Nau-GA-bEg" id="W6W-e1-ikX"/>
                 <outlet property="lblTitle" destination="xi5-yY-nyH" id="djr-PA-R2A"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -28,26 +29,32 @@
                     <color key="backgroundColor" red="0.49718188574204136" green="0.71144927103902389" blue="0.066444246023759895" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_icon" translatesAutoresizingMaskIntoConstraints="NO" id="6hA-bA-Ldd">
-                    <rect key="frame" x="60" y="42" width="200" height="200"/>
+                    <rect key="frame" x="60" y="56" width="200" height="200"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="PageLogo"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHw-Ct-Sox">
-                    <rect key="frame" x="20" y="279" width="280" height="169.5"/>
+                    <rect key="frame" x="20" y="279" width="280" height="129"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Utilities Report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xi5-yY-nyH">
-                            <rect key="frame" x="0.0" y="27" width="280" height="48"/>
+                            <rect key="frame" x="0.0" y="20" width="280" height="40"/>
                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="PageTitle"/>
+                            </userDefinedRuntimeAttributes>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqy-gM-Hmz">
-                            <rect key="frame" x="91" y="85" width="98" height="1"/>
+                            <rect key="frame" x="91" y="70" width="98" height="1"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="EGV-CU-0wF"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Utilities Report is application for the registry  and save of indicators of utility counters." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nau-GA-bEg">
-                            <rect key="frame" x="0.0" y="96" width="280" height="48"/>
+                            <rect key="frame" x="0.0" y="81" width="280" height="48"/>
                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -71,43 +78,76 @@
                         <constraint firstItem="xi5-yY-nyH" firstAttribute="centerY" secondItem="lHw-Ct-Sox" secondAttribute="centerY" multiplier="0.6" priority="750" id="yPi-xu-uox"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5c-ew-ENP" customClass="ButtonRound" customModule="UtilitiesReport" customModuleProvider="target">
-                    <rect key="frame" x="36" y="468.5" width="248" height="57"/>
-                    <color key="backgroundColor" red="0.41802153781231771" green="0.71144927103902389" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
-                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
-                    <state key="normal" title="Get Started">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSize" value="NO"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="roundRadius">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="clickedStart:" destination="-1" eventType="touchUpInside" id="Z4p-Lw-aXS"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5MP-BA-Ktu">
+                    <rect key="frame" x="32" y="428" width="256" height="110"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5c-ew-ENP" customClass="ButtonRound" customModule="UtilitiesReport" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="256" height="45"/>
+                            <color key="backgroundColor" red="0.41802153781231771" green="0.71144927103902389" blue="0.0" alpha="0.79676496478873238" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="q5c-ew-ENP" secondAttribute="height" multiplier="256:45" priority="999" id="hjl-KC-bUP"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="zxN-0X-yex"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="26"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                            <state key="normal" title="Sign IN">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSize" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="roundRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="clickedSignIn:" destination="-1" eventType="touchUpInside" id="GlH-RB-CkS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0h-as-UuM" customClass="ButtonRound" customModule="UtilitiesReport" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="65" width="256" height="45"/>
+                            <color key="backgroundColor" red="0.28627450980392155" green="0.63137254901960782" blue="0.90980392156862744" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                            <state key="normal" title="Sign UP">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSize" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="roundRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="clickedSignUp:" destination="-1" eventType="touchUpInside" id="r1E-3G-Jy2"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="q5c-ew-ENP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.75" id="8Qz-rl-UAD"/>
                 <constraint firstItem="lHw-Ct-Sox" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="B5l-Ni-BRI"/>
-                <constraint firstItem="6hA-bA-Ldd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.5" id="LjW-os-ZTj"/>
+                <constraint firstItem="6hA-bA-Ldd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.55" priority="750" id="LjW-os-ZTj"/>
+                <constraint firstItem="5MP-BA-Ktu" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="M9Z-a8-24D"/>
+                <constraint firstItem="5MP-BA-Ktu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="MCj-14-ryf"/>
                 <constraint firstItem="lHw-Ct-Sox" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-5" id="S06-mX-fgr"/>
                 <constraint firstItem="gLY-5c-X9m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TBm-A9-w65"/>
-                <constraint firstItem="q5c-ew-ENP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TdG-MY-CJE"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="q5c-ew-ENP" secondAttribute="trailing" constant="36" id="XUo-IX-Rww"/>
+                <constraint firstItem="lHw-Ct-Sox" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6hA-bA-Ldd" secondAttribute="bottom" constant="12" id="TUh-ul-AGa"/>
                 <constraint firstItem="gLY-5c-X9m" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YDe-H8-5DW"/>
-                <constraint firstItem="q5c-ew-ENP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="36" id="b8b-Dt-k2G"/>
+                <constraint firstItem="5MP-BA-Ktu" firstAttribute="top" secondItem="lHw-Ct-Sox" secondAttribute="bottom" priority="250" constant="25" id="dMe-ON-byf"/>
                 <constraint firstItem="6hA-bA-Ldd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fTU-Kh-1tf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lHw-Ct-Sox" secondAttribute="trailing" constant="20" id="hwM-s0-Ihq"/>
-                <constraint firstItem="q5c-ew-ENP" firstAttribute="top" secondItem="lHw-Ct-Sox" secondAttribute="bottom" constant="20" id="kNW-Qv-qiG"/>
+                <constraint firstItem="6hA-bA-Ldd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="jPx-MZ-SKH"/>
                 <constraint firstAttribute="bottom" secondItem="gLY-5c-X9m" secondAttribute="bottom" id="lES-sQ-LqZ"/>
                 <constraint firstAttribute="trailing" secondItem="gLY-5c-X9m" secondAttribute="trailing" id="pV8-HC-nbh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5MP-BA-Ktu" secondAttribute="bottom" constant="30" id="pcj-vm-azn"/>
+                <constraint firstItem="5MP-BA-Ktu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lHw-Ct-Sox" secondAttribute="bottom" constant="20" id="tKE-Pm-yA6"/>
+                <constraint firstItem="5MP-BA-Ktu" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.75" priority="500" id="xur-yK-2gA"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="pageView"/>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="55.200000000000003" y="48.125937031484263"/>
         </view>
     </objects>

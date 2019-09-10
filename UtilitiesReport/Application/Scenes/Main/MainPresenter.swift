@@ -20,6 +20,7 @@ protocol MainPresenter: PresenterProtocol {
     var router: MainViewRouter { get }
     func loadContent()
     func actionAddNew()
+    func actionLogout()
     var numberOfSections: Int { get }
     func numberOfRows(in section: Int) -> Int
     func cellType(at indexPath: IndexPath) -> TypeCellForMainView?
@@ -38,18 +39,21 @@ class MainPresenterImpl: MainPresenter {
     fileprivate var loadUserProfile: LoadUserProfileUseCase
     fileprivate var userCompanyGateway: UserUtilitesCompanyGateway
     
-    fileprivate var userProfile: UserProfile?
+    fileprivate var userProfile: UserProfile!
     fileprivate var companies: [UserUtilitiesCompany] = []
+    private var logoutUseCase: LogoutUseCase
     
     // MARK: init
     init(view: MainView,
          router: MainViewRouter,
          loadUserProfile: LoadUserProfileUseCase,
-         userCompanyGateway: UserUtilitesCompanyGateway) {
+         userCompanyGateway: UserUtilitesCompanyGateway,
+         logoutUseCase: LogoutUseCase) {
         self.mainView = view
         self.router = router
         self.loadUserProfile = loadUserProfile
         self.userCompanyGateway = userCompanyGateway
+        self.logoutUseCase = logoutUseCase
     }
     
     // MARK: MainPresenter Methods
@@ -68,9 +72,11 @@ class MainPresenterImpl: MainPresenter {
             switch result {
             case .success(let user):
                 self.userProfile = user
-                self.mainView?.updateUIContent()
+                self.mainView?.displayUserProfile(user)
             case .failure(let error):
-                self.mainView?.displayError(message: error.localizedDescription)
+              self.router.showErrorAlert(message: error.localizedDescription) { [weak self] in
+                self?.router.goToWelcomePage()
+              }
             }
         }
     }
@@ -80,10 +86,11 @@ class MainPresenterImpl: MainPresenter {
             guard let `self` = self else { return }
             switch result {
             case .success(let companies):
-                self.companies = companies
+//                self.companies = companies
+                self.companies = UserUtilitiesCompany.testItems
                 self.mainView?.updateUIContent()
             case .failure(let error):
-                self.mainView?.displayError(message: error.localizedDescription)
+                self.router.showErrorAlert(message: error.localizedDescription, completionHandler: nil)
             }
         }
     }
@@ -91,35 +98,47 @@ class MainPresenterImpl: MainPresenter {
     func actionAddNew() {
         router.pushToFormUserCompany(uaerCompany: nil)
     }
+  
+    func actionLogout() {
+      let actionItems: [AlertActionModelView] = [
+        AlertActionModelView(title: "Yes", action: CommandWith { [weak self] _ in
+          self?.logout()
+        }),
+        AlertActionModelView(title: "No", action: nil)
+      ]
+      let model = AlertModelView(title: "Are you really want to logout?",
+                                 message: nil,
+                                 actions: actionItems)
+      router.showAlert(by: model)
+    }
+  
+    private func logout() {
+      logoutUseCase.logout { [weak self] (result) in
+        guard let `self` = self else { return }
+        switch result {
+        case .success:
+          self.router.goToWelcomePage()
+        case .failure(let error):
+          self.router.showErrorAlert(message: error.localizedDescription, completionHandler: nil)
+        }
+      }
+    }
     
     // MARK: configurate tableview
     var numberOfSections: Int {
-        return 2
+        return 1
     }
     
     func numberOfRows(in section: Int) -> Int {
-        switch section {
-        case 0: return userProfile == nil ? 0 : 1
-        case 1: return companies.isEmpty ? 1 : companies.count
-        default: return 0
-        }
+       return companies.isEmpty ? 1 : companies.count
     }
     
     func cellType(at indexPath: IndexPath) -> TypeCellForMainView? {
-        switch indexPath.section {
-        case 0:
-            return .userProfileCell
-        case 1:
-            return companies.isEmpty ? .emptyListUserCompaniesCell : .listUserCompaniesCell
-        default:
-            return nil
-        }
+        return companies.isEmpty ? .emptyListUserCompaniesCell : .listUserCompaniesCell
     }
     
     func configure(cellView: BasicVeiwCellProtocol, for indexPath: IndexPath) {
         switch cellView {
-        case let cell as UserProfileViewCell:
-            configureUserProfile(cell: cell)
         case let cell as EmptyListViewCell:
             cell.delegate = mainView as? AddUserCompanyDelegate
             cell.displayMessage("List utilities company for user is empty.")
@@ -129,14 +148,6 @@ class MainPresenterImpl: MainPresenter {
             configureUserComanyCell(cell: cell, with: item)
         default: break
         }
-    }
-    
-    fileprivate func configureUserProfile(cell: UserProfileViewCell) {
-        guard let user = self.userProfile else { return }
-        cell.display(name: user.name)
-        cell.display(phoneNumber: user.phoneNumber)
-        cell.display(address: user.address)
-        cell.display(email: user.email)
     }
     
     private func configureUserComanyCell(cell: UserCompanyItemViewCell,
@@ -171,27 +182,14 @@ class MainPresenterImpl: MainPresenter {
     }
     
     func didSelectCell(at indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
-            if let user = userProfile {
-                router.pushToEditUserProfile(user)
-            }
-        case 1:
-            if companies.count > indexPath.row {
-                let item = companies[indexPath.row]
-                router.pushListIndicators(userCounterID: item.accountNumber)
-            }
-        default:
-            break
+        if companies.count > indexPath.row {
+            let item = companies[indexPath.row]
+            router.pushListIndicators(userCounterID: item.accountNumber)
         }
     }
     
     func canEditCell(at indexPath: IndexPath) -> Bool {
-        switch indexPath.section {
-        case 0:  return false
-        case 1: return companies.isEmpty ? false : true
-        default: return false
-        }
+        return companies.isEmpty ? false : true
     }
     
     func actionEditItem(for indexPath: IndexPath) {
@@ -213,7 +211,7 @@ class MainPresenterImpl: MainPresenter {
                                         AlertActionModelView(title: "Yes", action: commandDelete),
                                         AlertActionModelView(title: "No", action: nil)
                 ])
-            mainView?.displayAlert(with: model)
+            self.router.showAlert(by: model)
         }
     }
     
@@ -232,7 +230,7 @@ class MainPresenterImpl: MainPresenter {
                     self.mainView?.removeCell(at: indexPath)
                 }
             case let .failure(error):
-                self.mainView?.displayError(message: error.localizedDescription)
+                self.router.showErrorAlert(message: error.localizedDescription, completionHandler: nil)
             }
             
         })

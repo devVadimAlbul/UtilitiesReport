@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SingUpViewController" customModule="UtilitiesReport" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="UtilitiesReport" customModuleProvider="target">
             <connections>
                 <outlet property="btnClose" destination="Ybg-Zv-ihQ" id="MeY-0z-YSn"/>
                 <outlet property="btnRegiter" destination="nLN-Uc-bZ0" id="W3Y-8p-R3r"/>
@@ -39,23 +39,26 @@
                     <color key="backgroundColor" red="0.49718188569999999" green="0.71144927099999999" blue="0.06644424602" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6d6-Qa-XPX">
-                    <rect key="frame" x="0.0" y="44" width="414" height="70"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efi-Oi-Xd2">
-                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                            <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" priority="999" constant="70" id="kiz-3X-lp2"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sing Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msb-1m-dg5">
-                            <rect key="frame" x="70" y="0.0" width="274" height="70"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msb-1m-dg5">
+                            <rect key="frame" x="70" y="0.0" width="274" height="50"/>
                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="26"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="PageTitle"/>
+                            </userDefinedRuntimeAttributes>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybg-Zv-ihQ">
-                            <rect key="frame" x="344" y="0.0" width="70" height="70"/>
+                            <rect key="frame" x="344" y="0.0" width="70" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" priority="999" constant="70" id="0qx-3q-TDG"/>
                             </constraints>
@@ -66,11 +69,11 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="nLF-lD-WW9"/>
+                        <constraint firstAttribute="height" constant="50" id="nLF-lD-WW9"/>
                     </constraints>
                 </stackView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hc6-bO-IY2">
-                    <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBt-ad-vKB">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="658"/>
@@ -136,7 +139,7 @@
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLN-Uc-bZ0" customClass="ButtonRound" customModule="UtilitiesReport" customModuleProvider="target">
                                     <rect key="frame" x="41.5" y="580" width="331" height="58"/>
-                                    <color key="backgroundColor" red="0.85098039215686272" green="0.25490196078431371" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.85098039215686272" green="0.25490196078431371" blue="0.25882352941176467" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="58" id="qmn-3v-XaX"/>
                                     </constraints>
@@ -148,7 +151,7 @@
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSize" value="NO"/>
                                         <userDefinedRuntimeAttribute type="number" keyPath="roundRadius">
-                                            <real key="value" value="5"/>
+                                            <real key="value" value="6"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>

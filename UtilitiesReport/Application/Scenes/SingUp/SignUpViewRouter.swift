@@ -1,13 +1,13 @@
 import Foundation
 
-protocol SingUpViewRouter {
+protocol SignUpViewRouter {
   func goToMainPage()
 }
 
-class SingUpViewRouterImpl: SingUpViewRouter {
-  private weak var viewController: SingUpViewController?
+class SignUpViewRouterImpl: SignUpViewRouter {
+  private weak var viewController: SignUpViewController?
   
-  init(viewController: SingUpViewController) {
+  init(viewController: SignUpViewController) {
     self.viewController = viewController
   }
   

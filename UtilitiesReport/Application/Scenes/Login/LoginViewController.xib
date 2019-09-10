@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,15 +12,146 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="UtilitiesReport" customModuleProvider="target">
             <connections>
+                <outlet property="btnClose" destination="U0B-Ga-D2h" id="Jat-xg-SaA"/>
+                <outlet property="btnLogin" destination="5ig-zt-xWP" id="llp-iT-j1l"/>
+                <outlet property="ftEmail" destination="vPT-qk-j42" id="TmG-uW-Ogb"/>
+                <outlet property="ftPassword" destination="YXr-27-wJ4" id="68E-FY-aTG"/>
+                <outlet property="lblPageTitle" destination="OBV-7a-4ou" id="pZe-nQ-mhC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-page-v5" translatesAutoresizingMaskIntoConstraints="NO" id="sBC-fo-udP">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" red="0.49718188569999999" green="0.71144927099999999" blue="0.06644424602" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQy-r8-EVE">
+                    <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aW-iF-VGS">
+                            <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" priority="999" constant="70" id="093-sK-yN9"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBV-7a-4ou">
+                            <rect key="frame" x="70" y="0.0" width="180" height="50"/>
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="26"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="PageTitle"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0B-Ga-D2h">
+                            <rect key="frame" x="250" y="0.0" width="70" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" priority="999" constant="70" id="1L2-h6-HnX"/>
+                            </constraints>
+                            <state key="normal" image="close"/>
+                            <connections>
+                                <action selector="clickedClose:" destination="-1" eventType="touchUpInside" id="KRg-iy-bEm"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="xuO-YE-cMW"/>
+                    </constraints>
+                </stackView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_icon" translatesAutoresizingMaskIntoConstraints="NO" id="I7T-Za-REo">
+                    <rect key="frame" x="80" y="104.5" width="160" height="160"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="I7T-Za-REo" secondAttribute="height" multiplier="1:1" id="bof-p3-8h4"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="PageLogo"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="40G-Hr-p3I">
+                    <rect key="frame" x="24" y="349.5" width="272" height="30"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPT-qk-j42" customClass="FormTextItemView" customModule="UtilitiesReport" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="272" height="10"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isShowLabelTitle" value="NO"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVk-AB-CRR">
+                            <rect key="frame" x="0.0" y="10" width="272" height="10"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="999" constant="10" id="CcI-1C-oTB"/>
+                            </constraints>
+                        </view>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXr-27-wJ4" customClass="FormTextItemView" customModule="UtilitiesReport" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="20" width="272" height="10"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isShowLabelTitle" value="NO"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <viewLayoutGuide key="safeArea" id="xKf-vF-trh"/>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ig-zt-xWP" customClass="ButtonRound" customModule="UtilitiesReport" customModuleProvider="target">
+                    <rect key="frame" x="32" y="454" width="256" height="58"/>
+                    <color key="backgroundColor" red="0.85098039219999999" green="0.25490196079999999" blue="0.25882352939999997" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="58" id="dVL-Fc-3Vk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontSize" value="NO"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="roundRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="clickedLogin:" destination="-1" eventType="touchUpInside" id="FCL-eX-bpy"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="sBC-fo-udP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="A3x-bl-RHg"/>
+                <constraint firstItem="5ig-zt-xWP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="40G-Hr-p3I" secondAttribute="bottom" constant="20" id="AP5-a8-iau"/>
+                <constraint firstItem="mQy-r8-EVE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CD6-Ab-6Of"/>
+                <constraint firstItem="5ig-zt-xWP" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="D2E-4O-9Da"/>
+                <constraint firstItem="40G-Hr-p3I" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.23" priority="600" id="L4C-5M-3n0"/>
+                <constraint firstItem="40G-Hr-p3I" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.85" id="MXL-tH-JDw"/>
+                <constraint firstItem="I7T-Za-REo" firstAttribute="width" relation="lessThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="O2O-2G-qBI"/>
+                <constraint firstItem="I7T-Za-REo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="P2W-dK-aeV"/>
+                <constraint firstItem="5ig-zt-xWP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="SlY-cc-DcL"/>
+                <constraint firstItem="sBC-fo-udP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Uev-uT-4vo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5ig-zt-xWP" secondAttribute="bottom" constant="30" id="Y5C-UO-ijv"/>
+                <constraint firstAttribute="bottom" secondItem="sBC-fo-udP" secondAttribute="bottom" id="Z41-Bc-bJO"/>
+                <constraint firstItem="I7T-Za-REo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mQy-r8-EVE" secondAttribute="bottom" constant="10" id="c6m-Gn-VZt"/>
+                <constraint firstItem="40G-Hr-p3I" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="d25-uu-6l8"/>
+                <constraint firstItem="I7T-Za-REo" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.65" priority="500" id="iG9-Ql-tHk"/>
+                <constraint firstAttribute="trailing" secondItem="sBC-fo-udP" secondAttribute="trailing" id="kjl-Hf-B5g"/>
+                <constraint firstItem="mQy-r8-EVE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="mey-FC-lj2"/>
+                <constraint firstItem="40G-Hr-p3I" firstAttribute="top" relation="greaterThanOrEqual" secondItem="I7T-Za-REo" secondAttribute="bottom" constant="10" id="qAd-py-bG1"/>
+                <constraint firstItem="5ig-zt-xWP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.7" priority="700" id="w79-Cu-IYV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mQy-r8-EVE" secondAttribute="trailing" id="z6L-Vw-fTo"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="bg-page-v5" width="414" height="896"/>
+        <image name="close" width="18" height="18"/>
+        <image name="main_icon" width="200" height="200"/>
+    </resources>
 </document>

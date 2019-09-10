@@ -13,6 +13,9 @@ protocol MainViewRouter {
     func pushToEditUserProfile(_ user: UserProfile)
     func pushListIndicators(userCounterID: String)
     func pushToFormUserCompany(uaerCompany: UserUtilitiesCompany?)
+    func showAlert(by model: AlertModelView)
+    func showErrorAlert(message: String, completionHandler: (() -> Void)?)
+    func goToWelcomePage()
 }
 
 class MainViewRouterImpl: MainViewRouter {
@@ -39,5 +42,17 @@ class MainViewRouterImpl: MainViewRouter {
         let listVC = ListIndicatorsCounterViewController()
         listVC.configurator = ListIndicatorsCounterConfiguratorImpl(userCompanyIdentifier: userCounterID)
         self.viewController?.navigationController?.pushViewController(listVC, animated: true)
+    }
+  
+    func showAlert(by model: AlertModelView) {
+        viewController?.presentAlert(by: model)
+    }
+  
+    func showErrorAlert(message: String, completionHandler: (() -> Void)? = nil) {
+      viewController?.showErrorAlert(message: message, completionHandler: {_ in completionHandler?()})
+    }
+  
+    func goToWelcomePage() {
+      AppDelegate.shared.presenter.router.goToWelcomePage()
     }
 }

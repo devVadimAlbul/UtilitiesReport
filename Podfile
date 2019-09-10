@@ -17,6 +17,8 @@ target 'UtilitiesReport' do
     pod 'Firebase/Database'
     pod 'Firebase/MLVision'
     pod 'Firebase/MLVisionTextModel'
+    pod 'Hero'
+    pod 'NVActivityIndicatorView'
 
     target 'UtilitiesReportTests' do
       inherit! :complete

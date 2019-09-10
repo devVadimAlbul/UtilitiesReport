@@ -1,7 +1,7 @@
 import Foundation
 
 protocol LoginViewRouter {
-  
+  func goToMainPage()
 }
 
 class LoginViewRouterImpl: LoginViewRouter {
@@ -10,5 +10,11 @@ class LoginViewRouterImpl: LoginViewRouter {
   
   init(viewController: LoginViewController) {
     self.viewController = viewController
+  }
+  
+  func goToMainPage() {
+    DispatchQueue.main.asyncAfter(deadline: .now()+2.0) {
+      AppDelegate.shared.presenter.router.goToMainViewController()
+    }
   }
 }

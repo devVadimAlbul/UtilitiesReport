@@ -1,13 +1,13 @@
 import Foundation
 
 
-protocol SingUpUseCase {
+protocol SignUpUseCase {
   typealias SingUpCompletionHandler = (Result<UserProfile, Error>) -> Void
 
-  func register(user: SingUpModel, completionHandler: @escaping SingUpCompletionHandler)
+  func register(user: SignUpModel, completionHandler: @escaping SingUpCompletionHandler)
 }
 
-class SingUpUseCaseImpl: SingUpUseCase {
+class SignUpUseCaseImpl: SignUpUseCase {
   
   private let gateway: AuthGateway
   
@@ -15,7 +15,7 @@ class SingUpUseCaseImpl: SingUpUseCase {
     self.gateway = gateway
   }
   
-  func register(user: SingUpModel, completionHandler: @escaping SingUpCompletionHandler) {
+  func register(user: SignUpModel, completionHandler: @escaping SingUpCompletionHandler) {
     gateway.register(userModel: user, complationHandler: completionHandler)
   }
 }

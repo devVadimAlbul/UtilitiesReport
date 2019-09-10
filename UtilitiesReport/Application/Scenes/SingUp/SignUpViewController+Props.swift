@@ -1,6 +1,6 @@
 import UIKit
 
-extension SingUpViewController {
+extension SignUpViewController: PropsProtocol {
   
   enum InputItemType: String {
     case email
@@ -16,24 +16,13 @@ extension SingUpViewController {
   }
   
   struct Props {
-    enum ItemState {
-      case valid
-      case invalid(message: String)
-    }
-    
-    enum PropsState {
-      case edit
-      case loading
-      case falied(error: String)
-      case success
-    }
     
     struct Item {
       var name: String
       var value: String?
       var placeholder: String
       var change: CommandWith<String?>
-      var state: ItemState
+      var state: PropsItemState
       
       static var initial: Item = Item(name: "", value: nil, placeholder: "", change: .nop, state: .valid)
     }
@@ -70,5 +59,30 @@ extension SingUpViewController {
       state: .edit,
       actionRegister: .nop
     )
+  }
+  
+  func render(props: Props) {
+    self.lblPageTitle.text = props.pageTitle
+    btnRegiter.setTitle(props.registerButtonTitle, for: .normal)
+    updateContentTextView(in: ftEmail, with: props.email)
+    updateContentTextView(in: ftPassword, with: props.password)
+    updateContentTextView(in: ftConfirmPassword, with: props.confirmPassword)
+    updateContentTextView(in: ftFirstName, with: props.firstName)
+    updateContentTextView(in: ftLastName, with: props.lastName)
+    updateContentTextView(in: ftPhoneNumber, with: props.phoneNumber)
+    updateContentTextView(in: ftCity, with: props.city)
+    updateContentTextView(in: ftStreet, with: props.street)
+    updateContentTextView(in: ftHouse, with: props.house)
+    updateContentTextView(in: ftApartment, with: props.apartment)
+    
+    updatePageState(props.state)
+    view.setNeedsLayout()
+  }
+  
+  private func updateContentTextView(in textView: FormTextItemView, with item: Props.Item) {
+    textView.placeholder = item.placeholder
+    textView.title = item.name
+    updateItemState(item.state, in: textView)
+    updateTextIfNeeded(in: textView, with: item, using: \.value)
   }
 }

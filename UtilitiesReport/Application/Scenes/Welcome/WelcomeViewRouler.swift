@@ -8,27 +8,36 @@
 
 import Foundation
 import UIKit.UINavigationController
+import Hero
 
 protocol WelcomeViewRouler {
-    func presentUserForm()
+  func presentSingUp()
+  func presentSingIn()
 }
 
 class WelcomeViewRoulerImpl: WelcomeViewRouler {
-    
-    fileprivate weak var viewController: WelcomeViewController?
-    
-    init(viewController: WelcomeViewController) {
-        self.viewController = viewController
-    }
-    
-    func presentUserForm() {
-//        let userFormVC = UserFormViewController()
-//        userFormVC.configurator = UserFormConfiguratorImpl(userProfile: nil)
-//        let navigation = VCLoader<UINavigationController>.loadInitial(storyboardId: .navigation)
-//        navigation.viewControllers = [userFormVC]
-//        viewController?.present(navigation, animated: true, completion: nil)
-      let singUpVC = SingUpViewController()
-      singUpVC.configurator = SingUpViewConfiguratorImpl()
-      viewController?.present(singUpVC, animated: true, completion: nil)
-    }
+  
+  fileprivate weak var viewController: WelcomeViewController?
+  
+  init(viewController: WelcomeViewController) {
+    self.viewController = viewController
+  }
+  
+  func presentSingUp() {
+    let singUpVC = SignUpViewController()
+    singUpVC.configurator = SignUpViewConfiguratorImpl()
+    singUpVC.hero.isEnabled = true
+    singUpVC.hero.modalAnimationType = .selectBy(presenting: .fade,
+                                                 dismissing: .zoomOut)
+    viewController?.present(singUpVC, animated: true, completion: nil)
+  }
+  
+  func presentSingIn() {
+    let login = LoginViewController()
+    login.configurator = LoginViewConfiguratorImpl()
+    login.hero.isEnabled = true
+    login.hero.modalAnimationType = .selectBy(presenting: .fade,
+                                              dismissing: .zoomOut)
+    viewController?.present(login, animated: true, completion: nil)
+  }
 }
